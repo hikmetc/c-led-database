@@ -1,0 +1,12 @@
+interferent_id,interferent,concept,evidence_rows
+tn.alkaline_phosphatase,"Alkaline phosphatase, elevated endogenous",endogenous_substance,28
+tn.asfotase_alfa,Asfotase alfa,drug_interference,2
+tn.biotin,Biotin,biotin,239
+tn.fibrin,Fibrin clots / strands from incomplete separation,specimen_quality,17
+tn.hemolysis,Hemolysis (hemoglobin),hemolysis,246
+tn.heterophile_antibodies,Heterophile antibodies,heterophilic_antibodies,28
+tn.lipemia,Lipemia,lipemia,9
+tn.macrotroponin,Macrotroponin,protein_complex,33
+tn.rheumatoid_factor,Rheumatoid factor,heterophilic_antibodies,6
+tn.skeletal_tnt,Skeletal muscle troponin T isoform cross-reactivity,cross_reactivity,9
+tn.troponin_autoantibodies,Troponin autoantibodies,autoantibody,62

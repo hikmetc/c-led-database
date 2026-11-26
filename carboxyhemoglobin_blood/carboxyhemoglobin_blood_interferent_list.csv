@@ -1,0 +1,28 @@
+interferent_id,interferent,concept,evidence_rows
+cohb.ascitic_fluid,Ascites used in place of blood,specimen_matrix,4
+cohb.bile,Bile used in place of blood,specimen_matrix,1
+cohb.blood_ph,Blood pH of the sample or analysis medium,sample_condition,7
+cohb.body_cavity_fluid,Body cavity fluid used in place of blood,specimen_matrix,2
+cohb.cyanocobalamin,Cyanocobalamin,vitamin_b12,16
+cohb.fetal_hemoglobin,Fetal hemoglobin (HbF),hemoglobin_derivative,79
+cohb.fluorescein,Fluorescein (sodium fluorescein),dye,13
+cohb.formalin_fixation,Formalin fixation / embalming (formaldehyde),preservative,29
+cohb.heat_exposure,Heat exposure / thermal coagulation of blood,temperature,314
+cohb.hb_m_variants,"Hemoglobin M variants (Hb M Saskatoon, Hb M Hyde Park, Hb M Boston)",hemoglobin_derivative,11
+cohb.hboc,"Hemoglobin-based oxygen carriers (DCLHb, HemoLink, Apex PHP, rHb1.1, Oxyglobin)",oxygen_carrier,35
+cohb.hemolysis,Hemolysis / cell-free hemoglobin,hemolysis,7
+cohb.hydroxocobalamin,Hydroxocobalamin (Cyanokit),vitamin_b12,103
+cohb.bilirubin,"Hyperbilirubinemia (bilirubin, icteric sample)",bilirubin,9
+cohb.low_total_hemoglobin,Low total hemoglobin concentration,specimen_matrix,496
+cohb.methemoglobin,Methemoglobin,hemoglobin_derivative,271
+cohb.methylene_blue,Methylene blue,dye,74
+cohb.patent_blue_v,Patent blue V / isosulfan blue,dye,21
+cohb.perflubron,Perflubron emulsion (perfluorocarbon),oxygen_carrier,13
+cohb.pericardial_fluid,Pericardial fluid used in place of blood,specimen_matrix,43
+cohb.pleural_fluid,Pleural fluid used in place of blood,specimen_matrix,55
+cohb.postmortem_co_diffusion,Postmortem carbon monoxide diffusion into the body,postmortem_change,38
+cohb.postmortem_storage,Postmortem storage of the specimen,storage_temperature,99
+cohb.putrefaction,Putrefaction / postmortem decomposition,postmortem_change,195
+cohb.sulfhemoglobin,Sulfhemoglobin,hemoglobin_derivative,36
+cohb.thoracic_cavity_fluid,Thoracic or chest cavity fluid or blood used in place of blood,specimen_matrix,21
+cohb.uncapped_storage,Uncapped storage / air headspace above the sample,air_contamination,103

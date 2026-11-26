@@ -1,0 +1,14 @@
+# Keep the evidence tables as diffable text with LF endings.
+*.csv  text eol=lf
+*.json text eol=lf
+*.md   text eol=lf
+*.py   text eol=lf
+*.sql  text eol=lf
+*.yml  text eol=lf
+
+# Treat the evidence tables as data in diffs and language stats.
+*.csv linguist-generated=false
+*.csv linguist-detectable=false
+
+# If a single evidence table ever approaches 100 MB, move that path to Git LFS
+# instead of committing it directly (GitHub rejects files over 100 MB).

@@ -1,0 +1,35 @@
+# Generated data layer. Never commit it: it is rebuilt from the CSVs by
+# scripts/build_all.py and by the GitHub Actions workflow, and committing it
+# would add a fresh multi-megabyte blob to git history on every rebuild.
+build/
+
+# Local-only material, deliberately not distributed:
+#  - fulltext_pdfs/  publisher full-text PDFs (copyright)
+#  - analyte_level/  working xlsx interferent lists + third-party APS documents
+#  - other_formats/  non-CSV source files (.numbers and xlsx mirrors)
+# The machine-readable equivalents are meta/ and <analyte>/<analyte>_analyte.csv.
+fulltext_pdfs/
+**/fulltext_pdfs/
+analyte_level/
+**/analyte_level/
+other_formats/
+**/other_formats/
+
+# OS / editor noise
+.DS_Store
+DS_Store
+Thumbs.db
+._*
+*.swp
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Website (site/): dependencies, build output, and the copied web deploy set
+node_modules/
+site/build/
+site/.svelte-kit/
+site/static/data/

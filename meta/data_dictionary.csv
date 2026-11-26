@@ -1,0 +1,30 @@
+position,column,parquet_column,type,values,definition
+1,Analyte,analyte_verbatim,string,verbatim,Analyte (measurand) exactly as named in the source publication. Spelling varies between papers; use analyte_id / component from analytes.csv for filtering.
+2,Interferent,interferent_verbatim,string,verbatim,Interfering substance or condition exactly as named in the source publication. Use interferent_id (see interferent_synonyms.csv) for filtering.
+3,Platform/Brand/Method,platform_brand_method,string,verbatim,"Measurement principle, assay brand or method as reported (e.g. CO-oximetry, FPIA, immunoturbidimetry)."
+4,Analyzer/Instrument,analyzer_instrument,string,verbatim,Analyser or instrument on which the measurement was made.
+5,Assay generation/version,assay_generation_version,string,verbatim,"Assay generation, kit version or lot where the source reports it."
+6,Direction of effect,direction_of_effect,enum,up / down / no change / not reported,"Direction of the measurement error caused by the interferent, as reported: up = falsely increased, down = falsely decreased, no change = no detectable effect."
+7,Direction (study criterion),direction_study_criterion,enum,up / down / no change / not reported,Direction judged against the criterion used by the source study itself.
+8,Direction (user APS),direction_user_aps,enum,up / down / no change / not reported,Direction judged against the analytical performance specification selected for this database (aps_percent).
+9,"Interferent concentration (exact, with units)",interferent_concentration_exact_with_units,string,"verbatim, units embedded","Concentration or dose of the interferent, with the units used by the source. Free text: not directly plottable."
+10,Baseline analyte concentration,baseline_analyte_concentration,string,"verbatim, units embedded","Analyte concentration before or without the interferent, with source units. Free text."
+11,Final analyte concentration,final_analyte_concentration,string,"verbatim, units embedded","Analyte concentration in the presence of the interferent, with source units. Free text."
+12,Absolute change (as reported),absolute_change_as_reported,string,"verbatim, units embedded","Absolute change printed by the source, in the source's units."
+13,Percentage change (as reported),percentage_change_as_reported,string,number or text,"Relative change printed by the source, in percent."
+14,Absolute change (calculated),absolute_change_calculated,string,number or text,Absolute change derived from the baseline and final values in the source.
+15,Percentage change (calculated),percentage_change_calculated,number,percent,Relative change in percent derived from the baseline and final values. This is the primary machine-readable effect size (pct_change in the derived build).
+16,Magnitude of change (verbatim from source),magnitude_of_change_verbatim_from_source,string,verbatim,The source's own wording for the size of the effect.
+17,Significant-bias threshold,significant_bias_threshold,string,verbatim,"The threshold the SOURCE STUDY used to call a bias significant (often a statistical test, sometimes a percentage, often not reported). Not the database APS."
+18,Clinical significance vs user APS,clinical_significance_vs_user_aps,string,"verbatim, contains the verdict",Whether the observed effect exceeds the analytical performance specification selected for this database. The verdict is parsed into aps_verdict in the derived build.
+19,Sample type,sample_type,string,verbatim,"Specimen used (whole blood, serum, plasma, pooled plasma, postmortem blood, body cavity fluid and so on)."
+20,Study method details,study_method_details,string,verbatim,"How the interference was produced and measured: spiking, in vivo exposure, patient samples, comparison arms."
+21,Physiologically realistic concentration?,physiologically_realistic_concentration,enum,Yes / Partial / Borderline / Unclear / not reported,Appraisal: whether the interferent concentration tested can occur in patients.
+22,Study design appropriate?,study_design_appropriate,enum,Appropriate / Partially appropriate / Inappropriate / Unclear / not reported,Appraisal of the study design for an interference claim.
+23,Clinically significant effect?,clinically_significant_effect,enum,Yes / No / Partial / Unclear / not reported,Appraisal of whether the effect matters clinically.
+24,Real-world conditions reflected?,real_world_conditions_reflected,enum,Yes / No / Partial / Unclear / not reported,Appraisal of how well the experiment reflects routine practice.
+25,Additional sources of bias,additional_sources_of_bias,string,verbatim,Other biases the source reports or that are evident in it.
+26,Notes,notes,string,verbatim,Free-text notes recorded during extraction.
+27,Citation,citation,string,verbatim,"Short citation plus the exact locator inside the source (page, table, figure). Often names the source PDF file."
+28,Full reference (from PDF),full_reference_from_pdf,string,verbatim,Full bibliographic reference as printed in the source document.
+29,doi,doi_as_printed,string,DOI or 'not reported in the information source',Digital Object Identifier of the source publication.

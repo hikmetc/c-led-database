@@ -1,0 +1,158 @@
+# Changelog
+
+## 0.3.0 - 2026-11-26
+
+A Parquet web layer, built to stay small and fast as the database grows at least fifty-fold.
+
+### Added
+- `build/parquet/` - the only data the website reads, built by `scripts/parquet_export.py`:
+  - `slim_all.parquet` - every row, the columns a table, facets, charts and the custom-APS logic
+    need, typed (`pct_change` is a real number, `plottable` and `exceeds_aps` are booleans),
+    sorted by analyte and interferent so filters skip whole row groups.
+  - `slim/<analyte_id>.parquet` - the same columns for one analyte.
+  - `detail/<analyte_id>.parquet` - `row_id` plus every source column, sorted by `row_id` in
+    2,000-row groups, so opening one evidence row reads one row group rather than the file.
+  - `manifest.json` - schema version, every file, row counts, byte sizes and column types, so a
+    site never hard-codes analytes.
+- The web deploy set (2.61 MB today) replaces a 160 MB JSON-and-SQLite build as the
+  published data. Measured on this data, Parquet is about 40 times smaller than the same rows as
+  JSON; a fifty-fold growth projects to well under 100 MB against GitHub Pages' 1 GB limit.
+- `meta/data_dictionary.*` - new `parquet_column`: the snake_case Parquet name of every source
+  column. `Analyte`, `Interferent` and `doi` map to `analyte_verbatim`, `interferent_verbatim`
+  and `doi_as_printed`, so they cannot be confused with normalised slim fields.
+- `requirements.txt` - pyarrow, the only dependency of the build.
+
+### Validation
+- An evidence CSV over 90 MiB now fails the build (GitHub rejects files over 100 MiB); over
+  50 MiB it warns.
+- The Parquet layer is checked against the evidence: equal row counts across slim, detail,
+  `slim_all` and the manifest, one slim file per analyte, unique `row_id`, every listed file
+  present. A stale layer fails the build.
+- The web deploy set fails the build above 900 MB and warns above 500 MB.
+- `CLED_REQUIRE_PARQUET=1` (set in CI) makes a missing Parquet layer a hard failure. Without
+  pyarrow a local build skips the layer with a notice and removes any stale copy.
+
+### Changed
+- CI installs `requirements.txt`, requires the Parquet layer, runs the evidence audit, uploads
+  only the web deploy set as an artifact, and attaches `cled-parquet.zip` to releases instead
+  of the SQLite file (which would outgrow the 2 GiB release-asset limit).
+- README and STRUCTURE.md document the Parquet layer, the deploy set, which file each view
+  reads, and the new invariants. The SQLite database and the JSON shards are now internal or
+  legacy and are never published.
+
+## 0.2.0 - 2026-11-25
+
+Evidence-integrity pass: every row must be backed by a cited source that actually
+supplied data.
+
+### Removed - 33 rows that carried no evidence
+Rule applied: **a row with no value in any of the 11 data fields is not evidence.**
+The 11 fields are direction of effect, the four change fields, magnitude, baseline and
+final concentration, interferent concentration, platform/method and analyzer.
+All removed rows are archived with their full 29 columns in `meta/removed_rows.csv`.
+
+Why each group was removed:
+- 6 rows citing scanned PDFs with no text layer, from which nothing could be read.
+- 6 rows citing a journal masthead or editorial-board front-matter page instead of the article.
+- 5 rows citing Clin Lab articles whose PDF carried no article text.
+- 1 row citing a Blood classified-advertisement page instead of the 2006 ASH abstract.
+- 1 row citing a publisher permissions sheet instead of the Morgan article.
+- 1 row citing an FDA bioequivalence guidance that contains no digoxin or uzara data.
+- 5 rows where the cited source reports salicylate interference for **chloride** (or for the
+  carbonate electrode), not for pH.
+- 2 rows where the cited source did not measure the analyte at all (L-lactate instead of pH;
+  no COHb content in the Hb Bassett paper).
+- 1 row where the source lists leucocyte larceny under pO2 only, with the pCO2 cell left blank.
+- 2 further coverage rows with no extracted values.
+
+### Consequences
+- Evidence rows: 11,982 -> 11,949. Rows carrying a numeric effect size are unchanged at 6,607,
+  so no quantitative evidence was lost.
+- Two evidence tables became empty and were deleted, together with their canonical interferents:
+  - `ph_blood` **salicylate** - every row described chloride, not pH interference.
+  - `carboxyhemoglobin_blood` **hemoglobin Bassett** - the cited paper contains no COHb content.
+  - Evidence tables: 119 -> 117. Interference causes: 138 -> 136.
+  - Their full-text PDFs are kept in the local working copy in case usable evidence is found later.
+
+### Added
+- `meta/removed_rows.csv` - every removed row in full, with the reason.
+- `meta/pdf_issues.csv` - PDFs that hold the wrong document or are duplicates.
+- `meta/references_enriched.csv` grew to 13 entries: identifiers recovered from the PDF title
+  page, from PubMed, or from publisher article identifiers encoded in file names, each with
+  its resolution method and what it was verified against.
+- `scripts/audit_evidence.py` - re-runnable audit: citation present, identifier present,
+  data present, and no row left citing a document that supplied nothing.
+- `scripts/prune_unevidenced_rows.py` - the rule above, re-runnable on new analytes.
+
+### Reference coverage after the pass
+- 0 rows without a citation.
+- 0 rows without a DOI, a PubMed ID or a full reference, except 5 rows whose sources are a
+  conference poster, a journal letter not indexed in PubMed, and a book chapter; all three
+  carry complete author, title and venue details.
+- 0 rows that both lack data and cite a document that supplied nothing.
+
+## 0.1.0 - 2026-11-25
+
+First structured release of the C-LED database: 8 analytes, 138 interference causes,
+119 evidence tables, 11,982 evidence rows, 814 distinct references.
+
+### Data
+- All 119 evidence tables verified to share one identical 29-column header; all valid UTF-8;
+  no duplicate rows.
+- `potassium_order_of_draw_extraction.csv` converted from the original Apple Numbers file
+  (10 rows, same 29 columns, same 0.4% APS). The `.numbers` original is kept locally.
+- UTF-8 BOM stripped from 5 tables (`digoxin_DLIS`, `digoxin_glycoside`, `digoxin_haemolysis`,
+  `digoxin_spironolactone`, `inr_anticoagulant_contamination`); a BOM breaks the first column
+  name for CSV readers. No content changed.
+- The undocumented `XX ` prefix removed from three `ph_blood` table names.
+- File and folder names normalised for portability: spaces to underscores, non-ASCII hyphens to
+  ASCII, over-long paths shortened. Every rename is recorded in `meta/rename_map.csv`.
+
+### Added - controlled vocabulary and join keys
+- `meta/interferents.csv`: 138 canonical interference causes with stable ids
+  (`<analyte_id>.<key>`) and a cross-analyte `concept`.
+- `meta/interferent_synonyms.csv`: all 1,147 verbatim interferent wordings mapped to a canonical
+  id. This is the join key that makes facet filtering possible; the same cause is worded many
+  different ways across papers.
+- `meta/table_index.csv`: evidence table to default interferent id, flagging the tables that
+  carry wording-level overrides because they genuinely cover several distinct causes.
+- `meta/analytes.csv` / `.json` and `<analyte>/<analyte>_analyte.csv`: component, system,
+  kind of property, unit and the selected APS, as data rather than prose.
+- `meta/data_dictionary.csv` / `.json`: definitions of all 29 source columns, verified against
+  the real header by `scripts/validate.py`.
+- `meta/references.csv`: 814 distinct references with DOI and PubMed ID.
+- `meta/references_enriched.csv`: 2 references recovered via PubMed for rows whose source PDF had
+  no text layer, recorded separately with provenance rather than written into the source tables.
+- `meta/known_gaps.csv`: the 7 rows whose source document carries no usable identifier.
+
+### Added - derived build (generated, not committed)
+- `build/cled.sqlite`: `analyte`, `interferent`, `evidence`, `reference_` and an FTS5 full-text
+  index, with a stable `row_id` per row.
+- Normalised fields for filtering and charting: `direction`, `pct_change` (signed percent),
+  `plottable`, `aps_percent`, `aps_verdict`, `exceeds_aps`, `doi`, `pmid`, `reference_status`,
+  and the four appraisal fields with consistent casing.
+- `build/slim/<analyte_id>.json` and `build/evidence/<analyte>/<interferent>.json`, sharded so
+  neither the repository nor a single HTTP response grows without bound as analytes are added.
+- `build/stats.json` for dashboards; `build/manifest.json` and `build/slim/index.json` as shard
+  manifests; `build/schema.sql`.
+
+### Added - repository plumbing
+- `scripts/build_all.py` rebuilds everything from the CSVs and never writes to them;
+  `scripts/validate.py` fails on an unregistered table, an orphan interferent id, a duplicate
+  `row_id`, a row-count mismatch, a non-portable path or a committed PDF.
+- `.github/workflows/build.yml` builds and validates on every push, uploads the dataset as an
+  artifact, and attaches `cled.sqlite` plus a JSON bundle to published releases.
+- `.gitignore` keeps `build/` and all local-only material out of git.
+
+### Not distributed
+- Full-text PDFs (1,632 files, 1.3 GB) are publisher copyright and stay in the local working
+  copy only. Every row carries a DOI, a PubMed ID or a full reference instead.
+- `analyte_level/` and `other_formats/` working files stay local; their machine-readable
+  equivalents are `meta/` and `<analyte>/<analyte>_analyte.csv`.
+
+### Known limitations
+- `pct_change` is present for 6,607 of 11,982 rows (55%). Many sources report an effect only in
+  words or only in absolute units. Use the `plottable` flag; never read a missing value as zero.
+- `Significant-bias threshold` is the source study's own criterion and is "not reported" in
+  7,213 rows. It is not the database APS.
+- `row_id` is stable while rows are appended to a table, not if rows are inserted in the middle.

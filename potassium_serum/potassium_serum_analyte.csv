@@ -1,0 +1,2 @@
+analyte_id,analyte_folder,component,system,kind_of_property,unit,aps_percent,aps_type,aps_note,synonyms,interferent_count,evidence_tables,evidence_rows
+k,potassium_serum,Potassium,Serum,Substance concentration,mmol/L,0.4,"allowable total error (relative), user-selected",,Potassium; K+; serum potassium; plasma potassium (comparison arms),12,12,304

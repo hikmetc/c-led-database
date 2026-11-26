@@ -1,0 +1,13 @@
+interferent_id,interferent,concept,evidence_rows
+k.delayed_centrifugation,Delayed centrifugation / prolonged contact with cells or clot,centrifugation,13
+k.fist_clenching,Handgrip (fist clenching) during venipuncture,collection_technique,21
+k.hemolysis,Hemolysis,hemolysis,55
+k.indirect_ise,"Indirect ISE electrolyte-exclusion matrix effect (elevated triglycerides, total protein, cholesterol)",analyzer_method,27
+k.k_edta,K-EDTA (K2EDTA / K3EDTA) contamination or carryover,anticoagulant_contamination,25
+k.leukocytosis,Leukocytosis,leukocytosis,57
+k.collection_device,Needle gauge / blood collection device,collection_technique,12
+k.order_of_draw,Order of draw (serum tube drawn after an EDTA or heparin tube),collection_technique,10
+k.cold_storage,Refrigerated or cold storage of whole blood before centrifugation,storage_temperature,12
+k.reverse_pseudohyperkalemia,Reverse pseudohyperkalemia,specimen_matrix,41
+k.thrombocytosis,Thrombocytosis,thrombocytosis,12
+k.tourniquet_stasis,Tourniquet application / venous stasis,tourniquet_stasis,19

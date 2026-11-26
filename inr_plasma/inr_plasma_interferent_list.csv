@@ -1,0 +1,25 @@
+interferent_id,interferent,concept,evidence_rows
+inr.anticoagulant_contamination,Anticoagulant contamination of the specimen (mixed),anticoagulant_contamination,8
+inr.apixaban,Apixaban (direct factor Xa inhibitor),anticoagulant_drug,30
+inr.bilirubin,Bilirubin / icterus (conjugated and unconjugated),bilirubin,66
+inr.clotted_specimen,Clotted specimen / micro-clots,specimen_quality,15
+inr.dabigatran,Dabigatran (direct thrombin inhibitor),anticoagulant_drug,69
+inr.daptomycin,Daptomycin,drug_interference,950
+inr.edoxaban,Edoxaban (direct factor Xa inhibitor),anticoagulant_drug,12
+inr.high_hematocrit,Elevated hematocrit / polycythemia,specimen_matrix,19
+inr.elevated_temperature,Elevated temperature / hyperthermia,temperature,51
+inr.hemolysis,Hemolysis,hemolysis,41
+inr.heparin_contamination,Heparin contamination of the specimen or line draw,anticoagulant_contamination,21
+inr.lipemia,"Lipemia (intravenous lipid emulsion, triglycerides)",lipemia,106
+inr.lmwh,Low-molecular-weight heparin (dalteparin) contamination,anticoagulant_contamination,113
+inr.lupus_anticoagulant,Lupus anticoagulant,autoantibody,122
+inr.mnpt,Mean normal prothrombin time (MNPT) used in the INR calculation,reagent_calibration,116
+inr.oxalate,Oxalate anticoagulant used in place of citrate,anticoagulant_contamination,10
+inr.poor_mixing,Poor mixing of the collection tube,collection_technique,35
+inr.prolonged_storage,Prolonged storage before analysis,delayed_analysis,192
+inr.rivaroxaban,Rivaroxaban (direct factor Xa inhibitor),anticoagulant_drug,35
+inr.citrate_concentration,Sodium citrate concentration of the collection tube (3.2% vs 3.8%),collection_tube,24
+inr.thromboplastin_isi,Thromboplastin reagent sensitivity / ISI value and ISI verification,reagent_calibration,1443
+inr.underfilled_tube,Underfilled citrate tube,collection_tube,52
+inr.ufh,Unfractionated heparin contamination,anticoagulant_contamination,141
+inr.venous_stasis,Venous stasis / prolonged tourniquet application,tourniquet_stasis,16

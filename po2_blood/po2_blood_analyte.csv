@@ -1,0 +1,2 @@
+analyte_id,analyte_folder,component,system,kind_of_property,unit,aps_percent,aps_type,aps_note,synonyms,interferent_count,evidence_tables,evidence_rows
+po2,po2_blood,Oxygen partial pressure,Blood (arterial),Partial pressure,mmHg (kPa),3.0,"allowable total error (relative), user-selected",,pO2; PO2; paO2; PaO2,13,13,548

@@ -1,0 +1,3 @@
+# Python dependencies of the C-LED build. The build itself uses only the standard
+# library; pyarrow writes the Parquet web layer (build/parquet/).
+pyarrow>=15.0

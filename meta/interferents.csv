@@ -1,0 +1,138 @@
+interferent_id,analyte_folder,interferent_key,interferent_canonical,concept,evidence_rows,wording_variants
+cohb.ascitic_fluid,carboxyhemoglobin_blood,ascitic_fluid,Ascites used in place of blood,specimen_matrix,4,2
+cohb.bile,carboxyhemoglobin_blood,bile,Bile used in place of blood,specimen_matrix,1,1
+cohb.bilirubin,carboxyhemoglobin_blood,bilirubin,"Hyperbilirubinemia (bilirubin, icteric sample)",bilirubin,9,8
+cohb.blood_ph,carboxyhemoglobin_blood,blood_ph,Blood pH of the sample or analysis medium,sample_condition,7,4
+cohb.body_cavity_fluid,carboxyhemoglobin_blood,body_cavity_fluid,Body cavity fluid used in place of blood,specimen_matrix,2,2
+cohb.cyanocobalamin,carboxyhemoglobin_blood,cyanocobalamin,Cyanocobalamin,vitamin_b12,16,1
+cohb.fetal_hemoglobin,carboxyhemoglobin_blood,fetal_hemoglobin,Fetal hemoglobin (HbF),hemoglobin_derivative,79,16
+cohb.fluorescein,carboxyhemoglobin_blood,fluorescein,Fluorescein (sodium fluorescein),dye,13,6
+cohb.formalin_fixation,carboxyhemoglobin_blood,formalin_fixation,Formalin fixation / embalming (formaldehyde),preservative,29,1
+cohb.hb_m_variants,carboxyhemoglobin_blood,hb_m_variants,"Hemoglobin M variants (Hb M Saskatoon, Hb M Hyde Park, Hb M Boston)",hemoglobin_derivative,11,5
+cohb.hboc,carboxyhemoglobin_blood,hboc,"Hemoglobin-based oxygen carriers (DCLHb, HemoLink, Apex PHP, rHb1.1, Oxyglobin)",oxygen_carrier,35,5
+cohb.heat_exposure,carboxyhemoglobin_blood,heat_exposure,Heat exposure / thermal coagulation of blood,temperature,314,39
+cohb.hemolysis,carboxyhemoglobin_blood,hemolysis,Hemolysis / cell-free hemoglobin,hemolysis,7,4
+cohb.hydroxocobalamin,carboxyhemoglobin_blood,hydroxocobalamin,Hydroxocobalamin (Cyanokit),vitamin_b12,103,11
+cohb.low_total_hemoglobin,carboxyhemoglobin_blood,low_total_hemoglobin,Low total hemoglobin concentration,specimen_matrix,496,30
+cohb.methemoglobin,carboxyhemoglobin_blood,methemoglobin,Methemoglobin,hemoglobin_derivative,271,42
+cohb.methylene_blue,carboxyhemoglobin_blood,methylene_blue,Methylene blue,dye,74,3
+cohb.patent_blue_v,carboxyhemoglobin_blood,patent_blue_v,Patent blue V / isosulfan blue,dye,21,5
+cohb.perflubron,carboxyhemoglobin_blood,perflubron,Perflubron emulsion (perfluorocarbon),oxygen_carrier,13,3
+cohb.pericardial_fluid,carboxyhemoglobin_blood,pericardial_fluid,Pericardial fluid used in place of blood,specimen_matrix,43,4
+cohb.pleural_fluid,carboxyhemoglobin_blood,pleural_fluid,Pleural fluid used in place of blood,specimen_matrix,55,4
+cohb.postmortem_co_diffusion,carboxyhemoglobin_blood,postmortem_co_diffusion,Postmortem carbon monoxide diffusion into the body,postmortem_change,38,3
+cohb.postmortem_storage,carboxyhemoglobin_blood,postmortem_storage,Postmortem storage of the specimen,storage_temperature,99,23
+cohb.putrefaction,carboxyhemoglobin_blood,putrefaction,Putrefaction / postmortem decomposition,postmortem_change,195,68
+cohb.sulfhemoglobin,carboxyhemoglobin_blood,sulfhemoglobin,Sulfhemoglobin,hemoglobin_derivative,36,9
+cohb.thoracic_cavity_fluid,carboxyhemoglobin_blood,thoracic_cavity_fluid,Thoracic or chest cavity fluid or blood used in place of blood,specimen_matrix,21,5
+cohb.uncapped_storage,carboxyhemoglobin_blood,uncapped_storage,Uncapped storage / air headspace above the sample,air_contamination,103,42
+dig.animal_immunoglobulin,digoxin_serum,animal_immunoglobulin,"Heterologous animal immunoglobulin (goat or horse serum IgG, anti-lymphocyte globulin)",heterophilic_antibodies,24,4
+dig.ashwagandha,digoxin_serum,ashwagandha,Ashwagandha (Withania somnifera),herbal_supplement,96,8
+dig.asian_ginseng,digoxin_serum,asian_ginseng,Asian ginseng (Panax ginseng),herbal_supplement,128,1
+dig.bilirubin,digoxin_serum,bilirubin,Bilirubin (icterus),bilirubin,13,10
+dig.biotin,digoxin_serum,biotin,Biotin,biotin,35,1
+dig.bufalin,digoxin_serum,bufalin,Bufalin (bufadienolide of toad venom preparations),cardiac_glycoside,49,2
+dig.canrenone,digoxin_serum,canrenone,Canrenone,drug_cross_reactivity,465,13
+dig.cardiac_glycosides,digoxin_serum,cardiac_glycosides,Cardiac glycosides and digoxin metabolites (mixed),cardiac_glycoside,47,14
+dig.chan_su,digoxin_serum,chan_su,Chan Su (toad venom preparation),herbal_supplement,18,1
+dig.convallatoxin,digoxin_serum,convallatoxin,Convallatoxin / lily of the valley (Convallaria majalis),cardiac_glycoside,179,7
+dig.danshen,digoxin_serum,danshen,Danshen (Salvia miltiorrhiza),herbal_supplement,356,7
+dig.digitoxin,digoxin_serum,digitoxin,Digitoxin,cardiac_glycoside,143,9
+dig.digoxigenin,digoxin_serum,digoxigenin,Digoxigenin and its mono- or bis-digitoxosides (digoxin metabolites),cardiac_glycoside,463,75
+dig.digoxin_immune_fab,digoxin_serum,digoxin_immune_fab,Digoxin immune Fab (Digibind),antidote,197,15
+dig.dihydrodigoxin,digoxin_serum,dihydrodigoxin,Dihydrodigoxin,cardiac_glycoside,144,15
+dig.dlis,digoxin_serum,dlis,Digoxin-like immunoreactive substances (DLIS),endogenous_substance,871,14
+dig.enzalutamide,digoxin_serum,enzalutamide,Enzalutamide,drug_cross_reactivity,24,1
+dig.free_kappa,digoxin_serum,free_kappa,Free kappa light chains,paraprotein,23,1
+dig.hama,digoxin_serum,hama,Human anti-mouse / heterophilic antibodies (HAMA),heterophilic_antibodies,28,4
+dig.hawthorn,digoxin_serum,hawthorn,Hawthorn (Crataegus spp.),herbal_supplement,31,5
+dig.hemolysis,digoxin_serum,hemolysis,Hemolysis (hemoglobin),hemolysis,44,12
+dig.hydrocortisone,digoxin_serum,hydrocortisone,Hydrocortisone / cortisol,steroid,18,2
+dig.lipemia,digoxin_serum,lipemia,Lipemia (triglycerides),lipemia,14,9
+dig.lu_shen_wan,digoxin_serum,lu_shen_wan,Lu-Shen-Wan (Chinese medicine),herbal_supplement,85,1
+dig.oleandrin,digoxin_serum,oleandrin,Oleandrin / oleander extract,cardiac_glycoside,453,11
+dig.prednisolone,digoxin_serum,prednisolone,Prednisolone,steroid,32,1
+dig.siberian_ginseng,digoxin_serum,siberian_ginseng,Siberian ginseng (Eleutherococcus senticosus),herbal_supplement,120,11
+dig.spironolactone,digoxin_serum,spironolactone,Spironolactone,drug_cross_reactivity,203,1
+dig.uzara,digoxin_serum,uzara,Uzara root extract (Xysmalobium undulatum),herbal_supplement,5,4
+inr.anticoagulant_contamination,inr_plasma,anticoagulant_contamination,Anticoagulant contamination of the specimen (mixed),anticoagulant_contamination,8,2
+inr.apixaban,inr_plasma,apixaban,Apixaban (direct factor Xa inhibitor),anticoagulant_drug,30,4
+inr.bilirubin,inr_plasma,bilirubin,Bilirubin / icterus (conjugated and unconjugated),bilirubin,66,18
+inr.citrate_concentration,inr_plasma,citrate_concentration,Sodium citrate concentration of the collection tube (3.2% vs 3.8%),collection_tube,24,8
+inr.clotted_specimen,inr_plasma,clotted_specimen,Clotted specimen / micro-clots,specimen_quality,15,12
+inr.dabigatran,inr_plasma,dabigatran,Dabigatran (direct thrombin inhibitor),anticoagulant_drug,69,1
+inr.daptomycin,inr_plasma,daptomycin,Daptomycin,drug_interference,950,16
+inr.edoxaban,inr_plasma,edoxaban,Edoxaban (direct factor Xa inhibitor),anticoagulant_drug,12,3
+inr.elevated_temperature,inr_plasma,elevated_temperature,Elevated temperature / hyperthermia,temperature,51,2
+inr.fxa_inhibitors,inr_plasma,fxa_inhibitors,Direct factor Xa inhibitors (mixed),anticoagulant_drug,0,0
+inr.hemolysis,inr_plasma,hemolysis,Hemolysis,hemolysis,41,5
+inr.heparin_contamination,inr_plasma,heparin_contamination,Heparin contamination of the specimen or line draw,anticoagulant_contamination,21,12
+inr.high_hematocrit,inr_plasma,high_hematocrit,Elevated hematocrit / polycythemia,specimen_matrix,19,13
+inr.lipemia,inr_plasma,lipemia,"Lipemia (intravenous lipid emulsion, triglycerides)",lipemia,106,25
+inr.lmwh,inr_plasma,lmwh,Low-molecular-weight heparin (dalteparin) contamination,anticoagulant_contamination,113,3
+inr.lupus_anticoagulant,inr_plasma,lupus_anticoagulant,Lupus anticoagulant,autoantibody,122,1
+inr.mnpt,inr_plasma,mnpt,Mean normal prothrombin time (MNPT) used in the INR calculation,reagent_calibration,116,1
+inr.oxalate,inr_plasma,oxalate,Oxalate anticoagulant used in place of citrate,anticoagulant_contamination,10,1
+inr.poor_mixing,inr_plasma,poor_mixing,Poor mixing of the collection tube,collection_technique,35,15
+inr.prolonged_storage,inr_plasma,prolonged_storage,Prolonged storage before analysis,delayed_analysis,192,1
+inr.rivaroxaban,inr_plasma,rivaroxaban,Rivaroxaban (direct factor Xa inhibitor),anticoagulant_drug,35,11
+inr.thromboplastin_isi,inr_plasma,thromboplastin_isi,Thromboplastin reagent sensitivity / ISI value and ISI verification,reagent_calibration,1443,20
+inr.ufh,inr_plasma,ufh,Unfractionated heparin contamination,anticoagulant_contamination,141,12
+inr.underfilled_tube,inr_plasma,underfilled_tube,Underfilled citrate tube,collection_tube,52,3
+inr.venous_stasis,inr_plasma,venous_stasis,Venous stasis / prolonged tourniquet application,tourniquet_stasis,16,12
+pco2.air_bubble,pco2_blood,air_bubble,Air bubble / ambient-air contamination in the syringe,air_contamination,27,1
+pco2.air_bubble_30min,pco2_blood,air_bubble_30min,Air bubble trapped in the syringe for 30 min before expulsion,air_contamination,2,1
+pco2.delayed_analysis,pco2_blood,delayed_analysis,Delayed analysis at room temperature,delayed_analysis,33,4
+pco2.dextrose_50,pco2_blood,dextrose_50,Dextrose 50% (D50) contamination of the sample,iv_fluid_contamination,6,1
+pco2.leukocytosis,pco2_blood,leukocytosis,Leukocytosis (leukocyte larceny),leukocytosis,14,10
+pco2.liquid_heparin,pco2_blood,liquid_heparin,Liquid heparin (excess liquid heparin or heparinized saline),anticoagulant_contamination,22,11
+pco2.pneumatic_transport,pco2_blood,pneumatic_transport,Pneumatic tube transport,pneumatic_transport,8,1
+pco2.syringe_material,pco2_blood,syringe_material,Plastic versus glass sampling syringe (syringe material),syringe_material,26,26
+pco2.tpn_lipid,pco2_blood,tpn_lipid,Total parenteral nutrition / lipid emulsion contamination,lipemia,8,2
+ph.air_bubble,ph_blood,air_bubble,Air bubble / room-air contamination in the syringe,air_contamination,13,4
+ph.delayed_analysis,ph_blood,delayed_analysis,Analysis delay at room temperature,delayed_analysis,58,2
+ph.dextrose_50,ph_blood,dextrose_50,Dextrose 50% (D50) contamination of the sample,iv_fluid_contamination,6,1
+ph.ethylene_glycol,ph_blood,ethylene_glycol,Ethylene glycol,toxin,2,1
+ph.ice_overchilling,ph_blood,ice_overchilling,Direct ice contact / over-chilling of the syringe,storage_temperature,13,1
+ph.leukocytosis,ph_blood,leukocytosis,Leukocytosis (leukocyte larceny),leukocytosis,4,1
+ph.liquid_heparin,ph_blood,liquid_heparin,Liquid heparin / liquid anticoagulant or diluent,anticoagulant_contamination,10,1
+ph.patient_temperature,ph_blood,patient_temperature,Patient temperature other than 37 C (temperature correction),temperature,18,1
+ph.reference_interval,ph_blood,reference_interval,"Inappropriate reference interval (pregnancy, age, altitude)",interpretation,9,8
+ph.tpn_lipid,ph_blood,tpn_lipid,Total parenteral nutrition / lipid emulsion contamination,lipemia,10,3
+ph.wrong_sample_type,ph_blood,wrong_sample_type,"Wrong sample type (peripheral or central venous, or capillary blood instead of arterial)",sample_type,39,10
+po2.air_bubble,po2_blood,air_bubble,Air bubble in the syringe,air_contamination,25,6
+po2.delayed_analysis,po2_blood,delayed_analysis,Delayed analysis / storage time at room temperature,delayed_analysis,80,12
+po2.enflurane,po2_blood,enflurane,Enflurane (volatile anaesthetic),volatile_anaesthetic,5,1
+po2.halothane,po2_blood,halothane,Halothane (volatile anaesthetic),volatile_anaesthetic,20,1
+po2.hemolysis,po2_blood,hemolysis,Hemolysis,hemolysis,16,6
+po2.isoflurane,po2_blood,isoflurane,Isoflurane (volatile anaesthetic),volatile_anaesthetic,1,1
+po2.leukocytosis,po2_blood,leukocytosis,Leukocytosis (leukocyte larceny),leukocytosis,28,17
+po2.liquid_heparin,po2_blood,liquid_heparin,Excess liquid heparin in the syringe,anticoagulant_contamination,36,6
+po2.nitrous_oxide,po2_blood,nitrous_oxide,Nitrous oxide,volatile_anaesthetic,18,1
+po2.pneumatic_transport,po2_blood,pneumatic_transport,Pneumatic tube transport,pneumatic_transport,27,1
+po2.storage_temperature,po2_blood,storage_temperature,Storage temperature (room temperature versus on ice),storage_temperature,229,17
+po2.syringe_material,po2_blood,syringe_material,Plastic versus glass sampling syringe (gas permeability of plastic),syringe_material,47,1
+po2.thrombocytosis,po2_blood,thrombocytosis,Thrombocytosis (platelet larceny),thrombocytosis,16,6
+k.cold_storage,potassium_serum,cold_storage,Refrigerated or cold storage of whole blood before centrifugation,storage_temperature,12,7
+k.collection_device,potassium_serum,collection_device,Needle gauge / blood collection device,collection_technique,12,12
+k.delayed_centrifugation,potassium_serum,delayed_centrifugation,Delayed centrifugation / prolonged contact with cells or clot,centrifugation,13,8
+k.fist_clenching,potassium_serum,fist_clenching,Handgrip (fist clenching) during venipuncture,collection_technique,21,14
+k.hemolysis,potassium_serum,hemolysis,Hemolysis,hemolysis,55,15
+k.indirect_ise,potassium_serum,indirect_ise,"Indirect ISE electrolyte-exclusion matrix effect (elevated triglycerides, total protein, cholesterol)",analyzer_method,27,12
+k.k_edta,potassium_serum,k_edta,K-EDTA (K2EDTA / K3EDTA) contamination or carryover,anticoagulant_contamination,25,8
+k.leukocytosis,potassium_serum,leukocytosis,Leukocytosis,leukocytosis,57,1
+k.order_of_draw,potassium_serum,order_of_draw,Order of draw (serum tube drawn after an EDTA or heparin tube),collection_technique,10,10
+k.reverse_pseudohyperkalemia,potassium_serum,reverse_pseudohyperkalemia,Reverse pseudohyperkalemia,specimen_matrix,41,16
+k.thrombocytosis,potassium_serum,thrombocytosis,Thrombocytosis,thrombocytosis,12,1
+k.tourniquet_stasis,potassium_serum,tourniquet_stasis,Tourniquet application / venous stasis,tourniquet_stasis,19,7
+tn.alkaline_phosphatase,troponin_serum,alkaline_phosphatase,"Alkaline phosphatase, elevated endogenous",endogenous_substance,28,3
+tn.asfotase_alfa,troponin_serum,asfotase_alfa,Asfotase alfa,drug_interference,2,1
+tn.biotin,troponin_serum,biotin,Biotin,biotin,239,2
+tn.fibrin,troponin_serum,fibrin,Fibrin clots / strands from incomplete separation,specimen_quality,17,7
+tn.hemolysis,troponin_serum,hemolysis,Hemolysis (hemoglobin),hemolysis,246,18
+tn.heterophile_antibodies,troponin_serum,heterophile_antibodies,Heterophile antibodies,heterophilic_antibodies,28,11
+tn.lipemia,troponin_serum,lipemia,Lipemia,lipemia,9,3
+tn.macrotroponin,troponin_serum,macrotroponin,Macrotroponin,protein_complex,33,1
+tn.rheumatoid_factor,troponin_serum,rheumatoid_factor,Rheumatoid factor,heterophilic_antibodies,6,2
+tn.skeletal_tnt,troponin_serum,skeletal_tnt,Skeletal muscle troponin T isoform cross-reactivity,cross_reactivity,9,1
+tn.troponin_autoantibodies,troponin_serum,troponin_autoantibodies,Troponin autoantibodies,autoantibody,62,1

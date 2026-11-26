@@ -1,0 +1,234 @@
+[
+  {
+    "position": 1,
+    "column": "Analyte",
+    "parquet_column": "analyte_verbatim",
+    "type": "string",
+    "values": "verbatim",
+    "definition": "Analyte (measurand) exactly as named in the source publication. Spelling varies between papers; use analyte_id / component from analytes.csv for filtering."
+  },
+  {
+    "position": 2,
+    "column": "Interferent",
+    "parquet_column": "interferent_verbatim",
+    "type": "string",
+    "values": "verbatim",
+    "definition": "Interfering substance or condition exactly as named in the source publication. Use interferent_id (see interferent_synonyms.csv) for filtering."
+  },
+  {
+    "position": 3,
+    "column": "Platform/Brand/Method",
+    "parquet_column": "platform_brand_method",
+    "type": "string",
+    "values": "verbatim",
+    "definition": "Measurement principle, assay brand or method as reported (e.g. CO-oximetry, FPIA, immunoturbidimetry)."
+  },
+  {
+    "position": 4,
+    "column": "Analyzer/Instrument",
+    "parquet_column": "analyzer_instrument",
+    "type": "string",
+    "values": "verbatim",
+    "definition": "Analyser or instrument on which the measurement was made."
+  },
+  {
+    "position": 5,
+    "column": "Assay generation/version",
+    "parquet_column": "assay_generation_version",
+    "type": "string",
+    "values": "verbatim",
+    "definition": "Assay generation, kit version or lot where the source reports it."
+  },
+  {
+    "position": 6,
+    "column": "Direction of effect",
+    "parquet_column": "direction_of_effect",
+    "type": "enum",
+    "values": "up / down / no change / not reported",
+    "definition": "Direction of the measurement error caused by the interferent, as reported: up = falsely increased, down = falsely decreased, no change = no detectable effect."
+  },
+  {
+    "position": 7,
+    "column": "Direction (study criterion)",
+    "parquet_column": "direction_study_criterion",
+    "type": "enum",
+    "values": "up / down / no change / not reported",
+    "definition": "Direction judged against the criterion used by the source study itself."
+  },
+  {
+    "position": 8,
+    "column": "Direction (user APS)",
+    "parquet_column": "direction_user_aps",
+    "type": "enum",
+    "values": "up / down / no change / not reported",
+    "definition": "Direction judged against the analytical performance specification selected for this database (aps_percent)."
+  },
+  {
+    "position": 9,
+    "column": "Interferent concentration (exact, with units)",
+    "parquet_column": "interferent_concentration_exact_with_units",
+    "type": "string",
+    "values": "verbatim, units embedded",
+    "definition": "Concentration or dose of the interferent, with the units used by the source. Free text: not directly plottable."
+  },
+  {
+    "position": 10,
+    "column": "Baseline analyte concentration",
+    "parquet_column": "baseline_analyte_concentration",
+    "type": "string",
+    "values": "verbatim, units embedded",
+    "definition": "Analyte concentration before or without the interferent, with source units. Free text."
+  },
+  {
+    "position": 11,
+    "column": "Final analyte concentration",
+    "parquet_column": "final_analyte_concentration",
+    "type": "string",
+    "values": "verbatim, units embedded",
+    "definition": "Analyte concentration in the presence of the interferent, with source units. Free text."
+  },
+  {
+    "position": 12,
+    "column": "Absolute change (as reported)",
+    "parquet_column": "absolute_change_as_reported",
+    "type": "string",
+    "values": "verbatim, units embedded",
+    "definition": "Absolute change printed by the source, in the source's units."
+  },
+  {
+    "position": 13,
+    "column": "Percentage change (as reported)",
+    "parquet_column": "percentage_change_as_reported",
+    "type": "string",
+    "values": "number or text",
+    "definition": "Relative change printed by the source, in percent."
+  },
+  {
+    "position": 14,
+    "column": "Absolute change (calculated)",
+    "parquet_column": "absolute_change_calculated",
+    "type": "string",
+    "values": "number or text",
+    "definition": "Absolute change derived from the baseline and final values in the source."
+  },
+  {
+    "position": 15,
+    "column": "Percentage change (calculated)",
+    "parquet_column": "percentage_change_calculated",
+    "type": "number",
+    "values": "percent",
+    "definition": "Relative change in percent derived from the baseline and final values. This is the primary machine-readable effect size (pct_change in the derived build)."
+  },
+  {
+    "position": 16,
+    "column": "Magnitude of change (verbatim from source)",
+    "parquet_column": "magnitude_of_change_verbatim_from_source",
+    "type": "string",
+    "values": "verbatim",
+    "definition": "The source's own wording for the size of the effect."
+  },
+  {
+    "position": 17,
+    "column": "Significant-bias threshold",
+    "parquet_column": "significant_bias_threshold",
+    "type": "string",
+    "values": "verbatim",
+    "definition": "The threshold the SOURCE STUDY used to call a bias significant (often a statistical test, sometimes a percentage, often not reported). Not the database APS."
+  },
+  {
+    "position": 18,
+    "column": "Clinical significance vs user APS",
+    "parquet_column": "clinical_significance_vs_user_aps",
+    "type": "string",
+    "values": "verbatim, contains the verdict",
+    "definition": "Whether the observed effect exceeds the analytical performance specification selected for this database. The verdict is parsed into aps_verdict in the derived build."
+  },
+  {
+    "position": 19,
+    "column": "Sample type",
+    "parquet_column": "sample_type",
+    "type": "string",
+    "values": "verbatim",
+    "definition": "Specimen used (whole blood, serum, plasma, pooled plasma, postmortem blood, body cavity fluid and so on)."
+  },
+  {
+    "position": 20,
+    "column": "Study method details",
+    "parquet_column": "study_method_details",
+    "type": "string",
+    "values": "verbatim",
+    "definition": "How the interference was produced and measured: spiking, in vivo exposure, patient samples, comparison arms."
+  },
+  {
+    "position": 21,
+    "column": "Physiologically realistic concentration?",
+    "parquet_column": "physiologically_realistic_concentration",
+    "type": "enum",
+    "values": "Yes / Partial / Borderline / Unclear / not reported",
+    "definition": "Appraisal: whether the interferent concentration tested can occur in patients."
+  },
+  {
+    "position": 22,
+    "column": "Study design appropriate?",
+    "parquet_column": "study_design_appropriate",
+    "type": "enum",
+    "values": "Appropriate / Partially appropriate / Inappropriate / Unclear / not reported",
+    "definition": "Appraisal of the study design for an interference claim."
+  },
+  {
+    "position": 23,
+    "column": "Clinically significant effect?",
+    "parquet_column": "clinically_significant_effect",
+    "type": "enum",
+    "values": "Yes / No / Partial / Unclear / not reported",
+    "definition": "Appraisal of whether the effect matters clinically."
+  },
+  {
+    "position": 24,
+    "column": "Real-world conditions reflected?",
+    "parquet_column": "real_world_conditions_reflected",
+    "type": "enum",
+    "values": "Yes / No / Partial / Unclear / not reported",
+    "definition": "Appraisal of how well the experiment reflects routine practice."
+  },
+  {
+    "position": 25,
+    "column": "Additional sources of bias",
+    "parquet_column": "additional_sources_of_bias",
+    "type": "string",
+    "values": "verbatim",
+    "definition": "Other biases the source reports or that are evident in it."
+  },
+  {
+    "position": 26,
+    "column": "Notes",
+    "parquet_column": "notes",
+    "type": "string",
+    "values": "verbatim",
+    "definition": "Free-text notes recorded during extraction."
+  },
+  {
+    "position": 27,
+    "column": "Citation",
+    "parquet_column": "citation",
+    "type": "string",
+    "values": "verbatim",
+    "definition": "Short citation plus the exact locator inside the source (page, table, figure). Often names the source PDF file."
+  },
+  {
+    "position": 28,
+    "column": "Full reference (from PDF)",
+    "parquet_column": "full_reference_from_pdf",
+    "type": "string",
+    "values": "verbatim",
+    "definition": "Full bibliographic reference as printed in the source document."
+  },
+  {
+    "position": 29,
+    "column": "doi",
+    "parquet_column": "doi_as_printed",
+    "type": "string",
+    "values": "DOI or 'not reported in the information source'",
+    "definition": "Digital Object Identifier of the source publication."
+  }
+]

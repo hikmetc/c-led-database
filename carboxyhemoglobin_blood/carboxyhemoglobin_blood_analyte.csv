@@ -1,0 +1,2 @@
+analyte_id,analyte_folder,component,system,kind_of_property,unit,aps_percent,aps_type,aps_note,synonyms,interferent_count,evidence_tables,evidence_rows
+cohb,carboxyhemoglobin_blood,Carboxyhemoglobin,Blood,Substance fraction of total haemoglobin,% of total haemoglobin,1.0,"allowable total error (relative), user-selected",1% is read as 1 percentage point of COHb saturation in several source studies.,Carboxyhaemoglobin; COHb; COHb%; carboxyhemoglobin saturation,27,20,2095

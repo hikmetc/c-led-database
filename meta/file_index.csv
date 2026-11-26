@@ -1,0 +1,118 @@
+analyte_folder,analyte_component,source_file,default_interferent_id,default_interferent,data_rows
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_bilirubin_20261026-1407_APS1_extraction_table.csv,cohb.bilirubin,"Hyperbilirubinemia (bilirubin, icteric sample)",9
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_blood-ph_20261026-1304_APS1_extraction_table.csv,cohb.blood_ph,Blood pH of the sample or analysis medium,7
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,cohb.body_cavity_fluid,Body cavity fluid used in place of blood,129
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_cell-free-hemoglobin_20261026-1046_APS1_extraction_table.csv,cohb.hemolysis,Hemolysis / cell-free hemoglobin,7
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_cyanocobalamin_20261026-1307_APS1_extraction_table.csv,cohb.cyanocobalamin,Cyanocobalamin,16
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,cohb.fetal_hemoglobin,Fetal hemoglobin (HbF),79
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_fluorescein_20261123-1459_APS1_extraction_table.csv,cohb.fluorescein,Fluorescein (sodium fluorescein),13
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_formalin-fixation_20261123-2027_APS1_extraction_table.csv,cohb.formalin_fixation,Formalin fixation / embalming (formaldehyde),29
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,cohb.heat_exposure,Heat exposure / thermal coagulation of blood,314
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_hemoglobin-based-oxygen-carriers_20261123-1536_APS1_extraction_table.csv,cohb.hboc,"Hemoglobin-based oxygen carriers (DCLHb, HemoLink, Apex PHP, rHb1.1, Oxyglobin)",35
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_hemoglobin-m-variants_20261026-1125_APS1_extraction_table.csv,cohb.hb_m_variants,"Hemoglobin M variants (Hb M Saskatoon, Hb M Hyde Park, Hb M Boston)",11
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,cohb.hydroxocobalamin,Hydroxocobalamin (Cyanokit),103
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,cohb.methemoglobin,Methemoglobin,162
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_methylene-blue_20261105-1058_APS1_extraction_table.csv,cohb.methylene_blue,Methylene blue,74
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_patent-blue-v_20261123-1418_APS1_extraction_table.csv,cohb.patent_blue_v,Patent blue V / isosulfan blue,21
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_perflubron-emulsion_20261123-2322_APS1_extraction_table.csv,cohb.perflubron,Perflubron emulsion (perfluorocarbon),13
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,cohb.putrefaction,Putrefaction / postmortem decomposition,677
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_sulfhemoglobin_20261023-1043_APS1_extraction_table.csv,cohb.sulfhemoglobin,Sulfhemoglobin,36
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,cohb.low_total_hemoglobin,Low total hemoglobin concentration,257
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,cohb.uncapped_storage,Uncapped storage / air headspace above the sample,103
+digoxin_serum,Digoxin,digoxin_DLIS_interference_APS3.csv,dig.dlis,Digoxin-like immunoreactive substances (DLIS),871
+digoxin_serum,Digoxin,digoxin_HAMA_interference_extraction.csv,dig.hama,Human anti-mouse / heterophilic antibodies (HAMA),52
+digoxin_serum,Digoxin,digoxin_ashwagandha_interference.csv,dig.ashwagandha,Ashwagandha (Withania somnifera),96
+digoxin_serum,Digoxin,digoxin_asian_ginseng_interference.csv,dig.asian_ginseng,Asian ginseng (Panax ginseng),128
+digoxin_serum,Digoxin,digoxin_bilirubin_interference.csv,dig.bilirubin,Bilirubin (icterus),13
+digoxin_serum,Digoxin,digoxin_biotin_interference_table.csv,dig.biotin,Biotin,35
+digoxin_serum,Digoxin,digoxin_canrenone_interference.csv,dig.canrenone,Canrenone,270
+digoxin_serum,Digoxin,digoxin_chansu_interference_29col.csv,dig.chan_su,Chan Su (toad venom preparation),18
+digoxin_serum,Digoxin,digoxin_convallatoxin_interference_extraction.csv,dig.convallatoxin,Convallatoxin / lily of the valley (Convallaria majalis),79
+digoxin_serum,Digoxin,digoxin_danshen_interference.csv,dig.danshen,Danshen (Salvia miltiorrhiza),356
+digoxin_serum,Digoxin,digoxin_digibind_interference.csv,dig.digoxin_immune_fab,Digoxin immune Fab (Digibind),197
+digoxin_serum,Digoxin,digoxin_digoxigenin_interference_APS3.csv,dig.digoxigenin,Digoxigenin and its mono- or bis-digitoxosides (digoxin metabolites),418
+digoxin_serum,Digoxin,digoxin_enzalutamide_interference.csv,dig.enzalutamide,Enzalutamide,24
+digoxin_serum,Digoxin,digoxin_free_kappa_interference.csv,dig.free_kappa,Free kappa light chains,23
+digoxin_serum,Digoxin,digoxin_glycoside_interference_table.csv,dig.cardiac_glycosides,Cardiac glycosides and digoxin metabolites (mixed),618
+digoxin_serum,Digoxin,digoxin_haemolysis_interference.csv,dig.hemolysis,Hemolysis (hemoglobin),44
+digoxin_serum,Digoxin,digoxin_hawthorn_interference_extraction.csv,dig.hawthorn,Hawthorn (Crataegus spp.),31
+digoxin_serum,Digoxin,digoxin_hydrocortisone_interference.csv,dig.hydrocortisone,Hydrocortisone / cortisol,18
+digoxin_serum,Digoxin,digoxin_lipemia_interference.csv,dig.lipemia,Lipemia (triglycerides),14
+digoxin_serum,Digoxin,digoxin_lushenwan_interference.csv,dig.lu_shen_wan,Lu-Shen-Wan (Chinese medicine),85
+digoxin_serum,Digoxin,digoxin_oleandrin_interference_extraction.csv,dig.oleandrin,Oleandrin / oleander extract,363
+digoxin_serum,Digoxin,digoxin_prednisolone_interference.csv,dig.prednisolone,Prednisolone,32
+digoxin_serum,Digoxin,digoxin_siberian_ginseng_interference.csv,dig.siberian_ginseng,Siberian ginseng (Eleutherococcus senticosus),120
+digoxin_serum,Digoxin,digoxin_spironolactone_interference_APS3.csv,dig.spironolactone,Spironolactone,398
+digoxin_serum,Digoxin,digoxin_uzara_interference_extraction.csv,dig.uzara,Uzara root extract (Xysmalobium undulatum),5
+inr_plasma,International Normalized Ratio (prothrombin time),INR_MNPT_interference_extraction.csv,inr.mnpt,Mean normal prothrombin time (MNPT) used in the INR calculation,116
+inr_plasma,International Normalized Ratio (prothrombin time),INR_bilirubin_interference_evidence_table.csv,inr.bilirubin,Bilirubin / icterus (conjugated and unconjugated),66
+inr_plasma,International Normalized Ratio (prothrombin time),INR_citrate_interference_extraction.csv,inr.citrate_concentration,Sodium citrate concentration of the collection tube (3.2% vs 3.8%),24
+inr_plasma,International Normalized Ratio (prothrombin time),INR_clotted-specimen_interference_extraction.csv,inr.clotted_specimen,Clotted specimen / micro-clots,15
+inr_plasma,International Normalized Ratio (prothrombin time),INR_hemolysis_PRIMARY.csv,inr.hemolysis,Hemolysis,41
+inr_plasma,International Normalized Ratio (prothrombin time),INR_high_haematocrit_interference_extraction.csv,inr.high_hematocrit,Elevated hematocrit / polycythemia,19
+inr_plasma,International Normalized Ratio (prothrombin time),INR_lipaemia_interference_extraction.csv,inr.lipemia,"Lipemia (intravenous lipid emulsion, triglycerides)",106
+inr_plasma,International Normalized Ratio (prothrombin time),INR_lupus_anticoagulant_interference_extraction.csv,inr.lupus_anticoagulant,Lupus anticoagulant,122
+inr_plasma,International Normalized Ratio (prothrombin time),INR_poor-mixing_interference_table.csv,inr.poor_mixing,Poor mixing of the collection tube,35
+inr_plasma,International Normalized Ratio (prothrombin time),INR_prolonged_storage_interference_extraction.csv,inr.prolonged_storage,Prolonged storage before analysis,192
+inr_plasma,International Normalized Ratio (prothrombin time),INR_thromboplastin_ISI_interference.csv,inr.thromboplastin_isi,Thromboplastin reagent sensitivity / ISI value and ISI verification,1443
+inr_plasma,International Normalized Ratio (prothrombin time),INR_underfill_PT_seconds_appendix.csv,inr.underfilled_tube,Underfilled citrate tube,52
+inr_plasma,International Normalized Ratio (prothrombin time),INR_venous_stasis_tourniquet_interference.csv,inr.venous_stasis,Venous stasis / prolonged tourniquet application,16
+inr_plasma,International Normalized Ratio (prothrombin time),daptomycin_INR_interference_extraction.csv,inr.daptomycin,Daptomycin,950
+inr_plasma,International Normalized Ratio (prothrombin time),inr_anticoagulant_contamination_extraction.csv,inr.anticoagulant_contamination,Anticoagulant contamination of the specimen (mixed),151
+inr_plasma,International Normalized Ratio (prothrombin time),inr_dabigatran_interference.csv,inr.dabigatran,Dabigatran (direct thrombin inhibitor),69
+inr_plasma,International Normalized Ratio (prothrombin time),inr_fxa_interference_extraction.csv,inr.fxa_inhibitors,Direct factor Xa inhibitors (mixed),77
+inr_plasma,International Normalized Ratio (prothrombin time),inr_heparin_interference_extraction.csv,inr.heparin_contamination,Heparin contamination of the specimen or line draw,142
+inr_plasma,International Normalized Ratio (prothrombin time),inr_temperature_interference.csv,inr.elevated_temperature,Elevated temperature / hyperthermia,51
+pco2_blood,Carbon dioxide partial pressure,pCO2_delayed_analysis_interference_extraction.csv,pco2.delayed_analysis,Delayed analysis at room temperature,33
+pco2_blood,Carbon dioxide partial pressure,pCO2_lipid_interference_extraction.csv,pco2.tpn_lipid,Total parenteral nutrition / lipid emulsion contamination,14
+pco2_blood,Carbon dioxide partial pressure,pco2_air_interference.csv,pco2.air_bubble,Air bubble / ambient-air contamination in the syringe,27
+pco2_blood,Carbon dioxide partial pressure,pco2_airbubble_30min_extraction.csv,pco2.air_bubble_30min,Air bubble trapped in the syringe for 30 min before expulsion,2
+pco2_blood,Carbon dioxide partial pressure,pco2_leukocytosis_interference.csv,pco2.leukocytosis,Leukocytosis (leukocyte larceny),14
+pco2_blood,Carbon dioxide partial pressure,pco2_liquidheparin_interference.csv,pco2.liquid_heparin,Liquid heparin (excess liquid heparin or heparinized saline),22
+pco2_blood,Carbon dioxide partial pressure,pco2_plastic_vs_glass_extraction.csv,pco2.syringe_material,Plastic versus glass sampling syringe (syringe material),26
+pco2_blood,Carbon dioxide partial pressure,pco2_pneumatic_tube_transport_extraction.csv,pco2.pneumatic_transport,Pneumatic tube transport,8
+ph_blood,pH,blood_pH_RT_delay_interference.csv,ph.delayed_analysis,Analysis delay at room temperature,58
+ph_blood,pH,blood_pH_TPN_lipid_D50_interference_extraction.csv,ph.tpn_lipid,Total parenteral nutrition / lipid emulsion contamination,16
+ph_blood,pH,blood_pH_air_interference.csv,ph.air_bubble,Air bubble / room-air contamination in the syringe,13
+ph_blood,pH,blood_pH_ethylene_glycol_interference.csv,ph.ethylene_glycol,Ethylene glycol,2
+ph_blood,pH,blood_pH_heparin_interference.csv,ph.liquid_heparin,Liquid heparin / liquid anticoagulant or diluent,10
+ph_blood,pH,blood_pH_ice_overchilling_interference.csv,ph.ice_overchilling,Direct ice contact / over-chilling of the syringe,13
+ph_blood,pH,blood_pH_sample_type_interference.csv,ph.wrong_sample_type,"Wrong sample type (peripheral or central venous, or capillary blood instead of arterial)",22
+ph_blood,pH,blood_pH_temperature_correction_extraction.csv,ph.patient_temperature,Patient temperature other than 37 C (temperature correction),18
+ph_blood,pH,blood_pH_venous_vs_arterial_interference.csv,ph.wrong_sample_type,"Wrong sample type (peripheral or central venous, or capillary blood instead of arterial)",26
+ph_blood,pH,leukocyte_larceny_pH_interference.csv,ph.leukocytosis,Leukocytosis (leukocyte larceny),4
+po2_blood,Oxygen partial pressure,enflurane_pO2_interference.csv,po2.enflurane,Enflurane (volatile anaesthetic),5
+po2_blood,Oxygen partial pressure,isoflurane_pO2_interference_extraction.csv,po2.isoflurane,Isoflurane (volatile anaesthetic),1
+po2_blood,Oxygen partial pressure,n2o_po2_interference.csv,po2.nitrous_oxide,Nitrous oxide,18
+po2_blood,Oxygen partial pressure,pO2_air_bubble_interference.csv,po2.air_bubble,Air bubble in the syringe,25
+po2_blood,Oxygen partial pressure,pO2_halothane_interference.csv,po2.halothane,Halothane (volatile anaesthetic),20
+po2_blood,Oxygen partial pressure,pO2_hemolysis_interference_extraction.csv,po2.hemolysis,Hemolysis,16
+po2_blood,Oxygen partial pressure,pO2_leukocyte_larceny_extraction.csv,po2.leukocytosis,Leukocytosis (leukocyte larceny),28
+po2_blood,Oxygen partial pressure,pO2_liquid_heparin_interference_table.csv,po2.liquid_heparin,Excess liquid heparin in the syringe,36
+po2_blood,Oxygen partial pressure,pO2_plastic_syringe_interference.csv,po2.syringe_material,Plastic versus glass sampling syringe (gas permeability of plastic),47
+po2_blood,Oxygen partial pressure,pO2_platelet_larceny_extraction.csv,po2.thrombocytosis,Thrombocytosis (platelet larceny),16
+po2_blood,Oxygen partial pressure,pO2_pneumatic_tube_interference_extraction.csv,po2.pneumatic_transport,Pneumatic tube transport,27
+po2_blood,Oxygen partial pressure,pO2_storage_RT_interference.csv,po2.delayed_analysis,Delayed analysis / storage time at room temperature,80
+po2_blood,Oxygen partial pressure,pO2_storage_temperature_interference_extraction.csv,po2.storage_temperature,Storage temperature (room temperature versus on ice),229
+potassium_serum,Potassium,Potassium_Hemolysis_interference.csv,k.hemolysis,Hemolysis,55
+potassium_serum,Potassium,Potassium_ReversePseudohyperkalemia_interference_table.csv,k.reverse_pseudohyperkalemia,Reverse pseudohyperkalemia,41
+potassium_serum,Potassium,potassium_chilling_interference.csv,k.cold_storage,Refrigerated or cold storage of whole blood before centrifugation,12
+potassium_serum,Potassium,potassium_collection_technique_extraction.csv,k.collection_device,Needle gauge / blood collection device,21
+potassium_serum,Potassium,potassium_delayed_centrifugation_extraction.csv,k.delayed_centrifugation,Delayed centrifugation / prolonged contact with cells or clot,13
+potassium_serum,Potassium,potassium_fist_clenching_interference.csv,k.fist_clenching,Handgrip (fist clenching) during venipuncture,12
+potassium_serum,Potassium,potassium_indirect_ISE_matrix_effect_extraction.csv,k.indirect_ise,"Indirect ISE electrolyte-exclusion matrix effect (elevated triglycerides, total protein, cholesterol)",27
+potassium_serum,Potassium,potassium_kEDTA_interference.csv,k.k_edta,K-EDTA (K2EDTA / K3EDTA) contamination or carryover,25
+potassium_serum,Potassium,potassium_leukocytosis_interference.csv,k.leukocytosis,Leukocytosis,57
+potassium_serum,Potassium,potassium_order_of_draw_extraction.csv,k.order_of_draw,Order of draw (serum tube drawn after an EDTA or heparin tube),10
+potassium_serum,Potassium,potassium_thrombocytosis_extraction.csv,k.thrombocytosis,Thrombocytosis,12
+potassium_serum,Potassium,potassium_tourniquet_application.csv,k.tourniquet_stasis,Tourniquet application / venous stasis,19
+troponin_serum,Cardiac troponin I and T,troponin_ALP_interference.csv,tn.alkaline_phosphatase,"Alkaline phosphatase, elevated endogenous",30
+troponin_serum,Cardiac troponin I and T,troponin_RF_interference.csv,tn.rheumatoid_factor,Rheumatoid factor,6
+troponin_serum,Cardiac troponin I and T,troponin_autoantibody_interference.csv,tn.troponin_autoantibodies,Troponin autoantibodies,62
+troponin_serum,Cardiac troponin I and T,troponin_biotin_interference_extraction.csv,tn.biotin,Biotin,239
+troponin_serum,Cardiac troponin I and T,troponin_fibrin_interference.csv,tn.fibrin,Fibrin clots / strands from incomplete separation,17
+troponin_serum,Cardiac troponin I and T,troponin_hemolysis_interference.csv,tn.hemolysis,Hemolysis (hemoglobin),246
+troponin_serum,Cardiac troponin I and T,troponin_heterophile_interference.csv,tn.heterophile_antibodies,Heterophile antibodies,28
+troponin_serum,Cardiac troponin I and T,troponin_lipemia_extraction.csv,tn.lipemia,Lipemia,9
+troponin_serum,Cardiac troponin I and T,troponin_macrotroponin_interference_table.csv,tn.macrotroponin,Macrotroponin,33
+troponin_serum,Cardiac troponin I and T,troponin_skeletalTnT_crossreactivity_extraction.csv,tn.skeletal_tnt,Skeletal muscle troponin T isoform cross-reactivity,9

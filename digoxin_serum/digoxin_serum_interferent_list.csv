@@ -1,0 +1,30 @@
+interferent_id,interferent,concept,evidence_rows
+dig.ashwagandha,Ashwagandha (Withania somnifera),herbal_supplement,96
+dig.asian_ginseng,Asian ginseng (Panax ginseng),herbal_supplement,128
+dig.bilirubin,Bilirubin (icterus),bilirubin,13
+dig.biotin,Biotin,biotin,35
+dig.bufalin,Bufalin (bufadienolide of toad venom preparations),cardiac_glycoside,49
+dig.canrenone,Canrenone,drug_cross_reactivity,465
+dig.cardiac_glycosides,Cardiac glycosides and digoxin metabolites (mixed),cardiac_glycoside,47
+dig.chan_su,Chan Su (toad venom preparation),herbal_supplement,18
+dig.convallatoxin,Convallatoxin / lily of the valley (Convallaria majalis),cardiac_glycoside,179
+dig.danshen,Danshen (Salvia miltiorrhiza),herbal_supplement,356
+dig.digitoxin,Digitoxin,cardiac_glycoside,143
+dig.digoxigenin,Digoxigenin and its mono- or bis-digitoxosides (digoxin metabolites),cardiac_glycoside,463
+dig.digoxin_immune_fab,Digoxin immune Fab (Digibind),antidote,197
+dig.dlis,Digoxin-like immunoreactive substances (DLIS),endogenous_substance,871
+dig.dihydrodigoxin,Dihydrodigoxin,cardiac_glycoside,144
+dig.enzalutamide,Enzalutamide,drug_cross_reactivity,24
+dig.free_kappa,Free kappa light chains,paraprotein,23
+dig.hawthorn,Hawthorn (Crataegus spp.),herbal_supplement,31
+dig.hemolysis,Hemolysis (hemoglobin),hemolysis,44
+dig.animal_immunoglobulin,"Heterologous animal immunoglobulin (goat or horse serum IgG, anti-lymphocyte globulin)",heterophilic_antibodies,24
+dig.hama,Human anti-mouse / heterophilic antibodies (HAMA),heterophilic_antibodies,28
+dig.hydrocortisone,Hydrocortisone / cortisol,steroid,18
+dig.lipemia,Lipemia (triglycerides),lipemia,14
+dig.lu_shen_wan,Lu-Shen-Wan (Chinese medicine),herbal_supplement,85
+dig.oleandrin,Oleandrin / oleander extract,cardiac_glycoside,453
+dig.prednisolone,Prednisolone,steroid,32
+dig.siberian_ginseng,Siberian ginseng (Eleutherococcus senticosus),herbal_supplement,120
+dig.spironolactone,Spironolactone,drug_cross_reactivity,203
+dig.uzara,Uzara root extract (Xysmalobium undulatum),herbal_supplement,5

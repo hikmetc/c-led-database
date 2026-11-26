@@ -1,0 +1,64 @@
+name: build-and-publish-data
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # A missing or inconsistent Parquet web layer is a hard failure in CI.
+      CLED_REQUIRE_PARQUET: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install build dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build the derived data layer and validate it
+        run: python3 scripts/build_all.py
+
+      - name: Audit evidence and references
+        run: python3 scripts/audit_evidence.py .
+
+      - name: Report sizes
+        run: |
+          echo "web deploy set:"; du -ch build/parquet build/analytes.json build/interferents.json build/stats.json | tail -1
+          echo "whole build/:";  du -sh build
+
+      # The web deploy set: the only data the website is allowed to publish.
+      - name: Upload the web data layer
+        uses: actions/upload-artifact@v4
+        with:
+          name: cled-web-data
+          path: |
+            build/parquet/
+            build/analytes.json
+            build/interferents.json
+            build/stats.json
+          retention-days: 30
+
+      # Generated data is never committed. On a published release the web layer is attached
+      # as a release asset instead (each asset may be up to 2 GiB; no total limit).
+      - name: Attach the data to the release
+        if: github.event_name == 'release'
+        run: |
+          cd build
+          zip -r ../cled-parquet.zip parquet analytes.json interferents.json stats.json
+          cd ..
+          gh release upload "${{ github.event.release.tag_name }}" cled-parquet.zip --clobber
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

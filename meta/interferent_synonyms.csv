@@ -1,0 +1,1134 @@
+analyte_folder,source_file,interferent_verbatim,interferent_id,rows
+carboxyhemoglobin_blood,carboxyhemoglobin_bilirubin_20261026-1407_APS1_extraction_table.csv,Bilirubin,cohb.bilirubin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_bilirubin_20261026-1407_APS1_extraction_table.csv,"Bilirubin (Sigma, in NaOH 1 M; spiked)",cohb.bilirubin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_bilirubin_20261026-1407_APS1_extraction_table.csv,Bilirubin (icteric serum; hyperbilirubinemia),cohb.bilirubin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_bilirubin_20261026-1407_APS1_extraction_table.csv,Hyperbilirubinemia,cohb.bilirubin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_bilirubin_20261026-1407_APS1_extraction_table.csv,Hyperbilirubinemia (icteric patients),cohb.bilirubin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_bilirubin_20261026-1407_APS1_extraction_table.csv,"Hyperbilirubinemia (patient 1, in vivo)",cohb.bilirubin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_bilirubin_20261026-1407_APS1_extraction_table.csv,"Hyperbilirubinemia (patient 2, in vivo)",cohb.bilirubin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_bilirubin_20261026-1407_APS1_extraction_table.csv,Hyperbilirubinemia (total bilirubin),cohb.bilirubin,2
+carboxyhemoglobin_blood,carboxyhemoglobin_blood-ph_20261026-1304_APS1_extraction_table.csv,pH (blood),cohb.blood_ph,1
+carboxyhemoglobin_blood,carboxyhemoglobin_blood-ph_20261026-1304_APS1_extraction_table.csv,pH (phosphate-buffered Hb solution pH 6.5 vs pH 7.4),cohb.blood_ph,4
+carboxyhemoglobin_blood,carboxyhemoglobin_blood-ph_20261026-1304_APS1_extraction_table.csv,pH (sample pH vs reference pH 8.6),cohb.blood_ph,1
+carboxyhemoglobin_blood,carboxyhemoglobin_blood-ph_20261026-1304_APS1_extraction_table.csv,pH of the analysis medium (pH 6.6 buffer vs 0.4% aqueous NH4OH),cohb.blood_ph,1
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,Ascites used in place of blood (CO poisoning not putrefied),cohb.ascitic_fluid,2
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,Ascites used in place of blood (No CO poisoning putrefied on land),cohb.ascitic_fluid,2
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,Bile used in place of blood (CO poisoning not putrefied),cohb.bile,1
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,"Blood-containing cavity fluid / putrefied blood (low tHb, oily droplets, MetHb, SHb) — simulated cavity fluid (tHb <4 g/dl)",cohb.low_total_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,Cavity blood used in place of blood in piglets with significant cavity breaches exposed to CO,cohb.body_cavity_fluid,1
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,Cavity or cardiac blood used in place of peripheral blood in fire deaths with cavity breaches (case review),cohb.body_cavity_fluid,1
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,"Chest cavity blood used in place of cardiac blood (Large breach, post-mortem CO exposure)",cohb.thoracic_cavity_fluid,1
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,"Chest cavity blood used in place of cardiac blood (Non-breached, post-mortem CO exposure)",cohb.thoracic_cavity_fluid,3
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,"Chest cavity blood used in place of cardiac blood (Small breach, post-mortem CO exposure)",cohb.thoracic_cavity_fluid,1
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,Low haemoglobin concentration typical of body cavity fluid (simulated by saline dilution of CO-saturated blood),cohb.low_total_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,Pericardial fluid used in place of blood (CO poisoning not putrefied),cohb.pericardial_fluid,30
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,Pericardial fluid used in place of blood (CO poisoning putrefied),cohb.pericardial_fluid,4
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,Pericardial fluid used in place of blood (No CO poisoning putrefied in water),cohb.pericardial_fluid,4
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,Pericardial fluid used in place of blood (No CO poisoning putrefied on land),cohb.pericardial_fluid,5
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,Pleural fluid used in place of blood (CO poisoning not putrefied),cohb.pleural_fluid,26
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,Pleural fluid used in place of blood (CO poisoning putrefied),cohb.pleural_fluid,11
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,Pleural fluid used in place of blood (No CO poisoning putrefied in water),cohb.pleural_fluid,6
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,Pleural fluid used in place of blood (No CO poisoning putrefied on land),cohb.pleural_fluid,12
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,Putrefying blood or blood-containing body cavity fluid with low tHb (1.0–3.0 g/dl) measured directly instead of normal blood,cohb.low_total_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,Thoracic cavity fluid (TCF) used in place of post-mortem blood,cohb.thoracic_cavity_fluid,15
+carboxyhemoglobin_blood,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,Thoracic cavity fluid (TCF) used in place of post-mortem blood — summary agreement,cohb.thoracic_cavity_fluid,1
+carboxyhemoglobin_blood,carboxyhemoglobin_cell-free-hemoglobin_20261026-1046_APS1_extraction_table.csv,Hemolysis (serial dilutions of hemolyzed blood; plasma hemoglobin),cohb.hemolysis,1
+carboxyhemoglobin_blood,carboxyhemoglobin_cell-free-hemoglobin_20261026-1046_APS1_extraction_table.csv,Hemolysis induced by needle shear stress,cohb.hemolysis,1
+carboxyhemoglobin_blood,carboxyhemoglobin_cell-free-hemoglobin_20261026-1046_APS1_extraction_table.csv,In vitro hemolysis (shear stress through 30-gauge needle),cohb.hemolysis,4
+carboxyhemoglobin_blood,carboxyhemoglobin_cell-free-hemoglobin_20261026-1046_APS1_extraction_table.csv,"Spurious hemolysis (mechanical, 0.5 mL insulin syringe with 30 gauge needle); cell-free hemoglobin",cohb.hemolysis,1
+carboxyhemoglobin_blood,carboxyhemoglobin_cyanocobalamin_20261026-1307_APS1_extraction_table.csv,"Cyanocobalamin (CNCbl), in vitro spike",cohb.cyanocobalamin,16
+carboxyhemoglobin_blood,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,"Fetal hemoglobin (%HbF, measured on Radiometer OSM3 %HbF mode)",cohb.fetal_hemoglobin,3
+carboxyhemoglobin_blood,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,Fetal hemoglobin (Hb F),cohb.fetal_hemoglobin,3
+carboxyhemoglobin_blood,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,Fetal hemoglobin (HbF),cohb.fetal_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,Fetal hemoglobin (HbF) from newborn routine samples,cohb.fetal_hemoglobin,3
+carboxyhemoglobin_blood,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,Fetal hemoglobin (HbF) in infant blood (HbF not measured; age as proxy),cohb.fetal_hemoglobin,4
+carboxyhemoglobin_blood,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,Fetal hemoglobin (HbF) in infant blood (HbF not measured; infant age as proxy),cohb.fetal_hemoglobin,44
+carboxyhemoglobin_blood,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,Fetal hemoglobin (HbF) in infant blood — effect of increased sodium dithionite reduction on HbF-interfered HbCO,cohb.fetal_hemoglobin,10
+carboxyhemoglobin_blood,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,Fetal hemoglobin (HbF) — neonatal blood analysed without HbF adjustment (HbA-mode) vs with HbF determination (HbF-mode),cohb.fetal_hemoglobin,3
+carboxyhemoglobin_blood,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,Fetal hemoglobin (cord blood) - O2 saturation difference between umbilical venous and arterial cord blood,cohb.fetal_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,Fetal hemoglobin (fetal blood) - influence of O2 saturation of fetal blood (0 to 100%),cohb.fetal_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,Fetal hemoglobin (significant HbF present),cohb.fetal_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,Fetal hemoglobin - HbO2/HbCO interference in fetal blood on IL 282 (artifact as recognized by Huch et al),cohb.fetal_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,Fetal hemoglobin - interference between HbO2 and HbCO of fetal blood on multiwavelength analysis (cord blood HbO2 in the vicinity of 50%),cohb.fetal_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,Oxygen saturation of foetal (cord) blood containing HbF (oxygenated foetal haemoglobin),cohb.fetal_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,Oxygenated foetal haemoglobin (HbF) in cord blood (oxygen saturation of foetal blood),cohb.fetal_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,"fetal hemoglobin (HbF%), in oxygenated blood (HbO2% over 80%)",cohb.fetal_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_fluorescein_20261123-1459_APS1_extraction_table.csv,"Fluorescein (FLUORESCEITE, Novartis), intravenous",cohb.fluorescein,1
+carboxyhemoglobin_blood,carboxyhemoglobin_fluorescein_20261123-1459_APS1_extraction_table.csv,"Fluorescein (フルオレセイン), intravenous",cohb.fluorescein,3
+carboxyhemoglobin_blood,carboxyhemoglobin_fluorescein_20261123-1459_APS1_extraction_table.csv,Fluorescein sodium (added in vitro),cohb.fluorescein,2
+carboxyhemoglobin_blood,carboxyhemoglobin_fluorescein_20261123-1459_APS1_extraction_table.csv,"Fluorescein, intravenous",cohb.fluorescein,5
+carboxyhemoglobin_blood,carboxyhemoglobin_fluorescein_20261123-1459_APS1_extraction_table.csv,"Sodium fluorescein (Fluorescite), intravenous",cohb.fluorescein,1
+carboxyhemoglobin_blood,carboxyhemoglobin_fluorescein_20261123-1459_APS1_extraction_table.csv,"Sodium fluorescein, intravenous",cohb.fluorescein,1
+carboxyhemoglobin_blood,carboxyhemoglobin_formalin-fixation_20261123-2027_APS1_extraction_table.csv,"Formaline (10% formaldehyde solution containing eosine) added to blood, as in embalming",cohb.formalin_fixation,29
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Acid or alkaline hematin (denatured hemoglobin pigments; heat not stated as cause),cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Alternative specimen in fire-related deaths: femoral vein blood vs heart blood (heart blood susceptible to CO exposure if body cavities open during burning),cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,"Alternative specimen: thoracic cavity fluid (TCF) vs post-mortem blood (used when blood unavailable, e.g. severe burns/charring deaths)",cohb.heat_exposure,16
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,"Body-cavity breaches (defects) in fire death cases, incl. heat-related skin splitting/cavity breaches",cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Burned bodies / heat-altered blood (Brandleichen),cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Fire/heat exposure (fire victims; heat denaturation discussed),cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Heat (storage of dried blood at elevated temperature),cohb.heat_exposure,4
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Heat denaturation / methemoglobin in fire victims (no analytical-effect data reported),cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Heat exposure / thermocoagulation of blood — burn-victim postmortem blood (method comparison),cohb.heat_exposure,8
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Heat exposure / thermocoagulation of blood — fire-victim postmortem blood,cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Heat exposure / thermocoagulation of blood — fire-victim postmortem blood (method comparison),cohb.heat_exposure,8
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Heat exposure / thermocoagulation of blood — postmortem blood incl. fire victims (method comparison),cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Heat exposure / thermocoagulation of blood — postmortem/fire-victim blood (method comparison; heat-related MetHb concern),cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Heat exposure / thermocoagulation of blood — thermocoagulated / heat-affected postmortem blood,cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Heat-exposed blood from fatal fire casualty (heat denaturation; % Met-Hb),cohb.heat_exposure,6
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,"Heating / thermal coagulation of blood (in vitro, water bath)",cohb.heat_exposure,26
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,"Heating of blood (in vitro, water bath)",cohb.heat_exposure,3
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Heating of dead body (CO-intoxicated guinea pig) in electric furnace / thermocoagulation of blood,cohb.heat_exposure,12
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,"Heating of dead body (CO-intoxicated guinea pig, low COHb) in electric furnace / thermocoagulation of blood",cohb.heat_exposure,2
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,"Heating of diluted vs undiluted blood (55 °C, 85 min)",cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,In-vitro heating / thermal coagulation of blood (thermally denatured coagulated blood),cohb.heat_exposure,6
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,In-vitro heating of blood,cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,In-vitro heating of blood (sealed tube),cohb.heat_exposure,18
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,In-vitro heating of blood (time course),cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,In-vitro heating of blood in test tube (water bath),cohb.heat_exposure,4
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,In-vitro heating of purified hemoglobin solution (sealed HS vial),cohb.heat_exposure,20
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Methemoglobin (MetHb) in postmortem blood (fire-death and other postmortem specimens) measured without dithionite pretreatment,cohb.heat_exposure,27
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Methemoglobin (MetHb) in postmortem blood incl. smoke/gas suffocation (burns) cases; heat-induced Hb denaturation discussed,cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Methemoglobin in postmortem blood (MetHb; heat exposure named in source as one cause of MetHb),cohb.heat_exposure,8
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Methemoglobin in postmortem blood (denatured-blood pigment; heat not stated as cause),cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Post-mortem CO exposure of bodies with significant cavity breaches (as in extensive stab/bullet wounds or heat defects),cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Post-mortem CO exposure with/without body-cavity breach (breaches replicate stab wounds or heat damage),cohb.heat_exposure,12
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Post-mortem exposure of cadavers to heat and smoke (fire),cohb.heat_exposure,4
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Postmortem blood from fire deaths (and non-fire deaths) at differing total Hb; CO-Oximetry vs GC reference (summary),cohb.heat_exposure,5
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Postmortem blood from fire deaths (and non-fire deaths) at low total Hb (saline dilution); CO-Oximetry vs GC reference,cohb.heat_exposure,101
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Sulfhemoglobin or sulfmethemoglobin (denatured-blood pigment; heat not stated as cause),cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Superficial charring / thermal coagulation of overlying muscle (post-mortem CO diffusion model),cohb.heat_exposure,5
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Thermal lesions in fire victims (postmortem COHb cases),cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Thermally coagulated blood from a burned (carbonized) fire victim (case report),cohb.heat_exposure,1
+carboxyhemoglobin_blood,carboxyhemoglobin_hemoglobin-based-oxygen-carriers_20261123-1536_APS1_extraction_table.csv,"Apex PHP (Apex Bioscience/Ajinomoto; pyridoxalated hemoglobin polyoxyethylene, expired human Hb)",cohb.hboc,7
+carboxyhemoglobin_blood,carboxyhemoglobin_hemoglobin-based-oxygen-carriers_20261123-1536_APS1_extraction_table.csv,"DCLHb (Baxter; dibromosalicylate bisfumarate alpha-chain cross-linked, expired human Hb)",cohb.hboc,7
+carboxyhemoglobin_blood,carboxyhemoglobin_hemoglobin-based-oxygen-carriers_20261123-1536_APS1_extraction_table.csv,"Hemolink (Hemosol; O-raffinose cross-linked polyhemoglobin, expired human Hb)",cohb.hboc,7
+carboxyhemoglobin_blood,carboxyhemoglobin_hemoglobin-based-oxygen-carriers_20261123-1536_APS1_extraction_table.csv,Oxyglobin (Biopure; glutaraldehyde-polymerized bovine Hb),cohb.hboc,7
+carboxyhemoglobin_blood,carboxyhemoglobin_hemoglobin-based-oxygen-carriers_20261123-1536_APS1_extraction_table.csv,"rHb1.1 (Hemoglobin Therapeutics/Baxter; recombinant human Hb, covalent alpha-chain dimers of Hb Presbyterian)",cohb.hboc,7
+carboxyhemoglobin_blood,carboxyhemoglobin_hemoglobin-m-variants_20261026-1125_APS1_extraction_table.csv,Hb M Boston (hereditary methaemoglobinaemia Boston),cohb.hb_m_variants,1
+carboxyhemoglobin_blood,carboxyhemoglobin_hemoglobin-m-variants_20261026-1125_APS1_extraction_table.csv,"Hb M Hyde Park (heterozygous carrier, beta-variant)",cohb.hb_m_variants,3
+carboxyhemoglobin_blood,carboxyhemoglobin_hemoglobin-m-variants_20261026-1125_APS1_extraction_table.csv,Hb M Saskatoon,cohb.hb_m_variants,1
+carboxyhemoglobin_blood,carboxyhemoglobin_hemoglobin-m-variants_20261026-1125_APS1_extraction_table.csv,Hb M Saskatoon (confirmed by amino acid sequencing),cohb.hb_m_variants,4
+carboxyhemoglobin_blood,carboxyhemoglobin_hemoglobin-m-variants_20261026-1125_APS1_extraction_table.csv,Hb M Saskatoon [HBB:c.190C > T p.His64Tyr],cohb.hb_m_variants,2
+carboxyhemoglobin_blood,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,Hydroxocobalamin,cohb.hydroxocobalamin,4
+carboxyhemoglobin_blood,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,"Hydroxocobalamin (B12a; hydroxocobalamin hydrochloride, Sigma Aldrich)",cohb.hydroxocobalamin,30
+carboxyhemoglobin_blood,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,Hydroxocobalamin (Cyanokit dosing),cohb.hydroxocobalamin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,Hydroxocobalamin (Cyanokit®),cohb.hydroxocobalamin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,Hydroxocobalamin (OHCbl),cohb.hydroxocobalamin,34
+carboxyhemoglobin_blood,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,"Hydroxocobalamin (OHCbl; Cyanokit, BTG International)",cohb.hydroxocobalamin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,"Hydroxocobalamin (OHCbl; hydroxocobalamin hydrochloride, Sigma)",cohb.hydroxocobalamin,16
+carboxyhemoglobin_blood,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,"Hydroxocobalamin (OHCo; CYANOKIT 5 g, Merck Serono)",cohb.hydroxocobalamin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,Hydroxocobalamin (OHCob),cohb.hydroxocobalamin,4
+carboxyhemoglobin_blood,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,Hydroxocobalamin (OHCob; Cyanokit),cohb.hydroxocobalamin,2
+carboxyhemoglobin_blood,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,"Hydroxocobalamin (OHCob; Cyanokit, Merck Santé)",cohb.hydroxocobalamin,9
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Hb M Saskatoon (unstable Hb M variant; 'unstable methemoglobinemia'),cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,HbM Hyde Park (methemoglobin forming beta-variant Hyde Park; heterozygous carrier),cohb.methemoglobin,3
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Hemoglobin M (HbM Saskatoon) variant (methemoglobinemia attributable to a HbM variant),cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,"Met-Hb (heat denaturation, fire casualty blood)",cohb.methemoglobin,6
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,"Met-Hb (purified Met-Hb solution / Met-Hb formed by heating, in vitro)",cohb.methemoglobin,10
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Met-Hb formed by heating (in vitro),cohb.methemoglobin,9
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,"MetHb (excess, decomposed blood)",cohb.methemoglobin,3
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,"MetHb (methemoglobinemia, propanil pesticide poisoning)",cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Methaemoglobin (MetHb) — samples flagged with high MetHb and/or high SHb warning,cohb.methemoglobin,10
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,"Methemoglobin (%MetHb, induced by IV sodium nitrite)",cohb.methemoglobin,2
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Methemoglobin (%MetHb; induced by intravenous sodium nitrite),cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Methemoglobin (MetHb) (prepared by sodium nitrite treatment of whole blood),cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Methemoglobin (MetHb) from decomposition/putrefaction,cohb.methemoglobin,5
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Methemoglobin (MetHb) from putrefaction/storage (not measured; removed by sodium dithionite in reduced arm),cohb.methemoglobin,52
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Methemoglobin (MetHb) from sodium nitrite/nitrate poisoning (methemoglobinemia),cohb.methemoglobin,5
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Methemoglobin (MetHb) in postmortem blood,cohb.methemoglobin,8
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Methemoglobin (MetHb) in postmortem blood (removed by sodium dithionite pretreatment),cohb.methemoglobin,27
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Methemoglobin (MetHb) in postmortem whole blood,cohb.methemoglobin,2
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Methemoglobin (MetHb) induced by sodium nitrite (NaNO2),cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Methemoglobin (MetHb) — postmortem interval / body decomposition (stated as known to increase MetHb); MetHb not measured,cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,"Methemoglobin (MetHb, blood CO-oximetry)",cohb.methemoglobin,3
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Methemoglobin (assessed by adding sodium dithionite as reducing agent vs no reducing agent),cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,"Methemoglobin (metHb, generated by oxidizing agent)",cohb.methemoglobin,2
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Methemoglobin measured by pulse oximetry (SpMet),cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,"NaNO2 (Natriumnitrit; nitrite, MetHb-forming agent per extraction brief)",cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Phosphine-produced dyshaemoglobin (methaemoglobin derivative / hemichrome) in aluminium phosphide poisoning; methaemoglobin saturation (SpMet),cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,methemoglobin (metHb),cohb.methemoglobin,2
+carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,"methemoglobin (metHb), estimated by Eq 9",cohb.methemoglobin,2
+carboxyhemoglobin_blood,carboxyhemoglobin_methylene-blue_20261105-1058_APS1_extraction_table.csv,Methylene blue,cohb.methylene_blue,1
+carboxyhemoglobin_blood,carboxyhemoglobin_methylene-blue_20261105-1058_APS1_extraction_table.csv,Methylene blue (MB),cohb.methylene_blue,72
+carboxyhemoglobin_blood,carboxyhemoglobin_methylene-blue_20261105-1058_APS1_extraction_table.csv,Methylene blue (MetBlue),cohb.methylene_blue,1
+carboxyhemoglobin_blood,carboxyhemoglobin_patent-blue-v_20261123-1418_APS1_extraction_table.csv,Isosulfan blue (related dye; not Patent Blue V),cohb.patent_blue_v,1
+carboxyhemoglobin_blood,carboxyhemoglobin_patent-blue-v_20261123-1418_APS1_extraction_table.csv,Patent Blue V (6 ml of 2.5%),cohb.patent_blue_v,1
+carboxyhemoglobin_blood,carboxyhemoglobin_patent-blue-v_20261123-1418_APS1_extraction_table.csv,Patent Blue V (PBV) sodium salt,cohb.patent_blue_v,9
+carboxyhemoglobin_blood,carboxyhemoglobin_patent-blue-v_20261123-1418_APS1_extraction_table.csv,Patent blue V dye (Guerbet BP 50400),cohb.patent_blue_v,2
+carboxyhemoglobin_blood,carboxyhemoglobin_patent-blue-v_20261123-1418_APS1_extraction_table.csv,Patent blue violet (PBV),cohb.patent_blue_v,8
+carboxyhemoglobin_blood,carboxyhemoglobin_perflubron-emulsion_20261123-2322_APS1_extraction_table.csv,Perflubron emulsion,cohb.perflubron,2
+carboxyhemoglobin_blood,carboxyhemoglobin_perflubron-emulsion_20261123-2322_APS1_extraction_table.csv,"Perflubron emulsion (AF0144, 600 g/L)",cohb.perflubron,4
+carboxyhemoglobin_blood,carboxyhemoglobin_perflubron-emulsion_20261123-2322_APS1_extraction_table.csv,"Perflubron emulsion (Oxygent, AF0144, 600 g/L)",cohb.perflubron,7
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Acid or alkaline hematin (denatured hemoglobin),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Advanced putrefaction (bloated/active decay; PMI approx. ten days; minimum PMI 6–13 days by entomology),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Bile matrix (cavity fluid other than blood; possible bilirubin interference) — non-putrefied CO poisoning case,cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Body decomposition (decomposed bodies excluded),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Body decomposition (decomposition of body apparent = Yes; postmortem interval 10.5 h),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Body decomposition (decomposition of body apparent = Yes; postmortem interval 22.0 h),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Body decomposition (decomposition of body apparent = Yes; postmortem interval 4.0 h),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Burial in earth grave 6 months December to May with ground frost until April (exhumation),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Decomposition (challenging/decomposed postmortem blood samples),cohb.putrefaction,4
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Decomposition (decomposed postmortem blood sample with excess MetHb),cohb.putrefaction,4
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Decomposition / putrefaction-related MetHb in spleen tissue (uncorrected, without reducing agent)",cohb.putrefaction,5
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Decomposition of autopsy blood (alteration of blood pigments) — narrative citing earlier literature (ref. 9),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Decrease in hemoglobin through an alteration process (case L) and/or incorrect sample collection/storage,cohb.postmortem_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Delay between sample collection and analysis (postmortem catabolism of erythrocytes / CO release from HbCO),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Exhumation after 2½ months of midsummer, dry earth burial",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Experimental heat denaturation and putrefaction of undenatured blood (threshold-setting samples),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,High turbidity of postmortem blood / blood-containing cavity fluid (CO-oximeter turbidity warning flagged),cohb.putrefaction,20
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Interferences in postmortem blood samples giving false-positive COHb (CHU Liège cases),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Low Hb concentration of postmortem body cavity fluid and concentration procedure (non-putrefied CO poisoning group; reference comparator for putrefaction effect),cohb.low_total_hemoglobin,60
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Low hemoglobin concentration (saline dilution of blood, simulating low-Hb cavity fluid)",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Low hemoglobin concentration followed by ultrafiltration concentration procedure,cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Low total haemoglobin (tHb) — saline-diluted blood simulating low-tHb putrefied fluids (CO-oximeter low tHb warning flagged),cohb.low_total_hemoglobin,9
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Low total hemoglobin (Hb) in postmortem blood (saline-diluted postmortem specimens),cohb.low_total_hemoglobin,108
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Lower hemoglobin concentration (e.g., anemia / alteration) used in back-calculation formula",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Methemoglobin (Eq 6 correction range),cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Methemoglobin (MetHb fraction higher than 30%),cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Methemoglobin (MetHb) induced by NaNO2 as a model of decomposition-related Hb oxidation,cohb.methemoglobin,6
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Methemoglobin (elevated MetHb in postmortem blood),cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Methemoglobin (high MetHb in postmortem whole blood) — literature case cited in this PDF (ref. 18),cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Methemoglobin (postmortem pigment), Eq 6 after Na2S2O4 reduction",cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Methemoglobin (postmortem pigment), uncorrected",cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Methemoglobin in decomposed postmortem blood — effect of adding sodium dithionite reducing agent (GC-FID),cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Other hemoglobin pigments in old or postmortem blood samples,cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Partial putrefaction (teilweise faules/putrides Blut) — reduced Hb content,cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Poor sample quality of postmortem blood (sample quality altered due to putrefaction or storage per Discussion),cohb.postmortem_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Post-mortem CO diffusion via body cavity breaches (defects) in fire deaths,cohb.postmortem_co_diffusion,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Post-mortem methemoglobin (Met-Hb) formation / post-mortem interference in fluid cadaveric blood,cohb.methemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Post-mortem passive CO diffusion/absorption into a body (CO exposure after death, with or without cavity breaches)",cohb.postmortem_co_diffusion,12
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Post-mortem thoracic cavity fluid matrix (dilute, low total haemoglobin) vs post-mortem blood",cohb.low_total_hemoglobin,15
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Post-mortem thoracic cavity fluid matrix vs post-mortem blood (summary, 10 evaluable pairs)",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Postmortem CO diffusion through tissues (ex vivo cadaver tissue exposure),cohb.postmortem_co_diffusion,25
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Postmortem CO formation by putrefaction of blood,cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Postmortem CO formation in putrefied bodies (decomposition of Hb, myoglobin and other proteins); body cavity fluids (cited literature, Kojima et al.)",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Postmortem changes (microbial CO production / erythrocyte catabolism), COHb dissociation during storage or PMI, dissolved CO",cohb.postmortem_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Postmortem decomposition (putrefaction) / elevated temperatures — effect on spectrophotometric COHb determination,cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Postmortem dissociation of COHb after vigorous artificial respiration (oxygen/Entonox) plus intravenous saline; blood from a site near the lungs (subclavian),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Postmortem dissociation of COHb after vigorous artificial respiration (oxygen/Entonox); blood from a site near the lungs (subclavian),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Postmortem interval (PMI) - possible postmortem CO formation/degradation,cohb.putrefaction,2
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Postmortem interval (PMI) in CO-related fatalities,cohb.putrefaction,6
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Postmortem interval and body decomposition (summary of 16 cases, 3 decomposed)",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Postmortem methemoglobin (MetHb) elevation in deteriorated/decomposed postmortem blood (loss of CO-binding capacity in GC-ratio method),cohb.methemoglobin,8
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Postmortem methemoglobin (MetHb) in postmortem blood (CO-Oximetry without sodium dithionite pretreatment),cohb.methemoglobin,27
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Postmortem sample quality (series including putrefied, carbonized and/or coagulated blood)",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Postmortem sample quality — samples with deviations (dilution, clots, turbidity, low hemoglobin concentration)",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Postmortem sample storage (frozen, -20°C) with preservative",cohb.postmortem_storage,36
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Putrefaction (20°C) — photometric quotients of non-reduced blood,cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Putrefaction (CO poisoning putrefied group) — postmortem CO production / Hb denaturation / fat droplets in cavity fluid,cohb.putrefaction,17
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefaction (also formalin fixation, burning); MetHb and total Hb changes in putrefied samples",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefaction (body found 4 days after death; blood stored at room temperature 15 days; 'black red, and smell terrible')",cohb.postmortem_storage,2
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Putrefaction (case A: found dead in house - putrefaction; blood disease (lymphoma) also reported),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefaction (faule, CO-freie Leichenblutproben)",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefaction (faulende Blutprobe), 4 weeks",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefaction (faules Blut) — protein denaturation, incomplete haemochromogen formation",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefaction (microbial CO production, erythrocyte catabolism, Hb decrease, turbidity/coagulates)",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefaction (putrefied heart blood, body found 4 months after death)",cohb.putrefaction,5
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefaction / decomposition (postmortem degradation, postmortem interval, hemolysis) — not evaluated",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Putrefaction / decomposition-related methemoglobin (MetHb): control aliquot without reducing agent vs sodium dithionite-reduced aliquot,cohb.methemoglobin,48
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Putrefaction / decomposition-related postmortem CO production,cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Putrefaction beyond the first weeks — first reduction quotient (Heilmeyer),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Putrefaction during storage at 20°C (loosely covered),cohb.postmortem_storage,2
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Putrefaction during storage at 6°C (loosely covered),cohb.postmortem_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefaction matrix interference: elevated MetHb and SHb, oily droplets/turbidity, low tHb in putrefied blood and cavity fluid",cohb.low_total_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Putrefaction of CO-free blood — postmortem CO formation (Neubildung),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefaction of tissues (liver, kidney, brain)",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefaction pigments (Hämatin; Met-Hb, Sulf-Hb, Hämochromogen) and pH shift in putrid blood",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefaction without CO poisoning, body recovered from water — postmortem CO formation (incl. bacterial) in cavity fluid",cohb.putrefaction,12
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefaction without CO poisoning, body recovered on land — postmortem CO formation in cavity fluid",cohb.putrefaction,21
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Putrefaction — low total haemoglobin (tHb) in putrefying blood / blood-containing body cavity fluid (CO-oximeter low tHb warning flagged),cohb.low_total_hemoglobin,10
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Putrefaction-related MetHb (all 48 shifted cases),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefaction-related MetHb (all 60 cases, paired comparison)",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefaction-related MetHb (classification change, 30% cut-off)",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Putrefaction-related MetHb (not-shifted cases: no change with reducing agent),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefaction-related MetHb (shifted cases, stratified by control COHb)",cohb.putrefaction,3
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Putrefaction-related MetHb — non-decomposed comparison case (control vs reduced),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Putrefaction: decomposing casework blood (tHb >4 g/dl) analysed after standard haemoglobin (ILQC2) addition,cohb.putrefaction,24
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Putrefaction: decomposing casework blood (tHb >4 g/dl) concentrated by centrifugal evaporation,cohb.putrefaction,2
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefaction: low tHb in simulated body cavity fluid (saline-diluted decomposing blood), corrected by centrifugal evaporation",cohb.low_total_hemoglobin,4
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefaction: low total haemoglobin (tHb) in simulated body cavity fluid (decomposing casework blood diluted with saline), corrected by standard haemoglobin (ILQC2) addition",cohb.low_total_hemoglobin,28
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefactive changes in blood/cavity fluids: low total hemoglobin, oily droplets, methaemoglobin (MetHb), sulphaemoglobin (SHb)",cohb.low_total_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Putrefactive pigments — high methaemoglobin (MetHb) and/or high sulphaemoglobin (SHb) (CO-oximeter warning flagged),cohb.methemoglobin,10
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefied blood blank control (no detectable HbCO, tHb <4 g/dl) after centrifugal evaporation (OSM3)",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Putrefied blood blank control (no detectable HbCO, tHb <4 g/dl) after standard haemoglobin addition (IL682)",cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Putrefied blood matrix (control standards),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Putrefied blood matrix (measurement uncertainty),cohb.putrefaction,5
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Sample storage (stability) at 4°C,cohb.postmortem_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Seriously denatured/autolyzed blood: acid or alkaline hematin or sulfhemoglobin more than 25% of total,cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Severe denaturation of blood (spectrum resembling heat-denatured sample) — decomposition/heat,cohb.putrefaction,3
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Severe denaturation of blood (spectrum resembling putrefied sample) — decomposition/heat,cohb.putrefaction,2
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Slight denaturation of blood by heat or putrefaction,cohb.putrefaction,9
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Storage at room temperature of (decomposed) specimens (cited literature, Hao et al.)",cohb.postmortem_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Storage handling: Freeze- and thaw-cycles — in vitro, non-postmortem",cohb.postmortem_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Storage handling: Reopening of sampling tubes — in vitro, non-postmortem",cohb.postmortem_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Storage of blood (time and temperature; samples described by authors as putrefied) at -20°C,cohb.postmortem_storage,8
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Storage of blood (time and temperature; samples described by authors as putrefied) at 17°C,cohb.postmortem_storage,8
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Storage of blood (time and temperature; samples described by authors as putrefied) at 4°C,cohb.postmortem_storage,8
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Storage of blood at room temperature,cohb.postmortem_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Storage of blood sample at ambient temperature for 45 h (COHb loss; cited literature, Chace et al.)",cohb.postmortem_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Storage of post-mortem blood at ambient temperature (22-25°C),cohb.postmortem_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Storage of postmortem blood (COHb loss during storage),cohb.postmortem_storage,2
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Storage of postmortem blood at 4°C for 2 years,cohb.postmortem_storage,2
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Storage of putrefied postmortem spleen (MetHb formation during storage) — result at autopsy vs non-reduced control at re-analysis,cohb.postmortem_storage,3
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Storage-related changes of blood samples (time, temperature, headspace/air exposure) — in vitro, non-postmortem",cohb.postmortem_storage,15
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,"Storage/putrefaction of CO blood in filled, tightly closed vessels (several months)",cohb.postmortem_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Storage/putrefaction of CO blood in half-filled vessels (headspace),cohb.postmortem_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Sulfhemoglobin or sulfmethemoglobin (putrefactive pigment),cohb.methemoglobin,2
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Turbidity (Trübungen) in blood diluted with ammonia — not putrefaction/post-mortem,cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_postmortem-putrefaction_20261123-2331_APS1_extraction_table.csv,Variable total Hb in postmortem/putrid blood (postmortale Entmischung),cohb.putrefaction,1
+carboxyhemoglobin_blood,carboxyhemoglobin_sulfhemoglobin_20261023-1043_APS1_extraction_table.csv,Sulfhaemoglobin (SulfHb),cohb.sulfhemoglobin,6
+carboxyhemoglobin_blood,carboxyhemoglobin_sulfhemoglobin_20261023-1043_APS1_extraction_table.csv,Sulfhemoglobin,cohb.sulfhemoglobin,3
+carboxyhemoglobin_blood,carboxyhemoglobin_sulfhemoglobin_20261023-1043_APS1_extraction_table.csv,Sulfhemoglobin (SHb),cohb.sulfhemoglobin,3
+carboxyhemoglobin_blood,carboxyhemoglobin_sulfhemoglobin_20261023-1043_APS1_extraction_table.csv,Sulfhemoglobin (SulfHb),cohb.sulfhemoglobin,8
+carboxyhemoglobin_blood,carboxyhemoglobin_sulfhemoglobin_20261023-1043_APS1_extraction_table.csv,Sulfhemoglobin (SulfHb) (in decomposed postmortem blood),cohb.sulfhemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_sulfhemoglobin_20261023-1043_APS1_extraction_table.csv,Sulfhemoglobin (or sulfmethemoglobin),cohb.sulfhemoglobin,2
+carboxyhemoglobin_blood,carboxyhemoglobin_sulfhemoglobin_20261023-1043_APS1_extraction_table.csv,Sulfhemoglobin (sulfHb) / carboxysulfhemoglobin formed by sodium dithionite,cohb.sulfhemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_sulfhemoglobin_20261023-1043_APS1_extraction_table.csv,Sulphaemoglobin (SHb),cohb.sulfhemoglobin,2
+carboxyhemoglobin_blood,carboxyhemoglobin_sulfhemoglobin_20261023-1043_APS1_extraction_table.csv,Sulphaemoglobin (SHb) — high MetHb and/or high SHb warning flag,cohb.sulfhemoglobin,10
+carboxyhemoglobin_blood,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,"Decreased total haemoglobin (blood disease, lymphoma, plus putrefaction) - hypothesised, Hb not measured",cohb.low_total_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,Dilution of blood sample (lower Hb concentration in measuring solution): 100-fold dilution with 10 mm cuvette,cohb.low_total_hemoglobin,6
+carboxyhemoglobin_blood,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,Dilution of blood sample (lower Hb concentration in measuring solution): 20-fold dilution with 2 mm cuvette,cohb.low_total_hemoglobin,6
+carboxyhemoglobin_blood,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,"Dilution of whole blood with Milli-Q water (1+1), lowering tHb",cohb.low_total_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,"Dilution of whole blood with Milli-Q water (1+4), lowering tHb",cohb.low_total_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,"Hemoglobin content (Hb concentration) reduced by thermal denaturation/coagulation (80 ℃, 45 min)",cohb.low_total_hemoglobin,6
+carboxyhemoglobin_blood,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,Low total haemoglobin (tHb) concentration (low tHb warning flag),cohb.low_total_hemoglobin,39
+carboxyhemoglobin_blood,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,Low total haemoglobin (tHb) corrected by centrifugal evaporation (concentration to raise tHb),cohb.low_total_hemoglobin,6
+carboxyhemoglobin_blood,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,Low total haemoglobin (tHb) corrected by standard haemoglobin addition (Hb-content correction; sample proportion in mixture),cohb.low_total_hemoglobin,52
+carboxyhemoglobin_blood,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,Specimen matrix: thoracic cavity fluid (lower-tHb matrix) vs blood reference,cohb.low_total_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,"Total Hb content (% Hb remaining in soluble fraction) after heat denaturation/coagulation (65 °C, 1 h)",cohb.low_total_hemoglobin,6
+carboxyhemoglobin_blood,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,"Total Hb content (% of Hb solution before heating) after heat denaturation (65 °C, 1 h) and centrifugal removal of precipitate",cohb.low_total_hemoglobin,5
+carboxyhemoglobin_blood,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,"Total haemoglobin (tHb) of specimen — thoracic cavity fluid (dilute, low-tHb matrix)",cohb.low_total_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,"Total haemoglobin (tHb) of specimen — thoracic cavity fluid (dilute, low-tHb matrix) vs blood reference",cohb.low_total_hemoglobin,15
+carboxyhemoglobin_blood,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,Total haemoglobin concentration (tHb) of the blood sample (Hb amount outside instrument range),cohb.low_total_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,Total haemoglobin concentration assumed in back-calculation (14 g/dL vs 10 g/dL; anaemia/blood disease or putrefaction lowering Hb),cohb.low_total_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,Total haemoglobin content of the sample (varies greatly in putrefied blood),cohb.low_total_hemoglobin,1
+carboxyhemoglobin_blood,carboxyhemoglobin_total-hemoglobin-concentration_20261026-1303_APS1_extraction_table.csv,Total hemoglobin (Hb) concentration (low Hb produced by saline dilution),cohb.low_total_hemoglobin,108
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"50% filled (partially filled) 4 mL Li-Hep tube (2 mL blood) vs filled Li-Hep tube (4 mL blood), both analysed immediately",cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,Air bubble in blood gas syringe (0.2 mL ambient air in 1.0 mL syringe; 0.8 mL blood) vs syringe completely filled with 1.0 mL blood,cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,Air contact during blood sampling (sampling without oil) vs comparator sampling under commercial oil (air-free),cohb.uncapped_storage,2
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,Air headspace (HS) volume in closed sampling tube (partially filled tube),cohb.uncapped_storage,6
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,Calibrant storage at 4-8°C up to 120 days (container closure not reported),cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Closed-storage comparator: untreated AA RBCC kept in its original sealed storage bag (NPT 6280LA quintuple bag kit, Macopharma), 4°C (bag permits passive gas equilibration per study)",cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,Closed-system storage comparator: stored donor blood in sealed sample side arm vs the donor unit (blood bag) itself,cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Closed/air-free storage comparator: 1 mL aliquots in airtight sealed plastic syringes (air removed, rubber cap on needle, syringes filled to total capacity) stored in ice water (0°C)",cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Closed/air-free storage comparator: 100-µL capillaries sealed at both ends with plastic plugs (Radiometer), stored at 20 °C",cohb.uncapped_storage,2
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Closed/air-free storage comparator: 100-µL capillaries sealed at both ends with plastic plugs (Radiometer), stored at 4 °C",cohb.uncapped_storage,2
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Closed/air-free storage comparator: AA RBCC treated with CO gas, transferred into new sealed storage bag with air bubbles carefully removed ('no free O₂ remained in the bags'), 4°C",cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Closed/air-free storage comparator: capillary tubes sealed with plastic plugs, stored and shipped at room temperature, analysed 4–8 days later on a different analyzer (vs immediate on-site analysis)",cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Closed/air-free storage comparator: capped BD PRESET syringe (1.5 mL arterial blood, air bubbles removed), stored at melting ice (+4 °C)",cohb.uncapped_storage,5
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Closed/air-free storage comparator: capped BD PRESET syringe (1.5 mL arterial blood, air bubbles removed), stored at room temperature",cohb.uncapped_storage,5
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Closed/air-free storage comparator: capped plastic blood gas syringe with no air bubbles, stored at room temperature (22–24 °C)",cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Closed/air-free storage comparator: capped plastic blood gas syringe with no air bubbles, stored at slushed ice (0.1–0.2 °C)",cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Closed/air-free storage comparator: sickle cell trait (AS) RBCC treated with CO gas then leukofiltered, transferred into new sealed storage bag with air bubbles carefully removed ('no free O₂ remained in the bags'), 4°C",cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,Comparator: closed storage — Vacutainer tube (sodium heparin) at 4-8°C over one year,cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Comparator: closed storage — sealed plastic tube, frozen (-20°C), unpreserved, thawed and refrozen at each measurement, over one year",cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,Comparator: closed storage — vacutainer blood sample 'properly stored in the laboratory',cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,Comparator: closed storage — well-capped containers at 4-8°C,cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Comparator: closed-tube storage (stoppered red-top tubes, 2 mL blood per tube; 'sealed tubes' per Discussion), refrigerated (4°C)",cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Comparator: closed-tube storage (stoppered red-top tubes, 2 mL blood per tube; 'sealed tubes' per Discussion), room temperature (22°C, laboratory bench)",cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Comparator: closed-tube storage during unrefrigerated shipping (stoppered red-top tubes, 2 mL blood; packages returned unopened)",cohb.uncapped_storage,6
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,Comparator: closed/air-free storage — whole blood stored under Sigma oil at 4°C,cohb.uncapped_storage,11
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,Comparator: closed/air-free storage — whole blood stored under Sigma oil at room temperature,cohb.uncapped_storage,16
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,Comparator: closed/air-free storage — whole blood stored under Sigma oil in the dark at 4°C,cohb.uncapped_storage,9
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,Comparator: storage in original capped 25 mL Sterilin tube at 4°C (reopened for aliquot withdrawal at Day 0 and at analysis),cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Comparator: storage of venous blood in filled 4 mL evacuated Li-Hep tubes at room temperature for 15, 30 and 60 min vs PICO syringe analysed immediately",cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Comparator: storage time in closed (capped) S-Monovette tubes, per day of storage (MLR, adjusted for HS volume, temperature, preservative)",cohb.uncapped_storage,3
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,Comparator: venous blood in filled 4 mL evacuated Li-Hep Vacutainer tube (no gel) analysed immediately vs safePICO syringe analysed immediately (closed systems),cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Diluted sample read in cuvette without oil, parafilm-sealed with 0.5-1.0 cm air headspace ('Flask' method) vs comparator diluted under oil layer, no air contact ('Cuvette' method, commercial oil)",cohb.uncapped_storage,2
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Partially filled (underfilled) 1.0 mL lithium-heparin blood gas syringe, filled with 0.25 mL blood vs 1.0 mL full filling",cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Partially filled (underfilled) 1.0 mL lithium-heparin blood gas syringe, filled with 0.5 mL blood vs 1.0 mL full filling",cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Partially filled container: 1 mL blood aliquoted into 1.5 mL Eppendorf caps (headspace not characterized or discussed by the study), frozen at −70 °C",cohb.uncapped_storage,4
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Partially filled secondary tube: 0.5 mL blood in 2.5 mL false bottom (FB) tube with screw cap (air headspace), storage at 4°C",cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,Repeated reopening of sampling tubes (air exposure) on each analysis day,cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Storage in capped glass syringes for several hours at room temperature, then aliquoted into open-ended glass capillary tubes (CONTROL-CAP) and analysed without delay (vs initial VEN analysis)",cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,Storage in loosely covered containers with putrefaction (CO-free samples; test for CO neoformation),cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Storage in not hermetically closed container (250 ml PVC container, loosely covered lid) at 6°C, with putrefaction",cohb.uncapped_storage,1
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Storage in not hermetically closed container (250 ml PVC container, loosely placed lid allowing gradual gas exchange) at 20°C, with putrefaction",cohb.uncapped_storage,2
+carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,Storage of venous blood in 50% filled 4 mL Li-Hep tubes (2 mL blood) at room temperature for 15 and 30 min vs filled tube analysed immediately,cohb.uncapped_storage,1
+digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS),dig.dlis,776
+digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS) - attributed by this study to endogenous steroid hormones,dig.dlis,3
+digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS) - endogenous steroid hormone Dehydroepiandrosterone,dig.dlis,1
+digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS) - endogenous steroid hormone Dehydroepiandrosterone proposed by this study as the identity of DLIS,dig.dlis,14
+digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS) - endogenous steroid hormone Dehydroepiandrosterone sulfate,dig.dlis,1
+digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS) - endogenous steroid hormone Dehydroepiandrosterone sulfate proposed by this study as the identity of DLIS,dig.dlis,14
+digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS) - endogenous steroid hormone Estradiol proposed by this study as the identity of DLIS,dig.dlis,14
+digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS) - endogenous steroid hormone Estriol proposed by this study as the identity of DLIS,dig.dlis,14
+digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS) - endogenous steroid hormone Hydrocortisone,dig.dlis,1
+digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS) - endogenous steroid hormone Hydrocortisone proposed by this study as the identity of DLIS,dig.dlis,14
+digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS) - endogenous steroid hormone Progesterone,dig.dlis,1
+digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS) - endogenous steroid hormone Progesterone proposed by this study as the identity of DLIS,dig.dlis,10
+digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS) - endogenous steroid hormone Testosterone,dig.dlis,1
+digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS) - endogenous steroid hormone Testosterone proposed by this study as the identity of DLIS,dig.dlis,7
+digoxin_serum,digoxin_HAMA_interference_extraction.csv,Anti-murine heterophilic antibodies / human 'anti-mouse' antibodies (HAMA),dig.hama,14
+digoxin_serum,digoxin_HAMA_interference_extraction.csv,Circulating endogenous (heterophilic) antibodies / human anti-animal antibodies,dig.hama,6
+digoxin_serum,digoxin_HAMA_interference_extraction.csv,Digoxin-like immunoreactive factor (DLIF) - negative control experiment within the anti-mouse antibody workup,dig.hama,2
+digoxin_serum,digoxin_HAMA_interference_extraction.csv,"Goat serum IgG (Vector Labs, Burlingame, CA) - exogenous heterologous animal immunoglobulin; NOT human anti-mouse antibody",dig.animal_immunoglobulin,6
+digoxin_serum,digoxin_HAMA_interference_extraction.csv,Goat-derived anti-lymphocyte globulin (ALG) - exogenous heterologous animal immunoglobulin (goat IgG); NOT human anti-mouse antibody,dig.animal_immunoglobulin,12
+digoxin_serum,digoxin_HAMA_interference_extraction.csv,"Horse serum IgG (Gibco, Grand Island, NY) - exogenous heterologous animal immunoglobulin; negative control; NOT human anti-mouse antibody",dig.animal_immunoglobulin,5
+digoxin_serum,digoxin_HAMA_interference_extraction.csv,Horse-derived anti-thymocyte globulin (ATG) administered in vivo - exogenous heterologous animal immunoglobulin; NOT human anti-mouse antibody,dig.animal_immunoglobulin,1
+digoxin_serum,digoxin_HAMA_interference_extraction.csv,Human antimouse antibody (HAMA),dig.hama,6
+digoxin_serum,digoxin_ashwagandha_interference.csv,"Ashwagandha (Indian Ayurvedic medicine); no product, brand or concentration specified",dig.ashwagandha,5
+digoxin_serum,digoxin_ashwagandha_interference.csv,"Ashwagandha (Withania somnifera) — named ""Indian ginseng"" in this PDF; liquid extract, Herb Pharmacy (Williams, OR); water-alcohol extract, 60%-65% alcohol",dig.ashwagandha,35
+digoxin_serum,digoxin_ashwagandha_interference.csv,"Ashwagandha (Withania somnifera), Indian product, liquid extract (supplied by Dr. Sengupta, Medical College and Hospital, Kolkata, India)",dig.ashwagandha,1
+digoxin_serum,digoxin_ashwagandha_interference.csv,"Ashwagandha (Withania somnifera), US product, liquid extract, Herb Pharm (Williams, Oregon)",dig.ashwagandha,1
+digoxin_serum,digoxin_ashwagandha_interference.csv,"Ashwagandha Brand 1 (Withania somnifera / Indian ginseng), Herb Pharm (Williams, OR); liquid extract in ethanol/water 60:40 by vol",dig.ashwagandha,6
+digoxin_serum,digoxin_ashwagandha_interference.csv,"Ashwagandha Brand 1 (Withania somnifera), Herb Pharm (Williams, OR); liquid extract in ethanol/water 60:40 by vol",dig.ashwagandha,24
+digoxin_serum,digoxin_ashwagandha_interference.csv,"Ashwagandha Brand 2 (Withania somnifera / Indian ginseng), Herbs etc (Santa Fe, New Mexico); liquid extract in ethanol/water 60:40 by vol",dig.ashwagandha,6
+digoxin_serum,digoxin_ashwagandha_interference.csv,"Ashwagandha Brand 2 (Withania somnifera), Herbs, etc. (Santa Fe, New Mexico); liquid extract in ethanol/water 60:40 by vol",dig.ashwagandha,18
+digoxin_serum,digoxin_asian_ginseng_interference.csv,Asian ginseng,dig.asian_ginseng,128
+digoxin_serum,digoxin_bilirubin_interference.csv,Bilirubin (icterus),dig.bilirubin,1
+digoxin_serum,digoxin_bilirubin_interference.csv,Bilirubin (icterus) - 'highly icteric' patient sera / 'high concentrations of ... bilirubin',dig.bilirubin,1
+digoxin_serum,digoxin_bilirubin_interference.csv,Bilirubin (icterus) - hepatic disease patients characterised by total bilirubin,dig.bilirubin,2
+digoxin_serum,digoxin_bilirubin_interference.csv,Bilirubin (icterus) - icteric patient serum,dig.bilirubin,2
+digoxin_serum,digoxin_bilirubin_interference.csv,Bilirubin (icterus) - native icteric patient serum / serum rich in bilirubin,dig.bilirubin,1
+digoxin_serum,digoxin_bilirubin_interference.csv,Bilirubin (icterus) - purified bilirubin added to the reaction mixture,dig.bilirubin,1
+digoxin_serum,digoxin_bilirubin_interference.csv,Bilirubin (icterus) - serum bilirubin in liver disease,dig.bilirubin,1
+digoxin_serum,digoxin_bilirubin_interference.csv,Bilirubin (icterus) - serum total bilirubin in liver disease,dig.bilirubin,1
+digoxin_serum,digoxin_bilirubin_interference.csv,Bilirubin (icterus) - severe icterus,dig.bilirubin,1
+digoxin_serum,digoxin_bilirubin_interference.csv,"Bilirubin (icterus), conjugated bilirubin",dig.bilirubin,2
+digoxin_serum,digoxin_biotin_interference_table.csv,Biotin,dig.biotin,35
+digoxin_serum,digoxin_canrenone_interference.csv,Canrenone,dig.canrenone,188
+digoxin_serum,digoxin_canrenone_interference.csv,Canrenone (co-administered in vitro with spironolactone or potassium canrenoate),dig.canrenone,70
+digoxin_serum,digoxin_canrenone_interference.csv,"Canrenone (in vivo, from potassium canrenoate 100 mg intravenously twice daily)",dig.canrenone,2
+digoxin_serum,digoxin_canrenone_interference.csv,"Canrenone (in vivo, from potassium canrenoate 200 mg intravenously three times daily)",dig.canrenone,1
+digoxin_serum,digoxin_canrenone_interference.csv,"Canrenone (in vivo, from potassium canrenoate therapy)",dig.canrenone,1
+digoxin_serum,digoxin_canrenone_interference.csv,"Canrenone (in vivo, generated from potassium canrenoate 100 mg IV twice daily)",dig.canrenone,3
+digoxin_serum,digoxin_canrenone_interference.csv,"Canrenone (in vivo, generated from potassium canrenoate therapy)",dig.canrenone,5
+digoxin_serum,digoxin_chansu_interference_29col.csv,"Chan Su (aqueous extract; ""prepared from the dried white secretion of the auricular glands and the skin glands of Chinese toads (Bufo melanostictus Schneider and Bufo bufo gargarzinas Gantor)"", p22; standard solution 1 mg/mL prepared in distilled water, p23)",dig.chan_su,18
+digoxin_serum,digoxin_convallatoxin_interference_extraction.csv,Convallatoxin,dig.convallatoxin,57
+digoxin_serum,digoxin_convallatoxin_interference_extraction.csv,Lily of the valley (Convallaria majalis) herb extract - convallatoxin-containing,dig.convallatoxin,22
+digoxin_serum,digoxin_danshen_interference.csv,Dan Shen (Chinese medicine prepared from the root of the Chinese medicinal plant Salvia miltiorrhiza),dig.danshen,7
+digoxin_serum,digoxin_danshen_interference.csv,Dan Shen (Danshen; prepared from the root of Salvia miltiorrhiza),dig.danshen,104
+digoxin_serum,digoxin_danshen_interference.csv,Dan Shen (prepared from the root of the Chinese medicinal plant Salvia militiorrhiza; Shanghai Chinese Botanical Works),dig.danshen,18
+digoxin_serum,digoxin_danshen_interference.csv,Dan Shen (traditional Chinese medicine prepared from the root of Salvia miltiorrhiza),dig.danshen,39
+digoxin_serum,digoxin_danshen_interference.csv,DanShen (Chinese medicine prepared from the root of Salvia miltiorrhiza),dig.danshen,170
+digoxin_serum,digoxin_danshen_interference.csv,Danshen (Chinese medicine prepared from the root of Salvia miltiorrhiza),dig.danshen,16
+digoxin_serum,digoxin_danshen_interference.csv,Ethyl acetate vehicle only (no Dan Shen) — solvent control for the Dan Shen supplementation series,dig.danshen,2
+digoxin_serum,digoxin_digibind_interference.csv,"Anti-digoxin Fab fragments (Digibind, Glaxo Wellcome)",dig.digoxin_immune_fab,2
+digoxin_serum,digoxin_digibind_interference.csv,"Digibind (Digoxin Immune FAB, Burroughs Wellcome)",dig.digoxin_immune_fab,6
+digoxin_serum,digoxin_digibind_interference.csv,"Digibind (anti-digoxin Fab fragments, Glaxo Wellcome)",dig.digoxin_immune_fab,64
+digoxin_serum,digoxin_digibind_interference.csv,"Digibind (digoxin immune Fab (ovine), Glaxo Wellcome)",dig.digoxin_immune_fab,1
+digoxin_serum,digoxin_digibind_interference.csv,"Digibind (digoxin immune Fab, ovine, Burroughs Wellcome)",dig.digoxin_immune_fab,15
+digoxin_serum,digoxin_digibind_interference.csv,Digibind (digoxin-specific Fab-fragments),dig.digoxin_immune_fab,8
+digoxin_serum,digoxin_digibind_interference.csv,"Digibind (digoxin-specific antibody Fab fragments, Burroughs-Wellcome)",dig.digoxin_immune_fab,20
+digoxin_serum,digoxin_digibind_interference.csv,"Digibind (digoxin-specific antigen-binding Fab fragments, Wellcome)",dig.digoxin_immune_fab,4
+digoxin_serum,digoxin_digibind_interference.csv,Digoxin antibody Fab fragments (Burroughs Wellcome 'Digoxin Anti-body F(ab)'),dig.digoxin_immune_fab,1
+digoxin_serum,digoxin_digibind_interference.csv,Digoxin antibody Fab fragments (equivalents added in vitro),dig.digoxin_immune_fab,2
+digoxin_serum,digoxin_digibind_interference.csv,"Digoxin immune Fab (Digibind, Burroughs Wellcome)",dig.digoxin_immune_fab,5
+digoxin_serum,digoxin_digibind_interference.csv,Digoxin immune Fab (ovine) (Digibind),dig.digoxin_immune_fab,50
+digoxin_serum,digoxin_digibind_interference.csv,Digoxin immune antigen binding fragments (Fab),dig.digoxin_immune_fab,5
+digoxin_serum,digoxin_digibind_interference.csv,Fab antibody fragments (Digoxin immune Fab (ovine)),dig.digoxin_immune_fab,2
+digoxin_serum,digoxin_digibind_interference.csv,Ovine Fab antibody fragments (digoxin-specific Fab),dig.digoxin_immune_fab,12
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Deslanoside,dig.digoxigenin,1
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digitoxin,dig.digitoxin,11
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digitoxin (DGTX),dig.digitoxin,5
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digitoxin (related cardiac glycoside),dig.digitoxin,3
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digitoxin (structurally similar cardiac glycoside / related glycoside),dig.digitoxin,8
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digitoxose (free sugar),dig.digoxigenin,1
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin,dig.digoxigenin,29
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin (DG),dig.digoxigenin,20
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin (DGG),dig.digoxigenin,5
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin (DGN),dig.digoxigenin,4
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin (Dx0),dig.digoxigenin,4
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin bis-digitoxide,dig.digoxigenin,2
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin bis-digitoxoside (DB),dig.digoxigenin,15
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin bis-digitoxoside (DGN-BD),dig.digoxigenin,4
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin bisdigitoxide,dig.digoxigenin,4
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin bisdigitoxoside,dig.digoxigenin,23
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin bisdigitoxoside (DB),dig.digoxigenin,5
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin bisdigitoxoside (Dx2),dig.digoxigenin,4
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin mono-digitoxide,dig.digoxigenin,2
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin mono-digitoxoside (DGN-MD),dig.digoxigenin,4
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin mono-digitoxoside (DM),dig.digoxigenin,15
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin monodigitoxide,dig.digoxigenin,4
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,"Digoxigenin monodigitoxide, bisdigitoxide, and dihydrodigoxin",dig.dihydrodigoxin,2
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin monodigitoxoside,dig.digoxigenin,24
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin monodigitoxoside (DM),dig.digoxigenin,5
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin monodigitoxoside (DMD),dig.digoxigenin,1
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin monodigitoxoside (Dx1),dig.digoxigenin,4
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,"Digoxigenin, digoxigenin-mono-digitoxoside and digoxigenin-bis-digitoxoside (trace amounts)",dig.digoxigenin,2
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin-bis-digitoxoside,dig.digoxigenin,1
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin-bis-digitoxoside (DBD),dig.digoxigenin,5
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin-bis-digitoxoside + digoxigenin monodigitoxoside + digoxigenin + dihydrodigoxin (all four added together),dig.dihydrodigoxin,2
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin-bisdigitoxide,dig.digoxigenin,4
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin-mono-digitoxoside (DMD),dig.digoxigenin,5
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxigenin-monodigitoxide,dig.digoxigenin,4
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxin (Dx3),dig.digoxigenin,4
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxin metabolites present in trace amounts: digoxigenin,dig.digoxigenin,1
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,"Digoxin metabolites present in trace amounts: digoxigenin, digoxigenin-mono-digitoxoside, digoxigenin-bis-digitoxoside",dig.digoxigenin,3
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxin metabolites present in trace amounts: digoxigenin-bis-digitoxoside,dig.digoxigenin,7
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Digoxin metabolites present in trace amounts: digoxigenin-mono-digitoxoside,dig.digoxigenin,4
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,"Digoxin metabolites present in trace amounts: digoxigenin-mono-digitoxoside, digoxigenin-bis-digitoxoside",dig.digoxigenin,1
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Dihydrodigoxigenin,dig.digoxigenin,2
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Dihydrodigoxigenin (DHDG),dig.digoxigenin,3
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Dihydrodigoxin,dig.dihydrodigoxin,24
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Dihydrodigoxin (DHD),dig.dihydrodigoxin,30
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Dihydrodigoxin (DihDx3),dig.dihydrodigoxin,4
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Gitoxin,dig.digoxigenin,2
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,"Glucuronide and/or sulfate conjugates of digoxigenin monodigitoxoside (cardioinactive conjugated digoxin metabolites), with digoxigenin bisdigitoxoside and digoxigenin",dig.digoxigenin,12
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,"Hydrolysed digoxin metabolites (digoxigenin, digoxigenin monodigitoxoside, digoxigenin-bis-digitoxoside) and R-dihydrodigoxin",dig.dihydrodigoxin,1
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Mixture of digoxigenin (DG),dig.digoxigenin,12
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Mixture of digoxigenin bisdigitoxoside (DB),dig.digoxigenin,4
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Mixture of digoxigenin bisdigitoxoside (DB) + digoxigenin monodigitoxoside (DM),dig.digoxigenin,12
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Mixture of digoxigenin bisdigitoxoside (DB) + digoxigenin monodigitoxoside (DM) + digoxigenin (DG),dig.digoxigenin,16
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,Mixture of digoxigenin monodigitoxoside (DM),dig.digoxigenin,4
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,"Mixture of digoxin (Dx3), digoxigenin bisdigitoxoside (Dx2), digoxigenin monodigitoxoside (Dx1), digoxigenin (Dx0) and dihydrodigoxin (DihDx3), each at a concentration equal to MDx3",dig.dihydrodigoxin,8
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,"Mixture of digoxin (Dx3), digoxigenin bisdigitoxoside (Dx2), digoxigenin monodigitoxoside (Dx1), digoxigenin (Dx0) and dihydrodigoxin (DihDx3), each at the stated concentration",dig.dihydrodigoxin,24
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,No digoxin metabolite detected in this subject's plasma,dig.digoxigenin,2
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,R-Dihydrodigoxin,dig.dihydrodigoxin,1
+digoxin_serum,digoxin_digoxigenin_interference_APS3.csv,beta-Methyldigoxin (B-MD),dig.digoxigenin,5
+digoxin_serum,digoxin_enzalutamide_interference.csv,Enzalutamide,dig.enzalutamide,24
+digoxin_serum,digoxin_free_kappa_interference.csv,Free kappa light chains,dig.free_kappa,23
+digoxin_serum,digoxin_glycoside_interference_table.csv,3-Keto-digoxigenin (digoxin metabolite),dig.digoxigenin,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,3alpha-Digoxigenin (digoxin metabolite),dig.digoxigenin,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,3beta-Digoxigenin (digoxin metabolite),dig.digoxigenin,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Bufalin (bufadienolide cardioactive constituent of the Chinese medicine Ch'an Su / Lu-Shen-Wan and of toad venom),dig.bufalin,48
+digoxin_serum,digoxin_glycoside_interference_table.csv,"Chan Su / Kyushin (active ingredient bufalin, a bufadienolide from Chinese toad venom)",dig.bufalin,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Combined digoxin metabolites: digoxigenin-bis-digitoxoside + digoxigenin monodigitoxoside + digoxigenin + dihydrodigoxin,dig.dihydrodigoxin,4
+digoxin_serum,digoxin_glycoside_interference_table.csv,Convallatoxin (principal cardiac glycoside of lily of the valley),dig.convallatoxin,47
+digoxin_serum,digoxin_glycoside_interference_table.csv,"Convallatoxin (principal cardiac glycoside of lily of the valley, Convallaria majalis)",dig.convallatoxin,19
+digoxin_serum,digoxin_glycoside_interference_table.csv,Deslanoside (cardiac glycoside from Digitalis lanata; digoxin plus an additional glucose residue; metabolised to digoxin in vivo),dig.cardiac_glycosides,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Deslanoside (structurally related cardiac glycoside; digoxin plus an additional glucose residue),dig.cardiac_glycosides,12
+digoxin_serum,digoxin_glycoside_interference_table.csv,"Digitoxin (""digotoxin"" as printed; structurally similar cardiac glycoside)",dig.digitoxin,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digitoxin (cardiac glycoside; partly hydrolysed to digoxin in vivo),dig.digitoxin,42
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digitoxin (structurally related cardiac glycoside),dig.digitoxin,2
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digitoxin (structurally related cardiac glycoside; differs from digoxin only by absence of the C-12 hydroxyl group),dig.digitoxin,12
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digitoxin (structurally similar cardiac glycoside),dig.digitoxin,59
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin (DG) (digoxin metabolite),dig.digoxigenin,18
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin (digoxin hydrolysis metabolite),dig.digoxigenin,2
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin (digoxin metabolite),dig.digoxigenin,18
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin (digoxin metabolite; also the hapten used to build the enzyme tracer in this assay),dig.digoxigenin,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin 3-glucuronide (polar digoxin metabolite),dig.digoxigenin,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin 3-sulfate (polar digoxin metabolite),dig.digoxigenin,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin bis-digitoxide (digoxin hydrolysis metabolite),dig.digoxigenin,2
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin bis-digitoxoside (DB) (digoxin metabolite),dig.digoxigenin,12
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin bis-digitoxoside (digoxin metabolite),dig.digoxigenin,3
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin bisdigitoxoside (DB) (digoxin metabolite),dig.digoxigenin,5
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin bisdigitoxoside (DBD) (digoxin metabolite),dig.digoxigenin,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin mono-digitoxide (digoxin hydrolysis metabolite),dig.digoxigenin,2
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin mono-digitoxoside (DM) (digoxin metabolite),dig.digoxigenin,12
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin monodigitoxoside (DM) (digoxin metabolite),dig.digoxigenin,5
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin monodigitoxoside (DMD) (digoxin metabolite),dig.digoxigenin,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin monodigitoxoside (digoxin metabolite),dig.digoxigenin,4
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin-bis-digitoxoside (digoxin metabolite),dig.digoxigenin,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin-bisdigitoxoside (digoxin metabolite),dig.digoxigenin,12
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxigenin-monodigitoxoside (digoxin metabolite),dig.digoxigenin,12
+digoxin_serum,digoxin_glycoside_interference_table.csv,"Digoxin metabolites (digoxigenin, digoxigenin monodigitoxoside, digoxigenin bisdigitoxoside and dihydrodigoxin)",dig.dihydrodigoxin,2
+digoxin_serum,digoxin_glycoside_interference_table.csv,"Digoxin metabolites (hydrolysed and reduced), as a possible cause of proportional immunoassay bias in patients",dig.cardiac_glycosides,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,"Digoxin metabolites (in patients with renal, liver or diabetic disease)",dig.cardiac_glycosides,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Digoxin metabolites (urinary recovery data),dig.cardiac_glycosides,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Dihydrodigoxigenin (digoxin metabolite),dig.digoxigenin,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Dihydrodigoxin (DHD) (digoxin metabolite),dig.dihydrodigoxin,18
+digoxin_serum,digoxin_glycoside_interference_table.csv,Dihydrodigoxin (digoxin metabolite),dig.dihydrodigoxin,21
+digoxin_serum,digoxin_glycoside_interference_table.csv,Dihydrodigoxin (major digoxin reduction metabolite),dig.dihydrodigoxin,2
+digoxin_serum,digoxin_glycoside_interference_table.csv,"Immunoreactive digoxin metabolites (mainly the more-polar metabolites) plus any endogenous digitalis-like factors, measured as the 15% isopropanol fraction",dig.cardiac_glycosides,4
+digoxin_serum,digoxin_glycoside_interference_table.csv,"Immunoreactive digoxin metabolites (sum, as the 15% isopropanol fraction) plus any endogenous digitalis-like factors",dig.cardiac_glycosides,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Immunoreactive digoxin metabolites plus endogenous digitalis-like factors (15% isopropanol fraction),dig.cardiac_glycosides,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Immunoreactive digoxin metabolites remaining after C18 clean-up (mainly the bis-digitoxoside plus unidentified pre- and post-digoxin peaks),dig.cardiac_glycosides,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Lanatoside (structurally related cardiac glycoside: didigitoxose-acetyldigitoxose-glucose),dig.cardiac_glycosides,12
+digoxin_serum,digoxin_glycoside_interference_table.csv,Lily of the valley (Convallaria majalis) herbal extract,dig.convallatoxin,27
+digoxin_serum,digoxin_glycoside_interference_table.csv,Lily of the valley (Convallaria majalis) herbal extract - digoxin-like immunoreactive cardiac glycosides,dig.convallatoxin,6
+digoxin_serum,digoxin_glycoside_interference_table.csv,Lily of the valley extract (active ingredient convallatoxin),dig.convallatoxin,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Mixture of digoxin metabolites: digoxigenin,dig.digoxigenin,12
+digoxin_serum,digoxin_glycoside_interference_table.csv,Mixture of digoxin metabolites: digoxigenin bisdigitoxoside,dig.digoxigenin,4
+digoxin_serum,digoxin_glycoside_interference_table.csv,"Mixture of digoxin metabolites: digoxigenin bisdigitoxoside, digoxigenin monodigitoxoside",dig.digoxigenin,12
+digoxin_serum,digoxin_glycoside_interference_table.csv,"Mixture of digoxin metabolites: digoxigenin bisdigitoxoside, digoxigenin monodigitoxoside, digoxigenin",dig.digoxigenin,16
+digoxin_serum,digoxin_glycoside_interference_table.csv,Mixture of digoxin metabolites: digoxigenin monodigitoxoside,dig.digoxigenin,4
+digoxin_serum,digoxin_glycoside_interference_table.csv,None (digoxin-only patients; comparator row establishing the assay's baseline agreement),dig.cardiac_glycosides,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Oleander (Nerium oleander) ethanolic leaf extract - digoxin-like immunoreactive cardiac glycosides,dig.oleandrin,18
+digoxin_serum,digoxin_glycoside_interference_table.csv,Oleander (active ingredient oleandrin),dig.oleandrin,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,Oleandrin (major cardiac glycoside of Nerium oleander),dig.oleandrin,23
+digoxin_serum,digoxin_glycoside_interference_table.csv,Oleandrin (major cardiac glycoside of the oleander plant),dig.oleandrin,48
+digoxin_serum,digoxin_glycoside_interference_table.csv,"Polar digoxin metabolites (retention time shorter than the digitoxigenins, including the glucuronide conjugate of epidigoxigenin, isolated from patient urine)",dig.digoxigenin,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,"Qiliqiangxin capsule (QLQX) cardiac glycosides: periplocin, periplocymarin and periplogenin (from Periploca cortex and Semen descurainiae lepidii)",dig.cardiac_glycosides,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,R-Dihydrodigoxin (digoxin metabolite),dig.dihydrodigoxin,1
+digoxin_serum,digoxin_glycoside_interference_table.csv,beta-Digoxigenin (digoxin metabolite),dig.digoxigenin,2
+digoxin_serum,digoxin_glycoside_interference_table.csv,"beta-Methyldigoxin (structurally related cardiac glycoside), present together with digoxin in a digitalis-treated patient",dig.cardiac_glycosides,5
+digoxin_serum,digoxin_glycoside_interference_table.csv,beta-Methyldigoxin (structurally related cardiac glycoside; digoxin is formed from this compound in vivo),dig.cardiac_glycosides,5
+digoxin_serum,digoxin_haemolysis_interference.csv,"""Ordinary"" hemolysis (serum Hb concn)",dig.hemolysis,7
+digoxin_serum,digoxin_haemolysis_interference.csv,"Gross hemolysis (Hb, 4 g/liter)",dig.hemolysis,8
+digoxin_serum,digoxin_haemolysis_interference.csv,Haemolysis (cell-free hemoglobin),dig.hemolysis,4
+digoxin_serum,digoxin_haemolysis_interference.csv,Haemolysis (haemolytic samples),dig.hemolysis,1
+digoxin_serum,digoxin_haemolysis_interference.csv,"Haemolysis (haemolytic serum, HB 6,2 g-%)",dig.hemolysis,2
+digoxin_serum,digoxin_haemolysis_interference.csv,"Hemoglobin (HBOC-201, glutaraldehyde-polymerized bovine hemoglobin)",dig.hemolysis,1
+digoxin_serum,digoxin_haemolysis_interference.csv,"Hemoglobin (bovine polymerized Hb-based oxygen carrier, HBOC, measured as plasma Hb)",dig.hemolysis,1
+digoxin_serum,digoxin_haemolysis_interference.csv,Hemoglobin (grossly hemolysed serum),dig.hemolysis,1
+digoxin_serum,digoxin_haemolysis_interference.csv,Hemoglobin (human red cell hemolysate),dig.hemolysis,10
+digoxin_serum,digoxin_haemolysis_interference.csv,Hemolysis (grossly bloody suspension of stirred clot),dig.hemolysis,1
+digoxin_serum,digoxin_haemolysis_interference.csv,Hemolysis (hemoglobin),dig.hemolysis,7
+digoxin_serum,digoxin_haemolysis_interference.csv,Hemolysis / hemoglobin,dig.hemolysis,1
+digoxin_serum,digoxin_hawthorn_interference_extraction.csv,Hawthorn (Crataegus oxyacantha) - Crataegus special extract WS 1442,dig.hawthorn,10
+digoxin_serum,digoxin_hawthorn_interference_extraction.csv,"Hawthorn (Crataegus spp.) extract, ""such high concentrations of hawthorn""",dig.hawthorn,1
+digoxin_serum,digoxin_hawthorn_interference_extraction.csv,Hawthorn (Crataegus spp.) liquid extract,dig.hawthorn,18
+digoxin_serum,digoxin_hawthorn_interference_extraction.csv,Hawthorn - Crataegus mexicana (tejocote) root extract,dig.hawthorn,1
+digoxin_serum,digoxin_hawthorn_interference_extraction.csv,Hawthorn - Crataegus mexicana (tejocote) root weight-loss supplement,dig.hawthorn,1
+digoxin_serum,digoxin_hydrocortisone_interference.csv,Cortisol (hydrocortisone),dig.hydrocortisone,7
+digoxin_serum,digoxin_hydrocortisone_interference.csv,Hydrocortisone,dig.hydrocortisone,11
+digoxin_serum,digoxin_lipemia_interference.csv,Lipemia (Intralipid-spiked; triglyceride),dig.lipemia,1
+digoxin_serum,digoxin_lipemia_interference.csv,Lipemia (Intralipid-supplemented; triglycerides),dig.lipemia,1
+digoxin_serum,digoxin_lipemia_interference.csv,Lipemia (lipemic patients' sera),dig.lipemia,1
+digoxin_serum,digoxin_lipemia_interference.csv,Lipemia (lipemic-appearing plasma produced by Perflubron perfluorocarbon emulsion; 'lipemic index' 35 on the Hitachi 747),dig.lipemia,1
+digoxin_serum,digoxin_lipemia_interference.csv,Lipemia (lipid),dig.lipemia,1
+digoxin_serum,digoxin_lipemia_interference.csv,Lipemia (native lipemic human sera; triglycerides),dig.lipemia,1
+digoxin_serum,digoxin_lipemia_interference.csv,Lipemia (triglyceride),dig.lipemia,2
+digoxin_serum,digoxin_lipemia_interference.csv,Lipemia (triglycerides / chylomicrons),dig.lipemia,2
+digoxin_serum,digoxin_lipemia_interference.csv,Lipemia (triglycerides),dig.lipemia,4
+digoxin_serum,digoxin_lushenwan_interference.csv,Lu-Shen-Wan,dig.lu_shen_wan,85
+digoxin_serum,digoxin_oleandrin_interference_extraction.csv,"Nerium oleander leaf ingestion in vivo (oleandrin not measured - ""Blood oleandrin levels may correlate more closely with severity of toxicosis; however, this test was unavailable"", p142)",dig.oleandrin,1
+digoxin_serum,digoxin_oleandrin_interference_extraction.csv,"Oleander extract (crude ethanol extract of dry oleander leaves, 13.5 mg total cardenolides per gram)",dig.oleandrin,1
+digoxin_serum,digoxin_oleandrin_interference_extraction.csv,Oleander extract (ethanol/methanol extract of oleander leaf; oleandrin is the active component),dig.oleandrin,66
+digoxin_serum,digoxin_oleandrin_interference_extraction.csv,Oleander extract (ethyl alcohol extract of oleander leaf; oleandrin is the active component),dig.oleandrin,90
+digoxin_serum,digoxin_oleandrin_interference_extraction.csv,Oleander leaf ingestion in vivo (oleandrin among the cardenolides; individual oleandrin concentration not measured),dig.oleandrin,2
+digoxin_serum,digoxin_oleandrin_interference_extraction.csv,Oleandrin,dig.oleandrin,202
+digoxin_serum,digoxin_oleandrin_interference_extraction.csv,Oleandrin (pure),dig.oleandrin,1
+digoxin_serum,digoxin_prednisolone_interference.csv,Prednisolone (PRE),dig.prednisolone,32
+digoxin_serum,digoxin_siberian_ginseng_interference.csv,Siberian ginseng,dig.siberian_ginseng,3
+digoxin_serum,digoxin_siberian_ginseng_interference.csv,"Siberian ginseng (Z-T brand liquid extract, manufactured in China, distributed by Z-T Universal Inc, Glen Head, NY)",dig.siberian_ginseng,30
+digoxin_serum,digoxin_siberian_ginseng_interference.csv,"Siberian ginseng (Z-T brand liquid extract, manufactured in China, distributed by Z-T Universal, Glen Head, NY)",dig.siberian_ginseng,27
+digoxin_serum,digoxin_siberian_ginseng_interference.csv,"Siberian ginseng (Z-T brand liquid extract, manufactured in China, distributed by Z-T Universal, Glen Head, NY) + Digibind (Fab fragment of antidigoxin antibody, Burroughs Wellcome)",dig.siberian_ginseng,1
+digoxin_serum,digoxin_siberian_ginseng_interference.csv,"Siberian ginseng (brand S1, capsule; Rexall Sundown, Boca Raton, FL)",dig.siberian_ginseng,23
+digoxin_serum,digoxin_siberian_ginseng_interference.csv,"Siberian ginseng (brand S2, capsule; Root to Health, Wausau, WI)",dig.siberian_ginseng,5
+digoxin_serum,digoxin_siberian_ginseng_interference.csv,"Siberian ginseng (brand S3, liquid extract; manufactured in China, distributed by Z.T. Universal, Glen Head, NY)",dig.siberian_ginseng,23
+digoxin_serum,digoxin_siberian_ginseng_interference.csv,Siberian ginseng (brand not stated in the abstract),dig.siberian_ginseng,1
+digoxin_serum,digoxin_siberian_ginseng_interference.csv,Siberian ginseng (liquid extract; brand not stated in this passage),dig.siberian_ginseng,4
+digoxin_serum,digoxin_siberian_ginseng_interference.csv,Siberian ginseng (patient-ingested; product/dose not stated),dig.siberian_ginseng,1
+digoxin_serum,digoxin_siberian_ginseng_interference.csv,"Siberian ginseng capsules (brand, strength and dose not stated)",dig.siberian_ginseng,2
+digoxin_serum,digoxin_spironolactone_interference_APS3.csv,Canrenone (active metabolite of spironolactone),dig.canrenone,171
+digoxin_serum,digoxin_spironolactone_interference_APS3.csv,Spironolactone,dig.spironolactone,203
+digoxin_serum,digoxin_spironolactone_interference_APS3.csv,Spironolactone 100 ng/mL + canrenone 200 ng/mL (combination),dig.canrenone,4
+digoxin_serum,digoxin_spironolactone_interference_APS3.csv,Spironolactone 100 ng/mL + canrenone 250 ng/mL (combination),dig.canrenone,2
+digoxin_serum,digoxin_spironolactone_interference_APS3.csv,Spironolactone 1000 ng/mL + canrenone 1000 ng/mL (combination),dig.canrenone,6
+digoxin_serum,digoxin_spironolactone_interference_APS3.csv,Spironolactone 200 ng/mL + canrenone 500 ng/mL (combination),dig.canrenone,10
+digoxin_serum,digoxin_spironolactone_interference_APS3.csv,Spironolactone 50 ng/mL + canrenone 100 ng/mL (combination),dig.canrenone,2
+digoxin_serum,digoxin_uzara_interference_extraction.csv,Uzara root (Xysmalobium undulatum) - cardenolide glycosides,dig.uzara,1
+digoxin_serum,digoxin_uzara_interference_extraction.csv,Uzara root extract (Uzara Liquid N / Uzara Losüng N; dry extract of Uzarae radix),dig.uzara,2
+digoxin_serum,digoxin_uzara_interference_extraction.csv,Uzara root extract (uzara glycosides),dig.uzara,1
+digoxin_serum,digoxin_uzara_interference_extraction.csv,Uzara roots (Xysmalobium undulatum) - cardenolide glycosides,dig.uzara,1
+inr_plasma,INR_MNPT_interference_extraction.csv,Mean Normal PT (MNPT) — incorrect determination,inr.mnpt,116
+inr_plasma,INR_bilirubin_interference_evidence_table.csv,"Bilirubin (free and conjugated, spiked)",inr.bilirubin,1
+inr_plasma,INR_bilirubin_interference_evidence_table.csv,Bilirubin (icterus) - manufacturer's declared interference limit,inr.bilirubin,1
+inr_plasma,INR_bilirubin_interference_evidence_table.csv,Bilirubin (icterus) - manufacturer's package-insert claim,inr.bilirubin,1
+inr_plasma,INR_bilirubin_interference_evidence_table.csv,Bilirubin colour / hyperbilirubinaemia in patients with chronic liver disease,inr.bilirubin,2
+inr_plasma,INR_bilirubin_interference_evidence_table.csv,Bilirubinaemia (bilirubin suspended in DMSO),inr.bilirubin,9
+inr_plasma,INR_bilirubin_interference_evidence_table.csv,"Conjugated bilirubin (bilirubin ditaurate disodium, in DMSO) - icterus",inr.bilirubin,8
+inr_plasma,INR_bilirubin_interference_evidence_table.csv,Hyperbilirubinaemia (bilirubin),inr.bilirubin,1
+inr_plasma,INR_bilirubin_interference_evidence_table.csv,"Hyperbilirubinaemia (unconjugated bilirubin, spiked)",inr.bilirubin,1
+inr_plasma,INR_bilirubin_interference_evidence_table.csv,Icteric plasma samples (bilirubin),inr.bilirubin,2
+inr_plasma,INR_bilirubin_interference_evidence_table.csv,Icteric plasma samples (total bilirubin),inr.bilirubin,3
+inr_plasma,INR_bilirubin_interference_evidence_table.csv,Icteric samples (total bilirubin),inr.bilirubin,1
+inr_plasma,INR_bilirubin_interference_evidence_table.csv,Icterus (bilirubin),inr.bilirubin,5
+inr_plasma,INR_bilirubin_interference_evidence_table.csv,Icterus (commercial bilirubin spiked into control plasma),inr.bilirubin,4
+inr_plasma,INR_bilirubin_interference_evidence_table.csv,Icterus (exogenous bilirubin spiked into plasma pools),inr.bilirubin,6
+inr_plasma,INR_bilirubin_interference_evidence_table.csv,Icterus (exogenous total bilirubin spiked into plasma pools),inr.bilirubin,6
+inr_plasma,INR_bilirubin_interference_evidence_table.csv,Icterus (visually icteric patient plasma; bilirubin concentration not measured),inr.bilirubin,1
+inr_plasma,INR_bilirubin_interference_evidence_table.csv,Jaundice / bilirubin (icterus),inr.bilirubin,6
+inr_plasma,INR_bilirubin_interference_evidence_table.csv,Unconjugated bilirubin (in DMSO) - icterus,inr.bilirubin,8
+inr_plasma,INR_citrate_interference_extraction.csv,High buffered sodium citrate concentration (0.129 mol vs 0.105 mol buffered sodium citrate),inr.citrate_concentration,1
+inr_plasma,INR_citrate_interference_extraction.csv,High sodium citrate concentration (0.129 mol/L [3.8%] vs 0.109 mol/L [3.2%]),inr.citrate_concentration,3
+inr_plasma,INR_citrate_interference_extraction.csv,High sodium citrate concentration (0.129 mol/l vs 0.105 mol/l),inr.citrate_concentration,11
+inr_plasma,INR_citrate_interference_extraction.csv,High sodium citrate concentration (3.8% [129 mmol/L] vs 3.2% [109 mmol/L] sodium citrate),inr.citrate_concentration,2
+inr_plasma,INR_citrate_interference_extraction.csv,High sodium citrate concentration (3.8% [129 mmol/L] vs 3.2% [109 mmol/L]),inr.citrate_concentration,1
+inr_plasma,INR_citrate_interference_extraction.csv,High sodium citrate concentration (3.8% citrate vs 3.2% citrate),inr.citrate_concentration,2
+inr_plasma,INR_citrate_interference_extraction.csv,High sodium citrate concentration (3.8% vs 3.2% sodium citrate),inr.citrate_concentration,1
+inr_plasma,INR_citrate_interference_extraction.csv,"Sodium citrate concentration in evacuated collection tubes (0.105 M versus 0.109 M buffered sodium citrate), assessed through ISI interchange",inr.citrate_concentration,3
+inr_plasma,INR_clotted-specimen_interference_extraction.csv,"Clot formation in the clearing fluid after arterial catheter blood sampling (mixture of 1 mL saline solution and 9 mL blood, 10% dilution)",inr.clotted_specimen,3
+inr_plasma,INR_clotted-specimen_interference_extraction.csv,Clotted samples,inr.clotted_specimen,1
+inr_plasma,INR_clotted-specimen_interference_extraction.csv,Clotted samples (visible red cell clot in whole blood),inr.clotted_specimen,1
+inr_plasma,INR_clotted-specimen_interference_extraction.csv,Clotted specimens (blood clots in coagulation specimens),inr.clotted_specimen,2
+inr_plasma,INR_clotted-specimen_interference_extraction.csv,Clotted specimens / partially clotted samples (named among the specific pre-analytical errors of coagulation testing),inr.clotted_specimen,1
+inr_plasma,INR_clotted-specimen_interference_extraction.csv,Clotted specimens and formation of micro-clots in the tubes,inr.clotted_specimen,1
+inr_plasma,INR_clotted-specimen_interference_extraction.csv,Clotting / clotted specimens (in-vitro clot formation in the collection tube),inr.clotted_specimen,1
+inr_plasma,INR_clotted-specimen_interference_extraction.csv,Delayed mixing of vacuum tubes (10-min delay before mixing) - micro-clots / platelet aggregate formation,inr.clotted_specimen,1
+inr_plasma,INR_clotted-specimen_interference_extraction.csv,"Fibrin clotted samples (IFCC WG-LEPS quality indicator, all samples)",inr.clotted_specimen,1
+inr_plasma,INR_clotted-specimen_interference_extraction.csv,In-vitro clot formation / identification of a clot in the specimen,inr.clotted_specimen,1
+inr_plasma,INR_clotted-specimen_interference_extraction.csv,"Preanalytic problem causing a falsely elevated INR (composite group; ""Unrecognized clot"" is one of the seven potential causes listed in Table 4 - the causative factor was not determined by the study)",inr.clotted_specimen,1
+inr_plasma,INR_clotted-specimen_interference_extraction.csv,"Unrecognized clot (listed in Table 4, ""Potential Preanalytic Problems That May Lead to a Falsely Elevated INR"")",inr.clotted_specimen,1
+inr_plasma,INR_hemolysis_PRIMARY.csv,"Haemolysis (cell-free haemoglobin, fHb; spontaneous in vitro haemolysis)",inr.hemolysis,1
+inr_plasma,INR_hemolysis_PRIMARY.csv,"Haemolysis (haemoglobin, Hb)",inr.hemolysis,1
+inr_plasma,INR_hemolysis_PRIMARY.csv,Hemolysis (cell-free haemoglobin; erythrocyte hemolysate),inr.hemolysis,30
+inr_plasma,INR_hemolysis_PRIMARY.csv,Hemolysis (cell-free haemoglobin; spurious mechanical hemolysis),inr.hemolysis,3
+inr_plasma,INR_hemolysis_PRIMARY.csv,Hemolysis (haemoglobin; in vitro Triton X-100 erythrocyte hemolysate),inr.hemolysis,6
+inr_plasma,INR_high_haematocrit_interference_extraction.csv,Compensatory erythrocytosis / elevated haematocrit in cyanotic congenital heart disease,inr.high_hematocrit,2
+inr_plasma,INR_high_haematocrit_interference_extraction.csv,"Compensatory erythrocytosis / elevated haematocrit in cyanotic congenital heart disease (control arm, not on warfarin)",inr.high_hematocrit,1
+inr_plasma,INR_high_haematocrit_interference_extraction.csv,Compensatory erythrocytosis / markedly elevated haematocrit (Hct 0.73) in cyanotic congenital heart disease,inr.high_hematocrit,1
+inr_plasma,INR_high_haematocrit_interference_extraction.csv,Elevated hematocrit (Ht >55 %) / polycythemia due to pulmonary hypertension,inr.high_hematocrit,2
+inr_plasma,INR_high_haematocrit_interference_extraction.csv,Elevated hematocrit (Ht >62 %) / polycythemia due to pulmonary hypertension,inr.high_hematocrit,1
+inr_plasma,INR_high_haematocrit_interference_extraction.csv,Elevated hematocrit (Ht) / polycythemia due to pulmonary hypertension,inr.high_hematocrit,1
+inr_plasma,INR_high_haematocrit_interference_extraction.csv,"Erythrocytosis / polycythaemia (high packed cell volume, PCV >55 %)",inr.high_hematocrit,2
+inr_plasma,INR_high_haematocrit_interference_extraction.csv,Hematocrite eleve (> 55 %) / hematocrites extremes (polyglobulie),inr.high_hematocrit,1
+inr_plasma,INR_high_haematocrit_interference_extraction.csv,Hematocrite superieur a 55 % (et inferieur a 25 %); augmentation de l'hemoglobine et de l'hematocrite avec viscosite sanguine importante,inr.high_hematocrit,1
+inr_plasma,INR_high_haematocrit_interference_extraction.csv,"High hematocrit values (>55 % [>0.55]); polycythemia vera 23 cases, dehydration 4 cases, overtransfusion 1 case",inr.high_hematocrit,1
+inr_plasma,INR_high_haematocrit_interference_extraction.csv,Relative citrate excess simulating an elevated hematocrit of 60 % (polycythemia),inr.high_hematocrit,2
+inr_plasma,INR_high_haematocrit_interference_extraction.csv,Secondary erythrocytosis (elevated hematocrit) due to cyanotic congenital heart disease with ventricular septal defect,inr.high_hematocrit,2
+inr_plasma,INR_high_haematocrit_interference_extraction.csv,Secondary polycythaemia (Hematocrit 71 %) due to obstructive sleep apnoea syndrome,inr.high_hematocrit,2
+inr_plasma,INR_lipaemia_interference_extraction.csv,"Blood lipids / endogenous triglyceride (native, not spiked)",inr.lipemia,1
+inr_plasma,INR_lipaemia_interference_extraction.csv,Intravenous lipid emulsion / lipaemia (Intralipid 20% Fresenius Kabi),inr.lipemia,9
+inr_plasma,INR_lipaemia_interference_extraction.csv,"Lipaemia (commercial fat emulsion Lipofundina 20 per cent, Braun Medical SA, Barcelona, Spain; triglycerides)",inr.lipemia,9
+inr_plasma,INR_lipaemia_interference_extraction.csv,"Lipaemia (exogenous triglyceride standard solution, Lipofundin S 20%, B. Braun SpA)",inr.lipemia,8
+inr_plasma,INR_lipaemia_interference_extraction.csv,"Lipaemia (native lipaemic plasmas plus plasmas spiked with 5 uL/mL Intralipid 20, Sigma-Aldrich, or with lipid isolated from lipaemic patient plasmas)",inr.lipemia,1
+inr_plasma,INR_lipaemia_interference_extraction.csv,"Lipemia (20% Intralipid, Fresenius Kabi, Bad Homburg, Germany; plasma triglyceride)",inr.lipemia,4
+inr_plasma,INR_lipaemia_interference_extraction.csv,"Lipemia (20% lipid emulsion SMOFLipid, Fresenius Kabi; L level in mAbs)",inr.lipemia,16
+inr_plasma,INR_lipaemia_interference_extraction.csv,"Lipemia (baseline pool, no lipid added)",inr.lipemia,1
+inr_plasma,INR_lipaemia_interference_extraction.csv,"Lipemia (commercial intralipid, Intralipide 20%, Fressenius Kabi, France)",inr.lipemia,2
+inr_plasma,INR_lipaemia_interference_extraction.csv,"Lipemia (exogenous triglycerides, Lipofundin S 20%, Braun SpA)",inr.lipemia,10
+inr_plasma,INR_lipaemia_interference_extraction.csv,Lipemia (native lipemic patient samples identified by macroscopic/visual examination),inr.lipemia,1
+inr_plasma,INR_lipaemia_interference_extraction.csv,Lipemia (native lipemic plasma flagged by the analyser at turbidity > 1200 FTU),inr.lipemia,2
+inr_plasma,INR_lipaemia_interference_extraction.csv,Lipemia (native lipemic plasma; triglyceride > 1.7 mmol/L; lipemia turbidity graded in mAbs),inr.lipemia,3
+inr_plasma,INR_lipaemia_interference_extraction.csv,"Lipemia (triglyceride; commercial intralipid Clinolipid 20%, Baxter, USA)",inr.lipemia,12
+inr_plasma,INR_lipaemia_interference_extraction.csv,"Lipemia - intravenous lipid emulsion (IVLE; Oliclinomel N-7, 1000 E (20%), Baxter Inc.)",inr.lipemia,5
+inr_plasma,INR_lipaemia_interference_extraction.csv,Lipemia - native ultralipemic material (NULM) prepared from residual lipemic patient sera,inr.lipemia,5
+inr_plasma,INR_lipaemia_interference_extraction.csv,"Lipemia / elevated triglycerides (native routine patient samples, triglycerides > 2.28 mmol/L)",inr.lipemia,3
+inr_plasma,INR_lipaemia_interference_extraction.csv,Lipemia / hypertriglyceridemia / turbidity,inr.lipemia,1
+inr_plasma,INR_lipaemia_interference_extraction.csv,Lipemia / severe hypertriglyceridaemia (native; chylomicronaemia phenotype),inr.lipemia,1
+inr_plasma,INR_lipaemia_interference_extraction.csv,Lipemia / triglyceride (lipid product name not printed); quantified as L index on a Roche Cobas 6000,inr.lipemia,2
+inr_plasma,INR_lipaemia_interference_extraction.csv,"Lipemia / triglycerides (Lipofundin MCT, B. Braun-Melsungen AG; 20% emulsion of nonpolar lipids, 10% soybean oil and 10% medium chain triglycerides)",inr.lipemia,1
+inr_plasma,INR_lipaemia_interference_extraction.csv,"Lipid interference ('blood lipid interference substances (50,000 mg/dL)')",inr.lipemia,6
+inr_plasma,INR_lipaemia_interference_extraction.csv,Plasma turbidity ('turbid plasmas'); optical density at 600 nm. Triglycerides/lipaemia not measured,inr.lipemia,1
+inr_plasma,INR_lipaemia_interference_extraction.csv,Turbidity (turbid samples with reaction errors on optical clot detection); triglycerides not quantified,inr.lipemia,1
+inr_plasma,INR_lipaemia_interference_extraction.csv,Turbidity due to haemolysis or lipemia (native routine samples classified visually; triglycerides not measured),inr.lipemia,1
+inr_plasma,INR_lupus_anticoagulant_interference_extraction.csv,Lupus anticoagulant (LA),inr.lupus_anticoagulant,122
+inr_plasma,INR_poor-mixing_interference_table.csv,Poor mixing (delayed mixing - 5 min rest in a supine position before mixing),inr.poor_mixing,1
+inr_plasma,INR_poor-mixing_interference_table.csv,Poor mixing (delayed mixing - elapsed time between collection and tube inversion),inr.poor_mixing,10
+inr_plasma,INR_poor-mixing_interference_table.csv,Poor mixing (delayed mixing - instant mixing vs 5 min rest before mixing; secondary re-tabulation of Parenmark & Landberg),inr.poor_mixing,1
+inr_plasma,INR_poor-mixing_interference_table.csv,Poor mixing (improper mixing and/or inverting of the tube - considered as a candidate cause),inr.poor_mixing,1
+inr_plasma,INR_poor-mixing_interference_table.csv,Poor mixing (inadequate mixing of thawed plasma before testing),inr.poor_mixing,1
+inr_plasma,INR_poor-mixing_interference_table.csv,"Poor mixing (inappropriate mixing / samples left unmixed; and vigorous shaking, vortexing or agitation)",inr.poor_mixing,1
+inr_plasma,INR_poor-mixing_interference_table.csv,Poor mixing (no mixing - 6 min rest in a supine position without mixing afterwards),inr.poor_mixing,1
+inr_plasma,INR_poor-mixing_interference_table.csv,Poor mixing (no mixing; secondary re-tabulation of Parenmark & Landberg),inr.poor_mixing,1
+inr_plasma,INR_poor-mixing_interference_table.csv,"Poor mixing (primary blood tube left unmixed, or mixing delayed by a 5 min upright rest)",inr.poor_mixing,2
+inr_plasma,INR_poor-mixing_interference_table.csv,"Poor mixing (primary sample tube left unmixed, or inverted a different number of times)",inr.poor_mixing,2
+inr_plasma,INR_poor-mixing_interference_table.csv,Poor mixing (reduced number of tube inversions immediately after collection),inr.poor_mixing,10
+inr_plasma,INR_poor-mixing_interference_table.csv,Poor mixing (reference arm - gold-standard 5 inversions immediately after collection),inr.poor_mixing,1
+inr_plasma,INR_poor-mixing_interference_table.csv,Poor mixing (reference arm - instant mixing),inr.poor_mixing,1
+inr_plasma,INR_poor-mixing_interference_table.csv,Poor mixing (reference arm - six-times inversion),inr.poor_mixing,1
+inr_plasma,INR_poor-mixing_interference_table.csv,Poor mixing (tubes left in upright position and sent to the laboratory without mixing; and number of inversions differing from the manufacturer's recommendation),inr.poor_mixing,1
+inr_plasma,INR_prolonged_storage_interference_extraction.csv,Prolonged storage,inr.prolonged_storage,192
+inr_plasma,INR_thromboplastin_ISI_interference.csv,Thromboplastin reagent sensitivity & ISI (International Sensitivity Index) - value / verification,inr.thromboplastin_isi,679
+inr_plasma,INR_thromboplastin_ISI_interference.csv,Thromboplastin reagent sensitivity / ISI (International Sensitivity Index) - value and verification,inr.thromboplastin_isi,187
+inr_plasma,INR_thromboplastin_ISI_interference.csv,Thromboplastin reagent sensitivity / ISI (choice of reference thromboplastin used to assign the INR),inr.thromboplastin_isi,32
+inr_plasma,INR_thromboplastin_ISI_interference.csv,Thromboplastin reagent sensitivity / ISI (coagulometer effect on the assigned reagent ISI),inr.thromboplastin_isi,1
+inr_plasma,INR_thromboplastin_ISI_interference.csv,"Thromboplastin reagent sensitivity / ISI (error in the locally used reagent+coagulometer System ISI, uncorrected)",inr.thromboplastin_isi,8
+inr_plasma,INR_thromboplastin_ISI_interference.csv,Thromboplastin reagent sensitivity / ISI (uncorrected local System ISI vs locally corrected System ISI),inr.thromboplastin_isi,1
+inr_plasma,INR_thromboplastin_ISI_interference.csv,Thromboplastin reagent sensitivity / ISI (variation in locally used reagent+coagulometer System and its assigned ISI),inr.thromboplastin_isi,2
+inr_plasma,INR_thromboplastin_ISI_interference.csv,"Thromboplastin reagent sensitivity / ISI value (10 commercial thromboplastins of differing ISI, response measured as INR prolongation)",inr.thromboplastin_isi,70
+inr_plasma,INR_thromboplastin_ISI_interference.csv,Thromboplastin reagent sensitivity / ISI value (ISI as the exponent amplifying PT imprecision into INR uncertainty),inr.thromboplastin_isi,36
+inr_plasma,INR_thromboplastin_ISI_interference.csv,Thromboplastin reagent sensitivity / ISI value (four commercial thromboplastins of differing ISI compared on the same warfarin plasma pool),inr.thromboplastin_isi,8
+inr_plasma,INR_thromboplastin_ISI_interference.csv,Thromboplastin reagent sensitivity / ISI value (high-ISI Ortho thromboplastin ISI 2.26 vs low-ISI Innovin ISI 0.92 on the same patient specimen),inr.thromboplastin_isi,7
+inr_plasma,INR_thromboplastin_ISI_interference.csv,Thromboplastin reagent sensitivity / ISI value (hypothetical thromboplastins of ISI 1.25 vs ISI 2.00 at 1% vs 2% PT CV),inr.thromboplastin_isi,8
+inr_plasma,INR_thromboplastin_ISI_interference.csv,Thromboplastin reagent sensitivity / ISI value (liver ISI derived with vs without the conventional INR 1.5-4.5 calibration limits),inr.thromboplastin_isi,3
+inr_plasma,INR_thromboplastin_ISI_interference.csv,"Thromboplastin reagent sensitivity / ISI value (manufacturer VKA-assigned ISI vs locally recalibrated liver-patient ISI, same-species reference)",inr.thromboplastin_isi,3
+inr_plasma,INR_thromboplastin_ISI_interference.csv,Thromboplastin reagent sensitivity / ISI value (manufacturer VKA-derived ISI vs locally derived liver-patient ISI),inr.thromboplastin_isi,6
+inr_plasma,INR_thromboplastin_ISI_interference.csv,Thromboplastin reagent sensitivity / ISI value (manufacturer-assigned ISI vs locally regression-derived ISI; calibration verification),inr.thromboplastin_isi,2
+inr_plasma,INR_thromboplastin_ISI_interference.csv,Thromboplastin reagent sensitivity / ISI value (reagent A vs reagent B at the same ISI basis),inr.thromboplastin_isi,12
+inr_plasma,INR_thromboplastin_ISI_interference.csv,Thromboplastin reagent sensitivity / ISI value (same-species vs different-species reference thromboplastin used for the liver ISI calibration),inr.thromboplastin_isi,3
+inr_plasma,INR_thromboplastin_ISI_interference.csv,"Thromboplastin reagent sensitivity / ISI value (two rabbit thromboplastin lots of differing sensitivity, ISI 1.97 vs ISI 1.20)",inr.thromboplastin_isi,10
+inr_plasma,INR_thromboplastin_ISI_interference.csv,Thromboplastin reagent sensitivity / International Sensitivity Index (ISI) - value and verification,inr.thromboplastin_isi,365
+inr_plasma,INR_underfill_PT_seconds_appendix.csv,Underfilled citrate tube (low blood-to-anticoagulant ratio),inr.underfilled_tube,48
+inr_plasma,INR_underfill_PT_seconds_appendix.csv,Underfilled citrate tube (low blood-to-anticoagulant ratio) — QNS (quantity not sufficient) samples,inr.underfilled_tube,1
+inr_plasma,INR_underfill_PT_seconds_appendix.csv,Underfilled citrate tube (low blood-to-anticoagulant ratio) — minimum fill volume indicator,inr.underfilled_tube,3
+inr_plasma,INR_venous_stasis_tourniquet_interference.csv,Extended tourniquet application / prolonged venous stasis (and the in vitro haemolysis it may produce),inr.venous_stasis,1
+inr_plasma,INR_venous_stasis_tourniquet_interference.csv,"Hemolysis / blood cell lysis from troublesome specimen collection or handling (wet alcohol transfer, small-bore needles, difficult phlebotomies, partial obstruction of catheters and other collection devices, excessive shaking or mixing, temperature extremes, over-fast/prolonged centrifugation)",inr.venous_stasis,1
+inr_plasma,INR_venous_stasis_tourniquet_interference.csv,"In vitro haemolysis (stated causes: slow or difficult specimen collection, prolonged tourniquet placing, incorrect devices such as butterfly needles or IV catheters, small gauge needles, unsuccessful attempts to locate the vein, inappropriate mixing, centrifugation above 1500g, inappropriate transportation)",inr.venous_stasis,1
+inr_plasma,INR_venous_stasis_tourniquet_interference.csv,"Prolonged tourniquet stasis with vascular endothelial damage at venepuncture, causing accidental in vitro release/presence of tissue factor (TF)",inr.venous_stasis,1
+inr_plasma,INR_venous_stasis_tourniquet_interference.csv,Prolonged venous stasis (tourniquet),inr.venous_stasis,1
+inr_plasma,INR_venous_stasis_tourniquet_interference.csv,Prolonged venous stasis / tourniquet placement,inr.venous_stasis,1
+inr_plasma,INR_venous_stasis_tourniquet_interference.csv,Spurious (in vitro) hemolysis from mishandled or inappropriate blood collection; cell-free hemoglobin in the specimen,inr.venous_stasis,1
+inr_plasma,INR_venous_stasis_tourniquet_interference.csv,Traumatic / hemolysing draw - butterfly (winged) collection devices instead of straight needles,inr.venous_stasis,1
+inr_plasma,INR_venous_stasis_tourniquet_interference.csv,Traumatic / hemolysing draw - small-bore needles (23 and 25 gauge),inr.venous_stasis,1
+inr_plasma,INR_venous_stasis_tourniquet_interference.csv,Venous stasis / tourniquet application (compared against a subcutaneous tissue transilluminator device used without any tourniquet),inr.venous_stasis,4
+inr_plasma,INR_venous_stasis_tourniquet_interference.csv,"Venous stasis / tourniquet placing (constant standardized 60 mmHg external pressure applied by sphygmomanometer, reproducing tourniquet placement)",inr.venous_stasis,2
+inr_plasma,INR_venous_stasis_tourniquet_interference.csv,Venous stasis induced by the use of a tourniquet,inr.venous_stasis,1
+inr_plasma,daptomycin_INR_interference_extraction.csv,Daptomycin (Cubicin) — in vitro drug–reagent interference,inr.daptomycin,82
+inr_plasma,daptomycin_INR_interference_extraction.csv,Daptomycin (Cubicin) — in vitro drug–reagent interference (reagent additionally spiked with phosphatidylglycerol),inr.daptomycin,40
+inr_plasma,daptomycin_INR_interference_extraction.csv,"Daptomycin (Cubicin, Merck Sharp and Dohme) — in vitro drug–reagent interference (daptomycin alone)",inr.daptomycin,28
+inr_plasma,daptomycin_INR_interference_extraction.csv,"Daptomycin (Cubicin, Merck Sharp and Dohme) — in vitro drug–reagent interference (daptomycin with COATSOME EL-01 empty cationic liposomes (CS) 125 mg/L (as the concentration of dipalmitoylphosphatidylglycerol, DPPG))",inr.daptomycin,14
+inr_plasma,daptomycin_INR_interference_extraction.csv,"Daptomycin (Cubicin, Merck Sharp and Dohme) — in vitro drug–reagent interference (daptomycin with COATSOME EL-01 empty cationic liposomes (CS) 25 mg/L (as the concentration of dipalmitoylphosphatidylglycerol, DPPG))",inr.daptomycin,14
+inr_plasma,daptomycin_INR_interference_extraction.csv,"Daptomycin (Cubicin, Merck Sharp and Dohme) — in vitro drug–reagent interference (daptomycin with COATSOME EL-01 empty cationic liposomes (CS) 250 mg/L (as the concentration of dipalmitoylphosphatidylglycerol, DPPG))",inr.daptomycin,14
+inr_plasma,daptomycin_INR_interference_extraction.csv,"Daptomycin (Cubicin, Merck Sharp and Dohme) — in vitro drug–reagent interference (daptomycin with liposomal amphotericin B (L-AMB) 25 mg/L)",inr.daptomycin,14
+inr_plasma,daptomycin_INR_interference_extraction.csv,"Daptomycin (Cubicin, Merck Sharp and Dohme) — in vitro drug–reagent interference (daptomycin with liposomal amphotericin B (L-AMB) 5 mg/L)",inr.daptomycin,14
+inr_plasma,daptomycin_INR_interference_extraction.csv,"Daptomycin (Cubicin, Merck Sharp and Dohme) — in vitro drug–reagent interference (daptomycin with liposomal amphotericin B (L-AMB) 50 mg/L)",inr.daptomycin,14
+inr_plasma,daptomycin_INR_interference_extraction.csv,Daptomycin (Cubicin; Cubist Pharmaceuticals) — in vitro drug–reagent interference,inr.daptomycin,614
+inr_plasma,daptomycin_INR_interference_extraction.csv,Daptomycin (Merck Sharp & Dohme) — in vitro drug–reagent interference,inr.daptomycin,60
+inr_plasma,daptomycin_INR_interference_extraction.csv,"Daptomycin 1,350 mg (6 mg/kg) intravenously every 48 hours (in vivo exposure)",inr.daptomycin,18
+inr_plasma,daptomycin_INR_interference_extraction.csv,Daptomycin 4 mg/kg every 24 h (in vivo exposure; route not stated for this patient),inr.daptomycin,4
+inr_plasma,daptomycin_INR_interference_extraction.csv,"Daptomycin 500 mg (6 mg/kg) intravenously 3 times weekly, always after dialysis (in vivo exposure)",inr.daptomycin,1
+inr_plasma,daptomycin_INR_interference_extraction.csv,Daptomycin 6 mg/kg/dose intravenously (in vivo exposure; peak vs trough plasma concentration),inr.daptomycin,18
+inr_plasma,daptomycin_INR_interference_extraction.csv,Daptomycin therapy (in vivo exposure; dose not reported per patient),inr.daptomycin,1
+inr_plasma,inr_anticoagulant_contamination_extraction.csv,"Dalteparin (low-molecular-weight heparin, LMWH; 12,500 IU/mL) spiked into pooled citrated plasma",inr.lmwh,56
+inr_plasma,inr_anticoagulant_contamination_extraction.csv,Heparin contamination of blood sampled from a heparin-instilled central venous dialysis catheter (Ash-split catheter; heparin solution instilled to prevent clotting),inr.heparin_contamination,1
+inr_plasma,inr_anticoagulant_contamination_extraction.csv,Heparin during cardiopulmonary bypass and residual heparin / heparin-protamine complexes after reversal of heparin with protamine,inr.heparin_contamination,2
+inr_plasma,inr_anticoagulant_contamination_extraction.csv,Heparinized citrated whole blood (HCWB) carryover into citrated whole blood (lithium-heparin tube additive contaminating a citrate coagulation sample),inr.heparin_contamination,5
+inr_plasma,inr_anticoagulant_contamination_extraction.csv,K3EDTA anticoagulant (0.072 mL of 75 g/L K3EDTA per 3.0 mL blood = 1.5 mg EDTA per mL of blood; EDTA solution 2.34% of final total volume) used in place of 0.129 mol/L trisodium citrate,inr.anticoagulant_contamination,4
+inr_plasma,inr_anticoagulant_contamination_extraction.csv,Liquid sodium citrate anticoagulant used in place of dried (solid) sodium citrate for prothrombin time specimens,inr.anticoagulant_contamination,4
+inr_plasma,inr_anticoagulant_contamination_extraction.csv,"Mixed sampling sources (finger stick, AV graft/fistula and heparin-instilled catheter) - whole-cohort pooled comparison",inr.heparin_contamination,1
+inr_plasma,inr_anticoagulant_contamination_extraction.csv,No heparin exposure - blood sampled from AV fistula or dialysis graft (non-heparin-exposed comparator arm),inr.heparin_contamination,1
+inr_plasma,inr_anticoagulant_contamination_extraction.csv,Oxalate anticoagulant (ammonium + potassium oxalate mixture) used in place of sodium citrate for prothrombin time specimens,inr.oxalate,10
+inr_plasma,inr_anticoagulant_contamination_extraction.csv,"Standard (unfractionated) heparin administered during hemodialysis (bolus + perfusion) present in blood sampled from the dialysis circuit, in patients with heparin-locked central venous catheters",inr.ufh,7
+inr_plasma,inr_anticoagulant_contamination_extraction.csv,"Unfractionated heparin (UFH) contamination from the tunneled dialysis catheter locking solution (heparin natrium 5000 IU/ml, n = 11; Taurolock-Hep500 containing 500 IU/ml UFH + citrate 4%, n = 2; Citra-Lock citrate 4%, n = 1) plus UFH given during dialysis",inr.ufh,4
+inr_plasma,inr_anticoagulant_contamination_extraction.csv,Unfractionated heparin (UFH; Heparin LEO 5000 IU/mL) spiked into pooled citrated plasma,inr.ufh,56
+inr_plasma,inr_dabigatran_interference.csv,Direct thrombin inhibitor - dabigatran,inr.dabigatran,69
+inr_plasma,inr_fxa_interference_extraction.csv,Apixaban (direct Factor Xa inhibitor),inr.apixaban,2
+inr_plasma,inr_fxa_interference_extraction.csv,Apixaban (direct factor Xa inhibitor),inr.apixaban,3
+inr_plasma,inr_fxa_interference_extraction.csv,"Apixaban (direct oral anticoagulant, factor Xa inhibitor)",inr.apixaban,1
+inr_plasma,inr_fxa_interference_extraction.csv,Apixaban (oral direct factor Xa inhibitor),inr.apixaban,24
+inr_plasma,inr_fxa_interference_extraction.csv,"Direct factor Xa inhibitors (rivaroxaban n=158 and apixaban n=60, pooled)",inr.rivaroxaban,1
+inr_plasma,inr_fxa_interference_extraction.csv,"Direct oral anticoagulants with anti-Xa activity (apixaban, rivaroxaban, edoxaban, betrixaban)",inr.rivaroxaban,1
+inr_plasma,inr_fxa_interference_extraction.csv,Edoxaban (direct factor Xa inhibitor),inr.edoxaban,8
+inr_plasma,inr_fxa_interference_extraction.csv,"Edoxaban (direct oral anticoagulant, factor Xa inhibitor)",inr.edoxaban,3
+inr_plasma,inr_fxa_interference_extraction.csv,Edoxaban (oral direct factor Xa inhibitor),inr.edoxaban,1
+inr_plasma,inr_fxa_interference_extraction.csv,Rivaroxaban (RIV; direct inhibitor of activated factor X),inr.rivaroxaban,2
+inr_plasma,inr_fxa_interference_extraction.csv,Rivaroxaban (XARELTO; factor Xa inhibitor),inr.rivaroxaban,1
+inr_plasma,inr_fxa_interference_extraction.csv,Rivaroxaban (direct Factor Xa inhibitor),inr.rivaroxaban,2
+inr_plasma,inr_fxa_interference_extraction.csv,Rivaroxaban (direct factor Xa inhibitor),inr.rivaroxaban,3
+inr_plasma,inr_fxa_interference_extraction.csv,Rivaroxaban (direct inhibitor of activated factor X),inr.rivaroxaban,3
+inr_plasma,inr_fxa_interference_extraction.csv,"Rivaroxaban (direct oral anticoagulant, factor Xa inhibitor)",inr.rivaroxaban,5
+inr_plasma,inr_fxa_interference_extraction.csv,Rivaroxaban (oral direct factor Xa inhibitor),inr.rivaroxaban,7
+inr_plasma,inr_fxa_interference_extraction.csv,"Rivaroxaban (oral, direct Factor Xa inhibitor), co-administered with warfarin",inr.rivaroxaban,3
+inr_plasma,inr_fxa_interference_extraction.csv,"Rivaroxaban (oral, direct factor Xa (FXa) inhibitor)",inr.rivaroxaban,7
+inr_plasma,inr_heparin_interference_extraction.csv,"Concurrent low-molecular-weight heparin (dalteparin/Fragmin) bridging in vivo, plus unfractionated heparin during surgery",inr.ufh,4
+inr_plasma,inr_heparin_interference_extraction.csv,"Concurrent systemic unfractionated heparin during dialysis (finger-prick draw, no catheter contamination)",inr.ufh,2
+inr_plasma,inr_heparin_interference_extraction.csv,"Concurrent systemic unfractionated heparin during hemodialysis (dose-stratified), sampled from the dialysis circuit",inr.ufh,2
+inr_plasma,inr_heparin_interference_extraction.csv,Heparin additive carryover during a standardised phlebotomy (order of draw),inr.heparin_contamination,1
+inr_plasma,inr_heparin_interference_extraction.csv,Heparin contamination - comparator arm WITHOUT heparin exposure (AV fistula or graft draw),inr.heparin_contamination,1
+inr_plasma,inr_heparin_interference_extraction.csv,Heparin contamination of a central venous (Ash-split) dialysis catheter draw - catheter instilled with heparin locking solution,inr.heparin_contamination,1
+inr_plasma,inr_heparin_interference_extraction.csv,Heparin contamination of a citrated coagulation tube (heparinized whole blood carryover during blood collection),inr.heparin_contamination,5
+inr_plasma,inr_heparin_interference_extraction.csv,Heparin contamination of a line/catheter draw plus concurrent systemic heparin (dialysis circuit sampling under standard unfractionated heparin bolus + perfusion),inr.ufh,4
+inr_plasma,inr_heparin_interference_extraction.csv,"LMWH (dalteparin) after neutralisation with heparinase (Dade HepZyme, greater than 125 IU heparinase/mL plasma)",inr.lmwh,1
+inr_plasma,inr_heparin_interference_extraction.csv,"Low-molecular-weight heparin (dalteparin), spiked in vitro",inr.lmwh,56
+inr_plasma,inr_heparin_interference_extraction.csv,Residual heparin - comparator time point BEFORE heparinisation (pre-cardiopulmonary bypass),inr.heparin_contamination,1
+inr_plasma,inr_heparin_interference_extraction.csv,Residual heparin after cardiopulmonary bypass and protamine reversal (concurrent heparin),inr.heparin_contamination,1
+inr_plasma,inr_heparin_interference_extraction.csv,Residual heparin exceeding the i-STAT cartridge heparinase neutralisation capacity (subgroup with INR over 2.0 after protamine),inr.heparin_contamination,1
+inr_plasma,inr_heparin_interference_extraction.csv,"UFH after neutralisation with heparinase (Dade HepZyme, greater than 125 IU heparinase/mL plasma)",inr.ufh,1
+inr_plasma,inr_heparin_interference_extraction.csv,"Unfractionated heparin (Heparin LEO), spiked in vitro",inr.ufh,56
+inr_plasma,inr_heparin_interference_extraction.csv,Unfractionated heparin contamination from the catheter locking solution (extreme observed value),inr.ufh,1
+inr_plasma,inr_heparin_interference_extraction.csv,Unfractionated heparin contamination from the catheter locking solution and concurrent systemic UFH during dialysis,inr.ufh,3
+inr_plasma,inr_heparin_interference_extraction.csv,Unfractionated heparin from the catheter locking solution exceeding the reagent neutralisation capacity,inr.ufh,1
+inr_plasma,inr_temperature_interference.csv,"Elevated temperature / hyperthermia (analytical, in vitro reaction temperature >37 C)",inr.elevated_temperature,34
+inr_plasma,inr_temperature_interference.csv,"Elevated temperature / hyperthermia (in vivo, core or perfusate temperature >37 C)",inr.elevated_temperature,17
+pco2_blood,pCO2_delayed_analysis_interference_extraction.csv,Delayed analysis at room temperature (ongoing cellular metabolism/glycolysis),pco2.delayed_analysis,19
+pco2_blood,pCO2_delayed_analysis_interference_extraction.csv,Delayed analysis at room temperature (ongoing cellular metabolism/glycolysis) (60-min delay COMBINED with standardized mechanical stress),pco2.delayed_analysis,1
+pco2_blood,pCO2_delayed_analysis_interference_extraction.csv,"Delayed analysis at room temperature (ongoing cellular metabolism/glycolysis) (whole blood in syringe at RT, 0-180 min; stratified by leukocyte count)",pco2.delayed_analysis,2
+pco2_blood,pCO2_delayed_analysis_interference_extraction.csv,Delayed analysis at room temperature (ongoing cellular metabolism/glycolysis) [stored on ice],pco2.delayed_analysis,11
+pco2_blood,pCO2_lipid_interference_extraction.csv,Dextrose 50% (D50) contamination,pco2.dextrose_50,6
+pco2_blood,pCO2_lipid_interference_extraction.csv,Exogenous lipid contamination (lipid-containing IV solution; Lipidem 200 mg/mL),pco2.tpn_lipid,2
+pco2_blood,pCO2_lipid_interference_extraction.csv,"TPN/lipid emulsion contamination (TPN + 20% Intralipid, 1:1)",pco2.tpn_lipid,6
+pco2_blood,pco2_air_interference.csv,Air bubble / ambient-air contamination in syringe,pco2.air_bubble,27
+pco2_blood,pco2_airbubble_30min_extraction.csv,Air bubble trapped in syringe (0.5 mL room air in 2 mL blood; 30 min before analysis),pco2.air_bubble_30min,2
+pco2_blood,pco2_leukocytosis_interference.csv,Extreme hyperleukocytosis (acute myeloid leukaemia),pco2.leukocytosis,1
+pco2_blood,pco2_leukocytosis_interference.csv,Extreme leukocytosis (acute and chronic leukaemia; granulocyte concentrates),pco2.leukocytosis,1
+pco2_blood,pco2_leukocytosis_interference.csv,Extreme thrombocytosis (polycythaemia vera) — platelet larceny,pco2.leukocytosis,1
+pco2_blood,pco2_leukocytosis_interference.csv,Hyperleukocytosis (accelerated-phase chronic myelogenous leukaemia),pco2.leukocytosis,1
+pco2_blood,pco2_leukocytosis_interference.csv,Hyperleukocytosis (acute myeloid leukaemia),pco2.leukocytosis,1
+pco2_blood,pco2_leukocytosis_interference.csv,Leukocytosis (>15 x 10⁹/L),pco2.leukocytosis,1
+pco2_blood,pco2_leukocytosis_interference.csv,Leukocytosis (WBC count as continuous variable),pco2.leukocytosis,1
+pco2_blood,pco2_leukocytosis_interference.csv,Leukocytosis / thrombocytosis (leukocyte larceny hypothesis),pco2.leukocytosis,1
+pco2_blood,pco2_leukocytosis_interference.csv,Leukocytosis — comparator group (<15 x 10⁹/L),pco2.leukocytosis,1
+pco2_blood,pco2_leukocytosis_interference.csv,Marked leukocytosis — leukocyte larceny (chronic myelogenous leukaemia),pco2.leukocytosis,5
+pco2_blood,pco2_liquidheparin_interference.csv,"Liquid (sodium) heparin 1000 IU/ml (self-prepared 1 mL tuberculin syringe, DispoVan, 26 G)",pco2.liquid_heparin,2
+pco2_blood,pco2_liquidheparin_interference.csv,Liquid (sodium) heparin 1000 IU/ml (self-prepared tuberculin syringe; Type-3 120 IU/12% vs Type-2 60 IU/6%),pco2.liquid_heparin,1
+pco2_blood,pco2_liquidheparin_interference.csv,Liquid heparin (1000 units/mL heparin in physiological saline; deadspace-filled 1 mL glass syringe),pco2.liquid_heparin,4
+pco2_blood,pco2_liquidheparin_interference.csv,"Liquid heparin (theoretical, from CO2 dissociation curve; deadspace-filled 1 mL glass syringe, 1000 units/mL)",pco2.liquid_heparin,1
+pco2_blood,pco2_liquidheparin_interference.csv,"Liquid heparin 1000 IU/ml (custom/self-prepared 1 mL tuberculin syringe, minimal achievable volume; Type-2) vs dry balanced heparin (Type-1, 40 IU/mL)",pco2.liquid_heparin,1
+pco2_blood,pco2_liquidheparin_interference.csv,Liquid sodium (Nevparin) heparin 5000 IU/mL (10 mL syringe washed with liquid heparin; sample-volume reduction),pco2.liquid_heparin,4
+pco2_blood,pco2_liquidheparin_interference.csv,"Liquid sodium heparin (1000 U/mL; self-prepared syringe, 0.1-DS technique)",pco2.liquid_heparin,1
+pco2_blood,pco2_liquidheparin_interference.csv,"Liquid sodium heparin (1000 U/mL; self-prepared syringe, 0.25-DS technique)",pco2.liquid_heparin,1
+pco2_blood,pco2_liquidheparin_interference.csv,"Liquid sodium heparin (1000 U/mL; self-prepared syringe, DS technique)",pco2.liquid_heparin,1
+pco2_blood,pco2_liquidheparin_interference.csv,"Liquid sodium heparin (1000 U/mL; self-prepared syringe, evacuation technique)",pco2.liquid_heparin,1
+pco2_blood,pco2_liquidheparin_interference.csv,"Sodium heparin solution 1000 units/mL (liquid, drawn into plastic syringe before sampling)",pco2.liquid_heparin,5
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Glass syringe (Roche 0.24-mL arterial microsampler; dry Na/Li heparin) — GLASS COMPARATOR; analyzed immediately,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Glass syringe (Roche microsampler) — GLASS COMPARATOR; stored 30 min at 0-4C,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Glass syringe (Roche microsampler) — GLASS COMPARATOR; stored 30 min at 22C,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Glass syringe (Syringe G) — GLASS COMPARATOR; room temperature,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Glass syringe (Syringe G; 2-mL Perfektum; metal Luer lock; heparin-rinsed) — GLASS COMPARATOR; iced water,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Glass syringe — GLASS COMPARATOR; asthmatic; asthmatic patients; 0-4C; 0 h,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Glass syringe — GLASS COMPARATOR; asthmatic; asthmatic patients; 0-4C; 2 h,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Glass syringe — GLASS COMPARATOR; asthmatic; asthmatic patients; 0-4C; 4 h,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Glass syringe — GLASS COMPARATOR; normal; normal healthy subjects; 0-4C; 0 h,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Glass syringe — GLASS COMPARATOR; normal; normal healthy subjects; 0-4C; 2 h,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Glass syringe — GLASS COMPARATOR; normal; normal healthy subjects; 0-4C; 4 h,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Glass syringe — GLASS COMPARATOR; room temperature,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,"High-density polypropylene plastic blood gas syringes (Marquest Quik / Terumo Preza-Pak II / Radiometer QS90, pooled); room temperature",pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Multipurpose plastic tuberculin syringe (Syringe T); room temperature,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Multipurpose plastic tuberculin syringe (Syringe T; Terumo; heparin-rinsed); iced water,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Plastic syringe (Portex 1-mL arterial-line-draw kit; dry lithium heparin); analyzed immediately,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Plastic syringe (Portex); stored 30 min at 0-4C (iced),pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Plastic syringe (Portex); stored 30 min at 22C (room temp),pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Plastic syringe (polypropylene) — asthmatic; asthmatic patients; 0-4C; 0 h,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Plastic syringe (polypropylene) — asthmatic; asthmatic patients; 0-4C; 2 h,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Plastic syringe (polypropylene) — asthmatic; asthmatic patients; 0-4C; 4 h,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Plastic syringe (polypropylene) — normal; normal healthy subjects; 0-4C; 0 h,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Plastic syringe (polypropylene) — normal; normal healthy subjects; 0-4C; 2 h,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Plastic syringe (polypropylene) — normal; normal healthy subjects; 0-4C; 4 h,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Plastic syringe designed for blood gas (Syringe B); room temperature,pco2.syringe_material,1
+pco2_blood,pco2_plastic_vs_glass_extraction.csv,Plastic syringe designed for blood gas (Syringe B; Blood Gas Monovette; dry lithium heparin); iced water,pco2.syringe_material,1
+pco2_blood,pco2_pneumatic_tube_transport_extraction.csv,Pneumatic tube transport,pco2.pneumatic_transport,8
+ph_blood,blood_pH_RT_delay_interference.csv,Analysis delay at room temperature,ph.delayed_analysis,57
+ph_blood,blood_pH_RT_delay_interference.csv,Analysis delay at room temperature (plus standardized mechanical stress),ph.delayed_analysis,1
+ph_blood,blood_pH_TPN_lipid_D50_interference_extraction.csv,Dextrose 50% (D50) - IV-line contamination model,ph.dextrose_50,6
+ph_blood,blood_pH_TPN_lipid_D50_interference_extraction.csv,"Lipid-containing solution (Lipidem 200 mg/mL, ~20% triglycerides) - IV/exogenous lipid contamination",ph.tpn_lipid,3
+ph_blood,blood_pH_TPN_lipid_D50_interference_extraction.csv,"TPN/lipid emulsion (Intralipid 20%, 1:1) - IV-line contamination model",ph.tpn_lipid,6
+ph_blood,blood_pH_TPN_lipid_D50_interference_extraction.csv,TPN/lipid emulsion (suspected IV-line contamination),ph.tpn_lipid,1
+ph_blood,blood_pH_air_interference.csv,Air bubble / room-air contamination in syringe,ph.air_bubble,3
+ph_blood,blood_pH_air_interference.csv,"Air bubble / room-air contamination in syringe (vs non-air-contaminated, delayed 180 min)",ph.air_bubble,1
+ph_blood,blood_pH_air_interference.csv,Air bubble / room-air contamination in syringe (with-air subgroup),ph.air_bubble,8
+ph_blood,blood_pH_air_interference.csv,Froth (fine room-air bubbles) in syringe,ph.air_bubble,1
+ph_blood,blood_pH_ethylene_glycol_interference.csv,Ethylene glycol (glycolic acid / glycolate metabolite),ph.ethylene_glycol,2
+ph_blood,blood_pH_heparin_interference.csv,Heparin / liquid anticoagulant or liquid diluent (dilution + acidity),ph.liquid_heparin,10
+ph_blood,blood_pH_ice_overchilling_interference.csv,Direct ice contact / over-chilling of the syringe,ph.ice_overchilling,13
+ph_blood,blood_pH_sample_type_interference.csv,Arterialised earlobe capillary blood instead of arterial (wrong sample type),ph.wrong_sample_type,1
+ph_blood,blood_pH_sample_type_interference.csv,Capillary (arterialised) blood instead of arterial (wrong sample type),ph.wrong_sample_type,1
+ph_blood,blood_pH_sample_type_interference.csv,Central venous blood instead of arterial (wrong sample type),ph.wrong_sample_type,2
+ph_blood,blood_pH_sample_type_interference.csv,Central venous vs peripheral venous sampling site (wrong sample type/site),ph.wrong_sample_type,1
+ph_blood,blood_pH_sample_type_interference.csv,Inappropriate (adult) reference interval applied to fetal/neonatal cord blood (age extreme),ph.reference_interval,1
+ph_blood,blood_pH_sample_type_interference.csv,"Inappropriate reference interval at altitude (1,400 m vs sea level)",ph.reference_interval,2
+ph_blood,blood_pH_sample_type_interference.csv,Inappropriate reference interval at high altitude,ph.reference_interval,1
+ph_blood,blood_pH_sample_type_interference.csv,Inappropriate reference interval in pregnancy,ph.reference_interval,1
+ph_blood,blood_pH_sample_type_interference.csv,"Inappropriate reference interval in pregnancy (third trimester, moderate altitude)",ph.reference_interval,1
+ph_blood,blood_pH_sample_type_interference.csv,Inappropriate reference interval in preterm/neonate (age extreme),ph.reference_interval,1
+ph_blood,blood_pH_sample_type_interference.csv,Inappropriate reference interval with increasing age,ph.reference_interval,1
+ph_blood,blood_pH_sample_type_interference.csv,Inappropriate reference interval with increasing age (age extreme),ph.reference_interval,1
+ph_blood,blood_pH_sample_type_interference.csv,Intraosseous blood instead of arterial (wrong sample type),ph.wrong_sample_type,1
+ph_blood,blood_pH_sample_type_interference.csv,Maternal position (supine vs other) in pregnancy,ph.wrong_sample_type,1
+ph_blood,blood_pH_sample_type_interference.csv,Mathematically arterialised venous (v-TAC) instead of direct arterial,ph.wrong_sample_type,1
+ph_blood,blood_pH_sample_type_interference.csv,Non-arterialised fingertip capillary blood instead of arterial (wrong sample type),ph.wrong_sample_type,1
+ph_blood,blood_pH_sample_type_interference.csv,Peripheral venous blood instead of arterial (wrong sample type),ph.wrong_sample_type,4
+ph_blood,blood_pH_temperature_correction_extraction.csv,Patient temperature ≠ 37 °C / temperature correction (alpha-stat vs pH-stat),ph.patient_temperature,18
+ph_blood,blood_pH_venous_vs_arterial_interference.csv,Wrong sample type: venous blood instead of arterial,ph.wrong_sample_type,26
+ph_blood,leukocyte_larceny_pH_interference.csv,"Marked leukocytosis (""leukocyte larceny"")",ph.leukocytosis,4
+po2_blood,enflurane_pO2_interference.csv,Enflurane,po2.enflurane,5
+po2_blood,isoflurane_pO2_interference_extraction.csv,Isoflurane (volatile anaesthetic),po2.isoflurane,1
+po2_blood,n2o_po2_interference.csv,Nitrous oxide (N2O),po2.nitrous_oxide,18
+po2_blood,pO2_air_bubble_interference.csv,Air bubble / air contamination in syringe (0.5 mL air added to 2 mL blood),po2.air_bubble,8
+po2_blood,pO2_air_bubble_interference.csv,"Air bubble in syringe (0.1 ml air; 5% of total syringe volume), single bubble in contact with blood",po2.air_bubble,5
+po2_blood,pO2_air_bubble_interference.csv,"Air bubble in syringe (0.2 ml air; 10% of total syringe volume), single bubble in contact with blood",po2.air_bubble,5
+po2_blood,pO2_air_bubble_interference.csv,"Air bubble in syringe (0.5 ml air; 25% of total syringe volume), single bubble in contact with blood",po2.air_bubble,5
+po2_blood,pO2_air_bubble_interference.csv,Air bubble within the syringe (0.2 mL ambient air; 20% of 1.0 mL filling volume),po2.air_bubble,1
+po2_blood,pO2_air_bubble_interference.csv,Froth in syringe (0.1 ml air drawn into 2 ml syringe then shaken vigorously),po2.air_bubble,1
+po2_blood,pO2_halothane_interference.csv,Halothane,po2.halothane,20
+po2_blood,pO2_hemolysis_interference_extraction.csv,Hemolysis (chemically induced in vitro with Triton X-100),po2.hemolysis,2
+po2_blood,pO2_hemolysis_interference_extraction.csv,Hemolysis (mechanically induced in vitro; cell-free hemoglobin / hemolysis index),po2.hemolysis,1
+po2_blood,pO2_hemolysis_interference_extraction.csv,Hemolysis (mechanically simulated with a 30 g needle),po2.hemolysis,1
+po2_blood,pO2_hemolysis_interference_extraction.csv,"Hemolysis (native, in patient specimens; graded by GEM 7000 semi-quantitative hemolysis index = plasma free hemoglobin)",po2.hemolysis,10
+po2_blood,pO2_hemolysis_interference_extraction.csv,Hemolysis (spurious/in vitro; cell-free hemoglobin),po2.hemolysis,1
+po2_blood,pO2_hemolysis_interference_extraction.csv,Hemolysis (ultrasonic hemolysate added to donor blood sub-pools; plasma free hemoglobin),po2.hemolysis,1
+po2_blood,pO2_leukocyte_larceny_extraction.csv,Extreme hyperleukocytosis in acute myeloid leukaemia (leukocyte oxygen consumption in vitro),po2.leukocytosis,2
+po2_blood,pO2_leukocyte_larceny_extraction.csv,Extreme hyperleukocytosis in acute myeloid leukaemia (spurious hypoxemia / leukocyte larceny),po2.leukocytosis,3
+po2_blood,pO2_leukocyte_larceny_extraction.csv,Extreme leucocytosis / blast crisis of chronic myeloid leukaemia (pseudohypoxaemia),po2.leukocytosis,3
+po2_blood,pO2_leukocyte_larceny_extraction.csv,Extreme leucocytosis / blast crisis of chronic myeloid leukaemia (pseudohypoxaemia; oxygen consumption by hypermetabolic cells),po2.leukocytosis,2
+po2_blood,pO2_leukocyte_larceny_extraction.csv,Extreme leucocytosis in acute lymphoblastic leukaemia ('leucocyte larceny'),po2.leukocytosis,2
+po2_blood,pO2_leukocyte_larceny_extraction.csv,Extreme leukocytosis (>100 × 109/liter) in acute and chronic leukaemia - leukocytic oxygen consumption,po2.leukocytosis,1
+po2_blood,pO2_leukocyte_larceny_extraction.csv,Extreme leukocytosis - effect of cytoreduction / leucocyte removal (reversal control),po2.leukocytosis,1
+po2_blood,pO2_leukocyte_larceny_extraction.csv,Extreme leukocytosis - in vitro tonometry (secondary account of Fox et al reported inside this PDF),po2.leukocytosis,1
+po2_blood,pO2_leukocyte_larceny_extraction.csv,"High leucocyte concentration in granulocyte-rich fractions from healthy donors (normal, non-leukaemic leucocytes)",po2.leukocytosis,1
+po2_blood,pO2_leukocyte_larceny_extraction.csv,Hyperleukocytosis in chronic myelogenous leukaemia (spurious hypoxemia / 'leukocyte larceny'),po2.leukocytosis,1
+po2_blood,pO2_leukocyte_larceny_extraction.csv,Leucocyte larceny (leucocytosis or thrombocytosis),po2.leukocytosis,1
+po2_blood,pO2_leukocyte_larceny_extraction.csv,Leukocyte larceny - leukemia or extreme leukocytosis (leukocytes and platelets consuming oxygen via mitochondrial respiration in the syringe),po2.leukocytosis,1
+po2_blood,pO2_leukocyte_larceny_extraction.csv,Leukocytosis in acute myeloid leukaemia ('spurious hypoxemia' / 'oxygen steal' / 'leukocyte/platelet larceny'),po2.leukocytosis,1
+po2_blood,pO2_leukocyte_larceny_extraction.csv,Marked leukocytosis in chronic myelogenous leukaemia ('leukocyte larceny'),po2.leukocytosis,5
+po2_blood,pO2_leukocyte_larceny_extraction.csv,"Moderate leukocytosis (WBC >15 × 109/L), non-leukaemic, with time at room temperature",po2.leukocytosis,1
+po2_blood,pO2_leukocyte_larceny_extraction.csv,Reduction of hyperleukocytosis by leukapheresis (reversal control),po2.leukocytosis,1
+po2_blood,pO2_leukocyte_larceny_extraction.csv,"Severe leukocytosis (WBC >50 × 10³ cells/mm³) or severe thrombocytosis (platelets >500,000)",po2.leukocytosis,1
+po2_blood,pO2_liquid_heparin_interference_table.csv,Excess liquid heparin in the syringe,po2.liquid_heparin,26
+po2_blood,pO2_liquid_heparin_interference_table.csv,Excess liquid heparin in the syringe (as residual heparinised saline flush solution diluting the sample),po2.liquid_heparin,5
+po2_blood,pO2_liquid_heparin_interference_table.csv,Excess liquid heparin in the syringe (heparin concentration varied at constant dilution),po2.liquid_heparin,1
+po2_blood,pO2_liquid_heparin_interference_table.csv,Excess liquid heparin in the syringe (heparin dilution varied by syringe filling volume),po2.liquid_heparin,2
+po2_blood,pO2_liquid_heparin_interference_table.csv,Excess liquid heparin in the syringe (liquid heparin syringe vs commercial dry balanced heparin syringe),po2.liquid_heparin,1
+po2_blood,pO2_liquid_heparin_interference_table.csv,Excess liquid heparin in the syringe (liquid heparin syringe vs commercial dry bound heparin syringe),po2.liquid_heparin,1
+po2_blood,pO2_plastic_syringe_interference.csv,Plastic (vs glass) sampling syringe - gas permeability of the plastic,po2.syringe_material,47
+po2_blood,pO2_platelet_larceny_extraction.csv,"Extreme thrombocytosis / high platelet count (""platelet larceny"")",po2.thrombocytosis,1
+po2_blood,pO2_platelet_larceny_extraction.csv,Extreme thrombocytosis / high platelet count (platelet larceny / oxygen steal),po2.thrombocytosis,10
+po2_blood,pO2_platelet_larceny_extraction.csv,Extreme thrombocytosis / high platelet count (platelet larceny / oxygen steal) — comparator row at NORMAL cell counts,po2.thrombocytosis,1
+po2_blood,pO2_platelet_larceny_extraction.csv,Extreme thrombocytosis / high platelet count (platelet larceny / oxygen steal) — reported jointly with leukocytosis,po2.thrombocytosis,1
+po2_blood,pO2_platelet_larceny_extraction.csv,Extreme thrombocytosis / high platelet count (platelet larceny / oxygen steal); reported in this PDF alongside hyperleukocytosis,po2.thrombocytosis,2
+po2_blood,pO2_platelet_larceny_extraction.csv,"Severe thrombocytosis (platelet count exceeding 500,000) — analysed jointly with severe leukocytosis",po2.thrombocytosis,1
+po2_blood,pO2_pneumatic_tube_interference_extraction.csv,Pneumatic-tube transport of the sample,po2.pneumatic_transport,27
+po2_blood,pO2_storage_RT_interference.csv,Delayed analysis (60 min at room temperature) combined with standardized mechanical stress,po2.delayed_analysis,1
+po2_blood,pO2_storage_RT_interference.csv,Delayed analysis / storage time at ambient (room) temperature (22 ± 1 °C),po2.delayed_analysis,2
+po2_blood,pO2_storage_RT_interference.csv,Delayed analysis / storage time at ambient (room) temperature (22-25°C),po2.delayed_analysis,18
+po2_blood,pO2_storage_RT_interference.csv,Delayed analysis / storage time at room temperature,po2.delayed_analysis,6
+po2_blood,pO2_storage_RT_interference.csv,Delayed analysis / storage time at room temperature (20-22°C),po2.delayed_analysis,3
+po2_blood,pO2_storage_RT_interference.csv,Delayed analysis / storage time at room temperature (22-24 °C),po2.delayed_analysis,3
+po2_blood,pO2_storage_RT_interference.csv,Delayed analysis / storage time at room temperature (22°C),po2.delayed_analysis,6
+po2_blood,pO2_storage_RT_interference.csv,"Delayed analysis / storage time at room temperature (22°C), with air bubbles",po2.delayed_analysis,4
+po2_blood,pO2_storage_RT_interference.csv,"Delayed analysis / storage time at room temperature (22°C), without air bubbles",po2.delayed_analysis,4
+po2_blood,pO2_storage_RT_interference.csv,Delayed analysis / storage time at room temperature (approx 22°C),po2.delayed_analysis,3
+po2_blood,pO2_storage_RT_interference.csv,"Delayed analysis / storage time at room temperature (mean 22°C, range 21-23°C)",po2.delayed_analysis,2
+po2_blood,pO2_storage_RT_interference.csv,Delayed analysis / storage time at room temperature (no ice),po2.delayed_analysis,28
+po2_blood,pO2_storage_temperature_interference_extraction.csv,Storage temperature (22 degrees C vs 0 degrees C iced water),po2.storage_temperature,4
+po2_blood,pO2_storage_temperature_interference_extraction.csv,Storage temperature (22 degrees C vs 0-4 degrees C ice water),po2.storage_temperature,4
+po2_blood,pO2_storage_temperature_interference_extraction.csv,Storage temperature (22 degrees C vs 4 degrees C ice-water),po2.storage_temperature,7
+po2_blood,pO2_storage_temperature_interference_extraction.csv,Storage temperature (22 degrees C vs on ice),po2.storage_temperature,18
+po2_blood,pO2_storage_temperature_interference_extraction.csv,Storage temperature (22-24 degrees C vs 0 degrees C in ice),po2.storage_temperature,41
+po2_blood,pO2_storage_temperature_interference_extraction.csv,Storage temperature (25 degrees C vs 4-8 degrees C vs 0-3.9 degrees C ice-water),po2.storage_temperature,12
+po2_blood,pO2_storage_temperature_interference_extraction.csv,Storage temperature (room temperature 22-24 degrees C vs slushed ice 0.1-0.2 degrees C),po2.storage_temperature,1
+po2_blood,pO2_storage_temperature_interference_extraction.csv,Storage temperature (room temperature 22-24 degrees C),po2.storage_temperature,1
+po2_blood,pO2_storage_temperature_interference_extraction.csv,Storage temperature (room temperature only; no iced comparator),po2.storage_temperature,2
+po2_blood,pO2_storage_temperature_interference_extraction.csv,Storage temperature (room temperature vs ice-water),po2.storage_temperature,22
+po2_blood,pO2_storage_temperature_interference_extraction.csv,Storage temperature (room temperature vs iced water),po2.storage_temperature,9
+po2_blood,pO2_storage_temperature_interference_extraction.csv,Storage temperature (room temperature vs iced),po2.storage_temperature,4
+po2_blood,pO2_storage_temperature_interference_extraction.csv,Storage temperature (room temperature vs iced/refrigerated),po2.storage_temperature,16
+po2_blood,pO2_storage_temperature_interference_extraction.csv,Storage temperature (room temperature vs melting ice / +4 degrees C),po2.storage_temperature,10
+po2_blood,pO2_storage_temperature_interference_extraction.csv,Storage temperature (room temperature vs on ice),po2.storage_temperature,72
+po2_blood,pO2_storage_temperature_interference_extraction.csv,Storage temperature (room temperature vs slushed ice),po2.storage_temperature,5
+po2_blood,pO2_storage_temperature_interference_extraction.csv,Storage temperature (slushed ice 0.1-0.2 degrees C),po2.storage_temperature,1
+potassium_serum,Potassium_Hemolysis_interference.csv,Hemolysis (GEM hemolysis flag),k.hemolysis,6
+potassium_serum,Potassium_Hemolysis_interference.csv,Hemolysis (GEM hemolysis index),k.hemolysis,12
+potassium_serum,Potassium_Hemolysis_interference.csv,Hemolysis (Triton X-100 induced),k.hemolysis,2
+potassium_serum,Potassium_Hemolysis_interference.csv,Hemolysis (aspiration through 23G needle),k.hemolysis,1
+potassium_serum,Potassium_Hemolysis_interference.csv,Hemolysis (free Hb addition),k.hemolysis,1
+potassium_serum,Potassium_Hemolysis_interference.csv,Hemolysis (free hemoglobin),k.hemolysis,1
+potassium_serum,Potassium_Hemolysis_interference.csv,Hemolysis (free plasma hemoglobin),k.hemolysis,5
+potassium_serum,Potassium_Hemolysis_interference.csv,Hemolysis (free serum hemoglobin),k.hemolysis,9
+potassium_serum,Potassium_Hemolysis_interference.csv,Hemolysis (hemolysis index H index),k.hemolysis,1
+potassium_serum,Potassium_Hemolysis_interference.csv,Hemolysis (hemolysis index H-index),k.hemolysis,1
+potassium_serum,Potassium_Hemolysis_interference.csv,Hemolysis (hemolysis index HI),k.hemolysis,12
+potassium_serum,Potassium_Hemolysis_interference.csv,Hemolysis (in vitro),k.hemolysis,1
+potassium_serum,Potassium_Hemolysis_interference.csv,Hemolysis (mechanically induced),k.hemolysis,1
+potassium_serum,Potassium_Hemolysis_interference.csv,"Hemolysis (osmotic shock, CLSI EP7)",k.hemolysis,1
+potassium_serum,Potassium_Hemolysis_interference.csv,"Hemolysis (undetected, hemolysis index in CL)",k.hemolysis,1
+potassium_serum,Potassium_ReversePseudohyperkalemia_interference_table.csv,Reverse pseudohyperkalemia (Li-heparin plasma > serum) [literature-review compilation],k.reverse_pseudohyperkalemia,14
+potassium_serum,Potassium_ReversePseudohyperkalemia_interference_table.csv,Reverse pseudohyperkalemia (Li-heparin plasma > serum; retrospective cohort),k.reverse_pseudohyperkalemia,3
+potassium_serum,Potassium_ReversePseudohyperkalemia_interference_table.csv,"Reverse pseudohyperkalemia (Li-heparin plasma via pneumatic transport, CLL)",k.reverse_pseudohyperkalemia,3
+potassium_serum,Potassium_ReversePseudohyperkalemia_interference_table.csv,"Reverse pseudohyperkalemia (Li-heparin plasma vs arterial whole blood, CLL)",k.reverse_pseudohyperkalemia,1
+potassium_serum,Potassium_ReversePseudohyperkalemia_interference_table.csv,"Reverse pseudohyperkalemia (Li-heparin plasma vs serum, CLL)",k.reverse_pseudohyperkalemia,5
+potassium_serum,Potassium_ReversePseudohyperkalemia_interference_table.csv,"Reverse pseudohyperkalemia (Li-heparin plasma vs serum; T-cell ALL, pediatric)",k.reverse_pseudohyperkalemia,1
+potassium_serum,Potassium_ReversePseudohyperkalemia_interference_table.csv,Reverse pseudohyperkalemia (Li-heparin plasma vs serum; T-cell prolymphocytic leukemia),k.reverse_pseudohyperkalemia,1
+potassium_serum,Potassium_ReversePseudohyperkalemia_interference_table.csv,Reverse pseudohyperkalemia (Li-heparin plasma vs serum; mantle cell lymphoma),k.reverse_pseudohyperkalemia,3
+potassium_serum,Potassium_ReversePseudohyperkalemia_interference_table.csv,Reverse pseudohyperkalemia (Li-heparin plasma vs whole blood; CLL/blast crisis),k.reverse_pseudohyperkalemia,1
+potassium_serum,Potassium_ReversePseudohyperkalemia_interference_table.csv,"Reverse pseudohyperkalemia (Li-heparin plasma, leukemia; pneumatic tube + heparin-induced membrane damage)",k.reverse_pseudohyperkalemia,1
+potassium_serum,Potassium_ReversePseudohyperkalemia_interference_table.csv,"Reverse pseudohyperkalemia (Li-heparin plasma/whole blood, CLL; heparin-induced cell membrane damage)",k.reverse_pseudohyperkalemia,3
+potassium_serum,Potassium_ReversePseudohyperkalemia_interference_table.csv,Reverse pseudohyperkalemia (TARGET) - NOT assessed; clotting-time-dependent SERUM pseudohyperkalemia (Sezary syndrome),k.reverse_pseudohyperkalemia,1
+potassium_serum,Potassium_ReversePseudohyperkalemia_interference_table.csv,Reverse pseudohyperkalemia (TARGET) - NOT demonstrated; study reports general serum>plasma offset,k.reverse_pseudohyperkalemia,1
+potassium_serum,Potassium_ReversePseudohyperkalemia_interference_table.csv,Reverse pseudohyperkalemia (TARGET) - NOT demonstrated; time-dependent Li-Hep plasma K increase (general population),k.reverse_pseudohyperkalemia,1
+potassium_serum,Potassium_ReversePseudohyperkalemia_interference_table.csv,Reverse pseudohyperkalemia (TARGET) - NOT observed; FORWARD serum pseudohyperkalemia in CLL (plasma/whole blood normal),k.reverse_pseudohyperkalemia,1
+potassium_serum,Potassium_ReversePseudohyperkalemia_interference_table.csv,Time-dependent Li-Hep plasma K release (general population) [context for rPHK query],k.reverse_pseudohyperkalemia,1
+potassium_serum,potassium_chilling_interference.csv,Cold ambient temperature exposure of whole blood during transport before separation,k.cold_storage,1
+potassium_serum,potassium_chilling_interference.csv,Cold storage of whole blood before separation (4 °C),k.cold_storage,2
+potassium_serum,potassium_chilling_interference.csv,Refrigerated storage of blood at 4 °C under blood-banking conditions,k.cold_storage,1
+potassium_serum,potassium_chilling_interference.csv,Refrigerated storage of whole blood before centrifugation (4 °C),k.cold_storage,3
+potassium_serum,potassium_chilling_interference.csv,Refrigerated/cold storage of whole blood before centrifugation (4 °C),k.cold_storage,2
+potassium_serum,potassium_chilling_interference.csv,Refrigeration / low ambient temperature exposure of whole blood before centrifugation,k.cold_storage,1
+potassium_serum,potassium_chilling_interference.csv,Room-temperature storage of whole blood before centrifugation (22 °C) — comparator arm,k.cold_storage,2
+potassium_serum,potassium_collection_technique_extraction.csv,Blood collection device/technique: Buzzy (external cold + vibration applied 5 cm above the puncture site for 1 min before and during venipuncture) vs standard venipuncture without tourniquet,k.collection_device,1
+potassium_serum,potassium_collection_technique_extraction.csv,"Blood collection set / needle gauge: 25G UltraTouch Push Button (ultra-thin wall, 5-bevel; inner diameter 0.016 in) vs 23G Safety-Lok (standard thin wall, 3-bevel; inner diameter 0.015 in)",k.collection_device,1
+potassium_serum,potassium_collection_technique_extraction.csv,"Blood collection set / needle gauge: 25G UltraTouch Push Button vs 23G Safety-Lok - intraindividual sub-cohort (same patients, both sets, on different days)",k.collection_device,1
+potassium_serum,potassium_collection_technique_extraction.csv,Collection device/matrix: lithium heparin plasma vacuum tube without gel separator (centrifuged) vs serum vacuum tube with clot activator (clotting + centrifugation),k.collection_device,1
+potassium_serum,potassium_collection_technique_extraction.csv,Collection device/matrix: whole blood in electrolyte-balanced lithium heparin syringe (no centrifugation) vs serum vacuum tube with clot activator (clotting + centrifugation),k.collection_device,1
+potassium_serum,potassium_collection_technique_extraction.csv,"Collection route/device: blood drawn from an indwelling peripheral venous catheter (PVC, 20G/22G) with a syringe, vs direct venipuncture stab (DVS) - day 1 after PVC insertion",k.collection_device,1
+potassium_serum,potassium_collection_technique_extraction.csv,"Comparator collection technique: femoral artery draw with 22-gauge straight needle and syringe, required volume taken at once, then aliquoted into vacuum tubes (no handgrip, no tourniquet) - Figure, panel B",k.fist_clenching,1
+potassium_serum,potassium_collection_technique_extraction.csv,"Complete (deliberate, in vitro) haemolysis of the sample - 'ultimate example of haemolysis'",k.collection_device,1
+potassium_serum,potassium_collection_technique_extraction.csv,"Femoral artery syringe draw (no handgrip), serum tube stored 3 h at 4 C before measurement - Figure, panel B",k.fist_clenching,1
+potassium_serum,potassium_collection_technique_extraction.csv,"Femoral artery syringe draw (no handgrip), serum tube stored 3 h at room temperature before measurement - Figure, panel B",k.fist_clenching,1
+potassium_serum,potassium_collection_technique_extraction.csv,Fist clenching (6 times before venipuncture) and maintenance of fist during venipuncture,k.fist_clenching,1
+potassium_serum,potassium_collection_technique_extraction.csv,"Handgrip (fist clenching) with tourniquet during venipuncture, 22-gauge wing needle and holder, sequential vacuum tube draw - upper limb vein (Figure, panel A)",k.fist_clenching,5
+potassium_serum,potassium_collection_technique_extraction.csv,Mechanically induced haemolysis by repeated aspirations (one to five sequential aspirations) through a 25-gauge needle attached to an insulin syringe,k.collection_device,1
+potassium_serum,potassium_collection_technique_extraction.csv,"Narrow-gauge needle + traumatic handling: 26 G insulin needle draw, blood expelled into the Vacutainer with pressure/forcing, tourniquet kept on until end of draw (vs 18 G needle, gentle expulsion, tourniquet released)",k.collection_device,1
+potassium_serum,potassium_collection_technique_extraction.csv,"Needle gauge: discontinuation of 22-gauge butterfly needles, switching to 23- and 25-gauge butterfly needles only (finer needles)",k.collection_device,1
+potassium_serum,potassium_collection_technique_extraction.csv,"Needle gauge: switch to finer (23-/25-gauge) needles after discontinuation of 22-gauge needles, with resulting moderate-to-gross haemolysis - individual case 1",k.collection_device,1
+potassium_serum,potassium_collection_technique_extraction.csv,"Needle gauge: switch to finer (23-/25-gauge) needles after discontinuation of 22-gauge needles, with resulting moderate-to-gross haemolysis - individual case 2",k.collection_device,1
+potassium_serum,potassium_delayed_centrifugation_extraction.csv,Delayed analysis / clot-contact time (serum separated then refrigerated),k.delayed_centrifugation,1
+potassium_serum,potassium_delayed_centrifugation_extraction.csv,Delayed analysis / clot-contact time (uncentrifuged clotted whole blood at room temperature),k.delayed_centrifugation,1
+potassium_serum,potassium_delayed_centrifugation_extraction.csv,Delayed analysis / clot-contact time (uncentrifuged clotted whole blood; refrigerated storage),k.delayed_centrifugation,1
+potassium_serum,potassium_delayed_centrifugation_extraction.csv,Delayed centrifugation / prolonged storage of uncentrifuged whole blood at room temperature,k.delayed_centrifugation,4
+potassium_serum,potassium_delayed_centrifugation_extraction.csv,Delayed centrifugation / prolonged storage of whole blood (blood in separator tube stored before centrifugation; room temperature 22 degrees C),k.delayed_centrifugation,2
+potassium_serum,potassium_delayed_centrifugation_extraction.csv,Delayed centrifugation / prolonged storage of whole blood (refrigerated 4 degrees C before centrifugation),k.delayed_centrifugation,2
+potassium_serum,potassium_delayed_centrifugation_extraction.csv,Delayed separation from cellular material (whole blood >4 h from collection; pseudohyperkalemia),k.delayed_centrifugation,1
+potassium_serum,potassium_delayed_centrifugation_extraction.csv,Prolonged storage / delayed centrifugation of whole blood (reduced Na+/K+-ATPase activity),k.delayed_centrifugation,1
+potassium_serum,potassium_fist_clenching_interference.csv,Fist clenching / pumping during phlebotomy (cited magnitude),k.fist_clenching,1
+potassium_serum,potassium_fist_clenching_interference.csv,"Fist clenching / pumping during phlebotomy (routine practice at Urology Clinic, pre- vs post-intervention)",k.fist_clenching,1
+potassium_serum,potassium_fist_clenching_interference.csv,Fist clenching / repeated handgrip exercises during tourniquet use at blood collection,k.fist_clenching,1
+potassium_serum,potassium_fist_clenching_interference.csv,Handgrip (fist clenching) with tourniquet as routine phlebotomy practice (repeated outpatient draws over 10 months),k.fist_clenching,1
+potassium_serum,potassium_fist_clenching_interference.csv,Handgrip (fist clenching) with tourniquet during venipuncture,k.fist_clenching,4
+potassium_serum,potassium_fist_clenching_interference.csv,Handgrip (fist clenching) with tourniquet during venipuncture (sample additionally stored 3 h at 4C),k.fist_clenching,1
+potassium_serum,potassium_fist_clenching_interference.csv,Handgrip (fist clenching) with tourniquet during venipuncture (sample additionally stored 3 h at room temperature),k.fist_clenching,1
+potassium_serum,potassium_fist_clenching_interference.csv,Handgrip / fist clenching during phlebotomy (general mechanism statement),k.fist_clenching,1
+potassium_serum,potassium_fist_clenching_interference.csv,"No handgrip (femoral artery control arm, single syringe draw aliquoted into tubes)",k.fist_clenching,1
+potassium_serum,potassium_indirect_ISE_matrix_effect_extraction.csv,Analyzer method: indirect ISE matrix effect (electrolyte exclusion) - cholesterol,k.indirect_ise,3
+potassium_serum,potassium_indirect_ISE_matrix_effect_extraction.csv,Analyzer method: indirect ISE matrix effect (electrolyte exclusion) - elevated total protein / paraproteins,k.indirect_ise,1
+potassium_serum,potassium_indirect_ISE_matrix_effect_extraction.csv,Analyzer method: indirect ISE matrix effect (electrolyte exclusion) - elevated triglycerides,k.indirect_ise,8
+potassium_serum,potassium_indirect_ISE_matrix_effect_extraction.csv,Analyzer method: indirect ISE matrix effect (electrolyte exclusion) - hyperlipidaemia (total lipids = cholesterol + triglycerides),k.indirect_ise,1
+potassium_serum,potassium_indirect_ISE_matrix_effect_extraction.csv,Analyzer method: indirect ISE matrix effect (electrolyte exclusion) - hyperlipidaemia; performance of the potassium correction formulas,k.indirect_ise,1
+potassium_serum,potassium_indirect_ISE_matrix_effect_extraction.csv,Analyzer method: indirect ISE matrix effect (electrolyte exclusion) - low total protein (hypoproteinaemia),k.indirect_ise,1
+potassium_serum,potassium_indirect_ISE_matrix_effect_extraction.csv,Analyzer method: indirect ISE matrix effect (electrolyte exclusion) - total plasma protein,k.indirect_ise,3
+potassium_serum,potassium_indirect_ISE_matrix_effect_extraction.csv,Analyzer method: indirect ISE matrix effect (electrolyte exclusion) - total protein,k.indirect_ise,3
+potassium_serum,potassium_indirect_ISE_matrix_effect_extraction.csv,Analyzer method: indirect ISE matrix effect (electrolyte exclusion) - total protein (dose-response),k.indirect_ise,1
+potassium_serum,potassium_indirect_ISE_matrix_effect_extraction.csv,Analyzer method: indirect ISE matrix effect (electrolyte exclusion) - total protein (normal-protein reference group),k.indirect_ise,1
+potassium_serum,potassium_indirect_ISE_matrix_effect_extraction.csv,"Analyzer method: indirect ISE matrix effect (electrolyte exclusion) - total protein, triglycerides and cholesterol combined",k.indirect_ise,1
+potassium_serum,potassium_indirect_ISE_matrix_effect_extraction.csv,Analyzer method: indirect ISE matrix effect (electrolyte exclusion) - triglycerides,k.indirect_ise,3
+potassium_serum,potassium_kEDTA_interference.csv,K-EDTA (K2EDTA plasma) contamination,k.k_edta,11
+potassium_serum,potassium_kEDTA_interference.csv,K-EDTA (K2EDTA whole blood) contamination,k.k_edta,4
+potassium_serum,potassium_kEDTA_interference.csv,K-EDTA (K2EDTA) contamination via order of draw,k.k_edta,1
+potassium_serum,potassium_kEDTA_interference.csv,K-EDTA (K3EDTA whole blood) carryover,k.k_edta,2
+potassium_serum,potassium_kEDTA_interference.csv,K-EDTA (K3EDTA) contamination,k.k_edta,4
+potassium_serum,potassium_kEDTA_interference.csv,K-EDTA (potassium-EDTA) contamination,k.k_edta,1
+potassium_serum,potassium_kEDTA_interference.csv,K-EDTA (pure K3EDTA) carryover,k.k_edta,1
+potassium_serum,potassium_kEDTA_interference.csv,K-EDTA contamination via order of draw (closed system),k.k_edta,1
+potassium_serum,potassium_leukocytosis_interference.csv,Leukocytosis,k.leukocytosis,57
+potassium_serum,potassium_order_of_draw_extraction.csv,Order of draw (systematic review of order-of-draw studies; no primary potassium measurements),k.order_of_draw,1
+potassium_serum,potassium_order_of_draw_extraction.csv,Order of draw: needleless lithium-heparin blood-gas syringe connected to the tube holder immediately after a K3EDTA vacuum tube (incorrect order of draw),k.order_of_draw,1
+potassium_serum,potassium_order_of_draw_extraction.csv,Order of draw: potassium-EDTA tubes taken last (editorial commentary on Sharratt et al.; no primary potassium measurements),k.order_of_draw,1
+potassium_serum,potassium_order_of_draw_extraction.csv,Order of draw: second of two serum tubes filled successively (no additive tube in between) (Group 2),k.order_of_draw,1
+potassium_serum,potassium_order_of_draw_extraction.csv,Order of draw: serum tube collected immediately after a K-EDTA tube (Group 1),k.order_of_draw,1
+potassium_serum,potassium_order_of_draw_extraction.csv,Order of draw: serum tube collected immediately after a K2-EDTA tube,k.order_of_draw,1
+potassium_serum,potassium_order_of_draw_extraction.csv,Order of draw: serum tube collected immediately after a buffered sodium citrate tube,k.order_of_draw,1
+potassium_serum,potassium_order_of_draw_extraction.csv,"Order of draw: serum vacuum tube collected FIRST, i.e. BEFORE the K3EDTA tube (internal comparator within the same case report)",k.order_of_draw,1
+potassium_serum,potassium_order_of_draw_extraction.csv,"Order of draw: three successive vacuum tubes containing no anticoagulant, first versus final (control group)",k.order_of_draw,1
+potassium_serum,potassium_order_of_draw_extraction.csv,Order of draw: tube containing no anticoagulant drawn after a potassium-EDTA tube (trial group),k.order_of_draw,1
+potassium_serum,potassium_thrombocytosis_extraction.csv,Thrombocytosis (platelet count),k.thrombocytosis,12
+potassium_serum,potassium_tourniquet_application.csv,Tourniquet application (with and without fist clenching),k.tourniquet_stasis,1
+potassium_serum,potassium_tourniquet_application.csv,"Tourniquet application / venous stasis (pneumatic cuff, 30 s stasis at 20 mm Hg above diastolic BP; sampling after cuff deflation)",k.tourniquet_stasis,7
+potassium_serum,potassium_tourniquet_application.csv,Tourniquet application / venous stasis (standardized 60 mm Hg sphygmomanometer),k.tourniquet_stasis,2
+potassium_serum,potassium_tourniquet_application.csv,Tourniquet application / venous stasis (tourniquet time vs stasis-free transillumination device),k.tourniquet_stasis,5
+potassium_serum,potassium_tourniquet_application.csv,Tourniquet time (>1 min vs ≤1 min) during venepuncture,k.tourniquet_stasis,1
+potassium_serum,potassium_tourniquet_application.csv,Venous stasis (sphygmomanometer cuff at 100 mm Hg),k.tourniquet_stasis,1
+potassium_serum,potassium_tourniquet_application.csv,Venous stasis (tourniquet + manual restraint) combined with intense muscle contraction,k.tourniquet_stasis,2
+troponin_serum,troponin_ALP_interference.csv,Alkaline phosphatase (mentioned only as a macromolecular-complex-forming enzyme; not studied as an interferent here),tn.alkaline_phosphatase,1
+troponin_serum,troponin_ALP_interference.csv,"Asfotase alfa (recombinant/synthetic alkaline phosphatase, STRENSIQ) — NOTE: exogenous ALP, not elevated endogenous ALP",tn.asfotase_alfa,2
+troponin_serum,troponin_ALP_interference.csv,Elevated endogenous alkaline phosphatase (ALP),tn.alkaline_phosphatase,26
+troponin_serum,troponin_ALP_interference.csv,Endogenous alkaline phosphatase (ALP) — interference proven despite ALP within normal range (58 U/L),tn.alkaline_phosphatase,1
+troponin_serum,troponin_RF_interference.csv,Rheumatoid factor (RF),tn.rheumatoid_factor,5
+troponin_serum,troponin_RF_interference.csv,Rheumatoid factor (RF) / seropositive rheumatoid arthritis,tn.rheumatoid_factor,1
+troponin_serum,troponin_autoantibody_interference.csv,"Troponin autoantibody (cardiac troponin-specific autoantibody, cTnAAb / macrotroponin)",tn.troponin_autoantibodies,62
+troponin_serum,troponin_biotin_interference_extraction.csv,Biotin,tn.biotin,238
+troponin_serum,troponin_biotin_interference_extraction.csv,Biotin (endogenous/native),tn.biotin,1
+troponin_serum,troponin_fibrin_interference.csv,Fibrin (clots/strands from incomplete serum separation),tn.fibrin,8
+troponin_serum,troponin_fibrin_interference.csv,Fibrin (in serum or plasma),tn.fibrin,1
+troponin_serum,troponin_fibrin_interference.csv,Fibrin (incompletely clotted specimen),tn.fibrin,1
+troponin_serum,troponin_fibrin_interference.csv,Fibrin (small clots in plasma specimens),tn.fibrin,1
+troponin_serum,troponin_fibrin_interference.csv,Fibrin clot formation,tn.fibrin,1
+troponin_serum,troponin_fibrin_interference.csv,Fibrin clots,tn.fibrin,4
+troponin_serum,troponin_fibrin_interference.csv,Fibrin or microparticles (incomplete separation),tn.fibrin,1
+troponin_serum,troponin_hemolysis_interference.csv,Hemolysis / hemoglobin,tn.hemolysis,1
+troponin_serum,troponin_hemolysis_interference.csv,Hemolysis / hemoglobin (Hb-titrated hemolysate),tn.hemolysis,1
+troponin_serum,troponin_hemolysis_interference.csv,Hemolysis / hemoglobin (Hb-titrated hemolyzate),tn.hemolysis,3
+troponin_serum,troponin_hemolysis_interference.csv,Hemolysis / hemoglobin (RBC lysate-haemoglobin),tn.hemolysis,1
+troponin_serum,troponin_hemolysis_interference.csv,Hemolysis / hemoglobin (Sigma Hb added),tn.hemolysis,3
+troponin_serum,troponin_hemolysis_interference.csv,Hemolysis / hemoglobin (erythrocyte haemolysate),tn.hemolysis,2
+troponin_serum,troponin_hemolysis_interference.csv,Hemolysis / hemoglobin (haemolysate),tn.hemolysis,2
+troponin_serum,troponin_hemolysis_interference.csv,Hemolysis / hemoglobin (haemolysate; free Hb),tn.hemolysis,56
+troponin_serum,troponin_hemolysis_interference.csv,Hemolysis / hemoglobin (hemolysate & purified Hb),tn.hemolysis,1
+troponin_serum,troponin_hemolysis_interference.csv,Hemolysis / hemoglobin (hemolysate),tn.hemolysis,51
+troponin_serum,troponin_hemolysis_interference.csv,Hemolysis / hemoglobin (hemolysate; H-index),tn.hemolysis,97
+troponin_serum,troponin_hemolysis_interference.csv,"Hemolysis / hemoglobin (hemolysate; H-index, HI)",tn.hemolysis,2
+troponin_serum,troponin_hemolysis_interference.csv,Hemolysis / hemoglobin (hemolysate; HI),tn.hemolysis,2
+troponin_serum,troponin_hemolysis_interference.csv,Hemolysis / hemoglobin (hemolysate; free plasma Hb),tn.hemolysis,15
+troponin_serum,troponin_hemolysis_interference.csv,Hemolysis / hemoglobin (hemolysate; serum index),tn.hemolysis,2
+troponin_serum,troponin_hemolysis_interference.csv,Hemolysis / hemoglobin (mechanical; HI),tn.hemolysis,3
+troponin_serum,troponin_hemolysis_interference.csv,Hemolysis / hemoglobin (osmotic-shock haemolysate),tn.hemolysis,2
+troponin_serum,troponin_hemolysis_interference.csv,Hemolysis / hemoglobin (osmotic-shock hemolysate; H-index),tn.hemolysis,2
+troponin_serum,troponin_heterophile_interference.csv,Heterophile antibodies,tn.heterophile_antibodies,16
+troponin_serum,troponin_heterophile_interference.csv,Heterophile antibodies (IgG class),tn.heterophile_antibodies,1
+troponin_serum,troponin_heterophile_interference.csv,Heterophile antibodies (anti-Legionella titre-correlated),tn.heterophile_antibodies,1
+troponin_serum,troponin_heterophile_interference.csv,Heterophile antibodies (overall prevalence),tn.heterophile_antibodies,1
+troponin_serum,troponin_heterophile_interference.csv,Heterophile antibodies (suspected),tn.heterophile_antibodies,1
+troponin_serum,troponin_heterophile_interference.csv,Heterophile antibodies (test NEGATIVE / unconfirmed),tn.heterophile_antibodies,1
+troponin_serum,troponin_heterophile_interference.csv,Heterophile antibodies (tested via HBT),tn.heterophile_antibodies,3
+troponin_serum,troponin_heterophile_interference.csv,Heterophile antibodies / HAMA (tested via mouse serum),tn.heterophile_antibodies,1
+troponin_serum,troponin_heterophile_interference.csv,Human anti-mouse antibodies (HAMA) / heterophile antibodies (suspected),tn.heterophile_antibodies,1
+troponin_serum,troponin_heterophile_interference.csv,Immunocomplexes / heterophilic antibodies,tn.heterophile_antibodies,1
+troponin_serum,troponin_heterophile_interference.csv,Interfering antibody (anti-mouse)/heterophile (assessed),tn.heterophile_antibodies,1
+troponin_serum,troponin_lipemia_extraction.csv,Lipemia (intralipid / triglycerides),tn.lipemia,1
+troponin_serum,troponin_lipemia_extraction.csv,Lipemia (intralipid),tn.lipemia,3
+troponin_serum,troponin_lipemia_extraction.csv,Lipemia (triglycerides),tn.lipemia,5
+troponin_serum,troponin_macrotroponin_interference_table.csv,Macrotroponin (troponin-immunoglobulin complex),tn.macrotroponin,33
+troponin_serum,troponin_skeletalTnT_crossreactivity_extraction.csv,Skeletal muscle TnT isoform cross-reactivity / re-expression,tn.skeletal_tnt,9
