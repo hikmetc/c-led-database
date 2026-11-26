@@ -463,6 +463,33 @@ w("")
 w("   Expect zero rows without a citation, zero rows with no value in any data field, and zero "
   "rows citing a document that supplied nothing.")
 w("")
+w("### Importing a run of the literature archive")
+w("")
+w("`scripts/import_archive.py <path>` performs steps 1 to 5 for one extraction run of the "
+  "literature archive. `<path>` is a run folder, a topic folder (its latest run is used) or an "
+  "extraction table. The importer:")
+w("")
+w("- picks the highest `_vN` version of the run's extraction table and stores it under one stable "
+  "name, `<run id>_extraction_table.csv`, so a newer version of a run replaces the older one "
+  "instead of adding the same evidence twice, and the run's `row_id`s keep their table stem")
+w("- refuses a table whose header is not the 29 columns of section 5")
+w("- matches the analyte against the registry (folder, prefix, component, synonyms); for an "
+  "analyte that is not registered it asks for prefix, component, system, kind of property and "
+  "unit, and takes the APS from the run")
+w("- files the table under an existing canonical cause when the key matches, and otherwise asks "
+  "for a canonical name and a concept; it never invents either")
+w("- warns and stops when the cause already has another table, because the same studies would "
+  "then be counted twice (`--allow-duplicate-cause` overrides this for tables that hold "
+  "different studies)")
+w("- edits `scripts/registry.py`, verifies that the edited registry is exactly the old one plus "
+  "the planned entries, prunes rows without evidence, rebuilds, validates and audits")
+w("- undoes every change if any of that fails, which is why it requires a clean working tree")
+w("- shows what changed and asks before it commits and pushes; the push triggers the data and "
+  "website workflows, so the evidence is on the website a few minutes later")
+w("")
+w("Only the extraction CSV is copied. The archive is read, never changed. `--dry-run` shows the "
+  "plan and changes nothing; `--no-push` imports and rebuilds without committing.")
+w("")
 w("### Adding a table to an existing analyte")
 w("")
 w("Drop the CSV into that analyte's `database/`, add one line to its `TABLE_MAP` entry, add the "
@@ -472,8 +499,9 @@ w("")
 w("## 15. Using the data in a website")
 w("")
 w("- **Publish only the deploy set** (section 8.2). Never publish `cled.sqlite` or the legacy JSON.")
-w("- **Engine.** DuckDB-WASM, loaded from a CDN rather than from the site, so it does not count "
-  "against the site's size or bandwidth. Point it at the Parquet files by URL.")
+w("- **Engine.** DuckDB-WASM. This site serves the DuckDB files itself (about 80 MB of the "
+  "deployed site) instead of loading them from a CDN, so that it makes no third-party request. "
+  "Point it at the Parquet files by URL.")
 w("- **Never hard-code analytes.** Read `parquet/manifest.json` and `analytes.json` at start-up; "
   "every analyte, file and row count is listed there.")
 w("- **Which file for which view.** Home and cross-analyte views: `slim_all.parquet`. Analyte "
@@ -497,7 +525,59 @@ w("- **Fallback.** Range requests can fail in some browsers, in which case DuckD
   "whole file. Because files are cut per analyte, that fallback stays small and the page still "
   "works.")
 w("")
-w("## 16. Known limitations")
+w("## 16. The website")
+w("")
+w("The website lives in `site/` (SvelteKit 2, Svelte 5, TypeScript, static adapter) and is deployed "
+  "to GitHub Pages by `.github/workflows/pages.yml`: data build, unit tests, site build, size and "
+  "budget checks, end-to-end tests, deploy. Nothing generated is committed.")
+w("")
+w("### Page map")
+w("")
+w("| Route | What it shows | Data it reads |")
+w("|---|---|---|")
+w("| `/` | search, key numbers, the concept x analyte matrix, analyte cards | registry JSON; `slim_all.parquet` for the matrix shares |")
+w("| `/analyte/<analyte_id>/` | APS control, filters, ranked interferents, effect strip, direction breakdown, evidence table, CSV download | `slim/<id>.parquet` |")
+w("| `/interferent/<interferent_id>/` | the same blocks for one cause of one analyte | `slim/<id>.parquet` |")
+w("| `/concept/<concept>/` | one concept across analytes, one strip per analyte on a shared axis | `slim_all.parquet` |")
+w("| `/search/?q=` | analytes, concepts, interferents and matching evidence rows | registry JSON; `slim_all.parquet`; `detail/*.parquet` only when citations are included |")
+w("| `/row/<row_id>/` | every source column of one row, verbatim; also shown as a drawer elsewhere | `detail/<id>.parquet`, `slim/<id>.parquet` |")
+w("| `/about/` `/methods/` `/data-dictionary/` `/cite/` `/changelog/` `/downloads/` | documentation | registry JSON, `data_dictionary.json`, `CHANGELOG.md` |")
+w("")
+w("Every page that can be known at build time is prerendered from `manifest.json` and the registry "
+  "JSON. Row permalinks are rendered in the browser through the static fallback page (`404.html`).")
+w("")
+w("### Data contract")
+w("")
+w("- The site reads only the web deploy set (section 8.2), copied into `site/static/data/` at build "
+  "time by `site/scripts/copy-data.mjs`, plus `meta/data_dictionary.json` for column definitions. "
+  "`site/scripts/check-budget.mjs` fails the deployment if anything else appears under `data/`.")
+w("- `parquet/manifest.json` decides which analytes exist and which file each view reads. Its "
+  "`schema_version` is checked: a major version the site does not know produces an error banner "
+  "instead of data.")
+w("- Nulls stay nulls. A missing `pct_change` is shown as \"Not reported\", is never drawn and "
+  "never counted as zero. Charts draw only `plottable` rows and state how many rows were left out.")
+w("- Custom APS: `exceeds = abs(pct_change) > APS`, strictly, and only where `pct_change` is "
+  "numeric. Other rows keep their recorded `aps_verdict` and are marked not computable. The "
+  "override is kept in the URL (`?aps=5`).")
+w("- Effect sizes span several orders of magnitude, so the default x scale is symmetric log. The "
+  "alternative linear scale is clipped at a data-driven bound; values beyond it are drawn at the "
+  "edge with their own marker and counted in a note, never dropped.")
+w("- Source columns are shown verbatim in the row view, under their data-dictionary names.")
+w("- DuckDB-WASM (single-threaded bundles) and its Parquet extension are served by the site. The "
+  "extension is fetched once at build time from the official DuckDB extension repository and "
+  "verified against the SHA-256 checksums pinned in `site/duckdb-extensions.json`; update that "
+  "file together with `@duckdb/duckdb-wasm`.")
+w("")
+w("### How a new analyte appears")
+w("")
+w("Nothing in `site/` names an analyte, an interferent or a file. After section 14, commit and "
+  "push: the Pages workflow rebuilds the data, and the new analyte is in the navigation, the home "
+  "cards, the matrix and the sitemap, with its own prerendered pages. `site/tests/e2e/growth.spec.ts` "
+  "guards this: it builds the unchanged site against a copy of the data that holds one extra, fake "
+  "analyte (`site/tests/fixtures/make_growth_data.py`) and checks that it appears everywhere. The "
+  "fixture exists only in that test build and is never published.")
+w("")
+w("## 17. Known limitations")
 w("")
 w(f"- `pct_change` is present for {plott:,} of {rows:,} rows. Many sources report an effect only "
   "in words or only in absolute units.")

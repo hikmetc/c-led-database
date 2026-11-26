@@ -1,5 +1,41 @@
 # Changelog
 
+## 0.4.0 - 2026-11-26
+
+The database gets a website, and a one-command import from the literature archive.
+
+### Added
+- **Website** at <https://hikmetc.github.io/c-led-database/>, a static site under `site/`
+  (SvelteKit, Svelte 5, TypeScript) that reads only the web deploy set and queries it in the
+  browser with DuckDB-WASM over HTTP range requests.
+  - Pages: overview with a concept x analyte matrix, analyte, interferent, concept, search,
+    row permalink (also shown as a drawer), about, methods, data dictionary, how to cite,
+    changelog, downloads.
+  - Custom APS per analyte, kept in the URL; rows without a numeric change are never
+    recomputed and never shown as zero.
+  - Effect charts on a symmetric log scale, with a clipped linear alternative that marks and
+    counts the values beyond the axis instead of dropping them.
+  - Driven by `parquet/manifest.json`: a new analyte appears with no code change, which a
+    growth test verifies against a fake analyte that exists only in that test build.
+  - No analytics, no cookies and no third-party requests: DuckDB-WASM and its Parquet extension
+    are served by the site itself.
+- `.github/workflows/pages.yml` - rebuilds the data, builds and tests the site (unit tests,
+  end-to-end tests with accessibility checks) and deploys it to GitHub Pages on every push.
+- `scripts/import_archive.py` - imports one extraction run of the literature archive: checks
+  the table, registers it, prunes, rebuilds, validates, undoes everything on failure, and asks
+  before it commits and pushes.
+- `build/stats.json` - new `references` and `by_reference_status`, so the website can show
+  reference coverage without querying the Parquet files.
+
+### Changed
+- README and STRUCTURE.md describe the website, its data contract and the importer. The
+  earlier advice to load DuckDB-WASM from a CDN is replaced: the site serves it itself.
+
+### Open
+- About, Methods and How to cite carry clearly marked TODOs where the repository holds no
+  information: authors, affiliations, funding, intended use, literature search and selection
+  methods, the rationale of each APS, and a formal citation.
+
 ## 0.3.0 - 2026-11-26
 
 A Parquet web layer, built to stay small and fast as the database grows at least fifty-fold.

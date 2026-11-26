@@ -129,8 +129,14 @@ h4 {
 	line-height: 1.12;
 	text-wrap: balance;
 }
+h1,
+h2,
+h3 {
+	/* a long single word (an analyte name) wraps instead of widening the page */
+	overflow-wrap: anywhere;
+}
 h1 {
-	font-size: clamp(2.5rem, 1.9rem + 2.4vw, 3rem);
+	font-size: clamp(2rem, 1.3rem + 3.2vw, 3rem);
 }
 h2 {
 	font-size: clamp(1.75rem, 1.55rem + 0.9vw, 2rem);

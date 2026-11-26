@@ -2,6 +2,8 @@
 
 **C**linical **L**aboratory **E**rror **D**atabase - structured, source-cited evidence on how interferents bias clinical laboratory measurements, judged against an analytical performance specification (APS) for each analyte.
 
+**Website: <https://hikmetc.github.io/c-led-database/>** - browse, filter, chart and download the evidence.
+
 | | |
 |---|---|
 | Analytes | 8 |
@@ -75,11 +77,35 @@ The source CSVs are the single source of truth and the build never writes to the
 2. Add the analyte to `ANALYTES`, its causes to `CANON`, and its tables to `TABLE_MAP` in `scripts/registry.py`. Add wording rules to `OVERRIDES` only for a table that genuinely covers several distinct causes.
 3. Run `python3 scripts/build_all.py`. `validate.py` fails if a table is unregistered, a row cannot reach a canonical cause, or a row_id is not unique.
 
+## Importing a run of the literature archive
+
+`scripts/import_archive.py` does the three steps above for one extraction run of the literature archive, then publishes it:
+
+```bash
+.venv/bin/python scripts/import_archive.py <run folder | topic folder | extraction table>
+```
+
+It picks the latest version of the run's extraction table, checks its 29 columns, works out the analyte and the interferent (asking for anything it cannot work out: it never invents a name, a concept or an APS), copies the table into `<analyte>/database/`, registers it in `scripts/registry.py`, removes rows without evidence, rebuilds and validates. If anything fails, every change is undone. It then shows a summary and asks before it commits and pushes. Only the CSV is copied; PDFs and other archive files stay where they are. `--dry-run` shows the plan without changing anything; `--no-push` stops before the commit.
+
+## The website
+
+<https://hikmetc.github.io/c-led-database/> is a static site in `site/` (SvelteKit), deployed to GitHub Pages by `.github/workflows/pages.yml` on every push that changes the data, the scripts or the site. The workflow rebuilds the data layer from the CSVs, builds the site from it, runs the unit and end-to-end tests, and deploys. Nothing generated is committed.
+
+How it works: the pages are prerendered and readable without JavaScript. Evidence is queried in the browser with DuckDB-WASM, which reads the Parquet files over HTTP range requests; the DuckDB files are served by the site itself, so the site makes no third-party request and uses no analytics or cookies. Everything is driven by `parquet/manifest.json`: a new analyte appears on the site with no code change.
+
+Local development (build the data layer first, see above):
+
+```bash
+cd site && npm ci && npm run dev    # http://localhost:5173
+npm run test                       # unit tests
+npm run build && npm run build:growth && npx playwright test   # end-to-end tests
+```
+
 ## Using the data in a website
 
 The site publishes only the **web deploy set**: `build/parquet/` plus `analytes.json`, `interferents.json` and `stats.json`. `scripts/validate.py` fails the build if that set exceeds 900 MB (GitHub Pages sites may not exceed 1 GB) and warns from 500 MB.
 
-- **Engine.** Read the Parquet files in the browser with DuckDB-WASM loaded from a CDN. Parquet is columnar and zstd-compressed, so a query fetches only the columns and row groups it needs over HTTP range requests: a row count reads only the file footer, and opening one evidence row reads one row group of the detail file.
+- **Engine.** Read the Parquet files in the browser with DuckDB-WASM (this site serves the DuckDB files itself rather than from a CDN, so that it makes no third-party request). Parquet is columnar and zstd-compressed, so a query fetches only the columns and row groups it needs over HTTP range requests: a row count reads only the file footer, and opening one evidence row reads one row group of the detail file.
 - **Which file.** Overview and cross-analyte views: `slim_all.parquet`. An analyte page: `slim/<analyte_id>.parquet`. The row drawer or a row permalink: `detail/<analyte_id>.parquet` joined on `row_id`. `manifest.json` lists every file, so the site never hard-codes analyte ids.
 - **Facets.** Filter on `analyte_id`, `interferent_id`, `concept`, `direction`, `aps_verdict`, and the four appraisal fields. Never filter on the verbatim `Analyte` or `Interferent` text: the same cause is worded many different ways across papers, which is exactly what `interferent_synonyms.csv` resolves.
 - **Cross-analyte view.** `concept` is shared across analytes, so "show every analyte affected by hemolysis" is one query on `concept='hemolysis'`.
