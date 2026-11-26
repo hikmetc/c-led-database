@@ -1,0 +1,170 @@
+name: build-and-deploy-website
+
+# Rebuilds the data layer from the CSVs, builds the website from it, tests it, and deploys it
+# to GitHub Pages. Nothing generated is committed: the site is uploaded as a Pages artifact.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.csv"
+      - "scripts/**"
+      - "meta/**"
+      - "site/**"
+      - "requirements.txt"
+      - "CHANGELOG.md"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  # A missing or inconsistent Parquet web layer is a hard failure.
+  CLED_REQUIRE_PARQUET: "1"
+  CLED_DISTRIBUTION: "1"
+  # The site is served from https://<owner>.github.io/<repository>/
+  BASE_PATH: /${{ github.event.repository.name }}
+  VITE_SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+  VITE_REPO_URL: https://github.com/${{ github.repository }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install data build dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build the data layer and validate it
+        run: python3 scripts/build_all.py
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install site dependencies
+        working-directory: site
+        run: npm ci
+
+      - name: Unit tests
+        working-directory: site
+        run: npm run test
+
+      - name: Copy the web deploy set into the site
+        working-directory: site
+        run: npm run data
+
+      - name: Type check
+        working-directory: site
+        run: npm run check
+
+      - name: Build the site
+        working-directory: site
+        run: npx vite build
+
+      - name: Disable Jekyll
+        run: touch site/build/.nojekyll
+
+      # Fails above 900 MB in total or 100 MB per file, if anything outside the web deploy
+      # set is published, or if the initial JavaScript exceeds its budget.
+      - name: Check size limits, deploy set and budgets
+        working-directory: site
+        run: node scripts/check-budget.mjs build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/build
+
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install data build dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build the data layer and validate it
+        run: python3 scripts/build_all.py
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install site dependencies
+        working-directory: site
+        run: npm ci
+
+      - name: Playwright version
+        id: pw
+        working-directory: site
+        run: echo "version=$(node -p "require('@playwright/test/package.json').version")" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Playwright browsers
+        id: pw-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.pw.outputs.version }}
+
+      - name: Install Chromium
+        if: steps.pw-cache.outputs.cache-hit != 'true'
+        working-directory: site
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Chromium system dependencies
+        if: steps.pw-cache.outputs.cache-hit == 'true'
+        working-directory: site
+        run: npx playwright install-deps chromium
+
+      # The same build as the deployed one, under the same base path.
+      - name: Build the site
+        working-directory: site
+        run: npm run build
+
+      # The unchanged site code against data that holds one extra, fake analyte.
+      - name: Build the growth variant
+        working-directory: site
+        run: npm run build:growth
+
+      - name: End-to-end tests
+        working-directory: site
+        run: npx playwright test
+
+      - name: Upload the Playwright report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-results
+          path: site/test-results/
+          retention-days: 7
+
+  deploy:
+    needs: [build, e2e]
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

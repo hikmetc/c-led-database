@@ -256,6 +256,10 @@ st = dict(
                         key=lambda x: -x[1])),
  pct_change_summary={a: dict(n=len(v), min=min(v), max=max(v),
                              median=sorted(v)[len(v)//2]) for a, v in pcts.items() if v},
+ # reference coverage, so the website can show it without querying the Parquet files
+ references=len(refs),
+ by_reference_status=dict(collections.Counter(
+     r["reference_status"] for a in rows_out for r in rows_out[a])),
 )
 json.dump(st, open(os.path.join(BUILD, "stats.json"), "w", encoding="utf-8"), indent=2, ensure_ascii=False)
 

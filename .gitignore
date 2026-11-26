@@ -33,3 +33,8 @@ node_modules/
 site/build/
 site/.svelte-kit/
 site/static/data/
+site/.variants/
+site/screenshots/
+site/test-results/
+site/playwright-report/
+site/static/duckdb-ext/
