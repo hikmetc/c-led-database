@@ -1,0 +1,7 @@
+{
+  "comment": "DOIs assigned by Zenodo to archived releases of this repository. Written by hand after a release is archived; read by scripts/mk_docs.py (README) and by the website's How to cite page. Never put a DOI here that Zenodo has not issued.",
+  "concept_doi": "10.5281/zenodo.24561393",
+  "versions": {
+    "0.4.1": "10.5281/zenodo.24561394"
+  }
+}

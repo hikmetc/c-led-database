@@ -4,6 +4,8 @@
 
 **Website: <https://hikmetc.github.io/c-led-database/>** - browse, filter, chart and download the evidence.
 
+**Archive: <https://doi.org/10.5281/zenodo.24561393>** - every released version on Zenodo; this DOI always resolves to the latest one.
+
 | | |
 |---|---|
 | Analytes | 8 |

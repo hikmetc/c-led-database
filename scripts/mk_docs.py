@@ -79,7 +79,14 @@ def gen(root, distributed):
      "**C**linical **L**aboratory **E**rror **D**atabase - structured, source-cited evidence on how "
      "interferents bias clinical laboratory measurements, judged against an analytical performance "
      "specification (APS) for each analyte.", "",
-     f"**Website: <{WEBSITE}>** - browse, filter, chart and download the evidence.", "",
+     f"**Website: <{WEBSITE}>** - browse, filter, chart and download the evidence.", ""]
+    zen_path = os.path.join(META, "zenodo.json")
+    if os.path.exists(zen_path):
+        zen = json.load(open(zen_path, encoding="utf-8"))
+        if zen.get("concept_doi"):
+            R += [f"**Archive: <https://doi.org/{zen['concept_doi']}>** - every released version on Zenodo; "
+                  "this DOI always resolves to the latest one.", ""]
+    R += [
      "| | |", "|---|---|",
      f"| Analytes | {len(an)} |",
      f"| Interference causes | {tot_int} |",

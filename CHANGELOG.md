@@ -7,6 +7,8 @@ Archival release. No change to the data, the build or the website since 0.4.0.
 ### Changed
 - The repository is linked to Zenodo, which archives each published release from this one on.
   0.4.0 was published before the link existed and is therefore not archived there.
+- `meta/zenodo.json` records the DOIs Zenodo issued (all versions: 10.5281/zenodo.24561393;
+  0.4.1: 10.5281/zenodo.24561394). The README and the website's How to cite page show them.
 
 ## 0.4.0 - 2026-11-26
 
