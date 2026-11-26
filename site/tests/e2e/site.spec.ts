@@ -10,7 +10,8 @@ test('home renders the KPIs and the concept x analyte matrix', async ({ page }) 
 	const stats = readJson('stats.json');
 	const interferents = readJson('interferents.json').filter((i: any) => i.evidence_rows > 0);
 	await page.goto('');
-	await expect(page.getByRole('heading', { level: 1, name: 'C-LED' })).toBeVisible();
+	await expect(page.getByRole('heading', { level: 1, name: 'EFLM Laboratory Error Database' })).toBeVisible();
+	await expect(page.getByRole('navigation', { name: 'Main' })).toContainText('Beta version');
 	const kpis = page.getByTestId('kpis');
 	await expect(kpis).toContainText(int(stats.generated_rows));
 	await expect(kpis).toContainText(int(interferents.length));

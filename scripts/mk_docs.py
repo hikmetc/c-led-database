@@ -75,8 +75,8 @@ def gen(root, distributed):
     # ---------------- README ----------------
     name = "c-led-database" if distributed else "c-led database (local working copy)"
     WEBSITE = "https://hikmetc.github.io/c-led-database/"
-    R = [f"# C-LED Database", "",
-     "**C**linical **L**aboratory **E**rror **D**atabase - structured, source-cited evidence on how "
+    R = [f"# EFLM Laboratory Error Database", "",
+     "**Beta version.** Structured, source-cited evidence on how "
      "interferents bias clinical laboratory measurements, judged against an analytical performance "
      "specification (APS) for each analyte.", "",
      f"**Website: <{WEBSITE}>** - browse, filter, chart and download the evidence.", ""]

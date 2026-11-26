@@ -3,7 +3,7 @@
 	import { page } from '$app/state';
 	import { afterNavigate } from '$app/navigation';
 	import { getSite } from '$lib/context';
-	import { sitePath } from '$lib/env';
+	import { SITE_NAME, SITE_STAGE, sitePath } from '$lib/env';
 	import ThemeToggle from './ThemeToggle.svelte';
 
 	const site = getSite();
@@ -33,7 +33,7 @@
 
 <header class="nav">
 	<nav class="wrap inner" aria-label="Main">
-		<a class="brand" href="{base}/">C-LED</a>
+		<a class="brand" href="{base}/"><span class="name">{SITE_NAME}</span><span class="stage">{SITE_STAGE}</span></a>
 		<ul>
 			<li>
 				<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
@@ -79,11 +79,49 @@
 		min-height: 52px;
 	}
 	.brand {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		flex: none;
 		font-weight: 600;
-		font-size: 1.1875rem;
+		font-size: 1rem;
 		letter-spacing: -0.01em;
+		line-height: 1.15;
 		color: var(--text);
 		margin-right: 12px;
+	}
+	.brand:hover {
+		text-decoration: none;
+	}
+	.stage {
+		padding: 2px 8px;
+		border: 1px solid var(--control);
+		border-radius: 980px;
+		font-size: 0.6875rem;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		color: var(--text-2);
+		white-space: nowrap;
+	}
+	.tools {
+		margin-left: auto;
+	}
+	/* narrow screens: name and tools on the first row, the links on a second, scrollable row */
+	@media (max-width: 760px) {
+		.inner {
+			flex-wrap: wrap;
+			row-gap: 0;
+		}
+		.brand {
+			flex: 0 0 100%;
+			font-size: 0.9375rem;
+			min-height: 44px;
+			margin-right: 0;
+		}
+		ul {
+			flex: 1 1 0;
+			margin-left: -10px;
+		}
 	}
 	ul {
 		display: flex;
@@ -138,7 +176,7 @@
 	}
 	.menu {
 		position: absolute;
-		top: 52px;
+		top: 100%;
 		left: var(--pad);
 		z-index: 50;
 		display: grid;

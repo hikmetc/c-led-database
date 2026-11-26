@@ -32,7 +32,7 @@
 	};
 </script>
 
-<Seo title="Data dictionary" description="Definition of every column of the C-LED evidence tables and of the derived fields in the Parquet files." />
+<Seo title="Data dictionary" description="Definition of every column of the evidence tables and of the derived fields in the Parquet files." />
 <div class="wrap wide page">
 	<p class="eyebrow">Reference</p>
 	<h1>Data dictionary</h1>

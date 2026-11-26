@@ -6,7 +6,7 @@
 	let { data } = $props();
 </script>
 
-<Seo title="How to cite" description="How to cite the C-LED database and the sources of its evidence rows." />
+<Seo title="How to cite" description="How to cite the EFLM Laboratory Error Database and the sources of its evidence rows." />
 <div class="wrap page prose">
 	<p class="eyebrow">Citation</p>
 	<h1>How to cite</h1>
@@ -28,7 +28,7 @@
 	<h2>Until then</h2>
 	<p>Refer to the database by its name, the version you used and where you obtained it:</p>
 	<ul>
-		<li>Name: C-LED Database (Clinical Laboratory Error Database)</li>
+		<li>Name: EFLM Laboratory Error Database - Beta version</li>
 		{#if data.version}<li>Version: {data.version}{#if data.released} ({data.released}){/if}; see the <a href="{base}/changelog/">changelog</a></li>{/if}
 		{#if data.versionDoi ?? data.conceptDoi}<li>DOI: {data.versionDoi ?? data.conceptDoi}</li>{/if}
 		{#if PUBLIC_SITE_URL}<li>Website: <a href="{PUBLIC_SITE_URL}/">{PUBLIC_SITE_URL}/</a></li>{/if}

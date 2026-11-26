@@ -3,7 +3,7 @@
 	let { data } = $props();
 </script>
 
-<Seo title="Changelog" description="What changed in each version of the C-LED database, and why." />
+<Seo title="Changelog" description="What changed in each version of the EFLM Laboratory Error Database, and why." />
 <div class="wrap page prose">
 	<p class="eyebrow">Versions</p>
 	<h1>Changelog</h1>

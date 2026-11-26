@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.2 - 2026-11-26
+
+### Changed
+- The database is now named **EFLM Laboratory Error Database** and is marked as a **Beta version** on the
+  website, in the README and in STRUCTURE.md. It was called C-LED (Clinical Laboratory Error
+  Database) before. The repository name, the file names and the identifiers are unchanged.
+
 ## 0.4.1 - 2026-11-26
 
 Archival release. No change to the data, the build or the website since 0.4.0.

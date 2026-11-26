@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { getSite } from '$lib/context';
+	import { SITE_NAME, SITE_STAGE } from '$lib/env';
 	import { RANGE_MIN_BYTES } from '$lib/data/store';
 	import * as f from '$lib/format';
 	import Seo from '$lib/components/Seo.svelte';
@@ -18,13 +19,14 @@
 	});
 </script>
 
-<Seo title="C-LED" description="C-LED, the Clinical Laboratory Error Database: structured, source-cited evidence on how interferents bias clinical laboratory measurements, judged against an analytical performance specification for each analyte." />
+<Seo title={SITE_NAME} description="{SITE_NAME} ({SITE_STAGE}): structured, source-cited evidence on how interferents bias clinical laboratory measurements, judged against an analytical performance specification for each analyte." />
 
 <svelte:head>{#if index && index.manifest.files.slim_all.bytes < RANGE_MIN_BYTES}<link rel="preload" as="fetch" crossorigin="anonymous" href="{base}/data/{index.manifest.files.slim_all.path}" />{/if}</svelte:head>
 
 <section class="hero">
 	<div class="wrap">
-		<h1>C-LED</h1>
+		<p class="stage">{SITE_STAGE}</p>
+		<h1>{SITE_NAME}</h1>
 		<p class="lede">Source-cited evidence on how interferents bias clinical laboratory measurements, judged against an analytical performance specification for each analyte.</p>
 		<div class="search"><SearchBox large /></div>
 	</div>
@@ -81,10 +83,22 @@
 		text-align: center;
 	}
 	.hero h1 {
-		font-size: clamp(3.5rem, 2.4rem + 5.6vw, 5rem);
+		font-size: clamp(2.25rem, 1.2rem + 5.2vw, 4.5rem);
 		letter-spacing: -0.02em;
-		line-height: 1.02;
-		margin-bottom: 20px;
+		line-height: 1.05;
+		max-width: 16ch;
+		margin: 0 auto 24px;
+	}
+	.stage {
+		display: inline-block;
+		margin: 0 0 20px;
+		padding: 4px 14px;
+		border: 1px solid var(--control);
+		border-radius: 980px;
+		font-size: 0.8125rem;
+		font-weight: 600;
+		letter-spacing: 0.03em;
+		color: var(--text-2);
 	}
 	.hero .lede {
 		margin: 0 auto 36px;

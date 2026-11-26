@@ -4,7 +4,7 @@
 	let { what = 'page' }: { what?: string } = $props();
 </script>
 
-<svelte:head><title>Not found · C-LED</title><meta name="robots" content="noindex" /></svelte:head>
+<svelte:head><title>Not found · EFLM Laboratory Error Database</title><meta name="robots" content="noindex" /></svelte:head>
 <section class="wrap nf">
 	<p class="eyebrow">404</p>
 	<h1>This {what} is not in the database.</h1>

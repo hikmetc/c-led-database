@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { REPO_URL } from '$lib/env';
+	import { REPO_URL, SITE_NAME, SITE_STAGE } from '$lib/env';
 	const links = [
 		{ href: '/about/', label: 'About' },
 		{ href: '/methods/', label: 'Methods' },
@@ -14,7 +14,7 @@
 <footer>
 	<div class="wrap">
 		<p class="caption">
-			C-LED, the Clinical Laboratory Error Database. Every evidence row is traceable to a published source by citation, DOI or PubMed ID.
+			{SITE_NAME} ({SITE_STAGE}). Every evidence row is traceable to a published source by citation, DOI or PubMed ID.
 			Full-text articles are not distributed. This site sets no cookies and uses no analytics.
 		</p>
 		<ul>

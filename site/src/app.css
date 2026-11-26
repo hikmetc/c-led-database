@@ -1,4 +1,4 @@
-/* C-LED design tokens. Light is the default; dark follows the system or the manual toggle. */
+/* Design tokens. Light is the default; dark follows the system or the manual toggle. */
 :root {
 	--bg: #ffffff;
 	--bg-2: #f5f5f7;
@@ -37,6 +37,7 @@
 	--wide: 1280px;
 	--pad: clamp(20px, 4vw, 32px);
 	--section: clamp(56px, 9vw, 112px);
+	--nav-h: 53px;
 	color-scheme: light;
 }
 :root[data-theme='dark'] {
@@ -100,6 +101,11 @@
 	}
 }
 
+@media (max-width: 760px) {
+	:root {
+		--nav-h: 89px;
+	}
+}
 *,
 *::before,
 *::after {

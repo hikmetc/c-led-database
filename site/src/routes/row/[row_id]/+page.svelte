@@ -5,8 +5,8 @@
 </script>
 
 <svelte:head>
-	<title>{rowId} · C-LED</title>
-	<meta name="description" content="Evidence row {rowId} of the C-LED database, with every source column and its reference." />
+	<title>{rowId} · EFLM Laboratory Error Database</title>
+	<meta name="description" content="Evidence row {rowId} of the EFLM Laboratory Error Database, with every source column and its reference." />
 </svelte:head>
 <div class="wrap page">
 	{#key rowId}<RowView {rowId} />{/key}

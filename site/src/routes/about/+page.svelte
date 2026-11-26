@@ -9,15 +9,18 @@
 	const stats = $derived(site.data.stats);
 </script>
 
-<Seo title="About" description="What the C-LED database is, what it covers and what it does not." />
+<Seo title="About" description="What the EFLM Laboratory Error Database is, what it covers and what it does not." />
 <div class="wrap page prose">
 	<p class="eyebrow">About</p>
-	<h1>About C-LED</h1>
-	<p class="lede">C-LED, the Clinical Laboratory Error Database, is structured, source-cited evidence on how interferents bias clinical laboratory measurements, judged against an analytical performance specification (APS) for each analyte.</p>
+	<h1>About the database</h1>
+	<p class="lede">The EFLM Laboratory Error Database is structured, source-cited evidence on how interferents bias clinical laboratory measurements, judged against an analytical performance specification (APS) for each analyte.</p>
 
 	<h2>What one row is</h2>
-	<p>One row of C-LED is one piece of published evidence that a named interferent changed the measurement of a named analyte. It is recorded with the direction and size of the error, the measurement platform it was observed on, an appraisal of the study, and a citation.</p>
+	<p>One row of the database is one piece of published evidence that a named interferent changed the measurement of a named analyte. It is recorded with the direction and size of the error, the measurement platform it was observed on, an appraisal of the study, and a citation.</p>
 	<p>Each analyte carries one analytical performance specification: a relative allowable total error. Every row is judged against it. On this site you can also judge the rows against an APS of your own.</p>
+
+	<h2>Beta version</h2>
+	<p>This is a beta version. The content and the structure of the database may still change.</p>
 
 	<h2>Scope</h2>
 	<p>The scope is analytical interference and pre-analytical error: things that make the measured value differ from the true value. It is not a database of reference intervals, clinical decision limits or drug effects on physiology.</p>

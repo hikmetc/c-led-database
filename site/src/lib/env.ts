@@ -11,3 +11,7 @@ export function sitePath(pathname: string, runtimeBase = ''): string {
 	for (const b of [SITE_PATH, runtimeBase]) if (b && b.startsWith('/') && pathname.startsWith(b + '/')) return pathname.slice(b.length);
 	return pathname;
 }
+
+/** The name of the database and its release stage, as shown everywhere on the site. */
+export const SITE_NAME = 'EFLM Laboratory Error Database';
+export const SITE_STAGE = 'Beta version';

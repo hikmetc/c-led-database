@@ -15,7 +15,7 @@
 	});
 </script>
 
-<Seo title="Downloads" description="Download the C-LED database: the source CSV tables on GitHub, and the Parquet files this website reads." />
+<Seo title="Downloads" description="Download the EFLM Laboratory Error Database: the source CSV tables on GitHub, and the Parquet files this website reads." />
 <div class="wrap page">
 	<p class="eyebrow">Data</p>
 	<h1>Downloads</h1>

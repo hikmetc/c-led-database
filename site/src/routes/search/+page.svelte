@@ -90,7 +90,7 @@
 	const live = $derived(!q ? '' : status === 'ready' ? `${entities.length} entries and ${f.int(total)} evidence rows match "${q}".` : status === 'loading' ? 'Searching…' : '');
 </script>
 
-<Seo title={q ? `Search: ${q}` : 'Search'} description="Search the C-LED database for analytes, interferents, concepts and evidence rows." />
+<Seo title={q ? `Search: ${q}` : 'Search'} description="Search the EFLM Laboratory Error Database for analytes, interferents, concepts and evidence rows." />
 
 {#snippet mark(text: string | null)}
 	{#each highlightParts(f.isNotReported(text) ? f.NOT_REPORTED : (text ?? ''), q) as part, i (i)}{#if part.hit}<mark>{part.text}</mark>{:else}{part.text}{/if}{/each}

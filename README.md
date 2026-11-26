@@ -1,6 +1,6 @@
-# C-LED Database
+# EFLM Laboratory Error Database
 
-**C**linical **L**aboratory **E**rror **D**atabase - structured, source-cited evidence on how interferents bias clinical laboratory measurements, judged against an analytical performance specification (APS) for each analyte.
+**Beta version.** Structured, source-cited evidence on how interferents bias clinical laboratory measurements, judged against an analytical performance specification (APS) for each analyte.
 
 **Website: <https://hikmetc.github.io/c-led-database/>** - browse, filter, chart and download the evidence.
 

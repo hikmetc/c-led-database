@@ -346,7 +346,7 @@
 <style>
 	.toolbar {
 		position: sticky;
-		top: 53px;
+		top: var(--nav-h);
 		z-index: 20;
 		background: var(--nav-bg);
 		-webkit-backdrop-filter: saturate(180%) blur(20px);

@@ -11,7 +11,7 @@
 	const plottable = $derived(stats ? Object.values(stats.plottable_by_analyte).reduce((a, b) => a + b, 0) : 0);
 </script>
 
-<Seo title="Methods" description="How the C-LED database is structured: what counts as evidence, how rows are judged against an analytical performance specification, and the known limitations." />
+<Seo title="Methods" description="How the EFLM Laboratory Error Database is structured: what counts as evidence, how rows are judged against an analytical performance specification, and the known limitations." />
 <div class="wrap page prose">
 	<p class="eyebrow">Methods</p>
 	<h1>How the database is built</h1>

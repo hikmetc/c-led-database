@@ -1,4 +1,4 @@
-# CLAUDE.md — C-LED database
+# CLAUDE.md — EFLM Laboratory Error Database (Beta version)
 
 Read this first, then STRUCTURE.md (the authoritative description) and README.md.
 
