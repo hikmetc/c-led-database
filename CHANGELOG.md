@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.1 - 2026-11-26
+
+Archival release. No change to the data, the build or the website since 0.4.0.
+
+### Changed
+- The repository is linked to Zenodo, which archives each published release from this one on.
+  0.4.0 was published before the link existed and is therefore not archived there.
+
 ## 0.4.0 - 2026-11-26
 
 The database gets a website, and a one-command import from the literature archive.
