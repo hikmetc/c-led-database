@@ -20,8 +20,19 @@
 
 	$effect(() => {
 		if (!Plot || !host || !width) return;
-		const el = Plot.plot(build(Plot, Math.max(width, minWidth)) as any) as (SVGElement | HTMLElement) & { value?: unknown };
-		el.classList.add('fade-in');
+		const options = build(Plot, Math.max(width, minWidth)) as any; // read here, so changes are tracked
+		const plot = Plot;
+		const target = host;
+		// draw in the next frame; a newer request replaces one that has not been drawn yet
+		const frame = requestAnimationFrame(() => draw(plot, target, options));
+		return () => cancelAnimationFrame(frame);
+	});
+
+	let first = true;
+	function draw(Plot: PlotModule, host: HTMLDivElement, options: any) {
+		const el = Plot.plot(options) as (SVGElement | HTMLElement) & { value?: unknown };
+		if (first) el.classList.add('fade-in'); // later redraws swap in place, without a flash
+		first = false;
 		// the surrounding element carries the text alternative; the SVG internals are not announced
 		el.setAttribute('aria-hidden', 'true');
 		if (onpick) {
@@ -31,7 +42,7 @@
 			(el as HTMLElement).style.cursor = 'pointer';
 		}
 		host.replaceChildren(el);
-	});
+	}
 </script>
 
 <div class="plot" bind:this={host} class:scroll={minWidth > 0}>

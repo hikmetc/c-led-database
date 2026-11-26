@@ -20,7 +20,7 @@ test('home renders the KPIs and the concept x analyte matrix', async ({ page }) 
 	const pairs = new Set(interferents.map((i: any) => `${i.concept}|${i.analyte_folder}`));
 	await expect(matrix.locator('a[data-pos]')).toHaveCount(pairs.size);
 	await expect(matrix.locator('thead th.col')).toHaveCount(ids.length);
-	// a filled cell carries a share once DuckDB has answered, and never a fake zero for "no numeric results"
+	// a filled cell carries a share once the data has loaded, and never a fake zero for "no numeric results"
 	await expect(matrix.locator('a[data-pos] .s').first()).toHaveText(/^(\d+%|–)$/);
 	await expect(page.getByTestId('analyte-cards').locator('li')).toHaveCount(ids.length);
 });
@@ -207,19 +207,54 @@ test('a filter narrows the rows, is announced, and lives in the URL', async ({ p
 	await expect.poll(() => totalRows(page)).toBe(all);
 });
 
-test('if range requests fail, the whole file is fetched and the page still works', async ({ page }) => {
+// Row permalinks are used for the range tests: that page does not preload a file, so every
+// byte it reads is requested by the reader itself.
+async function someRowId(page: import('@playwright/test').Page) {
+	await page.goto(`analyte/${first}/`);
+	await explorerReady(page);
+	return (await page.locator('.idbtn').first().getAttribute('title'))!;
+}
+
+test('large files are read over HTTP range requests', async ({ page, context }) => {
+	const rowId = await someRowId(page);
+	const fresh = await context.browser()!.newContext({ baseURL: test.info().project.use.baseURL });
+	const p = await fresh.newPage();
+	// every file counts as large here, so the range path is exercised with the real data
+	await p.addInitScript(() => ((globalThis as any).__CLED_RANGE_MIN_BYTES = 0));
+	const ranges: string[] = [];
+	const statuses: number[] = [];
+	p.on('request', (r) => r.url().endsWith('.parquet') && r.headers()['range'] && ranges.push(r.headers()['range']));
+	p.on('response', (r) => r.url().endsWith('.parquet') && statuses.push(r.status()));
+	await p.goto(`row/${rowId}/`);
+	await expect(p.getByTestId('row-view').locator('dl')).toBeVisible({ timeout: 45_000 });
+	await expect(p.getByTestId('row-view').getByTestId('row-id')).toHaveText(rowId);
+	expect(ranges.length).toBeGreaterThan(0);
+	expect(statuses.length).toBeGreaterThan(0);
+	expect(statuses.every((s) => s === 206)).toBe(true); // nothing was downloaded whole
+	await fresh.close();
+});
+
+test('if range requests fail, the whole file is fetched and the page still works', async ({ page, context }) => {
+	const rowId = await someRowId(page);
+	const fresh = await context.browser()!.newContext({ baseURL: test.info().project.use.baseURL });
+	const p = await fresh.newPage();
+	await p.addInitScript(() => ((globalThis as any).__CLED_RANGE_MIN_BYTES = 0));
 	let ranged = 0;
-	await page.route('**/data/parquet/**/*.parquet', (route) => {
+	let whole = 0;
+	await p.route('**/data/parquet/**/*.parquet', (route) => {
 		if (route.request().headers()['range']) {
 			ranged += 1;
 			return route.fulfill({ status: 500, body: 'range not supported' });
 		}
+		whole += 1;
 		return route.continue();
 	});
-	await page.goto(`analyte/${first}/`);
-	await explorerReady(page);
-	expect(await totalRows(page)).toBe(manifest().files.slim[first].rows);
+	await p.goto(`row/${rowId}/`);
+	await expect(p.getByTestId('row-view').locator('dl')).toBeVisible({ timeout: 45_000 });
+	await expect(p.getByTestId('row-view').getByTestId('row-id')).toHaveText(rowId);
 	expect(ranged).toBeGreaterThan(0);
+	expect(whole).toBeGreaterThan(0);
+	await fresh.close();
 });
 
 test('an unknown schema_version shows an error banner instead of data', async ({ page }) => {

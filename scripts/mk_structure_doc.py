@@ -499,9 +499,10 @@ w("")
 w("## 15. Using the data in a website")
 w("")
 w("- **Publish only the deploy set** (section 8.2). Never publish `cled.sqlite` or the legacy JSON.")
-w("- **Engine.** DuckDB-WASM. This site serves the DuckDB files itself (about 80 MB of the "
-  "deployed site) instead of loading them from a CDN, so that it makes no third-party request. "
-  "Point it at the Parquet files by URL.")
+w("- **Engine.** Any Parquet reader. This site uses hyparquet, a small JavaScript reader, and "
+  "filters and aggregates in memory: DuckDB-WASM is a download of about 8 MB before the first "
+  "query, which delayed the first chart by a minute or more on a slow connection. DuckDB-WASM "
+  "remains a good choice for ad-hoc SQL over the same files.")
 w("- **Never hard-code analytes.** Read `parquet/manifest.json` and `analytes.json` at start-up; "
   "every analyte, file and row count is listed there.")
 w("- **Which file for which view.** Home and cross-analyte views: `slim_all.parquet`. Analyte "
@@ -521,8 +522,8 @@ w(f"- **Charts.** Only {plott:,} of {rows:,} rows ({plott*100//rows}%) carry a n
   "size. Draw from the `plottable` subset and present the rest as an evidence list; never read a "
   "missing value as zero and never let a missing value break the page. Effect sizes span orders "
   "of magnitude, so use a scale that keeps both small and extreme values readable.")
-w("- **Fallback.** Range requests can fail in some browsers, in which case DuckDB downloads the "
-  "whole file. Because files are cut per analyte, that fallback stays small and the page still "
+w("- **Fallback.** Range requests can fail in some browsers, in which case the whole file is "
+  "downloaded. Because files are cut per analyte, that fallback stays small and the page still "
   "works.")
 w("")
 w("## 16. The website")
@@ -563,10 +564,14 @@ w("- Effect sizes span several orders of magnitude, so the default x scale is sy
   "alternative linear scale is clipped at a data-driven bound; values beyond it are drawn at the "
   "edge with their own marker and counted in a note, never dropped.")
 w("- Source columns are shown verbatim in the row view, under their data-dictionary names.")
-w("- DuckDB-WASM (single-threaded bundles) and its Parquet extension are served by the site. The "
-  "extension is fetched once at build time from the official DuckDB extension repository and "
-  "verified against the SHA-256 checksums pinned in `site/duckdb-extensions.json`; update that "
-  "file together with `@duckdb/duckdb-wasm`.")
+w("- Reading: `site/src/lib/data/store.ts` reads Parquet with hyparquet (zstd through fzstd). A "
+  "file under 4 MB is fetched whole in one request and decoded once; a larger file is read over "
+  "HTTP range requests (footer, then the needed columns and row groups; a single row of a detail "
+  "file is found through the `row_id` statistics of its row groups). If a range read fails, the "
+  "whole file is fetched. Decoded tables stay in memory, so filters, sorting, the APS control and "
+  "the charts never wait for the network again.")
+w("- Each page preloads its own data file with the HTML, so the download starts before any "
+  "script runs. The site makes no third-party request.")
 w("")
 w("### How a new analyte appears")
 w("")

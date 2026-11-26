@@ -7,7 +7,7 @@
     "node": ">=22"
   },
   "scripts": {
-    "data": "node scripts/copy-data.mjs && node scripts/fetch-duckdb-ext.mjs",
+    "data": "node scripts/copy-data.mjs",
     "dev": "npm run data && vite dev",
     "build": "npm run data && vite build",
     "preview": "vite preview",
@@ -32,8 +32,9 @@
     "vitest": "3.2.7"
   },
   "dependencies": {
-    "@duckdb/duckdb-wasm": "1.32.0",
     "@observablehq/plot": "0.6.19",
+    "fzstd": "0.1.1",
+    "hyparquet": "1.33.2",
     "minisearch": "7.2.0"
   }
 }

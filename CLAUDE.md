@@ -39,8 +39,9 @@ python3 scripts/audit_evidence.py .                   # evidence / reference aud
 work around a validator.
 
 ## Website (`site/`)
-Static site, deployed to GitHub Pages by `.github/workflows/pages.yml`. Data is fetched at
-runtime with DuckDB-WASM over HTTP range requests from the deployed Parquet files.
+Static site, deployed to GitHub Pages by `.github/workflows/pages.yml`. The browser reads the
+deployed Parquet files directly with a small JavaScript reader (hyparquet); files above 4 MB
+are read over HTTP range requests. No DuckDB-WASM: its 8 MB download delayed the first chart.
 `pct_change` can be extreme (troponin hemolysis reaches 14,100 %); charts must handle it
 (symlog or clipped axis with explicit markers), and only rows with `plottable = true` are
 drawn.

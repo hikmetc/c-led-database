@@ -5,7 +5,7 @@
 	import { getSite } from '$lib/context';
 	import type { AnalyteView } from '$lib/site';
 	import type { Interferent, SlimRow } from '$lib/types';
-	import { analyteFacets, analyteRows, exportRows, type FacetOption } from '$lib/data/queries';
+	import { analyteFacets, analyteRows, exportRows, warmAnalyte, type FacetOption } from '$lib/data/queries';
 	import { decodeState, defaultState, encodeState, activeFilterCount, emptyFilters, FILTER_KEYS, type FilterKey, type ViewState } from '$lib/urlstate';
 	import { judge, sliderMax, summarize, clampAps } from '$lib/aps';
 	import { quantile } from '$lib/scales';
@@ -44,6 +44,9 @@
 	let filtersEl = $state<HTMLDetailsElement | undefined>();
 
 	onMount(() => {
+		// data and chart library start downloading at once, in parallel
+		if (site.data.manifest) warmAnalyte(site.data.manifest, analyte.analyte_id);
+		void import('@observablehq/plot');
 		view = decodeState(new URL(location.href).searchParams);
 		if (view.aps !== null) view.aps = clampAps(view.aps);
 		hydrated = true;
@@ -64,6 +67,18 @@
 	});
 
 	const aps = $derived(view.aps ?? analyte.aps_percent);
+	// The numbers follow the slider at once; the strip chart (thousands of marks) is redrawn
+	// only when the slider rests, so dragging stays smooth.
+	let chartAps = $state(NaN);
+	$effect(() => {
+		const target = aps;
+		if (!Number.isFinite(untrack(() => chartAps))) {
+			chartAps = target;
+			return;
+		}
+		const t = setTimeout(() => (chartAps = target), 120);
+		return () => clearTimeout(t);
+	});
 	const filterKey = $derived(JSON.stringify(view.filters));
 
 	$effect(() => {
@@ -138,7 +153,14 @@
 	const rankedWithValues = $derived(ranked.filter((r) => r.share !== null));
 	const majority = $derived(rankedWithValues.filter((r) => (r.share ?? 0) >= 0.5).length);
 
-	const stripGroups = $derived(rankedWithValues.map((r) => ({ key: r.key, label: `${r.label}  ·  ${r.exceeds}/${r.plottable}`, aps })));
+	const stripGroups = $derived.by(() => {
+		const a = Number.isFinite(chartAps) ? chartAps : aps;
+		return groups
+			.map((g) => ({ g, s: summarize(g.rows, a) }))
+			.filter((x) => x.s.plottable > 0)
+			.sort((x, y) => (y.s.share ?? 0) - (x.s.share ?? 0) || y.s.plottable - x.s.plottable || x.g.label.localeCompare(y.g.label))
+			.map(({ g, s }) => ({ key: g.key, label: `${g.label}  ·  ${s.exceeds}/${s.plottable}`, aps: a }));
+	});
 	const cut = (s: string | null, n = 70) => (f.isNotReported(s) ? f.NOT_REPORTED : s!.length > n ? s!.slice(0, n - 1) + '…' : s!);
 	const stripPoints: StripPoint[] = $derived(
 		plottable.map((r) => ({

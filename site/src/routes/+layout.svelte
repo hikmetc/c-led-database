@@ -1,9 +1,7 @@
 <script lang="ts">
 	import '../app.css';
-	import { onMount } from 'svelte';
 	import { buildIndex } from '$lib/site';
 	import { setSite } from '$lib/context';
-	import { warmUp } from '$lib/data/db';
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Drawer from '$lib/components/Drawer.svelte';
@@ -19,12 +17,6 @@
 		}
 	});
 
-	onMount(() => {
-		// DuckDB loads only after the page has painted and the browser is idle.
-		if (!data.manifest) return;
-		const idle = window.requestIdleCallback ?? ((cb: () => void) => setTimeout(cb, 200));
-		idle(() => warmUp());
-	});
 </script>
 
 <a class="skip" href="#main">Skip to content</a>

@@ -1,6 +1,5 @@
 // Checks on the built site (default: build/), run in CI before deployment:
-//   - initial JavaScript of a page (entry + preloaded chunks, gzip) is at most 150 kB;
-//     the DuckDB-WASM worker and .wasm files load later and are not part of it
+//   - initial JavaScript of a page (entry + preloaded chunks, gzip) is at most 150 kB
 //   - the whole site stays under GitHub Pages' limits: 900 MB in total, 100 MB per file
 //   - only the web deploy set is published under data/
 import fs from 'node:fs';

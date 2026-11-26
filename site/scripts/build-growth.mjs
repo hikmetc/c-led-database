@@ -23,5 +23,4 @@ for (const e of fs.readdirSync(path.join(site, 'static'))) {
 const fixture = path.join(variant, 'fixture');
 run(python, ['tests/fixtures/make_growth_data.py', path.join(repo, 'build'), fixture]);
 run('node', ['scripts/copy-data.mjs'], { CLED_DATA_SRC: fixture, CLED_DATA_DEST: path.join(stat, 'data') });
-run('node', ['scripts/fetch-duckdb-ext.mjs'], { CLED_EXT_DEST: path.join(stat, 'duckdb-ext') });
 run('npx', ['vite', 'build'], { CLED_VARIANT: 'growth', BASE_PATH: '' });

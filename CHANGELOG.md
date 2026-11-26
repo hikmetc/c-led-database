@@ -6,8 +6,8 @@ The database gets a website, and a one-command import from the literature archiv
 
 ### Added
 - **Website** at <https://hikmetc.github.io/c-led-database/>, a static site under `site/`
-  (SvelteKit, Svelte 5, TypeScript) that reads only the web deploy set and queries it in the
-  browser with DuckDB-WASM over HTTP range requests.
+  (SvelteKit, Svelte 5, TypeScript) that reads only the web deploy set, directly in the
+  browser, with a small JavaScript Parquet reader (hyparquet).
   - Pages: overview with a concept x analyte matrix, analyte, interferent, concept, search,
     row permalink (also shown as a drawer), about, methods, data dictionary, how to cite,
     changelog, downloads.
@@ -17,8 +17,11 @@ The database gets a website, and a one-command import from the literature archiv
     counts the values beyond the axis instead of dropping them.
   - Driven by `parquet/manifest.json`: a new analyte appears with no code change, which a
     growth test verifies against a fake analyte that exists only in that test build.
-  - No analytics, no cookies and no third-party requests: DuckDB-WASM and its Parquet extension
-    are served by the site itself.
+  - No analytics, no cookies and no third-party requests.
+  - Fast first chart: a page needs only its own Parquet file (20-90 kB), preloaded with the
+    HTML. An earlier build queried the files with DuckDB-WASM, whose 8 MB download delayed the
+    first chart by a minute or more on a slow connection; it was replaced. Files above 4 MB are
+    read over HTTP range requests, with a whole-file fallback.
 - `.github/workflows/pages.yml` - rebuilds the data, builds and tests the site (unit tests,
   end-to-end tests with accessibility checks) and deploys it to GitHub Pages on every push.
 - `scripts/import_archive.py` - imports one extraction run of the literature archive: checks
@@ -29,7 +32,7 @@ The database gets a website, and a one-command import from the literature archiv
 
 ### Changed
 - README and STRUCTURE.md describe the website, its data contract and the importer. The
-  earlier advice to load DuckDB-WASM from a CDN is replaced: the site serves it itself.
+  earlier advice to query with DuckDB-WASM from a CDN is replaced by what the site does.
 
 ### Open
 - About, Methods and How to cite carry clearly marked TODOs where the repository holds no

@@ -20,8 +20,8 @@ async function shot(name, route, { width = 1440, height = 900, dark = false, wai
 	page.on('console', (m) => m.type() === 'error' && problems.push(`${name}: console ${m.text()}`));
 	page.on('pageerror', (e) => problems.push(`${name}: ${e.message}`));
 	page.on('requestfailed', (r) => problems.push(`${name}: failed ${r.url()} ${r.failure()?.errorText}`));
-	await page.goto(baseUrl + route, { waitUntil: 'networkidle' });
-	if (wait) await page.waitForSelector(wait, { timeout: 45000 }).catch((e) => problems.push(`${name}: ${e.message.split('\n')[0]}`));
+	await page.goto(baseUrl + route, { waitUntil: 'load', timeout: 90000 });
+	if (wait) await page.waitForSelector(wait, { timeout: 120000 }).catch((e) => problems.push(`${name}: ${e.message.split('\n')[0]}`));
 	await page.waitForTimeout(900);
 	await page.screenshot({ path: path.join(out, `${name}.png`), fullPage: !!process.env.FULL });
 	await ctx.close();

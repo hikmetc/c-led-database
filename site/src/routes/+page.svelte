@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { getSite } from '$lib/context';
+	import { RANGE_MIN_BYTES } from '$lib/data/store';
 	import * as f from '$lib/format';
 	import Seo from '$lib/components/Seo.svelte';
 	import SearchBox from '$lib/components/SearchBox.svelte';
@@ -18,6 +19,8 @@
 </script>
 
 <Seo title="C-LED" description="C-LED, the Clinical Laboratory Error Database: structured, source-cited evidence on how interferents bias clinical laboratory measurements, judged against an analytical performance specification for each analyte." />
+
+<svelte:head>{#if index && index.manifest.files.slim_all.bytes < RANGE_MIN_BYTES}<link rel="preload" as="fetch" crossorigin="anonymous" href="{base}/data/{index.manifest.files.slim_all.path}" />{/if}</svelte:head>
 
 <section class="hero">
 	<div class="wrap">

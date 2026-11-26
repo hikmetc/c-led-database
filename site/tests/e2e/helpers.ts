@@ -7,7 +7,7 @@ export const manifest = () => readJson('parquet/manifest.json');
 export const analyteIds = () => Object.keys(manifest().files.slim) as string[];
 export const int = (n: number) => new Intl.NumberFormat('en-US').format(n);
 
-/** The explorer has loaded its rows from DuckDB. */
+/** The explorer has loaded its rows. */
 export async function explorerReady(page: Page) {
 	await expect(page.getByTestId('evidence-table')).toBeVisible({ timeout: 45_000 });
 	await expect(page.getByTestId('result-summary')).toContainText('evidence row');

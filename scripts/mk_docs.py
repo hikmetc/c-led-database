@@ -162,11 +162,13 @@ def gen(root, distributed):
      "`.github/workflows/pages.yml` on every push that changes the data, the scripts or the site. "
      "The workflow rebuilds the data layer from the CSVs, builds the site from it, runs the unit "
      "and end-to-end tests, and deploys. Nothing generated is committed.", "",
-     "How it works: the pages are prerendered and readable without JavaScript. Evidence is queried "
-     "in the browser with DuckDB-WASM, which reads the Parquet files over HTTP range requests; the "
-     "DuckDB files are served by the site itself, so the site makes no third-party request and "
-     "uses no analytics or cookies. Everything is driven by `parquet/manifest.json`: a new analyte "
-     "appears on the site with no code change.", "",
+     "How it works: the pages are prerendered and readable without JavaScript. The browser reads "
+     "the Parquet files directly with a small JavaScript Parquet reader (hyparquet) and does all "
+     "filtering, counting and charting in memory, so a chart needs only the analyte's own file "
+     "(20-90 kB) and no database engine has to be downloaded first. Files above 4 MB are read over "
+     "HTTP range requests instead of whole. The site makes no third-party request and uses no "
+     "analytics or cookies. Everything is driven by `parquet/manifest.json`: a new analyte appears "
+     "on the site with no code change.", "",
      "Local development (build the data layer first, see above):", "",
      "```bash",
      "cd site && npm ci && npm run dev    # http://localhost:5173",
@@ -177,8 +179,9 @@ def gen(root, distributed):
      "The site publishes only the **web deploy set**: `build/parquet/` plus `analytes.json`, "
      "`interferents.json` and `stats.json`. `scripts/validate.py` fails the build if that set "
      "exceeds 900 MB (GitHub Pages sites may not exceed 1 GB) and warns from 500 MB.", "",
-     "- **Engine.** Read the Parquet files in the browser with DuckDB-WASM (this site serves the "
-     "DuckDB files itself rather than from a CDN, so that it makes no third-party request). "
+     "- **Engine.** Any Parquet reader works. This site uses hyparquet, a small JavaScript reader, "
+     "because DuckDB-WASM is a download of about 8 MB before the first query; DuckDB-WASM remains "
+     "a good choice for ad-hoc SQL over the same files. "
      "Parquet is columnar and zstd-compressed, so a query fetches only the columns and row groups "
      "it needs over HTTP range requests: a row count reads only the file footer, and opening one "
      "evidence row reads one row group of the detail file.",

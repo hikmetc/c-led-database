@@ -2,6 +2,7 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/state';
 	import { getSite } from '$lib/context';
+	import { RANGE_MIN_BYTES } from '$lib/data/store';
 	import * as f from '$lib/format';
 	import Seo from '$lib/components/Seo.svelte';
 	import Explorer from '$lib/components/Explorer.svelte';
@@ -10,8 +11,16 @@
 	const site = getSite();
 	const interferent = $derived(site.index?.interferentById.get(page.params.id ?? '') ?? null);
 	const analyte = $derived(interferent ? (site.index?.analyteById.get(interferent.analyte_id) ?? null) : null);
+	// a file that is read whole is preloaded; a large one is read by range requests instead
+	const file = $derived.by(() => {
+		const f = analyte ? site.data.manifest?.files.slim[analyte.analyte_id] : undefined;
+		return f && f.bytes < RANGE_MIN_BYTES ? f.path : undefined;
+	});
 	const concept = $derived(interferent ? site.index?.conceptById.get(interferent.concept) : null);
 </script>
+
+<!-- the page's data starts downloading with the HTML, before any script has run -->
+<svelte:head>{#if file}<link rel="preload" as="fetch" crossorigin="anonymous" href="{base}/data/{file}" />{/if}</svelte:head>
 
 {#if interferent && analyte}
 	<Seo title="{interferent.interferent_canonical} on {analyte.component}" description="{f.int(interferent.evidence_rows)} source-cited evidence rows on how {interferent.interferent_canonical} changes the measurement of {analyte.component} in {analyte.system}." />

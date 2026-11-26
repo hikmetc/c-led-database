@@ -7,7 +7,7 @@ export const trailingSlash = 'always';
 
 /**
  * The small registry files of the web deploy set. Prerendered pages carry them inline, so a
- * page is readable before any JavaScript or DuckDB has loaded.
+ * page is readable before any JavaScript has loaded.
  */
 export const load = async ({ fetch }): Promise<SiteData> => {
 	const get = async (path: string) => {

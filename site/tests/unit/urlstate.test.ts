@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { activeFilterCount, decodeState, defaultState, encodeState, type ViewState } from '../../src/lib/urlstate';
-import { buildWhere } from '../../src/lib/data/where';
+import { applyFilters, facetCounts, textMatches } from '../../src/lib/data/filter';
 import { humanize, pct, toCsv, isNotReported } from '../../src/lib/format';
 import { highlightParts } from '../../src/lib/search';
 
@@ -36,13 +36,32 @@ describe('URL state', () => {
 	});
 });
 
-describe('WHERE builder', () => {
-	it('keeps every value out of the SQL text', () => {
-		const state = decodeState(new URLSearchParams("platform=x'; DROP TABLE t; --&direction=up&direction=down"));
-		const w = buildWhere(state.filters, { interferent_id: 'tn.hemolysis' });
-		expect(w.sql).toBe('WHERE interferent_id = ? AND platform IN (?) AND direction IN (?, ?)');
-		expect(w.params).toEqual(['tn.hemolysis', "x'; DROP TABLE t; --", 'up', 'down']);
-		expect(buildWhere(defaultState().filters)).toEqual({ sql: '', params: [] });
+describe('filters', () => {
+	const rows = [
+		{ row_id: 'a.t.0001', interferent_id: 'a.x', concept: 'hemolysis', platform: "O'Neil; 100%", analyzer: 'A1', sample_type: 'Serum', direction: 'up', reference_status: 'doi' },
+		{ row_id: 'a.t.0002', interferent_id: 'a.x', concept: 'hemolysis', platform: 'P2', analyzer: 'A1', sample_type: 'Plasma', direction: 'down', reference_status: 'pmid' },
+		{ row_id: 'a.t.0003', interferent_id: 'a.y', concept: 'lipemia', platform: 'P2', analyzer: null, sample_type: 'Serum', direction: 'none', reference_status: 'doi' }
+	];
+	it('combines filters with AND and the values of one filter with OR', () => {
+		const f = decodeState(new URLSearchParams('direction=up&direction=down&ref=doi')).filters;
+		expect(applyFilters(rows, f).map((r) => r.row_id)).toEqual(['a.t.0001']);
+		expect(applyFilters(rows, defaultState().filters)).toBe(rows);
+		expect(applyFilters(rows, defaultState().filters, { interferent_id: 'a.y' }).map((r) => r.row_id)).toEqual(['a.t.0003']);
+	});
+	it('matches values exactly, whatever characters they hold', () => {
+		const f = decodeState(new URLSearchParams({ platform: "O'Neil; 100%" })).filters;
+		expect(applyFilters(rows, f).length).toBe(1);
+		expect(applyFilters(rows, decodeState(new URLSearchParams({ platform: 'P' })).filters).length).toBe(0);
+	});
+	it('counts facet values and skips nulls', () => {
+		const c = facetCounts(rows);
+		expect(c.direction).toEqual([{ value: 'down', n: 1 }, { value: 'none', n: 1 }, { value: 'up', n: 1 }]);
+		expect(c.platform[0]).toEqual({ value: 'P2', n: 2 });
+		expect(c.analyzer).toEqual([{ value: 'A1', n: 2 }]);
+	});
+	it('searches text case-insensitively', () => {
+		expect(textMatches(rows[0], ['platform', 'analyzer'], "o'neil")).toBe(true);
+		expect(textMatches(rows[2], ['analyzer'], 'a1')).toBe(false);
 	});
 });
 

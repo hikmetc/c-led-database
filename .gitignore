@@ -37,4 +37,3 @@ site/.variants/
 site/screenshots/
 site/test-results/
 site/playwright-report/
-site/static/duckdb-ext/
