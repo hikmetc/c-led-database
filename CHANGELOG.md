@@ -22,6 +22,8 @@
   skill, shows its progress and stages, and can stop or continue it. It checks beforehand that
   Claude Code, the search servers, the archive tool, Firefox and the converter are in place. The
   session never touches the database; a finished run is imported from "New from archive".
+  The model can be chosen from every model the installed Claude Code knows (read from the
+  program itself, not a fixed list), after an optional check of which ones work for the account.
 
 ### Fixed
 - Manager: the app showed "Load failed" when its back end had stopped. It now restarts the back

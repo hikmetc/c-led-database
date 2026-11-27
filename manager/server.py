@@ -542,6 +542,120 @@ def search_servers():
     return {k: servers[k] for k in ("pubmed-search", "crossref-search") if k in servers}
 
 
+MODELS_CACHE = os.path.join(CONFIG_DIR, "models.json")
+MODEL_ID = re.compile(rb"claude-(?:fable|mythos|opus|sonnet|haiku)-\d+(?:-\d{1,2})?(?:-\d{8})?(?![\w-])")
+FAMILIES = ["fable", "mythos", "opus", "sonnet", "haiku"]
+MODEL_CHECK = {"running": False, "done": 0, "total": 0}
+
+
+def _model_sort(mid):
+    m = re.fullmatch(r"claude-([a-z]+)-(\d+)(?:-(\d{1,2}))?(?:-(\d{8}))?", mid)
+    fam, major, minor, date = m.group(1), int(m.group(2)), int(m.group(3) or 0), m.group(4) or ""
+    return (-major, -minor, FAMILIES.index(fam), date)
+
+
+def _model_label(mid):
+    m = re.fullmatch(r"claude-([a-z]+)-(\d+)(?:-(\d{1,2}))?(?:-(\d{8}))?", mid)
+    fam, major, minor, date = m.group(1), m.group(2), m.group(3), m.group(4)
+    label = f"{fam.capitalize()} {major}" + (f".{minor}" if minor else "")
+    if date:
+        label += f" (snapshot {date[:4]}-{date[4:6]}-{date[6:]})"
+    return label
+
+
+def known_models():
+    """Every model the installed Claude Code names, newest first, with what is known about
+    whether it works for this account. The list is read from the Claude Code program itself, so
+    it follows the Claude desktop app's updates. Nothing here is a fixed list."""
+    claude = claude_binary()
+    try:
+        cache = json.load(open(MODELS_CACHE, encoding="utf-8"))
+    except (OSError, ValueError):
+        cache = {}
+    if os.environ.get("MANAGER_CLAUDE"):                       # tests: a stand-in, with a short list
+        ids = ["claude-test-9-1", "claude-test-9", "claude-bad-1"]
+        cache = cache if cache.get("source") == "test" else {"source": "test", "ids": ids, "checked": {}}
+    elif claude and cache.get("source") != claude:
+        found = set()
+        with open(claude, "rb") as fh:                         # the program lists the ids it knows
+            tail = b""
+            while True:
+                chunk = fh.read(8 << 20)
+                if not chunk:
+                    break
+                found.update(m.decode() for m in MODEL_ID.findall(tail + chunk))
+                tail = chunk[-64:]
+        ids = sorted(found, key=_model_sort)
+        cache = {"source": claude, "ids": ids, "checked": cache.get("checked", {}) if cache.get("ids") == ids else {}}
+        os.makedirs(CONFIG_DIR, exist_ok=True)
+        json.dump(cache, open(MODELS_CACHE, "w", encoding="utf-8"))
+    ids = cache.get("ids", [])
+    checked = cache.get("checked", {})
+    families = [f for f in FAMILIES if any(i.startswith(f"claude-{f}-") for i in ids)]
+    version = ""
+    if claude and "/claude-code/" in claude:
+        version = claude.split("/claude-code/")[1].split("/")[0]
+    return {
+        "aliases": [{"id": f, "label": f"{f.capitalize()}, latest version", **checked.get(f, {})} for f in families],
+        "models": [{"id": i, "label": _model_label(i) if re.match(r"claude-(fable|mythos|opus|sonnet|haiku)-", i) else i, **checked.get(i, {})} for i in ids],
+        "claude_version": version, "checked_at": cache.get("checked_at"),
+        "checking": dict(MODEL_CHECK),
+    }
+
+
+def check_models():
+    """Ask each model for a one-word answer, to learn which ones this account can use."""
+    if MODEL_CHECK["running"]:
+        return
+    info = known_models()
+    todo = [m["id"] for m in info["aliases"] + info["models"]]
+    claude = claude_binary()
+    MODEL_CHECK.update(running=True, done=0, total=len(todo))
+    results = {}
+    lock = threading.Lock()
+
+    def probe(mid):
+        ok, why = False, ""
+        try:
+            r = subprocess.run([claude, "-p", "Reply with the single word OK", "--model", mid], cwd=CONFIG_DIR,
+                               capture_output=True, text=True, timeout=120, stdin=subprocess.DEVNULL)
+            out = (r.stdout + r.stderr).strip()
+            ok = r.returncode == 0 and "error" not in out.lower()[:200]
+            if not ok:
+                why = clip(re.sub(r"\s+", " ", out), 160)
+        except subprocess.TimeoutExpired:
+            why = "no answer within two minutes"
+        except OSError as e:
+            why = str(e)
+        with lock:
+            results[mid] = {"ok": ok, **({"why": why} if why else {})}
+            MODEL_CHECK["done"] += 1
+
+    def work():
+        try:
+            os.makedirs(CONFIG_DIR, exist_ok=True)
+            pending = list(todo)
+            threads = []
+            while pending or threads:
+                threads = [t for t in threads if t.is_alive()]
+                while pending and len(threads) < 4:
+                    t = threading.Thread(target=probe, args=(pending.pop(0),), daemon=True)
+                    t.start()
+                    threads.append(t)
+                time.sleep(0.3)
+            try:
+                cache = json.load(open(MODELS_CACHE, encoding="utf-8"))
+            except (OSError, ValueError):
+                cache = {"source": "test" if os.environ.get("MANAGER_CLAUDE") else claude, "ids": [m["id"] for m in info["models"]]}
+            cache["checked"] = results
+            cache["checked_at"] = datetime.datetime.now().astimezone().isoformat(timespec="minutes")
+            json.dump(cache, open(MODELS_CACHE, "w", encoding="utf-8"))
+        finally:
+            MODEL_CHECK["running"] = False
+
+    threading.Thread(target=work, daemon=True).start()
+
+
 def research_ready():
     cfg = load_config()
     ar = cfg["archive"]
@@ -948,6 +1062,12 @@ def plan(body):
         model = str(body.get("model") or "").strip()
         if model and not re.fullmatch(r"[A-Za-z0-9._\-]+", model):
             raise Problem("The model name may only hold letters, digits, dots and hyphens.")
+        if model:
+            known = known_models()
+            entry = next((m for m in known["aliases"] + known["models"] if m["id"] == model), None)
+            if entry and entry.get("ok") is False:
+                raise Problem(f"The model {model} did not answer for your account when it was checked"
+                              + (f": {entry['why']}" if entry.get("why") else ".") + " Choose another model.")
         if body.get("continue_run"):
             lines = [f"Continue the archive run {body['continue_run']} with the pipeline skill, from its first unfinished phase."]
         else:
@@ -1372,6 +1492,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self.send(200, run_proposal(q["path"]))
             if url.path == "/api/research":
                 return self.send(200, research_view())
+            if url.path == "/api/models":
+                return self.send(200, known_models())
             if url.path == "/api/screen_all":
                 return self.send(200, screening_all())
             if url.path == "/api/job":
@@ -1389,6 +1511,11 @@ class Handler(http.server.BaseHTTPRequestHandler):
             body = json.loads(self.rfile.read(int(self.headers.get("Content-Length") or 0)) or b"{}")
             if self.path == "/api/plan":
                 return self.send(200, plan(body))
+            if self.path == "/api/models/check":
+                if not claude_binary():
+                    raise Problem("Claude Code was not found.")
+                check_models()
+                return self.send(200, known_models())
             if self.path == "/api/screen":
                 return self.send(200, screening(body))
             if self.path == "/api/apply":

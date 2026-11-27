@@ -55,6 +55,11 @@ and run a short list of shell commands (`python3`, `sleep`, `ls`, `cat`, `head`,
 web access and cannot use git. It runs in the archive folder and never touches the database:
 a finished run appears under "New from archive" and goes through screening and import there.
 
+The model is chosen in the form. The list is not fixed: it is read from the installed Claude
+Code program, which names every model it knows, so it follows the Claude desktop app's updates.
+"Check which models work" asks each model for a one-word answer through your account and marks
+the ones that do not answer; those cannot be chosen.
+
 The session uses your Claude account and its usage. It keeps running if you close the manager,
 and is shown again when you come back. Its log is kept under
 `~/Library/Application Support/EFLM-LED-Manager/research/`.

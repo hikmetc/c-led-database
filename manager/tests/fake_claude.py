@@ -7,6 +7,14 @@ import csv, datetime, glob, json, os, sys, time
 args = sys.argv[1:]
 prompt = args[args.index("-p") + 1]
 archive = os.getcwd()
+model = args[args.index("--model") + 1] if "--model" in args else ""
+
+if prompt.startswith("Reply with"):          # the manager asking whether a model works
+    if model == "claude-bad-1":
+        print('API Error: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-bad-1"}}')
+        sys.exit(1)
+    print("OK")
+    sys.exit(0)
 
 
 def emit(event):

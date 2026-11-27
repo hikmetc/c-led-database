@@ -569,11 +569,71 @@ async function importSheet(path) {
 let R = null; // readiness and the current or last session
 const STAGES = [['screening', 'Literature search'], ['download', 'Full texts'], ['conversion', 'PDF to text'], ['extraction', 'Extraction'], ['report', 'Report']];
 
+/* The model list comes from the installed Claude Code itself (see /api/models), so it follows
+   the Claude app's updates; which of them work for the account is learned by asking each once. */
+let MODELS = null;
+let modelTimer = null;
+function modelField(selected) {
+	const m = MODELS;
+	const mark = (x) => (x.ok === true ? '  ✓' : x.ok === false ? '  — not available' : '');
+	const opt = (x, label) => `<option value="${esc(x.id)}" ${x.id === selected ? 'selected' : ''} ${x.ok === false ? 'disabled' : ''} title="${esc(x.why || '')}">${esc(label)}${mark(x)}</option>`;
+	const c = m.checking;
+	const note = c.running
+		? `<span class="spin"></span>Checking which models work for your account: ${c.done} of ${c.total}…`
+		: m.checked_at
+			? `Availability checked ${esc(m.checked_at.replace('T', ' ').slice(0, 16))}. ✓ works for your account.`
+			: 'Not checked yet which of these work for your account.';
+	return `<label for="r-model">Model</label>
+		<select id="r-model" data-f="model">
+			<option value="">Default of your Claude Code settings</option>
+			<optgroup label="Latest version of a family">${m.aliases.map((x) => opt(x, x.label)).join('')}</optgroup>
+			<optgroup label="A specific version">${m.models.map((x) => opt(x, `${x.label}  ·  ${x.id}`)).join('')}</optgroup>
+		</select>
+		<span class="caption">${plural(m.models.length, 'model')} known to Claude Code ${esc(m.claude_version)}. ${note}
+			${c.running ? '' : '<button type="button" class="linklike" id="check-models">Check which models work…</button>'}</span>`;
+}
+function bindModelField() {
+	const b = $('#check-models');
+	if (!b) return;
+	b.onclick = () => {
+		const n = MODELS.aliases.length + MODELS.models.length;
+		openSheet(`<h2>Check which models work</h2>
+			<p>Each of the ${n} models is asked for a one-word answer through your Claude account. This takes a minute or two and uses a very small amount of your usage. Models that do not answer are marked as not available and cannot be chosen.</p>
+			<div class="sheet-actions"><button class="btn" data-close>Cancel</button><button class="btn primary" id="go-check">Check</button></div>`);
+		$('#go-check').onclick = async () => {
+			closeSheet();
+			try {
+				MODELS = await api('/api/models/check', {});
+			} catch (e) {
+				return alertSheet('The check could not start', e.message);
+			}
+			pollModels();
+		};
+	};
+}
+async function pollModels() {
+	clearTimeout(modelTimer);
+	try {
+		MODELS = await api('/api/models');
+	} catch {
+		return;
+	}
+	const box = $('#model-box');
+	if (box) {
+		const selected = $('#r-model')?.value || '';
+		const focused = document.activeElement?.id === 'r-model';
+		box.innerHTML = modelField(selected);        // only this field is redrawn; what you type elsewhere stays
+		bindModelField();
+		if (focused) $('#r-model').focus();
+	}
+	if (MODELS.checking.running) modelTimer = setTimeout(pollModels, 2000);
+}
+
 async function researchView(keepForm = false) {
 	clearTimeout(researchTimer);
 	const form = keepForm ? null : Object.fromEntries([...main.querySelectorAll('[data-f]')].map((el) => [el.dataset.f, el.value]));
 	try {
-		R = await api('/api/research');
+		[R, MODELS] = await Promise.all([api('/api/research'), MODELS && !MODELS.checking.running ? MODELS : api('/api/models')]);
 	} catch (e) {
 		if (view.name === 'research') main.innerHTML = `<div class="empty">${esc(e.message)}<br><br><button class="btn primary" id="retry">Try again</button></div>`;
 		if ($('#retry')) $('#retry').onclick = () => researchView();
@@ -597,7 +657,6 @@ async function researchView(keepForm = false) {
 	const atEnd = live ? live.scrollTop + live.clientHeight >= live.scrollHeight - 30 : true;
 	const title = running ? '<span class="spin"></span>Session running' : se?.state === 'done' ? 'Last session: finished' : se?.state === 'stopped' ? 'Last session: stopped' : 'Last session: ended without a result';
 	const what = se ? (se.params.continue_run ? `Continuing ${esc(se.params.continue_run)}` : `${esc(se.params.analyte)} · ${esc(se.params.interferent)} · APS ${esc(se.params.aps)}`) : '';
-	const models = [['', 'Default of your Claude Code settings'], ['opus', 'Opus'], ['sonnet', 'Sonnet'], ['haiku', 'Haiku']];
 	const field = (id, key, label, placeholder = '', cls = '') => `<div class="field ${cls}"><label for="${id}">${label}</label><input id="${id}" data-f="${key}" placeholder="${esc(placeholder)}" value="${esc(form?.[key] || '')}"></div>`;
 	main.innerHTML = `<div class="head"><div><h1>Research</h1><p class="muted">Search the literature, fetch the full texts and extract the evidence table into the archive, with your Claude pipeline skill.</p></div></div>
 		<div class="card" style="margin-bottom:20px"><ul class="checks">
@@ -619,7 +678,7 @@ async function researchView(keepForm = false) {
 			${field('r-an', 'analyte', 'Analyte (English; also names the folder)', 'Carboxyhemoglobin')}
 			${field('r-in', 'interferent', 'Interferent (English)', 'methylene blue')}
 			${field('r-aps', 'aps', 'Analytical performance specification', '%1')}
-			<div class="field"><label for="r-model">Model</label><select id="r-model" data-f="model">${models.map(([v, l]) => `<option value="${v}" ${form?.model === v ? 'selected' : ''}>${l}</option>`).join('')}</select></div>
+			<div class="field" id="model-box">${modelField(form?.model || '')}</div>
 			${field('r-st', 'sample_type', 'Sample type (optional)', 'blood')}
 			${field('r-dr', 'date_range', 'Date range (optional)', '2000-2026')}
 			${field('r-pl', 'platforms', 'Platforms (optional)', '', 'full')}
@@ -631,6 +690,8 @@ async function researchView(keepForm = false) {
 	const startOp = (op) => review(op, { confirmLabel: 'Start', after: () => (view.name === 'research' ? researchView(true) : go({ name: 'research' })) });
 	if ($('#start')) $('#start').onclick = () => startOp({ op: 'research', ...Object.fromEntries([...main.querySelectorAll('[data-f]')].map((el) => [el.dataset.f, el.value.trim()])) });
 	for (const el of main.querySelectorAll('[data-continue]')) el.onclick = () => startOp({ op: 'research', continue_run: el.dataset.continue, model: $('#r-model')?.value || '' });
+	bindModelField();
+	if (MODELS?.checking.running) pollModels();
 	// while a session runs, the view follows it; an open sheet is never disturbed
 	if (running) researchTimer = setTimeout(function tick() { if (view.name !== 'research') return; if (sheetEl.open) researchTimer = setTimeout(tick, 4000); else researchView(); }, 4000);
 }

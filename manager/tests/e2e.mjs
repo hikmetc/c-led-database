@@ -257,7 +257,16 @@ ok((await page.$$('.checks .dot.warn')).length === 0, 'the Research section repo
 await page.click('#start'); await page.waitForSelector('#sheet-body [data-close]');
 ok(/Please give the analyte/.test(await page.textContent('#sheet-body')), 'a search cannot start without analyte, interferent and APS');
 await page.click('#sheet-body [data-close]');
-await page.fill('#r-an', 'Potassium'); await page.fill('#r-in', 'research stub'); await page.fill('#r-aps', '%0.4'); await page.selectOption('#r-model', 'sonnet');
+// the model list comes from Claude Code; which models work is learned by asking each one
+let opts = await page.$$eval('#r-model option', (els) => els.map((e) => ({ v: e.value, t: e.textContent, d: e.disabled })));
+ok(opts.some((o) => o.v === '') && opts.some((o) => o.v === 'claude-test-9-1') && opts.every((o) => !o.d), 'the model list shows the default and every specific model, all selectable before a check');
+await page.fill('#r-an', 'Potassium');
+await page.click('#check-models'); await page.click('#go-check');
+await page.waitForFunction(() => /Availability checked/.test(document.querySelector('#model-box')?.textContent || ''), null, { timeout: 60000 });
+opts = await page.$$eval('#r-model option', (els) => els.map((e) => ({ v: e.value, t: e.textContent, d: e.disabled })));
+ok(opts.find((o) => o.v === 'claude-bad-1').d && /not available/.test(opts.find((o) => o.v === 'claude-bad-1').t) && /✓/.test(opts.find((o) => o.v === 'claude-test-9-1').t), 'after the check, a model that does not answer is marked and cannot be chosen; the others are marked as working');
+ok((await page.inputValue('#r-an')) === 'Potassium', 'checking the models does not disturb what was typed in the form');
+await page.fill('#r-in', 'research stub'); await page.fill('#r-aps', '%0.4'); await page.selectOption('#r-model', 'claude-test-9-1');
 await page.click('#start');
 p = await plan({ confirm: false });
 ok(/uses your own Claude account/.test(p.text) && /fixed set of permissions/.test(p.text) && /not touched/.test(p.text), 'the plan explains the usage, the permissions and that the database is not touched');

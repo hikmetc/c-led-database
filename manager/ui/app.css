@@ -660,6 +660,15 @@ dialog.wide {
 	font-size: 12.5px;
 }
 
+.linklike {
+	border: 0;
+	background: none;
+	padding: 0;
+	color: var(--link);
+	font-size: inherit;
+	cursor: pointer;
+	text-decoration: underline;
+}
 .checks {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
