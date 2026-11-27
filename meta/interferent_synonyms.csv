@@ -345,7 +345,7 @@ carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_2026112
 carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Storage in not hermetically closed container (250 ml PVC container, loosely covered lid) at 6°C, with putrefaction",cohb.uncapped_storage,1
 carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,"Storage in not hermetically closed container (250 ml PVC container, loosely placed lid allowing gradual gas exchange) at 20°C, with putrefaction",cohb.uncapped_storage,2
 carboxyhemoglobin_blood,carboxyhemoglobin_uncapped-storage-air-headspace_20261123-2323_APS1_extraction_table.csv,Storage of venous blood in 50% filled 4 mL Li-Hep tubes (2 mL blood) at room temperature for 15 and 30 min vs filled tube analysed immediately,cohb.uncapped_storage,1
-digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS),dig.dlis,776
+digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS),dig.dlis,745
 digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS) - attributed by this study to endogenous steroid hormones,dig.dlis,3
 digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS) - endogenous steroid hormone Dehydroepiandrosterone,dig.dlis,1
 digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive substances (DLIS) - endogenous steroid hormone Dehydroepiandrosterone proposed by this study as the identity of DLIS,dig.dlis,14

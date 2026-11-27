@@ -41,7 +41,7 @@ dig.digitoxin,digoxin_serum,digitoxin,Digitoxin,cardiac_glycoside,143,9
 dig.digoxigenin,digoxin_serum,digoxigenin,Digoxigenin and its mono- or bis-digitoxosides (digoxin metabolites),cardiac_glycoside,463,75
 dig.digoxin_immune_fab,digoxin_serum,digoxin_immune_fab,Digoxin immune Fab (Digibind),antidote,197,15
 dig.dihydrodigoxin,digoxin_serum,dihydrodigoxin,Dihydrodigoxin,cardiac_glycoside,144,15
-dig.dlis,digoxin_serum,dlis,Digoxin-like immunoreactive substances (DLIS),endogenous_substance,871,14
+dig.dlis,digoxin_serum,dlis,Digoxin-like immunoreactive substances (DLIS),endogenous_substance,840,14
 dig.enzalutamide,digoxin_serum,enzalutamide,Enzalutamide,drug_cross_reactivity,24,1
 dig.free_kappa,digoxin_serum,free_kappa,Free kappa light chains,paraprotein,23,1
 dig.hama,digoxin_serum,hama,Human anti-mouse / heterophilic antibodies (HAMA),heterophilic_antibodies,28,4

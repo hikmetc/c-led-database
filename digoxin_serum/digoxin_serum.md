@@ -21,18 +21,18 @@ Every row was judged against this APS. The machine-readable record is `digoxin_s
 |---|---|
 | Interference causes | 29 |
 | Evidence tables | 25 |
-| Evidence rows | 4,308 |
-| Rows with a numeric percent change (plottable) | 1,795 |
-| Rows exceeding the 3.0% APS | 1,868 |
+| Evidence rows | 4,277 |
+| Rows with a numeric percent change (plottable) | 1,789 |
+| Rows exceeding the 3.0% APS | 1,859 |
 | Rows within the 3.0% APS | 390 |
 | Rows with a DOI | 1,355 |
-| Rows with a PubMed ID | 1,911 |
+| Rows with a PubMed ID | 1,883 |
 
 ## Interference causes
 
 | interferent_id | Interferent | Concept | Rows |
 |---|---|---|---|
-| `dig.dlis` | Digoxin-like immunoreactive substances (DLIS) | `endogenous_substance` | 871 |
+| `dig.dlis` | Digoxin-like immunoreactive substances (DLIS) | `endogenous_substance` | 840 |
 | `dig.canrenone` | Canrenone | `drug_cross_reactivity` | 465 |
 | `dig.digoxigenin` | Digoxigenin and its mono- or bis-digitoxosides (digoxin metabolites) | `cardiac_glycoside` | 463 |
 | `dig.oleandrin` | Oleandrin / oleander extract | `cardiac_glycoside` | 453 |
