@@ -1,9 +1,9 @@
-# Digoxin (Serum or plasma)
+# Digoxin (Serum, plasma or whole blood)
 
 ## Analyte
 
 - **Component:** Digoxin
-- **System (matrix):** Serum or plasma
+- **System (matrix):** Serum, plasma or whole blood
 - **Kind of property:** Substance concentration
 - **Reporting unit:** ng/mL (nmol/L)
 - **Analyte id:** `dig`
