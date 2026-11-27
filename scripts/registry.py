@@ -13,7 +13,7 @@ ANALYTES = {
     aps_note="1% is read as 1 percentage point of COHb saturation in several source studies.",
     synonyms="Carboxyhaemoglobin; COHb; COHb%; carboxyhemoglobin saturation"),
  "digoxin_serum": dict(
-    prefix="dig", component="Digoxin", system="Serum",
+    prefix="dig", component="Digoxin", system="Serum or plasma",
     kind_of_property="Substance concentration", unit="ng/mL (nmol/L)",
     aps_percent=3.0, aps_note="",
     synonyms="Digoxin, total; apparent digoxin"),

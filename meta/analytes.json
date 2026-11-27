@@ -18,7 +18,7 @@
     "analyte_id": "dig",
     "analyte_folder": "digoxin_serum",
     "component": "Digoxin",
-    "system": "Serum",
+    "system": "Serum or plasma",
     "kind_of_property": "Substance concentration",
     "unit": "ng/mL (nmol/L)",
     "aps_percent": 3.0,

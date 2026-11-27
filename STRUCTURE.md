@@ -52,7 +52,7 @@ The folder name is the `analyte_folder` key used everywhere else. It is lower ca
 | Folder | Component | System | Unit | APS | Causes | Tables | Rows |
 |---|---|---|---|---|---|---|---|
 | `carboxyhemoglobin_blood` | Carboxyhemoglobin | Blood | % of total haemoglobin | 1.0% | 27 | 20 | 2,095 |
-| `digoxin_serum` | Digoxin | Serum | ng/mL (nmol/L) | 3.0% | 29 | 25 | 4,277 |
+| `digoxin_serum` | Digoxin | Serum or plasma | ng/mL (nmol/L) | 3.0% | 29 | 25 | 4,277 |
 | `inr_plasma` | International Normalized Ratio (prothrombin time) | Platelet-poor plasma (citrated) | ratio (INR) | 2.0% | 24 | 19 | 3,687 |
 | `pco2_blood` | Carbon dioxide partial pressure | Blood | mmHg (kPa) | 2.7% | 9 | 8 | 146 |
 | `ph_blood` | pH | Blood | pH unit | 1.5% | 11 | 10 | 182 |
