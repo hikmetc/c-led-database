@@ -2,6 +2,14 @@
 
 ## 0.4.2 - 2026-11-26
 
+### Added
+- `manager/` - a macOS desktop app for maintaining the database. It shows the database on this
+  Mac, on GitHub and on the website, lists archive runs that are not imported yet, and imports,
+  changes, deletes and publishes. Every change is described and confirmed first and is undone if
+  the build, the validation or the audit fails. Built with `manager/build_app.sh`.
+- `scripts/import_archive.py --commit-only` (commit locally, do not push), and a warning when a
+  newer version of a table has fewer rows than the one it replaces.
+
 ### Changed
 - The database is now named **EFLM Laboratory Error Database** and is marked as a **Beta version** on the
   website, in the README and in STRUCTURE.md. It was called C-LED (Clinical Laboratory Error

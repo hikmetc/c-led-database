@@ -164,6 +164,12 @@ def gen(root, distributed):
      "fails, every change is undone. It then shows a summary and asks before it commits and "
      "pushes. Only the CSV is copied; PDFs and other archive files stay where they are. "
      "`--dry-run` shows the plan without changing anything; `--no-push` stops before the commit.", "",
+     "## The manager app", "",
+     "`manager/` holds a small macOS app for maintaining the database: it shows what is on this "
+     "Mac, on GitHub and on the website, lists the archive runs that are not in the database yet, "
+     "and lets you import, change, delete and publish. Every change is described first and carried "
+     "out only after you confirm; a failed change is undone. Build it with `manager/build_app.sh`; "
+     "see `manager/README.md`.", "",
      "## The website", "",
      f"<{WEBSITE}> is a static site in `site/` (SvelteKit), deployed to GitHub Pages by "
      "`.github/workflows/pages.yml` on every push that changes the data, the scripts or the site. "

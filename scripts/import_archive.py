@@ -32,6 +32,7 @@ Options
   --dry-run               show what would happen; change nothing
   --yes                   do not ask before committing and pushing
   --no-push               import and rebuild locally; do not commit or push
+  --commit-only           import, rebuild and commit locally; do not push
   --allow-duplicate-cause do not stop when the interferent already has another table
 """
 import argparse, csv, difflib, glob, importlib.util, json, os, re, shutil, subprocess, sys
@@ -301,6 +302,8 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--yes", action="store_true")
     ap.add_argument("--no-push", action="store_true")
+    ap.add_argument("--commit-only", action="store_true",
+                    help="commit locally without asking, but do not push (used by the manager app)")
     ap.add_argument("--allow-duplicate-cause", action="store_true")
     args = ap.parse_args()
     interactive = sys.stdin.isatty()
@@ -358,6 +361,9 @@ def main():
             "           Verdict text inside the table refers to the run's APS; numeric verdicts are recomputed.")
     if updating:
         say("  WARNING: replacing a table can shift row numbers, so permalinks to its rows may point to other rows.")
+        if old_rows is not None and n_rows < old_rows:
+            say(f"  WARNING: the new version has FEWER rows ({n_rows}) than the table it replaces ({old_rows}). "
+                f"{old_rows - n_rows} rows would disappear. Make sure this version is a complete table and not an addendum.")
     if same_cause:
         say(f"  WARNING: this interferent already has {len(same_cause)} other table(s): {', '.join(same_cause)}\n"
             "           If they hold the same studies, the evidence would be counted twice.")
@@ -464,6 +470,15 @@ def main():
         undo(f"IMPORT FAILED: files that must never be committed were staged: {bad}")
         return 1
 
+    label = new_cause[0] if new_cause else R.CANON[folder][key][0]
+    verb = "Update" if updating else "Add"
+    msg = f"{verb} evidence: {folder} / {label} ({imported} rows)\n\nSource run: {params.get('run_id') or os.path.splitext(src_name)[0]}\nSource table: {src_name}"
+    if new_analyte:
+        msg += f"\nNew analyte: {folder} (prefix {prefix}, APS {new_analyte['aps_percent']} %)"
+    if args.commit_only:
+        git("commit", "-q", "-m", msg)
+        say("\nCommitted locally. Not pushed: GitHub and the website are unchanged until you publish.")
+        return 0
     if args.no_push:
         git("reset", "-q")
         say("\n--no-push: the changes are in the working tree, not committed. Review them with `git status`.")
@@ -476,11 +491,6 @@ def main():
                 "  to discard them  : git checkout -- . && git clean -fd")
             return 0
 
-    label = new_cause[0] if new_cause else R.CANON[folder][key][0]
-    verb = "Update" if updating else "Add"
-    msg = f"{verb} evidence: {folder} / {label} ({imported} rows)\n\nSource run: {params.get('run_id') or os.path.splitext(src_name)[0]}\nSource table: {src_name}"
-    if new_analyte:
-        msg += f"\nNew analyte: {folder} (prefix {prefix}, APS {new_analyte['aps_percent']} %)"
     git("commit", "-q", "-m", msg)
     say("Committed. Pushing ...")
     r = run(["git", "push"], capture_output=True)

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EFLM Laboratory Error Database · Manager</title>
+<link rel="icon" href="data:," />
+<link rel="stylesheet" href="app.css" />
+</head>
+<body>
+<aside class="side">
+	<div class="brand">
+		<strong>EFLM Laboratory Error Database</strong>
+		<span>Manager</span>
+	</div>
+	<nav id="nav" aria-label="Sections">
+		<button data-view="overview" class="on">Overview</button>
+		<button data-view="archive">New from archive <span class="count" id="n-archive"></span></button>
+		<button data-view="database">Database</button>
+		<button data-view="changes">Unpublished changes <span class="count" id="n-changes"></span></button>
+		<button data-view="settings">Settings</button>
+	</nav>
+	<div class="side-foot">
+		<button class="btn primary wide" id="publish" hidden>Publish…</button>
+		<p class="caption" id="conn"></p>
+	</div>
+</aside>
+
+<main id="main" tabindex="-1"></main>
+
+<dialog id="sheet"><div id="sheet-body"></div></dialog>
+
+<script src="app.js"></script>
+</body>
+</html>

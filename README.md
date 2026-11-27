@@ -89,6 +89,10 @@ The source CSVs are the single source of truth and the build never writes to the
 
 It picks the latest version of the run's extraction table, checks its 29 columns, works out the analyte and the interferent (asking for anything it cannot work out: it never invents a name, a concept or an APS), copies the table into `<analyte>/database/`, registers it in `scripts/registry.py`, removes rows without evidence, rebuilds and validates. If anything fails, every change is undone. It then shows a summary and asks before it commits and pushes. Only the CSV is copied; PDFs and other archive files stay where they are. `--dry-run` shows the plan without changing anything; `--no-push` stops before the commit.
 
+## The manager app
+
+`manager/` holds a small macOS app for maintaining the database: it shows what is on this Mac, on GitHub and on the website, lists the archive runs that are not in the database yet, and lets you import, change, delete and publish. Every change is described first and carried out only after you confirm; a failed change is undone. Build it with `manager/build_app.sh`; see `manager/README.md`.
+
 ## The website
 
 <https://hikmetc.github.io/c-led-database/> is a static site in `site/` (SvelteKit), deployed to GitHub Pages by `.github/workflows/pages.yml` on every push that changes the data, the scripts or the site. The workflow rebuilds the data layer from the CSVs, builds the site from it, runs the unit and end-to-end tests, and deploys. Nothing generated is committed.

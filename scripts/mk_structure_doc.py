@@ -490,6 +490,18 @@ w("")
 w("Only the extraction CSV is copied. The archive is read, never changed. `--dry-run` shows the "
   "plan and changes nothing; `--no-push` imports and rebuilds without committing.")
 w("")
+w("### The manager app")
+w("")
+w("`manager/` is a desktop app (macOS) over the same process. It reads three places - this "
+  "repository folder, `origin/main` on GitHub and the deployed website - and shows where they "
+  "differ. It imports archive runs through `scripts/import_archive.py`, and it can change values, "
+  "delete rows, add a row and delete a table. Each of these is a transaction: a plan is shown, "
+  "you confirm, the files are edited, the build, the validation and the audit run, and the result "
+  "is committed locally; on any failure every file is restored. Publishing (the push) is a "
+  "separate confirmed step. Deleting rows renumbers the rows after them, which the plan states. "
+  "Removing an analyte and editing analyte or cause definitions remain edits of "
+  "`scripts/registry.py` by hand. See `manager/README.md`.")
+w("")
 w("### Adding a table to an existing analyte")
 w("")
 w("Drop the CSV into that analyte's `database/`, add one line to its `TABLE_MAP` entry, add the "
