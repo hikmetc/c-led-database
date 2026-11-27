@@ -13,7 +13,8 @@ lets you change it, always after a review:
 |---|---|
 | Overview | Row, analyte and table counts in the three places, whether they agree, the state of the last website build |
 | New from archive | Every run of the literature archive with its status: not in the database, newer than the database, in the database, cannot be imported. Import or update a run |
-| Database | Browse analytes, tables and rows. Change values, delete rows, add a row, delete a table |
+| Database | Browse analytes, tables and rows. Change values, delete rows, add a row, delete a table. Edit an analyte (name, system, unit, kind of property, APS, synonyms), delete an analyte, rename an interference cause or move it to another concept |
+| Screening | Check the whole database, one table, or a run before import against the rejection criteria; see why each row fails; reject after confirmation |
 | Unpublished changes | What is saved on this Mac but not on GitHub. Publish, or discard |
 | Settings | The archive folder |
 
@@ -30,10 +31,39 @@ lets you change it, always after a review:
 
 Importing uses `scripts/import_archive.py`, so the same rules apply as on the command line.
 
+## Inclusion screening
+
+Before a run is imported, and on demand for any table, every row is checked against the
+rejection criteria of `scripts/screening.py`:
+
+| # | Criterion | Decided |
+|---|---|---|
+| 1 | Not enough information to find the source: no DOI, no PubMed ID, no full reference, and a citation without an author and a year | automatically |
+| 2 | No citation | automatically |
+| 3 | No value in any of the 11 data fields | automatically |
+| 4 | The source did not measure this analyte | by hand |
+| 5 | The cited file is not the article | by hand |
+| 6 | The table does not have the 29 columns | at import (whole table) |
+| 7 | A row reaches no canonical interference cause | by the build |
+| 8 | Duplicate of another row: same source, platform, analyzer, concentrations and values | automatically |
+| 9 | The DOI is malformed, or doi.org does not know it (optional online check) | automatically |
+| 10 | Out of scope: not analytical interference or pre-analytical error | by hand |
+| 17 | The recorded APS verdict contradicts the numeric change (a change exactly equal to the APS is not a contradiction) | automatically |
+
+The screening sheet lists every rejected row with the criterion and the concrete reason (for
+example which row it duplicates, or the two numbers that disagree). You can untick a row to keep
+it, and for the criteria that only a person can judge the app lists the rows worth looking at
+and you choose the reason. Nothing is rejected until you confirm the plan. Rows that pass go
+into the database folder; every rejected row is written in full, with its criteria, reason, date
+and whether it was decided automatically or by hand, to `meta/rejected_rows.csv`.
+
+Criterion 17 needs judgement for an analyte whose APS is read as an absolute difference in some
+sources (the screening shows the analyte's APS note in that case).
+
 ## Limits
 
-- Removing a whole analyte, changing an analyte's APS, unit or name, and renaming an interference
-  cause are not done by the app. They are edits of `scripts/registry.py` (see STRUCTURE.md).
+- An analyte's folder name and id prefix, and a cause's key, cannot be changed: every row id and
+  every website address depends on them.
 - A published change cannot be withdrawn from the app. It stays in the public git history.
 - The app works on the repository folder it was built for. The archive is only read.
   Full-text PDFs are never copied.

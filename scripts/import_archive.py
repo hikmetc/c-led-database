@@ -34,8 +34,11 @@ Options
   --no-push               import and rebuild locally; do not commit or push
   --commit-only           import, rebuild and commit locally; do not push
   --allow-duplicate-cause do not stop when the interferent already has another table
+  --screen                apply the automatic rejection criteria (scripts/screening.py): rows that
+                          fail are left out and archived, with the reason, in meta/rejected_rows.csv
+  --reject-json FILE      leave out exactly the rows listed in FILE (written by the manager app)
 """
-import argparse, csv, difflib, glob, importlib.util, json, os, re, shutil, subprocess, sys
+import argparse, csv, datetime, difflib, glob, importlib.util, io, json, os, re, shutil, subprocess, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.environ.get("CLED_ROOT") or os.path.dirname(HERE)
@@ -305,6 +308,8 @@ def main():
     ap.add_argument("--commit-only", action="store_true",
                     help="commit locally without asking, but do not push (used by the manager app)")
     ap.add_argument("--allow-duplicate-cause", action="store_true")
+    ap.add_argument("--screen", action="store_true")
+    ap.add_argument("--reject-json")
     args = ap.parse_args()
     interactive = sys.stdin.isatty()
 
@@ -331,6 +336,38 @@ def main():
     key, new_cause = decide_interferent(R, args, params, folder, dest_name, interactive, bool(new_analyte))
     prefix = new_analyte["prefix"] if new_analyte else R.ANALYTES[folder]["prefix"]
 
+    # ---- inclusion screening: rows that fail a rejection criterion do not enter the database
+    rejected = []                      # [{"row", "criteria", "reason", "decided"}], row = 1-based data row of the source table
+    if args.reject_json:
+        rejected = json.load(open(args.reject_json, encoding="utf-8"))
+    elif args.screen:
+        sys.path.insert(0, HERE)
+        import screening
+        src_rows = list(csv.DictReader(io.StringIO(text, newline="")))
+        info = dict(new_analyte or R.ANALYTES[folder], folder=folder)
+        for res in screening.screen(src_rows, info, ROOT, exclude_file=dest_name):
+            if res["reject"]:
+                rejected.append({"row": res["row"], "criteria": "; ".join(f"{e['no']} {e['code']}" for e in res["reject"]),
+                                 "reason": " | ".join(e["detail"] for e in res["reject"]), "decided": "automatic"})
+    rejected_entries = []
+    if rejected:
+        all_rows = list(csv.reader(io.StringIO(text, newline="")))
+        drop = {int(r["row"]) for r in rejected}
+        if any(not (1 <= i < len(all_rows)) for i in drop):
+            raise Stop("the list of rejected rows does not match the table; screen it again")
+        today = datetime.date.today().isoformat()
+        for r in rejected:
+            rejected_entries.append({"source_file": f"{folder}/database/{dest_name}", "original_row": int(r["row"]),
+                                     "criteria": r.get("criteria", ""), "reason": r.get("reason", ""),
+                                     "decided": r.get("decided", "manual"), "date": today,
+                                     "values": dict(zip(all_rows[0], all_rows[int(r["row"])]))})
+        kept = [all_rows[0]] + [row for i, row in enumerate(all_rows[1:], 1) if i not in drop]
+        buf = io.StringIO(newline="")
+        csv.writer(buf).writerows(kept)
+        text, n_source, n_rows = buf.getvalue(), n_rows, len(kept) - 1
+        if n_rows == 0:
+            raise Stop(f"every one of the {n_source} rows is rejected by the screening, so there is nothing to import")
+
     dest = os.path.join(ROOT, folder, "database", dest_name)
     updating = os.path.exists(dest)
     old_rows = None
@@ -350,6 +387,20 @@ def main():
     say("=" * 72)
     say(f"  source table     : {table}")
     say(f"  rows             : {n_rows}" + (f"   (replaces {old_rows} rows of the current version)" if updating else ""))
+    if rejected_entries:
+        by = {}
+        for e in rejected_entries:
+            for c in e["criteria"].split("; "):
+                by[c] = by.get(c, 0) + 1
+        say(f"  rejected         : {len(rejected_entries)} of {n_rows + len(rejected_entries)} source rows do not pass the screening and are left out"
+            " (archived with their reasons in meta/rejected_rows.csv)")
+        for c, n in sorted(by.items(), key=lambda x: -x[1]):
+            say(f"      {n:4d}  criterion {c}")
+        if not args.reject_json:
+            for e in rejected_entries[:30]:
+                say(f"      row {e['original_row']:4d}: {e['reason'][:200]}")
+            if len(rejected_entries) > 30:
+                say(f"      ... and {len(rejected_entries) - 30} more")
     say(f"  analyte          : {folder}" + ("   NEW ANALYTE" if new_analyte else f"   ({R.ANALYTES[folder]['component']})"))
     if new_analyte:
         for k, v in new_analyte.items():
@@ -424,6 +475,10 @@ def main():
         os.makedirs(os.path.dirname(dest), exist_ok=True)
         with open(dest, "w", encoding="utf-8", newline="") as fh:      # UTF-8 without BOM
             fh.write(text)
+        if rejected_entries:
+            sys.path.insert(0, HERE)
+            import screening
+            screening.archive_rejected(ROOT, header, rejected_entries)
 
         say("\nRemoving rows that carry no evidence ...")
         r = run([sys.executable, os.path.join(HERE, "prune_unevidenced_rows.py"), ROOT], capture_output=True)

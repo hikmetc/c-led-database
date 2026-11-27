@@ -9,6 +9,14 @@
   the build, the validation or the audit fails. Built with `manager/build_app.sh`.
 - `scripts/import_archive.py --commit-only` (commit locally, do not push), and a warning when a
   newer version of a table has fewer rows than the one it replaces.
+- **Inclusion screening** (`scripts/screening.py`): rejection criteria applied row by row, with a
+  concrete reason for every rejection. Automatic: no findable source (1), no citation (2), no
+  evidence (3), duplicate row (8), malformed or unknown DOI (9), recorded verdict contradicting
+  the numeric change (17). Decided by hand: wrong analyte (4), wrong document (5), out of scope
+  (10). The importer applies it with `--screen`; the manager screens every import, any table and
+  the whole database. Rejections need confirmation and are archived in `meta/rejected_rows.csv`.
+- Manager: edit an analyte (name, system, unit, kind of property, APS, synonyms), delete an
+  analyte, rename an interference cause or move it to another concept.
 
 ### Changed
 - The database is now named **EFLM Laboratory Error Database** and is marked as a **Beta version** on the

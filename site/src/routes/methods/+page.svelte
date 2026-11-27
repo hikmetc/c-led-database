@@ -29,6 +29,19 @@
 	<h2>What counts as evidence</h2>
 	<p>A row with no value in any of eleven data fields is not evidence and is removed. The eleven are direction of effect, the four change columns, magnitude, baseline and final concentration, interferent concentration, platform and analyzer. Removed rows are archived in full, with the reason, in the repository.</p>
 
+	<h2>Rejection criteria</h2>
+	<p>Before a table enters the database, every row is screened. A row is rejected, and archived with the reason, when:</p>
+	<ul>
+		<li>there is not enough information to find its source: no DOI, no PubMed ID, no full reference, and a citation without an author and a year;</li>
+		<li>it has no citation;</li>
+		<li>it has no value in any of the eleven data fields;</li>
+		<li>it duplicates another row: same source, platform, analyzer, concentrations and values;</li>
+		<li>its DOI is malformed or unknown to doi.org;</li>
+		<li>its recorded APS verdict contradicts its numeric change;</li>
+		<li>the maintainer finds that the source did not measure the analyte, that the cited file is not the article, or that the row is out of scope.</li>
+	</ul>
+	<p>The first six are decided automatically from the row; the last three need a person. Rejected rows are kept, in full, in the repository (<code>meta/rejected_rows.csv</code>).</p>
+
 	<h2>The analytical performance specification</h2>
 	<p>Each analyte carries one APS: a relative allowable bias, in percent. A row with a numeric percent change exceeds the APS when the absolute change is greater than it. The APS is data, so this site can re-judge every row against an APS you choose. Where a row reports no numeric change, it cannot be recomputed; the verdict recorded during extraction is shown and the row is marked "not computable".</p>
 	{#if index}

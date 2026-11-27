@@ -16,7 +16,7 @@ Rules it enforces
 
 Run:  .venv/bin/python manager/server.py            (prints the address to open)
 """
-import argparse, csv, difflib, glob, http.server, importlib.util, io, json, os, re, secrets, shutil
+import argparse, collections, csv, datetime, difflib, glob, http.server, importlib.util, io, json, os, re, secrets, shutil
 import subprocess, sys, threading, time, urllib.parse, urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -32,6 +32,9 @@ csv.field_size_limit(10 ** 7)
 spec = importlib.util.spec_from_file_location("cled_import_archive", os.path.join(SCRIPTS, "import_archive.py"))
 IA = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(IA)
+spec = importlib.util.spec_from_file_location("cled_screening", os.path.join(SCRIPTS, "screening.py"))
+SC = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(SC)
 
 
 class Problem(Exception):
@@ -204,8 +207,12 @@ def database():
                            "status": status.get(f"{folder}/database/{f}", "published"),
                            "multi": bool(R.OVERRIDES.get(folder, {}).get(f))})
         tables.sort(key=lambda t: t["interferent"].lower())
+        used = collections.Counter(R.TABLE_MAP[folder].values())
+        causes = [{"key": k, "name": v[0], "concept": v[1], "tables": used.get(k, 0)} for k, v in sorted(R.CANON[folder].items(), key=lambda x: x[1][0].lower())]
+        reg = R.ANALYTES[folder]
         out.append({"folder": folder, "id": a["analyte_id"], "component": a["component"], "system": a["system"],
-                    "unit": a["unit"], "aps": a["aps_percent"], "rows": a["evidence_rows"], "tables": tables})
+                    "unit": a["unit"], "aps": a["aps_percent"], "rows": a["evidence_rows"], "tables": tables, "causes": causes,
+                    "kind_of_property": reg["kind_of_property"], "aps_note": reg.get("aps_note", ""), "synonyms": reg.get("synonyms", "")})
     return out
 
 
@@ -323,7 +330,132 @@ def importer_args(p):
         args += ["--synonyms", str(p.get("synonyms") or "").strip()]
     if p.get("allow_duplicate"):
         args.append("--allow-duplicate-cause")
+    if p.get("rejects"):
+        os.makedirs(CONFIG_DIR, exist_ok=True)
+        path = os.path.join(CONFIG_DIR, "rejects.json")
+        json.dump(p["rejects"], open(path, "w", encoding="utf-8"))
+        args += ["--reject-json", path]
     return args
+
+
+# ----------------------------------------------------------------------------- screening
+def screening(body):
+    """Screen an archive run (before import) or a table of the database against the rejection criteria."""
+    R = IA.load_registry()
+    hdr = header()
+    if body.get("kind") == "run":
+        _, src, _ = IA.resolve_source(body["path"])
+        text, _ = IA.read_table(src, hdr)
+        rows = list(csv.DictReader(io.StringIO(text, newline="")))
+        folder = body.get("analyte_folder") or ""
+        dest_name = re.sub(r"_extraction_table_v\d+\.csv$", "_extraction_table.csv", os.path.basename(src))
+        if folder in R.ANALYTES:
+            info = dict(R.ANALYTES[folder], folder=folder)
+        else:
+            info = {"folder": folder or "new_analyte", "component": body.get("component"), "prefix": body.get("prefix"),
+                    "synonyms": body.get("synonyms"), "aps_percent": float(body["aps"]) if body.get("aps") not in (None, "") else None}
+        exclude, label = dest_name, os.path.basename(src)
+    else:
+        folder, file = body["analyte"], body["file"]
+        raw, _ = read_table_file(table_path(folder, file))
+        rows = [dict(zip(raw[0], r)) for r in raw[1:]]
+        info = dict(R.ANALYTES[folder], folder=folder)
+        exclude, label = file, file
+    doi_status = None
+    if body.get("check_dois"):
+        doi_status = SC.check_dois([d for d in (SC.row_doi(r) for r in rows) if d], os.path.join(CONFIG_DIR, "doi_cache.json"))
+    result = SC.screen(rows, info, ROOT, exclude_file=exclude, doi_status=doi_status)
+    for res, r in zip(result, rows):
+        pct = SC.number(r.get("Percentage change (calculated)"))
+        res["preview"] = {"interferent": clip(r.get("Interferent"), 70), "platform": clip(r.get("Platform/Brand/Method"), 60),
+                          "change": pct if pct is not None else SC.number(r.get("Percentage change (as reported)")),
+                          "citation": clip(r.get("Citation"), 90)}
+    unchecked = sum(1 for v in (doi_status or {}).values() if v is None)
+    return {"label": label, "aps": info.get("aps_percent"), "aps_note": info.get("aps_note", ""),
+            "summary": SC.summary(result), "rows": [r for r in result if r["reject"] or r["check"]],
+            "criteria": {k: {"no": v["no"], "title": v["title"], "auto": v["auto"]} for k, v in SC.CRITERIA.items()},
+            "dois_checked": doi_status is not None, "dois_unreachable": unchecked}
+
+
+def screening_all():
+    """Screen every table of the database; one summary line per table that has something to show."""
+    R = IA.load_registry()
+    out = []
+    for folder in R.ANALYTES:
+        info = dict(R.ANALYTES[folder], folder=folder)
+        for file in sorted(R.TABLE_MAP[folder]):
+            raw, _ = read_table_file(os.path.join(ROOT, folder, "database", file))
+            rows = [dict(zip(raw[0], r)) for r in raw[1:]]
+            sm = SC.summary(SC.screen(rows, info, ROOT, exclude_file=file))
+            if sm["rejected"] or sm["to_check"]:
+                out.append(dict(sm, analyte=folder, component=info["component"], file=file))
+    out.sort(key=lambda t: (-t["rejected"], -t["to_check"]))
+    return {"tables": out, "criteria": {k: {"no": v["no"], "title": v["title"], "auto": v["auto"]} for k, v in SC.CRITERIA.items()}}
+
+
+def analyte_block(folder, a):
+    q = IA.pystr
+    return (f' {q(folder)}: dict(\n    prefix={q(a["prefix"])}, component={q(a["component"])}, system={q(a["system"])},\n'
+            f'    kind_of_property={q(a["kind_of_property"])}, unit={q(a["unit"])},\n'
+            f'    aps_percent={float(a["aps_percent"])!r}, aps_note={q(a.get("aps_note", ""))},\n    synonyms={q(a.get("synonyms", ""))}),\n')
+
+
+def _section(text, name):
+    d = re.compile(rf"^{name}\s*=\s*\{{\s*$", re.M).search(text)
+    end = re.compile(r"^\}\s*$", re.M).search(text, d.end())
+    return d.end(), end.start()
+
+
+def _cut(text, name, pattern, replacement=""):
+    a, b = _section(text, name)
+    m = re.compile(pattern, re.M | re.S).search(text, a, b)
+    if not m:
+        raise Problem(f"could not find the {name} entry in scripts/registry.py; edit it by hand")
+    return text[:m.start()] + replacement + text[m.end():]
+
+
+def registry_edit_analyte(folder, changes):
+    R = IA.load_registry()
+    new = dict(R.ANALYTES[folder])
+    new.update(changes)
+    text = open(IA.REGISTRY, encoding="utf-8").read()
+    text = _cut(text, "ANALYTES", rf'^[ \t]*"{re.escape(folder)}":[ \t]*dict\(.*?\),[ \t]*\n', analyte_block(folder, new))
+    expected = {f: dict(v) for f, v in R.ANALYTES.items()}
+    expected[folder] = {k: new.get(k, "") for k in ("prefix", "component", "system", "kind_of_property", "unit", "aps_percent", "aps_note", "synonyms")}
+    expected[folder]["aps_percent"] = float(expected[folder]["aps_percent"])
+    return text, expected, R
+
+
+def registry_without_analyte(folder):
+    R = IA.load_registry()
+    text = open(IA.REGISTRY, encoding="utf-8").read()
+    f = re.escape(folder)
+    text = _cut(text, "ANALYTES", rf'^[ \t]*"{f}":[ \t]*dict\(.*?\),[ \t]*\n')
+    for name in ("CANON", "TABLE_MAP"):
+        text = _cut(text, name, rf'^[ \t]*"{f}":[ \t]*\{{[ \t]*\n.*?^\s{{0,2}}\}},[ \t]*\n')
+    if folder in R.OVERRIDES:
+        a, b = _section(text, "OVERRIDES")
+        m = re.compile(rf'^[ \t]*"{f}":[ \t]*\{{\}},[ \t]*\n', re.M).search(text, a, b)
+        if m:
+            text = text[:m.start()] + text[m.end():]
+        else:
+            text = _cut(text, "OVERRIDES", rf'^[ \t]*"{f}":[ \t]*\{{[ \t]*\n.*?^\s{{0,2}}\}},[ \t]*\n')
+    return text, R
+
+
+def registry_rename_cause(folder, key, name, concept):
+    R = IA.load_registry()
+    text = open(IA.REGISTRY, encoding="utf-8").read()
+    a, b = _section(text, "CANON")
+    h = re.compile(rf'^"{re.escape(folder)}":\s*\{{\s*$', re.M).search(text, a, b)
+    e = re.compile(r"^\s{0,2}\},\s*$", re.M).search(text, h.end())
+    m = re.compile(rf'^[ \t]*"{re.escape(key)}":[ \t]*\(.*\),[ \t]*\n', re.M).search(text, h.end(), e.start())
+    if not m:
+        raise Problem(f"could not find cause \"{key}\" in scripts/registry.py; edit it by hand")
+    text = text[:m.start()] + f" {IA.pystr(key)}: ({IA.pystr(name)}, {IA.pystr(concept)}),\n" + text[m.end():]
+    expected = {f: dict(v) for f, v in R.CANON.items()}
+    expected[folder][key] = (name, concept)
+    return text, expected, R
 
 
 # ----------------------------------------------------------------------------- registry edits
@@ -467,6 +599,120 @@ def plan(body):
                     "The rows are not archived elsewhere by the app; they remain only in the git history."]
         return new_plan(op, body, "Delete an evidence table", lines, warnings, LOCAL_ONLY)
 
+    if op == "reject_rows":
+        analyte, file = body["analyte"], body["file"]
+        rows, stable = read_table_file(table_path(analyte, file))
+        rejects = body.get("rejects") or []
+        if not rejects:
+            raise Problem("No row is marked for rejection.")
+        if len({int(r["row"]) for r in rejects}) >= len(rows) - 1:
+            raise Problem("This would reject every row of the table. Use \"Delete table\" instead.")
+        prefix = IA.load_registry().ANALYTES[analyte]["prefix"]
+        by = collections.Counter(c for r in rejects for c in r["criteria"].split("; "))
+        lines = [f"Table: {analyte}/database/{file} ({len(rows) - 1} rows)",
+                 f"Reject {len(rejects)} row{'s' if len(rejects) != 1 else ''} and remove {'them' if len(rejects) != 1 else 'it'} from the table:"]
+        lines += [f"   {n:4d}  criterion {c}" for c, n in by.most_common()]
+        lines.append("")
+        for r in sorted(rejects, key=lambda r: int(r["row"]))[:60]:
+            i = int(r["row"])
+            if not (1 <= i < len(rows)):
+                raise Problem("a row to reject does not exist; screen the table again")
+            lines.append(f"{prefix}.{os.path.splitext(file)[0]}.{i:04d}  [{r['criteria']}]  {clip(r['reason'], 170)}")
+        if len(rejects) > 60:
+            lines.append(f"... and {len(rejects) - 60} more")
+        lines.append("")
+        lines.append("Every rejected row is archived in full, with its reasons, in meta/rejected_rows.csv.")
+        first = min(int(r["row"]) for r in rejects)
+        warnings = [f"Removing rows renumbers the {len(rows) - 1 - first - (len(rejects) - 1)} rows after the first rejected one, so their row ids and permalinks change."]
+        if not stable:
+            warnings.append("This file is stored with unusual quoting; saving rewrites it in the standard CSV form. No other value changes.")
+        return new_plan(op, body, "Reject rows that fail the inclusion criteria", lines, warnings, LOCAL_ONLY)
+
+    if op == "edit_analyte":
+        folder = body["analyte"]
+        R = IA.load_registry()
+        if folder not in R.ANALYTES:
+            raise Problem(f"unknown analyte: {folder}")
+        old = R.ANALYTES[folder]
+        changes = {}
+        for k in ("component", "system", "kind_of_property", "unit", "aps_note", "synonyms"):
+            if k in body and str(body[k]).strip() != str(old.get(k, "")).strip():
+                changes[k] = str(body[k]).strip()
+        if "aps_percent" in body:
+            try:
+                aps = float(str(body["aps_percent"]).replace(",", "."))
+            except ValueError:
+                raise Problem("The APS must be a number, in percent.")
+            if not (0 < aps <= 1000):
+                raise Problem("The APS must be greater than 0 and at most 1000 percent.")
+            if abs(aps - float(old["aps_percent"])) > 1e-12:
+                changes["aps_percent"] = aps
+        for k in ("component", "system", "kind_of_property", "unit"):
+            if k in changes and not changes[k]:
+                raise Problem(f"{k.replace('_', ' ')} cannot be empty.")
+        if not changes:
+            raise Problem("Nothing was changed.")
+        registry_edit_analyte(folder, changes)          # fails early if the registry entry cannot be found
+        body = dict(body, changes=changes)
+        n = sum(1 for _ in glob.glob(os.path.join(ROOT, folder, "database", "*.csv")))
+        lines = [f"Analyte: {old['component']} ({folder}, id prefix {old['prefix']})"]
+        lines += [f"{k.replace('_', ' ')}:  \"{old.get(k, '')}\"  \u2192  \"{v}\"" for k, v in changes.items()]
+        lines.append("The folder name and the id prefix stay the same, so no row id changes.")
+        warnings = []
+        if "aps_percent" in changes:
+            warnings.append(f"The APS changes from {old['aps_percent']} % to {changes['aps_percent']} %. Every numeric verdict of this analyte "
+                            f"(all {n} tables) is recomputed against the new APS, on this Mac now and on the website after publishing. "
+                            "The verdict text inside the tables was written for the old APS and is not rewritten; the screening may flag "
+                            "rows whose recorded verdict no longer matches (criterion 17).")
+        if "component" in changes:
+            warnings.append("The analyte's name changes everywhere it is shown: website pages, search, README.")
+        return new_plan(op, body, "Change an analyte", lines, warnings, LOCAL_ONLY)
+
+    if op == "delete_analyte":
+        folder = body["analyte"]
+        R = IA.load_registry()
+        if folder not in R.ANALYTES:
+            raise Problem(f"unknown analyte: {folder}")
+        if len(R.ANALYTES) <= 1:
+            raise Problem("This is the last analyte; the database cannot be emptied from the app.")
+        registry_without_analyte(folder)
+        idx = index_rows(open(os.path.join(ROOT, "meta", "file_index.csv"), encoding="utf-8").read())
+        mine = {f: n for (a, f), n in idx.items() if a == folder}
+        lines = [f"Delete the analyte {R.ANALYTES[folder]['component']} ({folder}) completely:",
+                 f"   {len(mine)} evidence tables with {sum(mine.values())} rows",
+                 f"   {len(R.CANON[folder])} interference causes",
+                 f"   the folder {folder}/ and its entries in scripts/registry.py", "", "Tables:"]
+        lines += [f"   {f}  ({n} rows)" for f, n in sorted(mine.items())]
+        warnings = ["After publishing, the analyte's page, all its interferent pages and every row permalink disappear from the website.",
+                    "The rows are not archived by the app; they remain only in the git history. This is the largest deletion the app can make."]
+        return new_plan(op, body, "Delete an analyte", lines, warnings, LOCAL_ONLY)
+
+    if op == "rename_cause":
+        folder, key = body["analyte"], body["key"]
+        R = IA.load_registry()
+        if key not in R.CANON.get(folder, {}):
+            raise Problem(f"unknown interference cause: {folder}/{key}")
+        old_name, old_concept = R.CANON[folder][key]
+        name = str(body.get("name", "")).strip()
+        concept = IA.slug(str(body.get("concept", old_concept)))
+        if not name or not concept:
+            raise Problem("A cause needs a name and a concept.")
+        if (name, concept) == (old_name, old_concept):
+            raise Problem("Nothing was changed.")
+        registry_rename_cause(folder, key, name, concept)
+        lines = [f"Interference cause {R.ANALYTES[folder]['prefix']}.{key} of {R.ANALYTES[folder]['component']}"]
+        if name != old_name:
+            lines.append(f"name:  \"{old_name}\"  \u2192  \"{name}\"")
+        if concept != old_concept:
+            lines.append(f"concept:  \"{old_concept}\"  \u2192  \"{concept}\"")
+        lines.append("The cause's id stays the same, so no row id and no address changes. The verbatim wording in the rows is not touched.")
+        warnings = []
+        if concept != old_concept:
+            known = {c for a in R.CANON.values() for _, c in a.values()}
+            warnings.append(f"The cause moves to the concept \"{concept}\" in the website's matrix and concept pages"
+                            + ("." if concept in known else ", which is a new concept (it gets its own row in the matrix)."))
+        return new_plan(op, body, "Rename an interference cause", lines, warnings, LOCAL_ONLY)
+
     if op == "publish":
         if IA.changed_files():
             raise Problem("There are uncommitted changes that this app did not make. Commit or discard them first.")
@@ -607,6 +853,73 @@ def apply_delete_table(p):
     transaction(mutate, f"Delete evidence table: {analyte} / {file} ({n} rows)\n\n(through the manager app)")
 
 
+def apply_reject_rows(p):
+    analyte, file = p["analyte"], p["file"]
+    path = table_path(analyte, file)
+    rows, _ = read_table_file(path)
+    hdr = rows[0]
+    drop = {int(r["row"]) for r in p["rejects"]}
+    today = datetime.date.today().isoformat()
+    entries = [{"source_file": f"{analyte}/database/{file}", "original_row": int(r["row"]), "criteria": r["criteria"],
+                "reason": r["reason"], "decided": r.get("decided", "manual"), "date": today,
+                "values": dict(zip(hdr, rows[int(r["row"])]))} for r in p["rejects"]]
+    kept = [hdr] + [r for i, r in enumerate(rows[1:], 1) if i not in drop]
+
+    def mutate():
+        write_table_file(path, kept)
+        if read_table_file(path)[0] != kept:
+            raise Problem("the rewritten table does not match the plan; nothing was saved")
+        SC.archive_rejected(ROOT, hdr, entries)
+
+    by = collections.Counter(c for r in p["rejects"] for c in r["criteria"].split("; "))
+    transaction(mutate, f"Reject {len(drop)} rows by the inclusion criteria: {analyte} / {file}\n\n"
+                + "\n".join(f"{n} x criterion {c}" for c, n in by.most_common()) + "\n\nArchived in meta/rejected_rows.csv (through the manager app)")
+
+
+def apply_edit_analyte(p):
+    folder = p["analyte"]
+    text, expected, R = registry_edit_analyte(folder, p["changes"])
+
+    def mutate():
+        open(IA.REGISTRY, "w", encoding="utf-8").write(text)
+        N = IA.load_registry()
+        if N.ANALYTES != expected or N.CANON != R.CANON or N.TABLE_MAP != R.TABLE_MAP or N.OVERRIDES != R.OVERRIDES:
+            raise Problem("the edit of scripts/registry.py did not produce the expected registry")
+
+    transaction(mutate, f"Change analyte {folder}: " + ", ".join(f"{k} -> {v}" for k, v in p["changes"].items()) + "\n\n(through the manager app)")
+
+
+def apply_delete_analyte(p):
+    folder = p["analyte"]
+    text, R = registry_without_analyte(folder)
+
+    def mutate():
+        open(IA.REGISTRY, "w", encoding="utf-8").write(text)
+        N = IA.load_registry()
+        drop = lambda d: {k: v for k, v in d.items() if k != folder}
+        if N.ANALYTES != drop(R.ANALYTES) or N.CANON != drop(R.CANON) or N.TABLE_MAP != drop(R.TABLE_MAP) or N.OVERRIDES != drop(R.OVERRIDES):
+            raise Problem("the edit of scripts/registry.py did not produce the expected registry")
+        shutil.rmtree(os.path.join(ROOT, folder))
+
+    transaction(mutate, f"Delete analyte: {folder}\n\n(through the manager app)")
+
+
+def apply_rename_cause(p):
+    folder, key = p["analyte"], p["key"]
+    R0 = IA.load_registry()
+    name = str(p.get("name", "")).strip()
+    concept = IA.slug(str(p.get("concept", R0.CANON[folder][key][1])))
+    text, expected, R = registry_rename_cause(folder, key, name, concept)
+
+    def mutate():
+        open(IA.REGISTRY, "w", encoding="utf-8").write(text)
+        N = IA.load_registry()
+        if N.CANON != expected or N.ANALYTES != R.ANALYTES or N.TABLE_MAP != R.TABLE_MAP or N.OVERRIDES != R.OVERRIDES:
+            raise Problem("the edit of scripts/registry.py did not produce the expected registry")
+
+    transaction(mutate, f"Rename interference cause {folder}/{key}: {name} [{concept}]\n\n(through the manager app)")
+
+
 def apply_publish(_):
     log("Sending to GitHub ...")
     r = sh(["git", "push"], check=False, timeout=180)
@@ -673,6 +986,8 @@ def apply_import(p):
 
 
 APPLY = {"import": apply_import, "change_table": apply_change_table, "delete_table": apply_delete_table,
+         "reject_rows": apply_reject_rows, "edit_analyte": apply_edit_analyte, "delete_analyte": apply_delete_analyte,
+         "rename_cause": apply_rename_cause,
          "publish": apply_publish, "discard": apply_discard, "pull": apply_pull}
 
 
@@ -748,6 +1063,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self.send(200, archive_runs())
             if url.path == "/api/run":
                 return self.send(200, run_proposal(q["path"]))
+            if url.path == "/api/screen_all":
+                return self.send(200, screening_all())
             if url.path == "/api/job":
                 return self.send(200, {k: JOB[k] for k in ("id", "status", "log", "title")})
             return self.send(404, {"error": "unknown address"})
@@ -763,6 +1080,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
             body = json.loads(self.rfile.read(int(self.headers.get("Content-Length") or 0)) or b"{}")
             if self.path == "/api/plan":
                 return self.send(200, plan(body))
+            if self.path == "/api/screen":
+                return self.send(200, screening(body))
             if self.path == "/api/apply":
                 return self.send(200, start(body.get("token", "")))
             if self.path == "/api/config":

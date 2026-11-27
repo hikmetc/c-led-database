@@ -32,7 +32,8 @@ let archive = null;
 let db = null;
 
 /* ------------------------------------------------------------------ sheets (modal dialogs) */
-function openSheet(html) {
+function openSheet(html, wide = false) {
+	sheetEl.classList.toggle('wide', wide);
 	sheetBody.innerHTML = html;
 	if (!sheetEl.open) sheetEl.showModal();
 	const first = sheetBody.querySelector('[autofocus]') || sheetBody.querySelector('input, select, textarea, button');
@@ -153,7 +154,7 @@ function publish() {
 /* ------------------------------------------------------------------ views */
 function render() {
 	if (!S) return;
-	({ overview, archive: archiveView, database: databaseView, analyte: analyteView, table: tableView, changes: changesView, settings: settingsView })[view.name]();
+	({ overview, archive: archiveView, database: databaseView, analyte: analyteView, table: tableView, changes: changesView, settings: settingsView, screening: screeningView })[view.name]();
 }
 
 function placeCard(where, d, extra) {
@@ -241,14 +242,118 @@ function analyteView() {
 	const a = db.find((x) => x.folder === view.analyte);
 	if (!a) return go({ name: 'database' });
 	main.innerHTML = `<div class="crumbs"><button id="back">Database</button> ›</div>
-		<div class="head"><div><h1>${esc(a.component)}</h1><p class="muted">${esc(a.system)} · ${esc(a.unit)} · APS ${esc(a.aps)} % · <span class="mono">${esc(a.folder)}</span></p></div></div>
+		<div class="head"><div><h1>${esc(a.component)}</h1><p class="muted">${esc(a.system)} · ${esc(a.unit)} · APS ${esc(a.aps)} % · <span class="mono">${esc(a.folder)}</span></p></div>
+			<div class="row-actions"><button class="btn" id="edit-an">Edit analyte…</button><button class="btn danger" id="del-an">Delete analyte…</button></div></div>
+		<h2 style="margin-bottom:12px">Evidence tables</h2>
 		<div class="list">${a.tables.map((t) => {
 			const [cls, label] = STATUS_CHIP[t.status] || ['', t.status];
 			return `<div class="item click" data-file="${esc(t.file)}"><div class="grow"><div class="t">${esc(t.interferent)}${t.multi ? ' <span class="muted" style="font-weight:400">and related causes</span>' : ''}</div><div class="s mono">${esc(t.file)}</div></div>
 				<span class="chip ${cls}">${label}</span><span class="num muted">${plural(t.rows, 'row')}${t.github_rows !== null && t.github_rows !== undefined && t.github_rows !== t.rows ? ` (GitHub ${int(t.github_rows)})` : ''}</span></div>`;
-		}).join('')}</div>`;
+		}).join('')}</div>
+		<div class="section"><h2>Interference causes</h2><div class="list">${a.causes.map((c) => `<div class="item"><div class="grow"><div class="t">${esc(c.name)}</div><div class="s"><span class="mono">${esc(a.id)}.${esc(c.key)}</span> · concept ${esc(c.concept)}${c.tables ? '' : ' · no table of its own'}</div></div><button class="btn" data-cause="${esc(c.key)}">Rename…</button></div>`).join('')}</div></div>`;
 	$('#back').onclick = () => go({ name: 'database' });
 	for (const el of main.querySelectorAll('[data-file]')) el.onclick = () => openTable(a.folder, el.dataset.file);
+	for (const el of main.querySelectorAll('[data-cause]')) el.onclick = () => renameCauseSheet(a, a.causes.find((c) => c.key === el.dataset.cause));
+	$('#edit-an').onclick = () => editAnalyteSheet(a);
+	$('#del-an').onclick = () => review({ op: 'delete_analyte', analyte: a.folder }, { danger: true, confirmLabel: 'Delete analyte', after: () => go({ name: 'database' }) });
+}
+
+function editAnalyteSheet(a) {
+	const f = (id, label, value, hint = '') => `<div class="field"><label for="${id}">${label}</label><input id="${id}" value="${esc(value)}">${hint ? `<span class="caption">${hint}</span>` : ''}</div>`;
+	openSheet(`<h2>Edit analyte</h2><p class="caption mono" style="margin:0">${esc(a.folder)} · id prefix ${esc(a.id)} (these cannot be changed: every row id depends on them)</p>
+		<div class="two">${f('e-component', 'Component (name)', a.component)}${f('e-system', 'System / specimen', a.system)}
+		${f('e-kind', 'Kind of property', a.kind_of_property)}${f('e-unit', 'Unit', a.unit)}
+		${f('e-aps', 'APS, percent (allowable bias, relative)', a.aps)}${f('e-syn', 'Synonyms, separated by ;', a.synonyms)}</div>
+		${f('e-note', 'APS note', a.aps_note)}
+		<div class="sheet-actions"><button class="btn" data-close>Cancel</button><button class="btn primary" id="ok">Review…</button></div>`);
+	$('#ok').onclick = () => review({ op: 'edit_analyte', analyte: a.folder, component: $('#e-component').value, system: $('#e-system').value, kind_of_property: $('#e-kind').value, unit: $('#e-unit').value, aps_percent: $('#e-aps').value, synonyms: $('#e-syn').value, aps_note: $('#e-note').value }, { confirmLabel: 'Save on this Mac' });
+}
+
+function renameCauseSheet(a, c) {
+	const concepts = [...new Set(db.flatMap((x) => x.causes.map((y) => y.concept)))].sort();
+	openSheet(`<h2>Rename an interference cause</h2><p class="caption mono" style="margin:0">${esc(a.id)}.${esc(c.key)} · ${esc(a.component)}</p>
+		<div class="field"><label for="c-name">Canonical name, in English</label><input id="c-name" value="${esc(c.name)}" autofocus></div>
+		<div class="field"><label for="c-concept">Concept (links the cause across analytes)</label><input id="c-concept" list="c-list" value="${esc(c.concept)}"><datalist id="c-list">${concepts.map((x) => `<option value="${esc(x)}">`).join('')}</datalist></div>
+		<p class="caption">The id stays the same. The wording used by each paper, kept in the rows, is not changed.</p>
+		<div class="sheet-actions"><button class="btn" data-close>Cancel</button><button class="btn primary" id="ok">Review…</button></div>`);
+	$('#ok').onclick = () => review({ op: 'rename_cause', analyte: a.folder, key: c.key, name: $('#c-name').value, concept: $('#c-concept').value }, { confirmLabel: 'Save on this Mac' });
+}
+
+/* ------------------------------------------------------------------ inclusion screening */
+/** Show what the rejection criteria say about a run or a table, let the user decide row by row,
+    and hand the final list of rejected rows to `next`. Nothing is changed here. */
+async function screenSheet(target, next, { checkDois = false, intro = '' } = {}) {
+	openSheet('<h2><span class="spin"></span>Screening…</h2><p class="caption">Checking every row against the rejection criteria.</p>', true);
+	let r;
+	try {
+		r = await api('/api/screen', { ...target, check_dois: checkDois });
+	} catch (e) {
+		return alertSheet('The screening could not run', e.message);
+	}
+	const sm = r.summary;
+	const auto = r.rows.filter((x) => x.reject.length);
+	const hints = r.rows.filter((x) => !x.reject.length && x.check.length);
+	const manual = Object.entries(r.criteria).filter(([, c]) => !c.auto);
+	const LIMIT = 250;
+	const ctx = (x) => `${esc(x.preview.interferent)} · ${esc(x.preview.platform)} · ${x.preview.change === null ? 'no numeric change' : esc(x.preview.change) + ' %'} · ${esc(x.preview.citation)}`;
+	const counts = Object.entries(sm.by_criterion).sort((a, b) => b[1] - a[1]);
+	openSheet(`<p class="caption" style="margin:0">Inclusion screening · nothing is changed yet</p><h2>${esc(r.label)}</h2>
+		${intro ? `<p class="caption">${esc(intro)}</p>` : ''}
+		<p><strong>${plural(sm.rows, 'row')}</strong>: ${int(sm.rows - sm.rejected)} pass, <strong>${int(sm.rejected)}</strong> rejected by an automatic criterion, ${int(sm.to_check)} to look at by hand. APS used: ${esc(r.aps ?? 'not set')} %.</p>
+		${counts.length ? `<dl class="crit">${counts.map(([code, n]) => `<dt>Criterion ${r.criteria[code].no}</dt><dd>${esc(r.criteria[code].title)}</dd><dd class="num"><strong>${int(n)}</strong></dd>`).join('')}</dl>` : ''}
+		${sm.by_criterion.verdict_inconsistent && r.aps_note ? `<div class="note">About criterion 17 for this analyte: ${esc(r.aps_note)} A verdict based on an absolute difference can therefore be right although the relative change says otherwise. Untick such rows to keep them.</div>` : ''}
+		${auto.length ? `<h3>Rejected automatically <span class="muted" style="font-weight:400">(untick a row to keep it anyway)</span></h3>
+		<div class="srows">${auto.slice(0, LIMIT).map((x) => `<label class="srow"><input type="checkbox" data-auto="${x.row}" checked><div><div><strong>Row ${x.row}</strong> · ${x.reject.map((e) => `criterion ${e.no}`).join(', ')}</div>${x.reject.map((e) => `<div class="why">${esc(e.detail)}</div>`).join('')}<div class="ctx">${ctx(x)}</div></div></label>`).join('')}</div>
+		${auto.length > LIMIT ? `<p class="caption">Showing the first ${LIMIT} of ${int(auto.length)}; the rest are rejected too.</p>` : ''}` : '<p class="caption">No row is rejected by an automatic criterion.</p>'}
+		${hints.length ? `<h3>To look at by hand <span class="muted" style="font-weight:400">(kept unless you choose a reason)</span></h3>
+		<div class="srows">${hints.slice(0, LIMIT).map((x) => `<div class="srow"><select data-manual="${x.row}" aria-label="Decision for row ${x.row}"><option value="">Keep</option>${manual.map(([code, c]) => `<option value="${code}">Reject: ${esc(c.title)}</option>`).join('')}</select><div><div><strong>Row ${x.row}</strong></div>${x.check.map((e) => `<div class="why">${esc(e.detail)}</div>`).join('')}<div class="ctx">${ctx(x)}</div></div></div>`).join('')}</div>
+		${hints.length > LIMIT ? `<p class="caption">Showing the first ${LIMIT} of ${int(hints.length)}; the others are kept.</p>` : ''}` : ''}
+		<label class="check"><input type="checkbox" id="dois" ${r.dois_checked ? 'checked disabled' : ''}> Also ask doi.org whether each DOI exists (sends only the DOIs)${r.dois_checked && r.dois_unreachable ? ` · ${r.dois_unreachable} could not be checked` : ''}</label>
+		<div class="sheet-actions"><button class="btn" data-close>Cancel</button><button class="btn primary" id="ok">Continue…</button></div>`, true);
+	if (!r.dois_checked) $('#dois').onchange = () => screenSheet(target, next, { checkDois: true, intro });
+	$('#ok').onclick = () => {
+		const unticked = new Set([...sheetBody.querySelectorAll('[data-auto]')].filter((el) => !el.checked).map((el) => Number(el.dataset.auto)));
+		const rejects = auto.filter((x) => !unticked.has(x.row)).map((x) => ({ row: x.row, criteria: x.reject.map((e) => `${e.no} ${e.code}`).join('; '), reason: x.reject.map((e) => e.detail).join(' | '), decided: 'automatic' }));
+		for (const el of sheetBody.querySelectorAll('[data-manual]')) {
+			if (!el.value) continue;
+			const x = hints.find((h) => h.row === Number(el.dataset.manual));
+			rejects.push({ row: x.row, criteria: `${r.criteria[el.value].no} ${el.value}`, reason: `${r.criteria[el.value].title}. ${x.check.map((e) => e.detail).join(' | ')}`, decided: 'manual' });
+		}
+		next(rejects, sm);
+	};
+}
+
+let screenAll = null;
+async function screeningView() {
+	if (!screenAll) {
+		main.innerHTML = `<div class="head"><div><h1>Screening</h1><p class="muted">Checking every table against the rejection criteria…</p></div></div><div class="empty"><span class="spin"></span>This reads the whole database and takes a few seconds.</div>`;
+		try {
+			screenAll = await api('/api/screen_all');
+		} catch (e) {
+			main.innerHTML = `<div class="empty">${esc(e.message)}</div>`;
+			return;
+		}
+		if (view.name !== 'screening') return;
+	}
+	const t = screenAll.tables;
+	const total = t.reduce((n, x) => n + x.rejected, 0);
+	const by = {};
+	for (const x of t) for (const [k, n] of Object.entries(x.by_criterion)) by[k] = (by[k] || 0) + n;
+	main.innerHTML = `<div class="head"><div><h1>Screening</h1><p class="muted">The database on this Mac against the rejection criteria. Nothing is rejected until you review a table and confirm.</p></div><button class="btn" id="rescan">Screen again</button></div>
+		<div class="card" style="margin-bottom:20px"><p><strong>${int(total)}</strong> rows in ${plural(t.filter((x) => x.rejected).length, 'table')} fail an automatic criterion.</p>
+			<dl class="crit">${Object.entries(screenAll.criteria).sort((a, b) => a[1].no - b[1].no).map(([code, c]) => `<dt>Criterion ${c.no}</dt><dd>${esc(c.title)}${c.auto ? '' : ' <span class="muted">(decided by hand)</span>'}</dd><dd class="num">${c.auto ? `<strong>${int(by[code] || 0)}</strong>` : ''}</dd>`).join('')}</dl></div>
+		${t.length ? `<div class="list">${t.map((x) => `<div class="item"><div class="grow"><div class="t">${esc(x.component)}</div><div class="s mono">${esc(x.file)}</div></div>
+			${x.rejected ? `<span class="chip warn">${plural(x.rejected, 'row')} to reject</span>` : ''}${x.to_check ? `<span class="chip">${int(x.to_check)} to look at</span>` : ''}
+			<button class="btn" data-screen="${esc(x.analyte)}|${esc(x.file)}">Review…</button></div>`).join('')}</div>` : `<div class="empty">Every row passes the automatic criteria.</div>`}`;
+	$('#rescan').onclick = () => { screenAll = null; screeningView(); };
+	for (const el of main.querySelectorAll('[data-screen]')) el.onclick = () => { const [analyte, file] = el.dataset.screen.split('|'); screenTable(analyte, file); };
+}
+
+function screenTable(analyte, file, after) {
+	screenSheet({ kind: 'table', analyte, file }, (rejects) => {
+		if (!rejects.length) return alertSheet('Nothing to reject', 'No row is marked for rejection, so the table stays as it is.');
+		review({ op: 'reject_rows', analyte, file, rejects }, { danger: true, confirmLabel: 'Reject and remove', after: () => { screenAll = null; after?.(); } });
+	});
 }
 
 /* ------------------------------------------------------------------ one evidence table */
@@ -287,7 +392,7 @@ function tableView() {
 	};
 	main.innerHTML = `<div class="crumbs"><button id="b1">Database</button> › <button id="b2">${esc(a?.component || view.analyte)}</button> ›</div>
 		<div class="head"><div><h1>${esc(meta?.interferent || view.file)}</h1><p class="muted mono">${esc(view.analyte)}/database/${esc(view.file)}</p></div>
-			<div class="row-actions"><button class="btn" id="add">Add row…</button><button class="btn danger" id="deltable">Delete table…</button></div></div>
+			<div class="row-actions"><button class="btn" id="screen">Screen…</button><button class="btn" id="add">Add row…</button><button class="btn danger" id="deltable">Delete table…</button></div></div>
 		<p class="caption">Click a value to change it. Tick rows to delete them. Nothing is saved until you review and confirm.</p>
 		<div class="grid-wrap"><table class="grid"><thead><tr><th class="pin">Row</th>${T.columns.map((c) => `<th title="${esc(T.definitions[c] || '')}">${esc(c)}</th>`).join('')}</tr></thead>
 		<tbody>${slice.map((r, k) => {
@@ -299,6 +404,7 @@ function tableView() {
 		</tbody></table></div>
 		<div class="bar"><span class="caption">${plural(n, 'row')}${pages > 1 ? ` · page ${view.page + 1} of ${pages} <button class="btn" id="prev" ${view.page ? '' : 'disabled'}>Previous</button> <button class="btn" id="next" ${view.page < pages - 1 ? '' : 'disabled'}>Next</button>` : ''}</span>
 			<span class="row-actions"><span class="caption">${draftSize() ? `${draft.edits.size} changed · ${draft.deletes.size} to delete · ${draft.adds.length} to add` : 'No changes'}</span>
+			<button class="btn" id="rejectsel" ${draft.deletes.size && !draft.edits.size && !draft.adds.length ? '' : 'disabled'} title="Remove the ticked rows and archive them with a reason">Reject ticked rows…</button>
 			<button class="btn" id="drop" ${draftSize() ? '' : 'disabled'}>Drop changes</button><button class="btn primary" id="save" ${draftSize() ? '' : 'disabled'}>Review changes…</button></span></div>`;
 	$('#b1').onclick = () => go({ name: 'database' });
 	$('#b2').onclick = () => go({ name: 'analyte', root: 'database', analyte: view.analyte });
@@ -306,11 +412,30 @@ function tableView() {
 	if ($('#next')) $('#next').onclick = () => { view.page += 1; render(); };
 	$('#drop').onclick = () => { draft = newDraft(); render(); };
 	$('#add').onclick = addRowSheet;
+	const reload = async () => { draft = newDraft(); T = await api(`/api/table?analyte=${encodeURIComponent(view.analyte)}&file=${encodeURIComponent(view.file)}`); render(); };
+	$('#screen').onclick = () => (draftSize() ? alertSheet('Save or drop your changes first', 'The screening works on the table as it is saved.') : screenTable(view.analyte, view.file, reload));
+	$('#rejectsel').onclick = () => rejectTickedSheet(reload);
 	$('#deltable').onclick = () => review({ op: 'delete_table', analyte: view.analyte, file: view.file }, { danger: true, confirmLabel: 'Delete table', after: () => go({ name: 'analyte', root: 'database', analyte: view.analyte }) });
 	$('#save').onclick = saveDraft;
 	for (const el of main.querySelectorAll('td.cell')) el.onclick = () => editCell(Number(el.dataset.row), Number(el.dataset.col));
 	for (const el of main.querySelectorAll('[data-del]')) el.onchange = () => { const i = Number(el.dataset.del); el.checked ? draft.deletes.add(i) : draft.deletes.delete(i); render(); };
 	for (const el of main.querySelectorAll('[data-unadd]')) el.onclick = () => { draft.adds.splice(Number(el.dataset.unadd), 1); render(); };
+}
+
+function rejectTickedSheet(after) {
+	const reasons = [['wrong_analyte', 4, 'The source did not measure this analyte'], ['wrong_document', 5, 'The cited file is not the article'], ['out_of_scope', 10, 'Out of scope (not analytical interference or pre-analytical error)'], ['other', 0, 'Other reason (describe below)']];
+	const rows = [...draft.deletes].sort((a, b) => a - b);
+	openSheet(`<h2>Reject ${plural(rows.length, 'row')}</h2><p class="caption">The rows are removed from the table and archived in full, with this reason, in meta/rejected_rows.csv. Plain deletion (Review changes) does not archive.</p>
+		<div class="field"><label for="why">Reason</label><select id="why">${reasons.map(([code, , title]) => `<option value="${code}">${esc(title)}</option>`).join('')}</select></div>
+		<div class="field"><label for="note">Note (what you found)</label><input id="note" placeholder="e.g. the paper reports chloride, not pH"></div>
+		<div class="sheet-actions"><button class="btn" data-close>Cancel</button><button class="btn primary" id="ok">Review…</button></div>`);
+	$('#ok').onclick = () => {
+		const [code, no, title] = reasons.find((x) => x[0] === $('#why').value);
+		const note = $('#note').value.trim();
+		if (code === 'other' && !note) return alert('Please describe the reason.');
+		const rejects = rows.map((row) => ({ row, criteria: no ? `${no} ${code}` : 'other', reason: note ? `${title}. ${note}` : title, decided: 'manual' }));
+		review({ op: 'reject_rows', analyte: view.analyte, file: view.file, rejects }, { danger: true, confirmLabel: 'Reject and remove', after });
+	};
 }
 
 function editCell(i, c) {
@@ -407,7 +532,7 @@ async function importSheet(path) {
 				<div class="field"><label for="cname">Canonical name, in English</label><input id="cname" value="${keep('cname', p.new_name)}"></div>` : ''}
 			${others.length ? `<div class="note">This cause already has ${plural(others.length, 'other table')}: ${esc(others.join(', '))}. If they hold the same studies, the evidence would be counted twice.</div>
 				<label class="check"><input type="checkbox" id="dup" ${$('#dup')?.checked ? 'checked' : ''}> They hold different studies. Import this as an additional table.</label>` : ''}
-			<div class="sheet-actions"><button class="btn" data-close>Cancel</button><button class="btn primary" id="ok">Review…</button></div>`);
+			<div class="sheet-actions"><button class="btn" data-close>Cancel</button><button class="btn primary" id="ok">Screen and review…</button></div>`);
 		$('#an').onchange = draw;
 		$('#cause').onchange = draw;
 		$('#ok').onclick = () => {
@@ -419,7 +544,8 @@ async function importSheet(path) {
 			else op.interferent_key = cause;
 			const missing = Object.entries(op).filter(([k, x]) => k !== 'synonyms' && (x === '' || x === undefined)).map(([k]) => k.replace(/_/g, ' '));
 			if (missing.length) return alert(`Please fill in: ${missing.join(', ')}`);
-			review(op, { confirmLabel: 'Import to this Mac' });
+			const target = { kind: 'run', path, analyte_folder: op.analyte_folder, component: op.component, prefix: op.prefix, synonyms: op.synonyms, aps: op.aps };
+			screenSheet(target, (rejects) => review({ ...op, rejects }, { confirmLabel: 'Import to this Mac' }), { intro: 'Rows that fail a rejection criterion are left out of the import and archived with their reasons. The rows that pass go into the database folder.' });
 		};
 	};
 	draw();

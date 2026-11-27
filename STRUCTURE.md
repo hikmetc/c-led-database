@@ -475,9 +475,29 @@ It warns, without failing, on a UTF-8 BOM, an over-long path, an evidence CSV ov
 
 Only the extraction CSV is copied. The archive is read, never changed. `--dry-run` shows the plan and changes nothing; `--no-push` imports and rebuilds without committing.
 
+### Inclusion screening
+
+`scripts/screening.py` decides, row by row, whether a row may enter the database, and says why not. The importer applies it with `--screen`; the manager app applies it before every import and on demand for any table. Nothing is rejected without confirmation, and every rejected row is archived in full in `meta/rejected_rows.csv` with its criteria, the reason, the date and whether it was decided automatically or by hand.
+
+| # | Criterion | Decided |
+|---|---|---|
+| 1 | Not enough information to find the source: no DOI, no PubMed ID, no full reference, and a citation without an author and a year | automatically |
+| 2 | No citation | automatically |
+| 3 | No value in any of the 11 data fields | automatically |
+| 4 | The source did not measure this analyte | by hand |
+| 5 | The cited file is not the article | by hand |
+| 6 | The table does not have the 29 columns | at import (whole table) |
+| 7 | A row reaches no canonical interference cause | by the build |
+| 8 | Duplicate of another row: same source, platform, analyzer, concentrations and values | automatically |
+| 9 | The DOI is malformed, or doi.org does not know it (optional online check) | automatically |
+| 10 | Out of scope: not analytical interference or pre-analytical error | by hand |
+| 17 | The recorded APS verdict contradicts the numeric change (a change exactly equal to the APS is not a contradiction) | automatically |
+
+The numbers are those of the criteria list the maintainer works from; 11 to 16 and 18 to 20 are flags, not rejections, and are not applied. Criteria 4, 5 and 10 cannot be decided from a row alone: the screening only points at rows worth reading (an analyte wording that matches none of the analyte's names; text that mentions a problem with the source file). Criterion 17 compares the verdict written during extraction with `abs(percent change) > APS`; where an analyte's APS is read as an absolute difference in some sources (see its `aps_note`), a flagged row can be right and is kept by unticking it.
+
 ### The manager app
 
-`manager/` is a desktop app (macOS) over the same process. It reads three places - this repository folder, `origin/main` on GitHub and the deployed website - and shows where they differ. It imports archive runs through `scripts/import_archive.py`, and it can change values, delete rows, add a row and delete a table. Each of these is a transaction: a plan is shown, you confirm, the files are edited, the build, the validation and the audit run, and the result is committed locally; on any failure every file is restored. Publishing (the push) is a separate confirmed step. Deleting rows renumbers the rows after them, which the plan states. Removing an analyte and editing analyte or cause definitions remain edits of `scripts/registry.py` by hand. See `manager/README.md`.
+`manager/` is a desktop app (macOS) over the same process. It reads three places - this repository folder, `origin/main` on GitHub and the deployed website - and shows where they differ. It imports archive runs through `scripts/import_archive.py`, and it can change values, delete rows, add a row and delete a table. Each of these is a transaction: a plan is shown, you confirm, the files are edited, the build, the validation and the audit run, and the result is committed locally; on any failure every file is restored. Publishing (the push) is a separate confirmed step. Deleting rows renumbers the rows after them, which the plan states. It can also edit an analyte's name, system, unit, kind of property, APS and synonyms, delete an analyte, and rename a cause or move it to another concept; it edits `scripts/registry.py` for these and verifies that the edited registry is exactly the old one plus the planned change. Folder names, id prefixes and cause keys cannot be changed. See `manager/README.md`.
 
 ### Adding a table to an existing analyte
 

@@ -611,3 +611,51 @@ dialog[open] {
 		transition: none !important;
 	}
 }
+
+dialog.wide {
+	width: min(980px, 94vw);
+}
+.crit {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	gap: 4px 12px;
+	font-size: 13px;
+	margin: 0;
+}
+.crit dt {
+	color: var(--text-2);
+}
+.crit dd {
+	margin: 0;
+}
+.srows {
+	border: 1px solid var(--hairline);
+	border-radius: 12px;
+	max-height: 38vh;
+	overflow: auto;
+}
+.srow {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 4px 12px;
+	padding: 10px 14px;
+	border-bottom: 1px solid var(--hairline);
+	font-size: 13px;
+}
+.srow:last-child {
+	border-bottom: 0;
+}
+.srow .why {
+	color: var(--warn);
+}
+.srow .ctx {
+	color: var(--text-2);
+	font-size: 12px;
+}
+.srow select {
+	padding: 3px 6px;
+	border: 1px solid var(--control);
+	border-radius: 8px;
+	background: var(--bg);
+	font-size: 12.5px;
+}
