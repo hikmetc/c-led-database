@@ -1,11 +1,11 @@
-# International Normalized Ratio (prothrombin time) (Plasma)
+# International Normalized Ratio (prothrombin time) (Plasma or blood)
 
 ## Analyte
 
 - **Component:** International Normalized Ratio (prothrombin time)
-- **System (matrix):** Plasma
+- **System (matrix):** Plasma or blood
 - **Kind of property:** Relative time ratio
-- **Reporting unit:** ratio (INR)
+- **Reporting unit:** ratio (INR); s (PT)
 - **Analyte id:** `inr`
 - **Other spellings in the literature:** INR; International Normalised Ratio; prothrombin time, PT
 
