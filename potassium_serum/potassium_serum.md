@@ -1,9 +1,9 @@
-# Potassium (Serum)
+# Potassium (Serum, plasma or whole blood)
 
 ## Analyte
 
 - **Component:** Potassium
-- **System (matrix):** Serum
+- **System (matrix):** Serum, plasma or whole blood
 - **Kind of property:** Substance concentration
 - **Reporting unit:** mmol/L
 - **Analyte id:** `k`

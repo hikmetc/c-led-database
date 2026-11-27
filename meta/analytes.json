@@ -93,7 +93,7 @@
     "analyte_id": "k",
     "analyte_folder": "potassium_serum",
     "component": "Potassium",
-    "system": "Serum",
+    "system": "Serum, plasma or whole blood",
     "kind_of_property": "Substance concentration",
     "unit": "mmol/L",
     "aps_percent": 0.4,

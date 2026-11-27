@@ -26,7 +26,7 @@
 | `pco2_blood` | Carbon dioxide partial pressure | Blood | mmHg (kPa) | 2.7% | 9 | 8 | 146 |
 | `ph_blood` | pH | Blood | pH unit | 1.5% | 11 | 10 | 182 |
 | `po2_blood` | Oxygen partial pressure | Blood (arterial) | mmHg (kPa) | 3.0% | 13 | 13 | 548 |
-| `potassium_serum` | Potassium | Serum | mmol/L | 0.4% | 12 | 12 | 304 |
+| `potassium_serum` | Potassium | Serum, plasma or whole blood | mmol/L | 0.4% | 12 | 12 | 304 |
 | `troponin_serum` | Cardiac troponin I and T | Serum or plasma | ng/L (pg/mL) | 13.6% | 11 | 10 | 679 |
 
 ## Layout

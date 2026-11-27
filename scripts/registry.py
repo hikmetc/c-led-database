@@ -40,7 +40,7 @@ ANALYTES = {
     aps_percent=3.0, aps_note="",
     synonyms="pO2; PO2; paO2; PaO2"),
  "potassium_serum": dict(
-    prefix="k", component="Potassium", system="Serum",
+    prefix="k", component="Potassium", system="Serum, plasma or whole blood",
     kind_of_property="Substance concentration", unit="mmol/L",
     aps_percent=0.4, aps_note="",
     synonyms="Potassium; K+; serum potassium; plasma potassium (comparison arms)"),
