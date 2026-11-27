@@ -1,2 +1,2 @@
 analyte_id,analyte_folder,component,system,kind_of_property,unit,aps_percent,aps_type,aps_note,synonyms,interferent_count,evidence_tables,evidence_rows
-tn,troponin_serum,Cardiac troponin I and T,Serum or plasma,Mass concentration,ng/L (pg/mL),13.6,"allowable bias (relative), user-selected",,cTnI; cTnT; hs-cTnI; hs-cTnT; high-sensitivity cardiac troponin,11,10,679
+tn,troponin_serum,Cardiac troponin I and T,"Serum, plasma or blood",Mass concentration,ng/L (pg/mL),13.6,"allowable bias (relative), user-selected",,cTnI; cTnT; hs-cTnI; hs-cTnT; high-sensitivity cardiac troponin,11,10,679

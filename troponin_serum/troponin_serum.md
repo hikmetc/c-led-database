@@ -1,9 +1,9 @@
-# Cardiac troponin I and T (Serum or plasma)
+# Cardiac troponin I and T (Serum, plasma or blood)
 
 ## Analyte
 
 - **Component:** Cardiac troponin I and T
-- **System (matrix):** Serum or plasma
+- **System (matrix):** Serum, plasma or blood
 - **Kind of property:** Mass concentration
 - **Reporting unit:** ng/L (pg/mL)
 - **Analyte id:** `tn`

@@ -44,7 +44,7 @@ ANALYTES = {
     aps_percent=0.4, aps_note="",
     synonyms="Potassium; K+; serum potassium; plasma potassium (comparison arms)"),
  "troponin_serum": dict(
-    prefix="tn", component="Cardiac troponin I and T", system="Serum or plasma",
+    prefix="tn", component="Cardiac troponin I and T", system="Serum, plasma or blood",
     kind_of_property="Mass concentration", unit="ng/L (pg/mL)",
     aps_percent=13.6, aps_note="",
     synonyms="cTnI; cTnT; hs-cTnI; hs-cTnT; high-sensitivity cardiac troponin"),

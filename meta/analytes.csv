@@ -6,4 +6,4 @@ pco2,pco2_blood,Carbon dioxide partial pressure,Blood,Partial pressure,mmHg (kPa
 ph,ph_blood,pH,Blood,pH (negative log of hydrogen ion activity),pH unit,1.5,"allowable bias (relative), user-selected",pH is measured in absolute units; several source studies use an allowable difference of 0.02-0.04 pH units instead of a percentage.,blood pH; arterial pH,11,10,182
 po2,po2_blood,Oxygen partial pressure,Blood (arterial),Partial pressure,mmHg (kPa),3.0,"allowable bias (relative), user-selected",,pO2; PO2; paO2; PaO2,13,13,548
 k,potassium_serum,Potassium,"Serum, plasma or whole blood",Substance concentration,mmol/L,0.4,"allowable bias (relative), user-selected",,Potassium; K+; serum potassium; plasma potassium (comparison arms),12,12,304
-tn,troponin_serum,Cardiac troponin I and T,Serum or plasma,Mass concentration,ng/L (pg/mL),13.6,"allowable bias (relative), user-selected",,cTnI; cTnT; hs-cTnI; hs-cTnT; high-sensitivity cardiac troponin,11,10,679
+tn,troponin_serum,Cardiac troponin I and T,"Serum, plasma or blood",Mass concentration,ng/L (pg/mL),13.6,"allowable bias (relative), user-selected",,cTnI; cTnT; hs-cTnI; hs-cTnT; high-sensitivity cardiac troponin,11,10,679
