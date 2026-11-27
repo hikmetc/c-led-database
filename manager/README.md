@@ -76,7 +76,23 @@ manager/build_app.sh            # builds ~/Applications/EFLM Database Manager.ap
 
 Needs the Xcode command line tools (`swiftc`) and the project's Python environment (`.venv` with
 `pip install -r requirements.txt`). Run the script again if the repository folder is moved.
-`"…/EFLM Database Manager.app/Contents/MacOS/Manager" --selftest` checks that the window can load.
+If the back end stops while the app is open, the app starts it again and reloads by itself.
+
+## Tests
+
+```bash
+manager/tests/run.sh                                   # every operation, in a throwaway clone
+"$HOME/Applications/EFLM Database Manager.app/Contents/MacOS/Manager" --selftest          # the built app
+"$HOME/Applications/EFLM Database Manager.app/Contents/MacOS/Manager" --selftest-restart  # recovery
+```
+
+`run.sh` clones the repository with its own origin, archive and settings, drives the interface
+through every operation (edit, delete, add, screen, reject, import of a new cause and of a new
+analyte, analyte and cause changes, table and analyte deletion, publish, update, discard) and
+checks the repository after each step; a second pass forces the build to fail and checks that
+everything is undone. `--selftest` opens every section of the built app in its real window and
+changes nothing; `--selftest-restart` also stops the back end on purpose and expects the app to
+recover. Set `PW_CHANNEL=chrome` to use an installed Chrome.
 
 Without building the app, the same interface runs in a browser:
 

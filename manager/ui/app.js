@@ -15,12 +15,19 @@ const int = (n) => (n === null || n === undefined ? '–' : new Intl.NumberForma
 const plural = (n, word) => `${int(n)} ${word}${n === 1 ? '' : 's'}`;
 const NOT_REPORTED = 'not reported in the information source';
 
+class Disconnected extends Error {}
 async function api(path, body) {
-	const res = await fetch(path, {
-		method: body ? 'POST' : 'GET',
-		headers: { 'X-Token': TOKEN, ...(body ? { 'Content-Type': 'application/json' } : {}) },
-		body: body ? JSON.stringify(body) : undefined
-	});
+	let res;
+	try {
+		res = await fetch(path, {
+			method: body ? 'POST' : 'GET',
+			headers: { 'X-Token': TOKEN, ...(body ? { 'Content-Type': 'application/json' } : {}) },
+			body: body ? JSON.stringify(body) : undefined
+		});
+	} catch {
+		// the request never reached the back end: it has stopped or is restarting
+		throw new Disconnected('The manager\u2019s back end is not responding.');
+	}
 	const data = await res.json().catch(() => ({ error: `HTTP ${res.status}` }));
 	if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
 	return data;
@@ -116,11 +123,16 @@ async function runJob(token, title) {
 /* ------------------------------------------------------------------ state */
 async function refresh(all = false) {
 	try {
-		S = await api('/api/state');
+		S = await api(`/api/state${all ? '?fresh=1' : ''}`);
 		if (all || !db) db = await api('/api/database');
 		if (all || !archive) archive = await api('/api/archive');
 	} catch (e) {
-		main.innerHTML = `<div class="empty"><strong>The manager cannot read the database.</strong><br>${esc(e.message)}</div>`;
+		const lost = e instanceof Disconnected;
+		main.innerHTML = `<div class="empty"><strong>${lost ? 'The manager lost the connection to its back end.' : 'The manager cannot read the database.'}</strong><br>${
+			lost ? 'It is restarted automatically; this view reloads in a moment. Your database is not affected.' : esc(e.message)
+		}<br><br><button class="btn primary" id="retry">Try again</button></div>`;
+		$('#retry').onclick = () => refresh(true);
+		if (lost) setTimeout(() => !S || (document.querySelector('#retry') && refresh(true)), 4000);
 		return;
 	}
 	const pending = archive.filter((r) => r.status === 'new' || r.status === 'update').length;
@@ -206,13 +218,13 @@ function overview() {
 	bindRuns();
 }
 
-const RUN_CHIP = { new: ['new', 'Not in the database'], update: ['new', 'Newer than the database'], imported: ['ok', 'In the database'], invalid: ['warn', 'Cannot be imported'], no_table: ['', 'No extraction table'] };
+const RUN_CHIP = { new: ['new', 'Not in the database'], update: ['new', 'Differs from the database'], imported: ['ok', 'In the database'], rejected: ['', 'All rows rejected'], invalid: ['warn', 'Cannot be imported'], no_table: ['', 'No extraction table'] };
 function runItem(r) {
 	const [cls, label] = RUN_CHIP[r.status] || ['', r.status];
 	const can = r.status === 'new' || r.status === 'update';
 	return `<div class="item"><div class="grow">
 			<div class="t">${esc(r.analyte || r.topic.split('__')[0])} · ${esc(r.interferent || r.topic.split('__')[1] || '')}</div>
-			<div class="s">${r.rows !== undefined ? `${plural(r.rows, 'row')}${r.status === 'update' ? ` (database has ${int(r.local_rows)})` : ''} · ` : ''}${r.aps !== null && r.aps !== undefined ? `APS ${esc(r.aps)} % · ` : ''}${esc(r.run)}${r.versions > 1 ? ` · ${r.versions} versions, latest used` : ''}${r.note ? ` · ${esc(r.note)}` : ''}</div>
+			<div class="s">${r.rows !== undefined ? `${plural(r.rows, 'row')}${r.status === 'update' ? ` (database has ${int(r.local_rows)})` : ''} · ` : ''}${r.aps !== null && r.aps !== undefined ? `APS ${esc(r.aps)} % · ` : ''}${esc(r.run)}${r.versions > 1 ? ` · ${r.versions} versions, latest used` : ''}${r.left_out && r.status !== 'rejected' ? ` · ${plural(r.left_out, 'row')} left out by the criteria` : ''}${r.note ? ` · ${esc(r.note)}` : ''}</div>
 		</div><span class="chip ${cls}">${label}</span>
 		${can ? `<button class="btn primary" data-import="${esc(r.path)}">${r.status === 'update' ? 'Update…' : 'Import…'}</button>` : ''}</div>`;
 }
@@ -352,7 +364,7 @@ async function screeningView() {
 function screenTable(analyte, file, after) {
 	screenSheet({ kind: 'table', analyte, file }, (rejects) => {
 		if (!rejects.length) return alertSheet('Nothing to reject', 'No row is marked for rejection, so the table stays as it is.');
-		review({ op: 'reject_rows', analyte, file, rejects }, { danger: true, confirmLabel: 'Reject and remove', after: () => { screenAll = null; after?.(); } });
+		review({ op: 'reject_rows', analyte, file, rejects }, { danger: true, confirmLabel: 'Reject and remove', after: () => { screenAll = null; after ? after() : view.name === 'screening' && render(); } });
 	});
 }
 
@@ -581,6 +593,37 @@ function settingsView() {
 		}
 	};
 }
+
+/* ------------------------------------------------------------------ self-test (Manager --selftest) */
+window.__errors = [];
+addEventListener('error', (e) => window.__errors.push(e.message));
+addEventListener('unhandledrejection', (e) => window.__errors.push(String(e.reason?.message || e.reason)));
+/** Opens every section, one analyte, one table and the screening of that table; changes nothing. */
+window.__selftest = async () => {
+	const wait = async (test, ms = 90000) => { const t = Date.now(); while (!test() && Date.now() - t < ms) await new Promise((r) => setTimeout(r, 200)); return test(); };
+	const seen = [];
+	await wait(() => S && db && archive);
+	for (const name of ['overview', 'archive', 'database', 'changes', 'settings', 'screening']) {
+		go({ name });
+		const ok = await wait(() => $('h1', main) && (name !== 'screening' || !!screenAll));
+		seen.push(`${name}=${ok ? $('h1', main).textContent : 'FAILED'}`);
+	}
+	if (db?.length) {
+		go({ name: 'analyte', root: 'database', analyte: db[0].folder });
+		seen.push(`analyte=${$('h1', main)?.textContent}`);
+		await openTable(db[0].folder, db[0].tables[0].file);
+		seen.push(`table=${main.querySelectorAll('table.grid tbody tr').length} rows shown`);
+		let shown = false;
+		screenSheet({ kind: 'table', analyte: db[0].folder, file: db[0].tables[0].file }, () => {});
+		shown = await wait(() => !!$('#ok', sheetBody) || /could not/.test(sheetBody.textContent), 30000);
+		seen.push(`screen sheet=${shown ? 'shown' : 'FAILED'}`);
+		closeSheet();
+	}
+	await refresh(true);
+	seen.push(`rescan=${S ? 'ok' : 'FAILED'}`);
+	go({ name: 'overview' });
+	return JSON.stringify({ seen, errors: window.__errors, places: [S.local.rows, S.github.rows, S.website.rows] });
+};
 
 refresh(true);
 setInterval(() => !sheetEl.open && view.name !== 'table' && refresh(false), 60000);

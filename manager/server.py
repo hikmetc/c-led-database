@@ -24,7 +24,7 @@ ROOT = os.path.dirname(HERE)
 UI = os.path.join(HERE, "ui")
 SCRIPTS = os.path.join(ROOT, "scripts")
 PY = sys.executable
-CONFIG_DIR = os.path.expanduser("~/Library/Application Support/EFLM-LED-Manager")
+CONFIG_DIR = os.environ.get("MANAGER_CONFIG_DIR") or os.path.expanduser("~/Library/Application Support/EFLM-LED-Manager")
 CONFIG = os.path.join(CONFIG_DIR, "config.json")
 BUILD_ENV = dict(os.environ, CLED_ROOT=ROOT, CLED_REQUIRE_PARQUET="1", CLED_DISTRIBUTION="1")
 csv.field_size_limit(10 ** 7)
@@ -118,7 +118,10 @@ _fetch = {"at": 0.0, "ok": False}
 
 def fetch_origin(force=False):
     if force or time.time() - _fetch["at"] > 45:
-        _fetch["ok"] = sh(["git", "fetch", "-q", "origin"], check=False, timeout=40).returncode == 0
+        try:
+            _fetch["ok"] = sh(["git", "fetch", "-q", "origin"], check=False, timeout=25).returncode == 0
+        except subprocess.TimeoutExpired:
+            _fetch["ok"] = False
         _fetch["at"] = time.time()
     return _fetch["ok"]
 
@@ -145,17 +148,31 @@ def website_state(owner, repo):
     except Exception:
         pass
     if shutil.which("gh"):
-        r = sh(["gh", "run", "list", "--workflow", "pages.yml", "--limit", "1", "--json", "status,conclusion,headSha,url,createdAt"], check=False, timeout=25)
         try:
+            r = sh(["gh", "run", "list", "--workflow", "pages.yml", "--limit", "1", "--json", "status,conclusion,headSha,url,createdAt"], check=False, timeout=12)
             runs = json.loads(r.stdout or "[]")
             if runs:
                 out["last_run"] = runs[0]
-        except ValueError:
+        except (ValueError, subprocess.TimeoutExpired, OSError):
             pass
     return out
 
 
-def state():
+_last_state = {}
+
+
+def state(fresh=False):
+    if JOB["status"] == "running" and _last_state:
+        return dict(_last_state, busy=JOB["id"])
+    if fresh:
+        _fetch["at"] = 0                # an explicit refresh asks GitHub again
+    s = _state()
+    _last_state.clear()
+    _last_state.update(s)
+    return s
+
+
+def _state():
     owner, repo = remote()
     online = fetch_origin()
     local_idx = index_rows(open(os.path.join(ROOT, "meta", "file_index.csv"), encoding="utf-8").read())
@@ -228,6 +245,18 @@ def table(analyte, file):
 
 
 # ----------------------------------------------------------------------------- the archive
+def left_out_rows(hdr):
+    """Rows that were deliberately left out of a table: {table path: {row values}}.
+    They come from the two archives the database keeps (rows without evidence, rejected rows)."""
+    out = collections.defaultdict(collections.Counter)      # a multiset: a duplicate is left out once, its original stays
+    for name in ("removed_rows.csv", "rejected_rows.csv"):
+        p = os.path.join(ROOT, "meta", name)
+        if os.path.exists(p):
+            for r in csv.DictReader(open(p, encoding="utf-8", newline="")):
+                out[r.get("source_file", "")][tuple((r.get(c) or "") for c in hdr)] += 1
+    return out
+
+
 def archive_runs():
     cfg = load_config()
     base = cfg["archive"]
@@ -235,6 +264,7 @@ def archive_runs():
         return []
     hdr = header()
     R = IA.load_registry()
+    left_out = left_out_rows(hdr)
     runs = []
     for run_dir in sorted(glob.glob(os.path.join(base, "*__*", "*"))):
         ext = os.path.join(run_dir, "04_extraction")
@@ -269,15 +299,27 @@ def archive_runs():
         folder = hits[0] if len(hits) == 1 else None
         item["analyte_folder"] = folder
         dest = os.path.join(ROOT, folder, "database", dest_name) if folder else None
+        # rows of this run that were left out on purpose (no evidence, or rejected by the screening)
+        skipped = collections.Counter(left_out.get(f"{folder}/database/{dest_name}", {})) if folder else collections.Counter()
+        src_rows = [tuple(r) for r in read_csv_text(text)[1:] if any((v or "").strip() for v in r)]
+        wanted = []
+        for r in reversed(src_rows):                 # of identical rows, the later ones are the ones left out
+            if skipped[r] > 0:
+                skipped[r] -= 1
+            else:
+                wanted.append(r)
+        wanted.reverse()
+        if len(wanted) != len(src_rows):
+            item["left_out"] = len(src_rows) - len(wanted)
         if dest and os.path.exists(dest):
-            old = open(dest, encoding="utf-8-sig", newline="").read()
-            same = old.replace("\r\n", "\n") == text.replace("\r\n", "\n")
-            old_n = len([r for r in read_csv_text(old)[1:] if any((v or "").strip() for v in r)])
-            item.update(status="imported" if same else "update", local_rows=old_n)
+            have = [tuple(r) for r in read_csv_text(open(dest, encoding="utf-8-sig", newline="").read())[1:] if any((v or "").strip() for v in r)]
+            item.update(status="imported" if have == wanted else "update", local_rows=len(have))
+        elif src_rows and not wanted:
+            item.update(status="rejected", note="Every row of this run was left out by the inclusion criteria.")
         else:
             item["status"] = "new"
         runs.append(item)
-    order = {"new": 0, "update": 1, "invalid": 2, "no_table": 3, "imported": 4}
+    order = {"new": 0, "update": 1, "invalid": 2, "no_table": 3, "rejected": 4, "imported": 5}
     runs.sort(key=lambda r: (order.get(r["status"], 9), r.get("created") or ""), reverse=False)
     return runs
 
@@ -777,6 +819,8 @@ def rollback():
 
 def build_and_check():
     log("Rebuilding the data layer and validating it (about half a minute) ...")
+    if os.environ.get("MANAGER_TEST_FAIL_BUILD") == "1":          # used only by manager/tests
+        raise Problem("The build did not pass:\n(test) forced failure")
     r = sh([PY, os.path.join(SCRIPTS, "build_all.py")], check=False, env=BUILD_ENV)
     if r.returncode != 0 or "all checks passed" not in r.stdout:
         raise Problem("The build did not pass:\n" + "\n".join((r.stdout + r.stderr).strip().splitlines()[-20:]))
@@ -1054,7 +1098,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
             return self.send(403, {"error": "not authorised"})
         try:
             if url.path == "/api/state":
-                return self.send(200, state())
+                return self.send(200, state(fresh=q.get("fresh") == "1"))
             if url.path == "/api/database":
                 return self.send(200, database())
             if url.path == "/api/table":

@@ -7,6 +7,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
     private var window: NSWindow!
     private var web: WKWebView!
     private var server: Process?
+    private var quitting = false
+    private var selftestStarted = false
+    private var restartTested = false
+    private var restarts: [Date] = []
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         buildMenu()
@@ -81,6 +85,15 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
         let out = Pipe()
         p.standardOutput = out
         p.standardError = out
+        // If the back end stops for any reason while the app is open, start it again and reload.
+        p.terminationHandler = { [weak self] _ in
+            DispatchQueue.main.async {
+                guard let self = self, !self.quitting else { return }
+                self.restarts = self.restarts.filter { $0.timeIntervalSinceNow > -60 } + [Date()]
+                if self.restarts.count > 3 { return self.fail("The back end keeps stopping. Start it by hand to see why:\n\(python) \(script)") }
+                self.startServer()
+            }
+        }
         do { try p.run() } catch { return fail("Python could not be started: \(error.localizedDescription)") }
         server = p
         DispatchQueue.global().async {
@@ -95,23 +108,33 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
                     return
                 }
             }
-            self.fail("The back end stopped before it was ready:\n\(buffer.suffix(600))")
+            if !buffer.contains("URL ") && !buffer.isEmpty { NSLog("manager back end: %@", String(buffer.suffix(600))) }
         }
     }
 
     // `Manager --selftest` loads the interface, reports what it shows, and quits (used after a build)
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        guard CommandLine.arguments.contains("--selftest"), webView.url?.host == "127.0.0.1" else { return }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 12) {
-            let js = "document.querySelector('.places') ? 'OK: ' + [...document.querySelectorAll('.card .big')].map(e => e.textContent).join(' | ') : 'NOT READY: ' + document.body.innerText.slice(0, 300)"
-            webView.evaluateJavaScript(js) { result, error in
-                print("SELFTEST", result ?? error?.localizedDescription ?? "no result")
+        guard CommandLine.arguments.contains(where: { $0.hasPrefix("--selftest") }), webView.url?.host == "127.0.0.1" else { return }
+        guard !selftestStarted else { return }
+        selftestStarted = true
+        if CommandLine.arguments.contains("--selftest-restart") && !restartTested {
+            // stop the back end on purpose: the app must bring it back and reload by itself
+            DispatchQueue.main.asyncAfter(deadline: .now() + 6) { self.selftestStarted = false; self.restartTested = true; self.server?.terminate() }
+            return
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            webView.callAsyncJavaScript("return await window.__selftest()", arguments: [:], in: nil, in: .page) { result in
+                switch result {
+                case .success(let value): print("SELFTEST", self.restartTested ? "(after a forced back-end restart)" : "", value)
+                case .failure(let error): print("SELFTEST FAILED", error.localizedDescription)
+                }
+                self.quitting = true
                 NSApp.terminate(nil)
             }
         }
     }
 
-    func applicationWillTerminate(_ notification: Notification) { server?.terminate() }
+    func applicationWillTerminate(_ notification: Notification) { quitting = true; server?.terminate() }
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { true }
 
     // links to GitHub and the website open in the default browser, not inside the app

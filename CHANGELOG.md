@@ -18,6 +18,15 @@
 - Manager: edit an analyte (name, system, unit, kind of property, APS, synonyms), delete an
   analyte, rename an interference cause or move it to another concept.
 
+### Fixed
+- Manager: the app showed "Load failed" when its back end had stopped. It now restarts the back
+  end and reloads by itself, and says what happened in the meantime.
+- Manager: "Refresh" and "Rescan" ask GitHub again instead of using a 45-second-old answer.
+- Manager: a run imported with rows left out by the criteria no longer shows as waiting for an
+  update; a run whose rows were all left out is shown as such.
+- Manager and importer: uncommitted changes are detected without touching the git index.
+- `manager/tests/run.sh`: an end-to-end test of every operation, including a forced failure.
+
 ### Changed
 - The database is now named **EFLM Laboratory Error Database** and is marked as a **Beta version** on the
   website, in the README and in STRUCTURE.md. It was called C-LED (Clinical Laboratory Error

@@ -68,10 +68,11 @@ def git(*args):
 def changed_files():
     """Files that really differ from the last commit. Line-ending-only differences of
     generated files (the build writes CRLF, git stores LF) do not count."""
-    git("add", "-A")
-    names = git("diff", "--cached", "--name-only").split()
-    git("reset", "-q")
-    return names
+    # `git diff` compares normalised content, so it does not list line-ending-only differences,
+    # and unlike `git add` it leaves the index alone
+    names = git("diff", "--name-only", "HEAD").splitlines()
+    names += git("ls-files", "--others", "--exclude-standard").splitlines()
+    return [n for n in names if n.strip()]
 
 
 def norm(s):
