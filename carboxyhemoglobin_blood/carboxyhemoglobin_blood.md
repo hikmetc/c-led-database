@@ -22,11 +22,11 @@ Every row was judged against this APS. The machine-readable record is `carboxyhe
 |---|---|
 | Interference causes | 27 |
 | Evidence tables | 20 |
-| Evidence rows | 2,033 |
-| Rows with a numeric percent change (plottable) | 1,318 |
-| Rows exceeding the 1.0% APS | 1,358 |
-| Rows within the 1.0% APS | 87 |
-| Rows with a DOI | 1,098 |
+| Evidence rows | 1,982 |
+| Rows with a numeric percent change (plottable) | 1,286 |
+| Rows exceeding the 1.0% APS | 1,327 |
+| Rows within the 1.0% APS | 86 |
+| Rows with a DOI | 1,047 |
 | Rows with a PubMed ID | 0 |
 
 ## Interference causes
@@ -38,11 +38,11 @@ Every row was judged against this APS. The machine-readable record is `carboxyhe
 | `cohb.heat_exposure` | Heat exposure / thermal coagulation of blood | `temperature` | 252 |
 | `cohb.putrefaction` | Putrefaction / postmortem decomposition | `postmortem_change` | 195 |
 | `cohb.hydroxocobalamin` | Hydroxocobalamin (Cyanokit) | `vitamin_b12` | 103 |
-| `cohb.uncapped_storage` | Uncapped storage / air headspace above the sample | `air_contamination` | 103 |
 | `cohb.postmortem_storage` | Postmortem storage of the specimen | `storage_temperature` | 99 |
 | `cohb.fetal_hemoglobin` | Fetal hemoglobin (HbF) | `hemoglobin_derivative` | 79 |
 | `cohb.methylene_blue` | Methylene blue | `dye` | 74 |
 | `cohb.pleural_fluid` | Pleural fluid used in place of blood | `specimen_matrix` | 55 |
+| `cohb.uncapped_storage` | Uncapped storage / air headspace above the sample | `air_contamination` | 52 |
 | `cohb.pericardial_fluid` | Pericardial fluid used in place of blood | `specimen_matrix` | 43 |
 | `cohb.postmortem_co_diffusion` | Postmortem carbon monoxide diffusion into the body | `postmortem_change` | 38 |
 | `cohb.sulfhemoglobin` | Sulfhemoglobin | `hemoglobin_derivative` | 36 |

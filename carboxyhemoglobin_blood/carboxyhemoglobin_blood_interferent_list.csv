@@ -25,4 +25,4 @@ cohb.postmortem_storage,Postmortem storage of the specimen,storage_temperature,9
 cohb.putrefaction,Putrefaction / postmortem decomposition,postmortem_change,195
 cohb.sulfhemoglobin,Sulfhemoglobin,hemoglobin_derivative,36
 cohb.thoracic_cavity_fluid,Thoracic or chest cavity fluid or blood used in place of blood,specimen_matrix,21
-cohb.uncapped_storage,Uncapped storage / air headspace above the sample,air_contamination,103
+cohb.uncapped_storage,Uncapped storage / air headspace above the sample,air_contamination,52
