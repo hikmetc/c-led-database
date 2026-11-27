@@ -11,7 +11,7 @@
 
 ## Analytical performance specification
 
-- **Selected APS:** 1.5% (allowable total error (relative), user-selected)
+- **Selected APS:** 1.5% (allowable bias (relative), user-selected)
 - **Note:** pH is measured in absolute units; several source studies use an allowable difference of 0.02-0.04 pH units instead of a percentage.
 
 Every row was judged against this APS. The machine-readable record is `ph_blood_analyte.csv`; the derived build also carries `pct_change` per row, so a site can re-judge every row against a user-supplied APS instead of this one.

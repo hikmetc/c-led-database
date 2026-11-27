@@ -7,6 +7,11 @@
   website, in the README and in STRUCTURE.md. It was called C-LED (Clinical Laboratory Error
   Database) before. The repository name, the file names and the identifiers are unchanged.
 
+### Fixed
+- The APS type was described as "allowable total error (relative)". It is an **allowable bias
+  (relative)**: corrected in `meta/analytes.*`, every analyte record and page, STRUCTURE.md and
+  the website (analyte pages, Methods, About). No APS value and no verdict changed.
+
 ## 0.4.1 - 2026-11-26
 
 Archival release. No change to the data, the build or the website since 0.4.0.

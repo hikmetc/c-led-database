@@ -66,7 +66,7 @@ json.dump(man, open(os.path.join(dest, "parquet", "manifest.json"), "w", encodin
 analytes = json.load(open(os.path.join(src, "analytes.json"), encoding="utf-8"))
 analytes.append(dict(analyte_id=AID, analyte_folder=FOLDER, component="Zzfixturate", system="Serum",
                      kind_of_property="Substance concentration", unit="mmol/L", aps_percent=10.0,
-                     aps_type="allowable total error (relative), user-selected", aps_note="", synonyms="fixture analyte",
+                     aps_type="allowable bias (relative), user-selected", aps_note="", synonyms="fixture analyte",
                      interferent_count=2, evidence_tables=1, evidence_rows=N_ROWS))
 json.dump(analytes, open(os.path.join(dest, "analytes.json"), "w", encoding="utf-8"), indent=2)
 

@@ -55,7 +55,7 @@ w("One row of the database is one piece of published evidence that a named inter
   "measurement platform it was observed on, an appraisal of the study, and a citation.")
 w("")
 w("Each analyte carries one **analytical performance specification (APS)**: a relative "
-  "allowable total error. Every row is judged against it. The APS is data, not prose, so a "
+  "allowable bias. Every row is judged against it. The APS is data, not prose, so a "
   "website can show it and can re-judge every row against a user-supplied APS instead.")
 w("")
 w("The scope is **analytical interference and pre-analytical error**: things that make the "

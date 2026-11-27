@@ -11,7 +11,7 @@
 
 ## Analytical performance specification
 
-- **Selected APS:** 2.7% (allowable total error (relative), user-selected)
+- **Selected APS:** 2.7% (allowable bias (relative), user-selected)
 
 Every row was judged against this APS. The machine-readable record is `pco2_blood_analyte.csv`; the derived build also carries `pct_change` per row, so a site can re-judge every row against a user-supplied APS instead of this one.
 

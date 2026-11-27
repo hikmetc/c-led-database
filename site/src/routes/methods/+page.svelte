@@ -30,7 +30,7 @@
 	<p>A row with no value in any of eleven data fields is not evidence and is removed. The eleven are direction of effect, the four change columns, magnitude, baseline and final concentration, interferent concentration, platform and analyzer. Removed rows are archived in full, with the reason, in the repository.</p>
 
 	<h2>The analytical performance specification</h2>
-	<p>Each analyte carries one APS: a relative allowable total error, in percent. A row with a numeric percent change exceeds the APS when the absolute change is greater than it. The APS is data, so this site can re-judge every row against an APS you choose. Where a row reports no numeric change, it cannot be recomputed; the verdict recorded during extraction is shown and the row is marked "not computable".</p>
+	<p>Each analyte carries one APS: a relative allowable bias, in percent. A row with a numeric percent change exceeds the APS when the absolute change is greater than it. The APS is data, so this site can re-judge every row against an APS you choose. Where a row reports no numeric change, it cannot be recomputed; the verdict recorded during extraction is shown and the row is marked "not computable".</p>
 	{#if index}
 		<div class="table-scroll">
 			<table class="plain-table">

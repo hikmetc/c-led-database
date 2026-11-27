@@ -10,7 +10,7 @@ State at generation: **8 analytes**, **136 interference causes**, **117 evidence
 
 One row of the database is one piece of published evidence that a named interferent changed the measurement of a named analyte, recorded with the direction and size of the error, the measurement platform it was observed on, an appraisal of the study, and a citation.
 
-Each analyte carries one **analytical performance specification (APS)**: a relative allowable total error. Every row is judged against it. The APS is data, not prose, so a website can show it and can re-judge every row against a user-supplied APS instead.
+Each analyte carries one **analytical performance specification (APS)**: a relative allowable bias. Every row is judged against it. The APS is data, not prose, so a website can show it and can re-judge every row against a user-supplied APS instead.
 
 The scope is **analytical interference and pre-analytical error**: things that make the measured value differ from the true value. It is not a database of reference intervals, clinical decision limits or drug effects on physiology.
 

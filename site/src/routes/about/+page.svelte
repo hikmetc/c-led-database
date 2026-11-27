@@ -17,7 +17,7 @@
 
 	<h2>What one row is</h2>
 	<p>One row of the database is one piece of published evidence that a named interferent changed the measurement of a named analyte. It is recorded with the direction and size of the error, the measurement platform it was observed on, an appraisal of the study, and a citation.</p>
-	<p>Each analyte carries one analytical performance specification: a relative allowable total error. Every row is judged against it. On this site you can also judge the rows against an APS of your own.</p>
+	<p>Each analyte carries one analytical performance specification: a relative allowable bias. Every row is judged against it. On this site you can also judge the rows against an APS of your own.</p>
 
 	<h2>Beta version</h2>
 	<p>This is a beta version. The content and the structure of the database may still change.</p>

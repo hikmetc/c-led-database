@@ -24,7 +24,7 @@ for a in sorted(R.ANALYTES):
         analyte_id=d["prefix"], analyte_folder=a, component=d["component"], system=d["system"],
         kind_of_property=d["kind_of_property"], unit=d["unit"],
         aps_percent=d["aps_percent"],
-        aps_type="allowable total error (relative), user-selected",
+        aps_type="allowable bias (relative), user-selected",
         aps_note=d["aps_note"], synonyms=d["synonyms"],
         interferent_count=len(ints), evidence_tables=len(tables), evidence_rows=rows)
     ana_rows.append(rec)
