@@ -8,7 +8,7 @@
  * so filters, sorting and charts never wait for the network again.
  */
 import { writable } from 'svelte/store';
-import { base } from '$app/paths';
+import { dataHref } from './href';
 
 export type Row = Record<string, unknown>;
 /** Files that were downloaded whole because a range read failed. */
@@ -21,7 +21,7 @@ function rangeMinBytes(): number {
 }
 
 export function dataUrl(path: string): string {
-	return new URL(`${base}/data/${path}`, location.origin).href;
+	return new URL(dataHref(path), location.href).href;
 }
 
 type AsyncBuffer = { byteLength: number; slice(start: number, end?: number): ArrayBuffer | Promise<ArrayBuffer> };

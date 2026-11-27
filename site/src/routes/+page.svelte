@@ -3,6 +3,7 @@
 	import { getSite } from '$lib/context';
 	import { SITE_NAME, SITE_STAGE } from '$lib/env';
 	import { RANGE_MIN_BYTES } from '$lib/data/store';
+	import { dataHref } from '$lib/data/href';
 	import * as f from '$lib/format';
 	import Seo from '$lib/components/Seo.svelte';
 	import SearchBox from '$lib/components/SearchBox.svelte';
@@ -21,7 +22,7 @@
 
 <Seo title={SITE_NAME} description="{SITE_NAME} ({SITE_STAGE}): structured, source-cited evidence on how interferents bias clinical laboratory measurements, judged against an analytical performance specification for each analyte." />
 
-<svelte:head>{#if index && index.manifest.files.slim_all.bytes < RANGE_MIN_BYTES}<link rel="preload" as="fetch" crossorigin="anonymous" href="{base}/data/{index.manifest.files.slim_all.path}" />{/if}</svelte:head>
+<svelte:head>{#if index && index.manifest.files.slim_all.bytes < RANGE_MIN_BYTES}<link rel="preload" as="fetch" crossorigin="anonymous" href={dataHref(index.manifest.files.slim_all.path)} />{/if}</svelte:head>
 
 <section class="hero">
 	<div class="wrap">

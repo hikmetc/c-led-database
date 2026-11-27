@@ -3,6 +3,7 @@
 	import { page } from '$app/state';
 	import { getSite } from '$lib/context';
 	import { RANGE_MIN_BYTES } from '$lib/data/store';
+	import { dataHref } from '$lib/data/href';
 	import { analyteTitle } from '$lib/site';
 	import * as f from '$lib/format';
 	import Seo from '$lib/components/Seo.svelte';
@@ -20,7 +21,7 @@
 </script>
 
 <!-- the page's data starts downloading with the HTML, before any script has run -->
-<svelte:head>{#if file}<link rel="preload" as="fetch" crossorigin="anonymous" href="{base}/data/{file}" />{/if}</svelte:head>
+<svelte:head>{#if file}<link rel="preload" as="fetch" crossorigin="anonymous" href={dataHref(file)} />{/if}</svelte:head>
 
 {#if analyte}
 	<Seo title={analyteTitle(analyte)} description="Interference evidence for {analyte.component} in {analyte.system}: {f.int(analyte.rows)} source-cited evidence rows across {refs} interference causes, judged against a {f.aps(analyte.aps_percent)} analytical performance specification." />

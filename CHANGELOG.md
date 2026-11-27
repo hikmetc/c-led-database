@@ -26,6 +26,9 @@
   update; a run whose rows were all left out is shown as such.
 - Manager and importer: uncommitted changes are detected without touching the git index.
 - `manager/tests/run.sh`: an end-to-end test of every operation, including a forced failure.
+- Website: the address of every data file now carries the build version. Before, a browser
+  could show a freshly deployed page with data it had cached up to ten minutes earlier, so a
+  returning visitor saw old row counts next to new ones.
 
 ### Changed
 - The database is now named **EFLM Laboratory Error Database** and is marked as a **Beta version** on the

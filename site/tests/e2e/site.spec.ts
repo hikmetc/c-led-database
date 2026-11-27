@@ -224,8 +224,8 @@ test('large files are read over HTTP range requests', async ({ page, context }) 
 	await p.addInitScript(() => ((globalThis as any).__CLED_RANGE_MIN_BYTES = 0));
 	const ranges: string[] = [];
 	const statuses: number[] = [];
-	p.on('request', (r) => r.url().endsWith('.parquet') && r.headers()['range'] && ranges.push(r.headers()['range']));
-	p.on('response', (r) => r.url().endsWith('.parquet') && statuses.push(r.status()));
+	p.on('request', (r) => new URL(r.url()).pathname.endsWith('.parquet') && r.headers()['range'] && ranges.push(r.headers()['range']));
+	p.on('response', (r) => new URL(r.url()).pathname.endsWith('.parquet') && statuses.push(r.status()));
 	await p.goto(`row/${rowId}/`);
 	await expect(p.getByTestId('row-view').locator('dl')).toBeVisible({ timeout: 45_000 });
 	await expect(p.getByTestId('row-view').getByTestId('row-id')).toHaveText(rowId);
@@ -242,7 +242,7 @@ test('if range requests fail, the whole file is fetched and the page still works
 	await p.addInitScript(() => ((globalThis as any).__CLED_RANGE_MIN_BYTES = 0));
 	let ranged = 0;
 	let whole = 0;
-	await p.route('**/data/parquet/**/*.parquet', (route) => {
+	await p.route('**/data/parquet/**/*.parquet*', (route) => {
 		if (route.request().headers()['range']) {
 			ranged += 1;
 			return route.fulfill({ status: 500, body: 'range not supported' });
@@ -259,7 +259,7 @@ test('if range requests fail, the whole file is fetched and the page still works
 });
 
 test('an unknown schema_version shows an error banner instead of data', async ({ page }) => {
-	await page.route('**/data/parquet/manifest.json', async (route) => {
+	await page.route('**/data/parquet/manifest.json*', async (route) => {
 		const res = await route.fetch();
 		await route.fulfill({ response: res, json: { ...(await res.json()), schema_version: '9.0' } });
 	});
@@ -361,6 +361,17 @@ test('at 375 px nothing overflows sideways and the table becomes cards', async (
 		}
 		expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth), route).toBeLessThanOrEqual(0);
 	}
+});
+
+test('data addresses carry the build version, so a new deployment is never read from an old cache', async ({ page }) => {
+	const urls: string[] = [];
+	page.on('request', (r) => r.url().includes('/data/') && urls.push(r.url()));
+	await page.goto(`analyte/${first}/`);
+	await explorerReady(page);
+	const parquet = urls.filter((u) => new URL(u).pathname.endsWith('.parquet'));
+	expect(parquet.length).toBeGreaterThan(0);
+	for (const u of parquet) expect(new URL(u).searchParams.get('v'), u).toMatch(/^\d+$/);
+	expect(new Set(parquet).size).toBe(1); // the preloaded file and the one the reader asks for are the same request
 });
 
 test('unknown pages show the custom 404 with search', async ({ page }) => {

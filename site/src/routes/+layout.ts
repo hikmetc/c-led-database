@@ -1,4 +1,4 @@
-import { base } from '$app/paths';
+import { dataHref } from '$lib/data/href';
 import { validateManifest } from '$lib/manifest';
 import type { SiteData } from '$lib/types';
 
@@ -11,7 +11,7 @@ export const trailingSlash = 'always';
  */
 export const load = async ({ fetch }): Promise<SiteData> => {
 	const get = async (path: string) => {
-		const res = await fetch(`${base}/data/${path}`);
+		const res = await fetch(dataHref(path));
 		if (!res.ok) throw new Error(`Could not load ${path} (HTTP ${res.status})`);
 		return res.json();
 	};
