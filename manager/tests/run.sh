@@ -24,19 +24,20 @@ CLED_REQUIRE_PARQUET=1 CLED_DISTRIBUTION=1 "$PY" scripts/build_all.py >/dev/null
 "$PY" "$REPO/manager/tests/make_archive.py" "$WORK/repo" "$WORK/archive"
 mkdir -p "$WORK/config" && echo "{\"archive\": \"$WORK/archive\"}" > "$WORK/config/config.json"
 
-start_server() {   # $1 = extra environment assignment or empty
-  [ -n "$SERVER_PID" ] && kill "$SERVER_PID" 2>/dev/null && wait "$SERVER_PID" 2>/dev/null || true
+start_server() {   # $1 = extra environment assignment or empty; sets SERVER_PID and URL
+  if [ -n "$SERVER_PID" ]; then kill "$SERVER_PID" 2>/dev/null || true; wait "$SERVER_PID" 2>/dev/null || true; fi
+  : > "$WORK/server.log"
   env MANAGER_CONFIG_DIR="$WORK/config" ${1:-X=1} "$PY" -u manager/server.py > "$WORK/server.log" 2>&1 &
   SERVER_PID=$!
   for _ in $(seq 50); do grep -q "^URL " "$WORK/server.log" && break; sleep 0.2; done
-  sed -n 's/^URL //p' "$WORK/server.log"
+  URL="$(sed -n 's/^URL //p' "$WORK/server.log")"
+  [ -n "$URL" ] || { echo "the manager back end did not start:"; cat "$WORK/server.log"; exit 1; }
 }
-URL="$(start_server "")"
-URL_FAIL_FILE="$WORK/url_fail"
+start_server ""
 export MANAGER_TEST_URL="$URL" MANAGER_TEST_REPO="$WORK/repo" MANAGER_TEST_ORIGIN="$WORK/origin.git"
 cd "$REPO/site" && node "$REPO/manager/tests/e2e.mjs" main
 # second pass: the build is forced to fail, and every change must be undone
-cd "$WORK/repo"; URL="$(start_server "MANAGER_TEST_FAIL_BUILD=1")"
+cd "$WORK/repo"; start_server "MANAGER_TEST_FAIL_BUILD=1"
 export MANAGER_TEST_URL="$URL"
 cd "$REPO/site" && node "$REPO/manager/tests/e2e.mjs" rollback
 echo "manager tests: all passed"
