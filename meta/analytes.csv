@@ -1,5 +1,5 @@
 analyte_id,analyte_folder,component,system,kind_of_property,unit,aps_percent,aps_type,aps_note,synonyms,interferent_count,evidence_tables,evidence_rows
-cohb,carboxyhemoglobin_blood,Carboxyhemoglobin,Blood,Substance fraction of total haemoglobin,% of total haemoglobin,1.0,"allowable bias (relative), user-selected",1% is read as 1 percentage point of COHb saturation in several source studies.,Carboxyhaemoglobin; COHb; COHb%; carboxyhemoglobin saturation,27,20,2095
+cohb,carboxyhemoglobin_blood,Carboxyhemoglobin,Blood,Substance fraction of total haemoglobin,% of total haemoglobin,1.0,"allowable bias (relative), user-selected",1% is read as 1 percentage point of COHb saturation in several source studies.,Carboxyhaemoglobin; COHb; COHb%; carboxyhemoglobin saturation,27,20,2033
 dig,digoxin_serum,Digoxin,"Serum, plasma or whole blood",Substance concentration,ng/mL (nmol/L),3.0,"allowable bias (relative), user-selected",,"Digoxin, total; apparent digoxin",29,25,4277
 inr,inr_plasma,International Normalized Ratio (prothrombin time),Plasma or blood,Relative time ratio,ratio (INR); s (PT),2.0,"allowable bias (relative), user-selected",,"INR; International Normalised Ratio; prothrombin time, PT",24,19,3678
 pco2,pco2_blood,Carbon dioxide partial pressure,Blood,Partial pressure,mmHg (kPa),2.7,"allowable bias (relative), user-selected",,pCO2; PCO2; pCO₂; paCO2,9,8,146

@@ -7,7 +7,7 @@ carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_cyanocobalamin_20261
 carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,cohb.fetal_hemoglobin,Fetal hemoglobin (HbF),79
 carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_fluorescein_20261123-1459_APS1_extraction_table.csv,cohb.fluorescein,Fluorescein (sodium fluorescein),13
 carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_formalin-fixation_20261123-2027_APS1_extraction_table.csv,cohb.formalin_fixation,Formalin fixation / embalming (formaldehyde),29
-carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,cohb.heat_exposure,Heat exposure / thermal coagulation of blood,314
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,cohb.heat_exposure,Heat exposure / thermal coagulation of blood,252
 carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_hemoglobin-based-oxygen-carriers_20261123-1536_APS1_extraction_table.csv,cohb.hboc,"Hemoglobin-based oxygen carriers (DCLHb, HemoLink, Apex PHP, rHb1.1, Oxyglobin)",35
 carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_hemoglobin-m-variants_20261026-1125_APS1_extraction_table.csv,cohb.hb_m_variants,"Hemoglobin M variants (Hb M Saskatoon, Hb M Hyde Park, Hb M Boston)",11
 carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,cohb.hydroxocobalamin,Hydroxocobalamin (Cyanokit),103

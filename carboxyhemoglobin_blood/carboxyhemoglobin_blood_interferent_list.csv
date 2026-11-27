@@ -7,7 +7,7 @@ cohb.cyanocobalamin,Cyanocobalamin,vitamin_b12,16
 cohb.fetal_hemoglobin,Fetal hemoglobin (HbF),hemoglobin_derivative,79
 cohb.fluorescein,Fluorescein (sodium fluorescein),dye,13
 cohb.formalin_fixation,Formalin fixation / embalming (formaldehyde),preservative,29
-cohb.heat_exposure,Heat exposure / thermal coagulation of blood,temperature,314
+cohb.heat_exposure,Heat exposure / thermal coagulation of blood,temperature,252
 cohb.hb_m_variants,"Hemoglobin M variants (Hb M Saskatoon, Hb M Hyde Park, Hb M Boston)",hemoglobin_derivative,11
 cohb.hboc,"Hemoglobin-based oxygen carriers (DCLHb, HemoLink, Apex PHP, rHb1.1, Oxyglobin)",oxygen_carrier,35
 cohb.hemolysis,Hemolysis / cell-free hemoglobin,hemolysis,7

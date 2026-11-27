@@ -22,11 +22,11 @@ Every row was judged against this APS. The machine-readable record is `carboxyhe
 |---|---|
 | Interference causes | 27 |
 | Evidence tables | 20 |
-| Evidence rows | 2,095 |
-| Rows with a numeric percent change (plottable) | 1,344 |
-| Rows exceeding the 1.0% APS | 1,409 |
-| Rows within the 1.0% APS | 90 |
-| Rows with a DOI | 1,114 |
+| Evidence rows | 2,033 |
+| Rows with a numeric percent change (plottable) | 1,318 |
+| Rows exceeding the 1.0% APS | 1,358 |
+| Rows within the 1.0% APS | 87 |
+| Rows with a DOI | 1,098 |
 | Rows with a PubMed ID | 0 |
 
 ## Interference causes
@@ -34,8 +34,8 @@ Every row was judged against this APS. The machine-readable record is `carboxyhe
 | interferent_id | Interferent | Concept | Rows |
 |---|---|---|---|
 | `cohb.low_total_hemoglobin` | Low total hemoglobin concentration | `specimen_matrix` | 496 |
-| `cohb.heat_exposure` | Heat exposure / thermal coagulation of blood | `temperature` | 314 |
 | `cohb.methemoglobin` | Methemoglobin | `hemoglobin_derivative` | 271 |
+| `cohb.heat_exposure` | Heat exposure / thermal coagulation of blood | `temperature` | 252 |
 | `cohb.putrefaction` | Putrefaction / postmortem decomposition | `postmortem_change` | 195 |
 | `cohb.hydroxocobalamin` | Hydroxocobalamin (Cyanokit) | `vitamin_b12` | 103 |
 | `cohb.uncapped_storage` | Uncapped storage / air headspace above the sample | `air_contamination` | 103 |

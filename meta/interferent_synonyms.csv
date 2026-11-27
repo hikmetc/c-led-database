@@ -75,24 +75,16 @@ carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extra
 carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Heat exposure / thermocoagulation of blood — postmortem/fire-victim blood (method comparison; heat-related MetHb concern),cohb.heat_exposure,1
 carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Heat exposure / thermocoagulation of blood — thermocoagulated / heat-affected postmortem blood,cohb.heat_exposure,1
 carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Heat-exposed blood from fatal fire casualty (heat denaturation; % Met-Hb),cohb.heat_exposure,6
-carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,"Heating / thermal coagulation of blood (in vitro, water bath)",cohb.heat_exposure,26
 carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,"Heating of blood (in vitro, water bath)",cohb.heat_exposure,3
-carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Heating of dead body (CO-intoxicated guinea pig) in electric furnace / thermocoagulation of blood,cohb.heat_exposure,12
-carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,"Heating of dead body (CO-intoxicated guinea pig, low COHb) in electric furnace / thermocoagulation of blood",cohb.heat_exposure,2
-carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,"Heating of diluted vs undiluted blood (55 °C, 85 min)",cohb.heat_exposure,1
 carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,In-vitro heating / thermal coagulation of blood (thermally denatured coagulated blood),cohb.heat_exposure,6
 carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,In-vitro heating of blood,cohb.heat_exposure,1
 carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,In-vitro heating of blood (sealed tube),cohb.heat_exposure,18
 carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,In-vitro heating of blood (time course),cohb.heat_exposure,1
-carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,In-vitro heating of blood in test tube (water bath),cohb.heat_exposure,4
 carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,In-vitro heating of purified hemoglobin solution (sealed HS vial),cohb.heat_exposure,20
 carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Methemoglobin (MetHb) in postmortem blood (fire-death and other postmortem specimens) measured without dithionite pretreatment,cohb.heat_exposure,27
 carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Methemoglobin (MetHb) in postmortem blood incl. smoke/gas suffocation (burns) cases; heat-induced Hb denaturation discussed,cohb.heat_exposure,1
 carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Methemoglobin in postmortem blood (MetHb; heat exposure named in source as one cause of MetHb),cohb.heat_exposure,8
 carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Methemoglobin in postmortem blood (denatured-blood pigment; heat not stated as cause),cohb.heat_exposure,1
-carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Post-mortem CO exposure of bodies with significant cavity breaches (as in extensive stab/bullet wounds or heat defects),cohb.heat_exposure,1
-carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Post-mortem CO exposure with/without body-cavity breach (breaches replicate stab wounds or heat damage),cohb.heat_exposure,12
-carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Post-mortem exposure of cadavers to heat and smoke (fire),cohb.heat_exposure,4
 carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Postmortem blood from fire deaths (and non-fire deaths) at differing total Hb; CO-Oximetry vs GC reference (summary),cohb.heat_exposure,5
 carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Postmortem blood from fire deaths (and non-fire deaths) at low total Hb (saline dilution); CO-Oximetry vs GC reference,cohb.heat_exposure,101
 carboxyhemoglobin_blood,carboxyhemoglobin_heat-exposure_20261123-2331_APS1_extraction_table.csv,Sulfhemoglobin or sulfmethemoglobin (denatured-blood pigment; heat not stated as cause),cohb.heat_exposure,1
