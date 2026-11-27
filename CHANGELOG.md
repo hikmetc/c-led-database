@@ -17,6 +17,11 @@
   the whole database. Rejections need confirmation and are archived in `meta/rejected_rows.csv`.
 - Manager: edit an analyte (name, system, unit, kind of property, APS, synonyms), delete an
   analyte, rename an interference cause or move it to another concept.
+- Manager: a **Research** section that starts the literature pipeline (search, full-text download,
+  extraction into the archive) as an unattended Claude Code session with the maintainer's own
+  skill, shows its progress and stages, and can stop or continue it. It checks beforehand that
+  Claude Code, the search servers, the archive tool, Firefox and the converter are in place. The
+  session never touches the database; a finished run is imported from "New from archive".
 
 ### Fixed
 - Manager: the app showed "Load failed" when its back end had stopped. It now restarts the back

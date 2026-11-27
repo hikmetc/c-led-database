@@ -62,4 +62,11 @@ run("potassium__badheader", "2026-11-27_1200__APS-0.4", "potassium_badheader_202
 
 # 4. a run without an extraction table
 os.makedirs(os.path.join(out, "potassium__empty", "2026-11-27_1300__APS-0.4", "04_extraction"), exist_ok=True)
+# 5. what the Research section expects to find: the archive tool and a recent sign of Firefox
+import datetime
+os.makedirs(os.path.join(out, "_system", "tools"), exist_ok=True)
+open(os.path.join(out, "_system", "tools", "literature_archive.py"), "w").write(
+    "import json\nprint(json.dumps({'status': 'report ready', 'download': {'downloaded': 2, 'total': 3}, 'md_running': False}))\n")
+json.dump({"last_poll": datetime.datetime.now().astimezone().isoformat(timespec="seconds"), "converter": {"ready": True}},
+          open(os.path.join(out, "_system", "extension_status.json"), "w"))
 print("test archive:", out)

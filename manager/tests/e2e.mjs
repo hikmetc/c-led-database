@@ -250,5 +250,39 @@ await nav('changes'); await page.click('#discard');
 p = await plan();
 ok(p.title === 'Done' && head() === origin('rev-parse', 'main') && clean(), 'discarding returns this Mac to exactly what is on GitHub');
 
+// ---------------------------------------------------------------- research: start, follow, finish, stop
+// (Claude Code is replaced by manager/tests/fake_claude.py, which writes a run into the test archive)
+await nav('research');
+ok((await page.$$('.checks .dot.warn')).length === 0, 'the Research section reports that everything it needs is in place');
+await page.click('#start'); await page.waitForSelector('#sheet-body [data-close]');
+ok(/Please give the analyte/.test(await page.textContent('#sheet-body')), 'a search cannot start without analyte, interferent and APS');
+await page.click('#sheet-body [data-close]');
+await page.fill('#r-an', 'Potassium'); await page.fill('#r-in', 'research stub'); await page.fill('#r-aps', '%0.4'); await page.selectOption('#r-model', 'sonnet');
+await page.click('#start');
+p = await plan({ confirm: false });
+ok(/uses your own Claude account/.test(p.text) && /fixed set of permissions/.test(p.text) && /not touched/.test(p.text), 'the plan explains the usage, the permissions and that the database is not touched');
+ok((await page.inputValue('#r-an')) === 'Potassium', 'cancelling keeps what was typed');
+await page.click('#start');
+p = await plan();
+ok(p.title === 'Done', 'confirming starts the session');
+await page.waitForFunction(() => /Last session: finished/.test(document.querySelector('#main').textContent), null, { timeout: 60000 });
+const live = await page.textContent('#live');
+ok(/pubmed_search/.test(live) && /Tablo hazır/.test(live), 'the steps and messages of the session are shown');
+ok(/Literature search: completed/.test(await page.textContent('.steps')) && /2 of 3/.test(await page.textContent('.steps')), 'the stages of the run are shown from the archive');
+await page.click('#toarchive');
+await page.waitForFunction(() => document.querySelector('#main h1')?.textContent === 'New from archive', null, { timeout: 60000 });
+ok((await page.$$('[data-import*="potassium__research-stub"]')).length === 1, 'the finished run appears under "New from archive", ready to import');
+ok(clean() && head() === origin('rev-parse', 'main'), 'the research changed nothing in the database');
+
+await nav('research');
+await page.fill('#r-an', 'Potassium'); await page.fill('#r-in', 'slow'); await page.fill('#r-aps', '%0.4');
+await page.click('#start'); await plan();
+await page.waitForSelector('#stop', { timeout: 30000 });
+ok((await page.textContent('#n-research')) === '1' && !(await page.$('#start')), 'while a session runs, the section shows it and offers no second start');
+await page.click('#stop');
+p = await plan();
+await page.waitForFunction(() => /Last session: stopped/.test(document.querySelector('#main').textContent), null, { timeout: 30000 });
+ok(p.title === 'Done' && !!(await page.$('#start')), 'the session can be stopped, after which a new search can be started');
+
 ok(errors.length === 0, `no JavaScript errors during the whole run (${errors.join(' | ')})`);
 await browser.close();

@@ -17,7 +17,7 @@ Rules it enforces
 Run:  .venv/bin/python manager/server.py            (prints the address to open)
 """
 import argparse, collections, csv, datetime, difflib, glob, http.server, importlib.util, io, json, os, re, secrets, shutil
-import subprocess, sys, threading, time, urllib.parse, urllib.request
+import signal, subprocess, sys, threading, time, urllib.parse, urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -280,7 +280,8 @@ def archive_runs():
         item = {"path": run_dir, "topic": os.path.basename(os.path.dirname(run_dir)), "run": os.path.basename(run_dir),
                 "analyte": params.get("analyte"), "interferent": params.get("interferent"),
                 "aps": params.get("aps", {}).get("percent"), "created": params.get("created"),
-                "versions": len(tables)}
+                "versions": len(tables), "run_id": params.get("run_id"),
+                "stages": {k: (v.get("status") if isinstance(v, dict) else None) for k, v in (params.get("stages") or {}).items()}}
         if not tables:
             runs.append(dict(item, status="no_table", note="No extraction table in this run yet."))
             continue
@@ -500,6 +501,184 @@ def registry_rename_cause(folder, key, name, concept):
     return text, expected, R
 
 
+# ----------------------------------------------------------------------------- research (literature pipeline)
+# The research itself is done by Claude Code with the user's own pipeline skill: literature
+# search, full-text download through Firefox, extraction into the archive. The manager only
+# starts that session unattended, shows its progress, and can stop it. It never touches the
+# database: a finished run appears under "New from archive" and is imported from there.
+RESEARCH_DIR = os.path.join(CONFIG_DIR, "research")
+RESEARCH_STATE = os.path.join(RESEARCH_DIR, "current.json")
+SKILL = "anthropic-skills:laboratory-interference-pipeline"
+# what the unattended session may use: files, the two search servers, and a short list of
+# shell commands the skills need. No web access, no git, no deleting.
+RESEARCH_TOOLS = ["Read", "Glob", "Grep", "Write", "Edit", "Skill", "Agent", "Task", "TodoWrite",
+                  "mcp__pubmed-search__pubmed_search", "mcp__pubmed-search__pubmed_get_article",
+                  "mcp__crossref-search__crossref_search", "mcp__crossref-search__crossref_get_work"] + [
+                  f"Bash({c}:*)" for c in ("python3", "sleep", "ls", "cat", "head", "tail", "grep", "wc", "find", "mkdir",
+                                           "cp", "date", "echo", "pdftotext", "pdftoppm", "pdfinfo")]
+
+
+def claude_binary():
+    """Claude Code that ships with the Claude desktop app (the newest version), or `claude` on PATH."""
+    override = os.environ.get("MANAGER_CLAUDE")
+    if override:
+        return override if os.path.exists(override) else None
+    found = glob.glob(os.path.expanduser("~/Library/Application Support/Claude/claude-code/*/*/claude.app/Contents/MacOS/claude"))
+    def ver(p):
+        return tuple(int(x) for x in re.findall(r"\d+", p.split("/claude-code/")[1].split("/")[0]))
+    found.sort(key=ver)
+    return found[-1] if found else None
+
+
+def search_servers():
+    """The PubMed and Crossref servers as they are defined for the Claude desktop app."""
+    path = os.path.expanduser("~/Library/Application Support/Claude/claude_desktop_config.json")
+    if os.environ.get("MANAGER_CLAUDE"):
+        return {"pubmed-search": {}, "crossref-search": {}}          # tests use a stand-in for Claude
+    try:
+        servers = json.load(open(path, encoding="utf-8")).get("mcpServers", {})
+    except (OSError, ValueError):
+        servers = {}
+    return {k: servers[k] for k in ("pubmed-search", "crossref-search") if k in servers}
+
+
+def research_ready():
+    cfg = load_config()
+    ar = cfg["archive"]
+    tool = os.path.join(ar, "_system", "tools", "literature_archive.py")
+    ext = {}
+    try:
+        ext = json.load(open(os.path.join(ar, "_system", "extension_status.json"), encoding="utf-8"))
+    except (OSError, ValueError):
+        pass
+    minutes = None
+    try:
+        last = datetime.datetime.fromisoformat(ext["last_poll"])
+        minutes = round((datetime.datetime.now(last.tzinfo) - last).total_seconds() / 60, 1)
+    except (KeyError, ValueError, TypeError):
+        pass
+    servers = search_servers()
+    claude = claude_binary()
+    return {"claude": claude, "pubmed": "pubmed-search" in servers, "crossref": "crossref-search" in servers,
+            "archive_tool": os.path.exists(tool), "firefox_minutes_ago": minutes,
+            "firefox_polling": minutes is not None and minutes <= 3,
+            "converter_ready": bool(ext.get("converter", {}).get("ready")),
+            "ok": bool(claude) and len(servers) == 2 and os.path.exists(tool)}
+
+
+def research_prompt(p, archive):
+    tool = os.path.join(archive, "_system", "tools", "literature_archive.py")
+    now = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
+    note = f"""
+Environment note from the program that started this session (the EFLM Database Manager): you are
+running unattended, directly on the user's Mac in Claude Code, not in a cloud container.
+- The literature archive is {archive} and it is your working directory. It is already connected:
+  skip Phase 0 step 1.
+- Where the skill says device_bash, use the Bash tool. Run the archive tool as one plain command,
+  without shell variables:  python3 "{tool}" --archive "{archive}" <command> ...
+- Where the skill says to create a file under /mnt/user-data/outputs and commit it with
+  device_commit_files, write it directly to the path that next-name returns inside the run folder.
+  Where it says device_stage_files, read the files where they are.
+- Only these shell commands are available: python3, sleep, ls, cat, head, tail, grep, wc, find,
+  mkdir, cp, date, echo, pdftotext, pdftoppm, pdfinfo. There is no web access other than the
+  PubMed and Crossref tools.
+- Nobody is watching. Ask no questions. If something required is missing or a step cannot be
+  done, write what happened into the run's 05_report summary, say it in your final message, and
+  stop. Wait for downloads with sleep-based polling as the skill describes; do not use send_later.
+- The current time is {now}.
+- Pass the analyte and the interferent to init-run exactly as given below (they are the English
+  names the user chose for the folder)."""
+    if p.get("continue_run"):
+        return f"/{SKILL}\ndevam et {p['continue_run']}\n{note}"
+    scope = "".join(f"\n{k}: {p[k]}" for k in ("sample_type", "date_range", "platforms") if p.get(k))
+    return (f"/{SKILL}\nuse this skill and prepare table for :\nanalyte: {p['analyte']}\ninterferent: {p['interferent']}\n"
+            f"analytical performance specification: {p['aps']}{scope}\n{note}")
+
+
+def research_state():
+    try:
+        st = json.load(open(RESEARCH_STATE, encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    alive = False
+    if st.get("pid"):
+        try:
+            os.kill(st["pid"], 0)
+            alive = True
+        except OSError:
+            alive = False
+    st["running"] = alive and not st.get("stopped")
+    return st
+
+
+def research_view():
+    """What the Research section shows: readiness, the current or last session, its progress."""
+    out = {"ready": research_ready(), "session": None}
+    st = research_state()
+    if not st:
+        return out
+    lines, result = [], None
+    try:
+        for raw in open(st["log"], encoding="utf-8", errors="replace"):
+            raw = raw.strip()
+            if not raw:
+                continue
+            try:
+                ev = json.loads(raw)
+            except ValueError:
+                if not raw.startswith("[mcp-sdk]"):
+                    lines.append(raw[:300])
+                continue
+            if ev.get("type") == "assistant":
+                for block in ev.get("message", {}).get("content", []):
+                    if block.get("type") == "text" and block.get("text", "").strip():
+                        lines.append(block["text"].strip())
+                    elif block.get("type") == "tool_use":
+                        inp = block.get("input", {})
+                        detail = inp.get("command") or inp.get("query") or inp.get("file_path") or inp.get("skill") or inp.get("description") or ""
+                        lines.append(f"\u2192 {block.get('name', 'tool')}: {clip(str(detail).replace(chr(10), ' '), 160)}")
+            elif ev.get("type") == "result":
+                result = {"ok": not ev.get("is_error"), "text": ev.get("result", ""), "turns": ev.get("num_turns"),
+                          "cost_usd": ev.get("total_cost_usd"), "minutes": round((ev.get("duration_ms") or 0) / 60000, 1)}
+    except OSError:
+        pass
+    # the run folder this session created, and what the archive tool says about it
+    run = None
+    cfg = load_config()
+    started = st.get("started", "")
+    newest = None
+    for f in glob.glob(os.path.join(cfg["archive"], "*__*", "*", "00_parameters.json")):
+        try:
+            d = json.load(open(f, encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        if st["params"].get("continue_run"):
+            if d.get("run_id") == st["params"]["continue_run"]:
+                newest = (d.get("created", ""), f, d)
+        elif d.get("created", "") >= started[:16] and (newest is None or d.get("created", "") > newest[0]):
+            newest = (d.get("created", ""), f, d)
+    if newest:
+        d = newest[2]
+        stages = d.get("stages", {})
+        run = {"run_id": d.get("run_id"), "folder": os.path.relpath(os.path.dirname(newest[1]), cfg["archive"]),
+               "stages": {k: (v.get("status") if isinstance(v, dict) else None) for k, v in stages.items()},
+               "shortlist": stages.get("screening", {}).get("shortlist"), "rows": stages.get("extraction", {}).get("rows")}
+        tool = os.path.join(cfg["archive"], "_system", "tools", "literature_archive.py")
+        try:
+            r = subprocess.run([sys.executable, tool, "--archive", cfg["archive"], "status", "--run-dir", run["folder"]],
+                               capture_output=True, text=True, timeout=20)
+            info = json.loads(r.stdout)
+            dl = info.get("download") or {}
+            run.update(status=info.get("status"), downloaded=dl.get("downloaded"), total=dl.get("total"),
+                       md_running=info.get("md_running"))
+        except Exception:
+            pass
+    state = "running" if st["running"] else ("stopped" if st.get("stopped") else ("done" if result and result["ok"] else "failed" if result else "ended"))
+    out["session"] = {"id": st["id"], "params": st["params"], "model": st.get("model") or "default", "started": started,
+                      "state": state, "lines": lines[-400:], "result": result, "run": run}
+    return out
+
+
 # ----------------------------------------------------------------------------- registry edits
 def registry_without_table(analyte, file):
     """New text of registry.py with one table (and causes nothing uses any more) removed."""
@@ -564,7 +743,7 @@ def plan(body):
     op = body.get("op")
     if JOB["status"] == "running":
         raise Problem("Another operation is still running. Wait for it to finish.")
-    if op != "publish" and IA.changed_files():
+    if op not in ("publish", "research", "research_stop") and IA.changed_files():
         raise Problem("The repository has uncommitted changes that this app did not make. Commit or discard them first (git status).")
 
     if op == "import":
@@ -754,6 +933,54 @@ def plan(body):
             warnings.append(f"The cause moves to the concept \"{concept}\" in the website's matrix and concept pages"
                             + ("." if concept in known else ", which is a new concept (it gets its own row in the matrix)."))
         return new_plan(op, body, "Rename an interference cause", lines, warnings, LOCAL_ONLY)
+
+    if op == "research":
+        ready = research_ready()
+        st = research_state()
+        if st and st["running"]:
+            raise Problem("A research session is already running. Wait for it to finish or stop it first.")
+        if not ready["claude"]:
+            raise Problem("Claude Code was not found. It comes with the Claude desktop app; open that app once and try again.")
+        if not (ready["pubmed"] and ready["crossref"]):
+            raise Problem("The PubMed and Crossref search servers are not set up for the Claude desktop app (claude_desktop_config.json), so the literature cannot be searched.")
+        if not ready["archive_tool"]:
+            raise Problem("The archive tool (_system/tools/literature_archive.py) was not found in the archive folder. Check the folder in Settings.")
+        model = str(body.get("model") or "").strip()
+        if model and not re.fullmatch(r"[A-Za-z0-9._\-]+", model):
+            raise Problem("The model name may only hold letters, digits, dots and hyphens.")
+        if body.get("continue_run"):
+            lines = [f"Continue the archive run {body['continue_run']} with the pipeline skill, from its first unfinished phase."]
+        else:
+            for k in ("analyte", "interferent", "aps"):
+                if not str(body.get(k) or "").strip():
+                    raise Problem(f"Please give the {k if k != 'aps' else 'analytical performance specification'}.")
+            lines = [f"Analyte: {body['analyte']}", f"Interferent: {body['interferent']}", f"Analytical performance specification: {body['aps']}"]
+            lines += [f"{k.replace('_', ' ').capitalize()}: {body[k]}" for k in ("sample_type", "date_range", "platforms") if body.get(k)]
+        lines += [f"Model: {model or 'the default of your Claude Code settings'}", "",
+                  "Claude Code runs your pipeline skill unattended: it searches PubMed and Crossref, screens the records,",
+                  "queues the full texts for Firefox (Full-Text Fetcher), waits for the download and the PDF-to-Markdown",
+                  "conversion, checks each PDF is the right article, extracts the 29-column table and writes the report.",
+                  "This can take from half an hour to several hours. You can close the manager; the session goes on."]
+        warnings = ["This uses your own Claude account and counts against its usage, like a session you start by hand."]
+        if not ready["firefox_polling"]:
+            warnings.append("Firefox is not answering right now. Open Firefox and sign in with your university access before the download "
+                            "phase starts; without it the full texts cannot be fetched and the run stops at the download.")
+        if not ready["converter_ready"]:
+            warnings.append("The PDF to Markdown converter is not ready; the extraction would read the PDFs directly.")
+        warnings.append("The session works on its own with a fixed set of permissions: it may read and write files, use the PubMed and "
+                        "Crossref tools, and run a short list of shell commands (python3, sleep, ls, cat, pdftotext and similar). "
+                        "It has no other web access, cannot delete files with shell commands and cannot use git.")
+        where = ["The literature archive: a new run folder is written (never an existing file).",
+                 "This Mac's database, GitHub and the website: not touched. A finished run appears under \"New from archive\"."]
+        return new_plan(op, body, "Start a literature search and extraction" if not body.get("continue_run") else "Continue a run", lines, warnings, where)
+
+    if op == "research_stop":
+        st = research_state()
+        if not st or not st["running"]:
+            raise Problem("No research session is running.")
+        return new_plan(op, body, "Stop the running research session",
+                        ["The Claude Code session is stopped now.", "Files it has already written stay in the archive; the run can be continued later."],
+                        [], ["The literature archive: nothing is deleted.", "Downloads already queued for Firefox go on."])
 
     if op == "publish":
         if IA.changed_files():
@@ -964,6 +1191,42 @@ def apply_rename_cause(p):
     transaction(mutate, f"Rename interference cause {folder}/{key}: {name} [{concept}]\n\n(through the manager app)")
 
 
+def apply_research(p):
+    cfg = load_config()
+    archive = cfg["archive"]
+    os.makedirs(RESEARCH_DIR, exist_ok=True)
+    sid = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    mcp = os.path.join(RESEARCH_DIR, "mcp.json")
+    json.dump({"mcpServers": search_servers()}, open(mcp, "w", encoding="utf-8"))
+    log_path = os.path.join(RESEARCH_DIR, f"{sid}.jsonl")
+    model = str(p.get("model") or "").strip()
+    cmd = [claude_binary(), "-p", research_prompt(p, archive), "--output-format", "stream-json", "--verbose",
+           "--mcp-config", mcp, "--add-dir", archive, "--allowed-tools", *RESEARCH_TOOLS]
+    if model:
+        cmd += ["--model", model]
+    env = dict(os.environ)
+    env["PATH"] = ":".join(["/opt/homebrew/bin", "/usr/local/bin", os.path.dirname(sys.executable), env.get("PATH", "")])
+    proc = subprocess.Popen(cmd, cwd=archive, stdin=subprocess.DEVNULL, stdout=open(log_path, "w", encoding="utf-8"),
+                            stderr=subprocess.STDOUT, env=env, start_new_session=True)     # outlives the manager
+    json.dump({"id": sid, "pid": proc.pid, "params": {k: v for k, v in p.items() if k not in ("op",)}, "model": model,
+               "started": datetime.datetime.now().astimezone().isoformat(timespec="seconds"), "log": log_path},
+              open(RESEARCH_STATE, "w", encoding="utf-8"))
+    log("The research session has started. Its progress is shown in the Research section.")
+    log("You can close the manager; the session goes on and is shown again when you come back.")
+
+
+def apply_research_stop(_):
+    st = research_state()
+    if st and st["running"]:
+        try:
+            os.killpg(st["pid"], signal.SIGTERM)
+        except OSError:
+            pass
+        st["stopped"] = True
+        json.dump({k: v for k, v in st.items() if k != "running"}, open(RESEARCH_STATE, "w", encoding="utf-8"))
+    log("The session was stopped. What it wrote so far is in the archive.")
+
+
 def apply_publish(_):
     log("Sending to GitHub ...")
     r = sh(["git", "push"], check=False, timeout=180)
@@ -1031,7 +1294,7 @@ def apply_import(p):
 
 APPLY = {"import": apply_import, "change_table": apply_change_table, "delete_table": apply_delete_table,
          "reject_rows": apply_reject_rows, "edit_analyte": apply_edit_analyte, "delete_analyte": apply_delete_analyte,
-         "rename_cause": apply_rename_cause,
+         "rename_cause": apply_rename_cause, "research": apply_research, "research_stop": apply_research_stop,
          "publish": apply_publish, "discard": apply_discard, "pull": apply_pull}
 
 
@@ -1107,6 +1370,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self.send(200, archive_runs())
             if url.path == "/api/run":
                 return self.send(200, run_proposal(q["path"]))
+            if url.path == "/api/research":
+                return self.send(200, research_view())
             if url.path == "/api/screen_all":
                 return self.send(200, screening_all())
             if url.path == "/api/job":

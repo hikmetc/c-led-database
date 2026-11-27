@@ -27,7 +27,7 @@ mkdir -p "$WORK/config" && echo "{\"archive\": \"$WORK/archive\"}" > "$WORK/conf
 start_server() {   # $1 = extra environment assignment or empty; sets SERVER_PID and URL
   if [ -n "$SERVER_PID" ]; then kill "$SERVER_PID" 2>/dev/null || true; wait "$SERVER_PID" 2>/dev/null || true; fi
   : > "$WORK/server.log"
-  env MANAGER_CONFIG_DIR="$WORK/config" ${1:-X=1} "$PY" -u manager/server.py > "$WORK/server.log" 2>&1 &
+  env MANAGER_CONFIG_DIR="$WORK/config" MANAGER_CLAUDE="$REPO/manager/tests/fake_claude.py" ${1:-X=1} "$PY" -u manager/server.py > "$WORK/server.log" 2>&1 &
   SERVER_PID=$!
   for _ in $(seq 50); do grep -q "^URL " "$WORK/server.log" && break; sleep 0.2; done
   URL="$(sed -n 's/^URL //p' "$WORK/server.log")"

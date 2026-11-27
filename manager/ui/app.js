@@ -143,7 +143,9 @@ async function refresh(all = false) {
 	render();
 }
 
+let researchTimer = null;
 function go(next) {
+	clearTimeout(researchTimer);
 	if (view.name === 'table' && draftSize() && next.name !== 'table') {
 		if (!confirm('You have changes in this table that are not saved yet. Leave and drop them?')) return;
 	}
@@ -166,7 +168,7 @@ function publish() {
 /* ------------------------------------------------------------------ views */
 function render() {
 	if (!S) return;
-	({ overview, archive: archiveView, database: databaseView, analyte: analyteView, table: tableView, changes: changesView, settings: settingsView, screening: screeningView })[view.name]();
+	({ overview, archive: archiveView, database: databaseView, analyte: analyteView, table: tableView, changes: changesView, settings: settingsView, screening: screeningView, research: researchView })[view.name]();
 }
 
 function placeCard(where, d, extra) {
@@ -563,6 +565,76 @@ async function importSheet(path) {
 	draw();
 }
 
+/* ------------------------------------------------------------------ research (literature pipeline) */
+let R = null; // readiness and the current or last session
+const STAGES = [['screening', 'Literature search'], ['download', 'Full texts'], ['conversion', 'PDF to text'], ['extraction', 'Extraction'], ['report', 'Report']];
+
+async function researchView(keepForm = false) {
+	clearTimeout(researchTimer);
+	const form = keepForm ? null : Object.fromEntries([...main.querySelectorAll('[data-f]')].map((el) => [el.dataset.f, el.value]));
+	try {
+		R = await api('/api/research');
+	} catch (e) {
+		if (view.name === 'research') main.innerHTML = `<div class="empty">${esc(e.message)}<br><br><button class="btn primary" id="retry">Try again</button></div>`;
+		if ($('#retry')) $('#retry').onclick = () => researchView();
+		return;
+	}
+	$('#n-research').textContent = R.session?.state === 'running' ? '1' : '';
+	if (view.name !== 'research') return;
+	const rd = R.ready;
+	const se = R.session;
+	const check = (ok, yes, no) => `<li><span class="dot ${ok ? '' : 'warn'}"></span>${ok ? yes : no}</li>`;
+	const running = se?.state === 'running';
+	const stageChip = (key, label) => {
+		const run = se?.run;
+		let st = run?.stages?.[key];
+		if (key === 'download' && run?.total) st = `${run.downloaded ?? 0} of ${run.total}`;
+		if (key === 'report' && /report ready/.test(run?.status || '')) st = 'completed';
+		return `<span class="chip ${st === 'completed' ? 'ok' : st ? 'new' : ''}">${label}${st ? `: ${esc(st)}` : ''}</span>`;
+	};
+	const unfinished = (archive || []).filter((r) => r.run_id && r.status === 'no_table');
+	const live = $('#live');
+	const atEnd = live ? live.scrollTop + live.clientHeight >= live.scrollHeight - 30 : true;
+	const title = running ? '<span class="spin"></span>Session running' : se?.state === 'done' ? 'Last session: finished' : se?.state === 'stopped' ? 'Last session: stopped' : 'Last session: ended without a result';
+	const what = se ? (se.params.continue_run ? `Continuing ${esc(se.params.continue_run)}` : `${esc(se.params.analyte)} · ${esc(se.params.interferent)} · APS ${esc(se.params.aps)}`) : '';
+	const models = [['', 'Default of your Claude Code settings'], ['opus', 'Opus'], ['sonnet', 'Sonnet'], ['haiku', 'Haiku']];
+	const field = (id, key, label, placeholder = '', cls = '') => `<div class="field ${cls}"><label for="${id}">${label}</label><input id="${id}" data-f="${key}" placeholder="${esc(placeholder)}" value="${esc(form?.[key] || '')}"></div>`;
+	main.innerHTML = `<div class="head"><div><h1>Research</h1><p class="muted">Search the literature, fetch the full texts and extract the evidence table into the archive, with your Claude pipeline skill.</p></div></div>
+		<div class="card" style="margin-bottom:20px"><ul class="checks">
+			${check(!!rd.claude, 'Claude Code is available', 'Claude Code was not found (open the Claude desktop app once)')}
+			${check(rd.pubmed && rd.crossref, 'PubMed and Crossref search are set up', 'PubMed / Crossref search servers are not set up in the Claude desktop app')}
+			${check(rd.archive_tool, 'The archive tool is in place', 'The archive tool was not found in the archive folder')}
+			${check(rd.firefox_polling, 'Firefox is watching the download queue', rd.firefox_minutes_ago === null ? 'Firefox has not been seen: open it and sign in with university access' : `Firefox last answered ${esc(rd.firefox_minutes_ago)} min ago: open it and sign in with university access`)}
+			${check(rd.converter_ready, 'The PDF to Markdown converter is ready', 'The PDF to Markdown converter is not ready')}
+		</ul></div>
+		${se ? `<div class="section" style="margin-top:0"><h2>${title}</h2>
+			<p class="caption">${what} · model ${esc(se.model)} · started ${esc(se.started.replace('T', ' ').slice(0, 16))}${se.run ? ` · folder <span class="mono">${esc(se.run.folder)}</span>` : ''}</p>
+			<div class="steps">${STAGES.map(([k, l]) => stageChip(k, l)).join('')}${se.run?.md_running ? '<span class="chip new">converting PDFs…</span>' : ''}</div>
+			<pre class="live" id="live">${esc(se.lines.join('\n\n')) || 'Starting…'}</pre>
+			<div class="row-actions" style="margin-top:12px">
+				${running ? '<button class="btn danger" id="stop">Stop the session…</button>' : '<button class="btn" id="toarchive">Open “New from archive”</button>'}
+				${se.result ? `<span class="caption">${esc(se.result.minutes)} min · ${esc(se.result.turns)} steps${se.result.cost_usd ? ` · about $${Number(se.result.cost_usd).toFixed(2)} of usage` : ''}</span>` : ''}
+			</div></div>` : ''}
+		${running ? '' : `<div class="section"><h2>New search</h2><div class="card"><div class="form-grid">
+			${field('r-an', 'analyte', 'Analyte (English; also names the folder)', 'Carboxyhemoglobin')}
+			${field('r-in', 'interferent', 'Interferent (English)', 'methylene blue')}
+			${field('r-aps', 'aps', 'Analytical performance specification', '%1')}
+			<div class="field"><label for="r-model">Model</label><select id="r-model" data-f="model">${models.map(([v, l]) => `<option value="${v}" ${form?.model === v ? 'selected' : ''}>${l}</option>`).join('')}</select></div>
+			${field('r-st', 'sample_type', 'Sample type (optional)', 'blood')}
+			${field('r-dr', 'date_range', 'Date range (optional)', '2000-2026')}
+			${field('r-pl', 'platforms', 'Platforms (optional)', '', 'full')}
+			</div><div class="row-actions" style="margin-top:16px"><button class="btn primary" id="start">Review and start…</button><span class="caption">Nothing starts until you confirm.</span></div></div></div>
+		${unfinished.length ? `<div class="section"><h2>Unfinished runs</h2><div class="list">${unfinished.map((r) => `<div class="item"><div class="grow"><div class="t">${esc(r.analyte || r.topic)} · ${esc(r.interferent || '')}</div><div class="s mono">${esc(r.run_id)}</div></div><span class="chip">no extraction table yet</span><button class="btn" data-continue="${esc(r.run_id)}">Continue…</button></div>`).join('')}</div></div>` : ''}`}`;
+	if ($('#live') && atEnd) $('#live').scrollTop = $('#live').scrollHeight;
+	if ($('#stop')) $('#stop').onclick = () => review({ op: 'research_stop' }, { danger: true, confirmLabel: 'Stop', after: () => researchView(true) });
+	if ($('#toarchive')) $('#toarchive').onclick = async () => { archive = null; await refresh(true); go({ name: 'archive' }); };
+	const startOp = (op) => review(op, { confirmLabel: 'Start', after: () => (view.name === 'research' ? researchView(true) : go({ name: 'research' })) });
+	if ($('#start')) $('#start').onclick = () => startOp({ op: 'research', ...Object.fromEntries([...main.querySelectorAll('[data-f]')].map((el) => [el.dataset.f, el.value.trim()])) });
+	for (const el of main.querySelectorAll('[data-continue]')) el.onclick = () => startOp({ op: 'research', continue_run: el.dataset.continue, model: $('#r-model')?.value || '' });
+	// while a session runs, the view follows it; an open sheet is never disturbed
+	if (running) researchTimer = setTimeout(function tick() { if (view.name !== 'research') return; if (sheetEl.open) researchTimer = setTimeout(tick, 4000); else researchView(); }, 4000);
+}
+
 /* ------------------------------------------------------------------ changes and settings */
 function changesView() {
 	const u = S.unpublished;
@@ -603,9 +675,9 @@ window.__selftest = async () => {
 	const wait = async (test, ms = 90000) => { const t = Date.now(); while (!test() && Date.now() - t < ms) await new Promise((r) => setTimeout(r, 200)); return test(); };
 	const seen = [];
 	await wait(() => S && db && archive);
-	for (const name of ['overview', 'archive', 'database', 'changes', 'settings', 'screening']) {
+	for (const name of ['overview', 'research', 'archive', 'database', 'changes', 'settings', 'screening']) {
 		go({ name });
-		const ok = await wait(() => $('h1', main) && (name !== 'screening' || !!screenAll));
+		const ok = await wait(() => $('h1', main) && (name !== 'screening' || !!screenAll) && (name !== 'research' || $('h1', main).textContent === 'Research'));
 		seen.push(`${name}=${ok ? $('h1', main).textContent : 'FAILED'}`);
 	}
 	if (db?.length) {
@@ -626,4 +698,4 @@ window.__selftest = async () => {
 };
 
 refresh(true);
-setInterval(() => !sheetEl.open && view.name !== 'table' && refresh(false), 60000);
+setInterval(() => !sheetEl.open && view.name !== 'table' && view.name !== 'research' && refresh(false), 60000);

@@ -12,6 +12,7 @@ lets you change it, always after a review:
 | Section | What you can do |
 |---|---|
 | Overview | Row, analyte and table counts in the three places, whether they agree, the state of the last website build |
+| Research | Start a literature search and extraction for an analyte, an interferent and an APS, follow it, stop it, continue an unfinished run |
 | New from archive | Every run of the literature archive with its status: not in the database, newer than the database, in the database, cannot be imported. Import or update a run |
 | Database | Browse analytes, tables and rows. Change values, delete rows, add a row, delete a table. Edit an analyte (name, system, unit, kind of property, APS, synonyms), delete an analyte, rename an interference cause or move it to another concept |
 | Screening | Check the whole database, one table, or a run before import against the rejection criteria; see why each row fails; reject after confirmation |
@@ -30,6 +31,33 @@ lets you change it, always after a review:
    runs the tests, and the app waits and reports the result.
 
 Importing uses `scripts/import_archive.py`, so the same rules apply as on the command line.
+
+## Research
+
+The research itself is not done by the manager. It is done by Claude Code with the maintainer's
+own pipeline skill (`laboratory-interference-pipeline`): PubMed and Crossref search and screening,
+full-text download through Firefox with the Full-Text Fetcher extension, PDF-to-Markdown
+conversion, extraction of the 29-column table, and the report, all written into the literature
+archive. The manager starts that session unattended, shows what it is doing, and can stop it.
+
+What it needs, and checks before it starts:
+
+- Claude Code, as shipped with the Claude desktop app, signed in to your account;
+- the `pubmed-search` and `crossref-search` servers defined for the Claude desktop app;
+- the archive tool in the archive folder (`_system/tools/literature_archive.py`);
+- Firefox open, signed in with institutional access, with the extension watching the queue
+  (you do this yourself; the manager only reports whether Firefox has answered recently);
+- the PDF to Markdown converter (optional: without it the PDFs are read directly).
+
+What the unattended session is allowed to do: read and write files, use the two search servers,
+and run a short list of shell commands (`python3`, `sleep`, `ls`, `cat`, `head`, `tail`, `grep`,
+`wc`, `find`, `mkdir`, `cp`, `date`, `echo`, `pdftotext`, `pdftoppm`, `pdfinfo`). It has no other
+web access and cannot use git. It runs in the archive folder and never touches the database:
+a finished run appears under "New from archive" and goes through screening and import there.
+
+The session uses your Claude account and its usage. It keeps running if you close the manager,
+and is shown again when you come back. Its log is kept under
+`~/Library/Application Support/EFLM-LED-Manager/research/`.
 
 ## Inclusion screening
 
