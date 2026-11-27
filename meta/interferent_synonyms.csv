@@ -663,7 +663,6 @@ inr_plasma,INR_high_haematocrit_interference_extraction.csv,Secondary erythrocyt
 inr_plasma,INR_high_haematocrit_interference_extraction.csv,Secondary polycythaemia (Hematocrit 71 %) due to obstructive sleep apnoea syndrome,inr.high_hematocrit,2
 inr_plasma,INR_lipaemia_interference_extraction.csv,"Blood lipids / endogenous triglyceride (native, not spiked)",inr.lipemia,1
 inr_plasma,INR_lipaemia_interference_extraction.csv,Intravenous lipid emulsion / lipaemia (Intralipid 20% Fresenius Kabi),inr.lipemia,9
-inr_plasma,INR_lipaemia_interference_extraction.csv,"Lipaemia (commercial fat emulsion Lipofundina 20 per cent, Braun Medical SA, Barcelona, Spain; triglycerides)",inr.lipemia,9
 inr_plasma,INR_lipaemia_interference_extraction.csv,"Lipaemia (exogenous triglyceride standard solution, Lipofundin S 20%, B. Braun SpA)",inr.lipemia,8
 inr_plasma,INR_lipaemia_interference_extraction.csv,"Lipaemia (native lipaemic plasmas plus plasmas spiked with 5 uL/mL Intralipid 20, Sigma-Aldrich, or with lipid isolated from lipaemic patient plasmas)",inr.lipemia,1
 inr_plasma,INR_lipaemia_interference_extraction.csv,"Lipemia (20% Intralipid, Fresenius Kabi, Bad Homburg, Germany; plasma triglyceride)",inr.lipemia,4

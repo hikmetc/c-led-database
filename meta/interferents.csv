@@ -68,7 +68,7 @@ inr.fxa_inhibitors,inr_plasma,fxa_inhibitors,Direct factor Xa inhibitors (mixed)
 inr.hemolysis,inr_plasma,hemolysis,Hemolysis,hemolysis,41,5
 inr.heparin_contamination,inr_plasma,heparin_contamination,Heparin contamination of the specimen or line draw,anticoagulant_contamination,21,12
 inr.high_hematocrit,inr_plasma,high_hematocrit,Elevated hematocrit / polycythemia,specimen_matrix,19,13
-inr.lipemia,inr_plasma,lipemia,"Lipemia (intravenous lipid emulsion, triglycerides)",lipemia,106,25
+inr.lipemia,inr_plasma,lipemia,"Lipemia (intravenous lipid emulsion, triglycerides)",lipemia,97,24
 inr.lmwh,inr_plasma,lmwh,Low-molecular-weight heparin (dalteparin) contamination,anticoagulant_contamination,113,3
 inr.lupus_anticoagulant,inr_plasma,lupus_anticoagulant,Lupus anticoagulant,autoantibody,122,1
 inr.mnpt,inr_plasma,mnpt,Mean normal prothrombin time (MNPT) used in the INR calculation,reagent_calibration,116,1

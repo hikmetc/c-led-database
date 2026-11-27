@@ -10,7 +10,7 @@ inr.high_hematocrit,Elevated hematocrit / polycythemia,specimen_matrix,19
 inr.elevated_temperature,Elevated temperature / hyperthermia,temperature,51
 inr.hemolysis,Hemolysis,hemolysis,41
 inr.heparin_contamination,Heparin contamination of the specimen or line draw,anticoagulant_contamination,21
-inr.lipemia,"Lipemia (intravenous lipid emulsion, triglycerides)",lipemia,106
+inr.lipemia,"Lipemia (intravenous lipid emulsion, triglycerides)",lipemia,97
 inr.lmwh,Low-molecular-weight heparin (dalteparin) contamination,anticoagulant_contamination,113
 inr.lupus_anticoagulant,Lupus anticoagulant,autoantibody,122
 inr.mnpt,Mean normal prothrombin time (MNPT) used in the INR calculation,reagent_calibration,116

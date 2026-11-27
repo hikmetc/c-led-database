@@ -50,7 +50,7 @@ inr_plasma,International Normalized Ratio (prothrombin time),INR_citrate_interfe
 inr_plasma,International Normalized Ratio (prothrombin time),INR_clotted-specimen_interference_extraction.csv,inr.clotted_specimen,Clotted specimen / micro-clots,15
 inr_plasma,International Normalized Ratio (prothrombin time),INR_hemolysis_PRIMARY.csv,inr.hemolysis,Hemolysis,41
 inr_plasma,International Normalized Ratio (prothrombin time),INR_high_haematocrit_interference_extraction.csv,inr.high_hematocrit,Elevated hematocrit / polycythemia,19
-inr_plasma,International Normalized Ratio (prothrombin time),INR_lipaemia_interference_extraction.csv,inr.lipemia,"Lipemia (intravenous lipid emulsion, triglycerides)",106
+inr_plasma,International Normalized Ratio (prothrombin time),INR_lipaemia_interference_extraction.csv,inr.lipemia,"Lipemia (intravenous lipid emulsion, triglycerides)",97
 inr_plasma,International Normalized Ratio (prothrombin time),INR_lupus_anticoagulant_interference_extraction.csv,inr.lupus_anticoagulant,Lupus anticoagulant,122
 inr_plasma,International Normalized Ratio (prothrombin time),INR_poor-mixing_interference_table.csv,inr.poor_mixing,Poor mixing of the collection tube,35
 inr_plasma,International Normalized Ratio (prothrombin time),INR_prolonged_storage_interference_extraction.csv,inr.prolonged_storage,Prolonged storage before analysis,192

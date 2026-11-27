@@ -21,10 +21,10 @@ Every row was judged against this APS. The machine-readable record is `inr_plasm
 |---|---|
 | Interference causes | 24 |
 | Evidence tables | 19 |
-| Evidence rows | 3,687 |
+| Evidence rows | 3,678 |
 | Rows with a numeric percent change (plottable) | 2,550 |
-| Rows exceeding the 2.0% APS | 1,828 |
-| Rows within the 2.0% APS | 1,024 |
+| Rows exceeding the 2.0% APS | 1,824 |
+| Rows within the 2.0% APS | 1,019 |
 | Rows with a DOI | 2,182 |
 | Rows with a PubMed ID | 1,532 |
 
@@ -39,7 +39,7 @@ Every row was judged against this APS. The machine-readable record is `inr_plasm
 | `inr.lupus_anticoagulant` | Lupus anticoagulant | `autoantibody` | 122 |
 | `inr.mnpt` | Mean normal prothrombin time (MNPT) used in the INR calculation | `reagent_calibration` | 116 |
 | `inr.lmwh` | Low-molecular-weight heparin (dalteparin) contamination | `anticoagulant_contamination` | 113 |
-| `inr.lipemia` | Lipemia (intravenous lipid emulsion, triglycerides) | `lipemia` | 106 |
+| `inr.lipemia` | Lipemia (intravenous lipid emulsion, triglycerides) | `lipemia` | 97 |
 | `inr.dabigatran` | Dabigatran (direct thrombin inhibitor) | `anticoagulant_drug` | 69 |
 | `inr.bilirubin` | Bilirubin / icterus (conjugated and unconjugated) | `bilirubin` | 66 |
 | `inr.underfilled_tube` | Underfilled citrate tube | `collection_tube` | 52 |
