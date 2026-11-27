@@ -11,10 +11,10 @@
 | Analytes | 8 |
 | Interference causes | 136 |
 | Evidence tables (CSV) | 117 |
-| Evidence rows | 11,796 |
+| Evidence rows | 11,795 |
 | Rows with a numeric effect size | 6,543 |
-| Distinct references | 776 |
-| Rows with a DOI or PubMed ID | 7,305 |
+| Distinct references | 775 |
+| Rows with a DOI or PubMed ID | 7,304 |
 
 ## Analytes
 
@@ -23,7 +23,7 @@
 | `carboxyhemoglobin_blood` | Carboxyhemoglobin | Blood | % of total haemoglobin | 1.0% | 27 | 20 | 1,982 |
 | `digoxin_serum` | Digoxin | Serum, plasma or whole blood | ng/mL (nmol/L) | 3.0% | 29 | 25 | 4,277 |
 | `inr_plasma` | International Normalized Ratio (prothrombin time) | Plasma or blood | ratio (INR); s (PT) | 2.0% | 24 | 19 | 3,678 |
-| `pco2_blood` | Carbon dioxide partial pressure | Blood | mmHg (kPa) | 2.7% | 9 | 8 | 146 |
+| `pco2_blood` | Carbon dioxide partial pressure | Blood | mmHg (kPa) | 2.7% | 9 | 8 | 145 |
 | `ph_blood` | pH | Blood | pH unit | 1.5% | 11 | 10 | 182 |
 | `po2_blood` | Oxygen partial pressure | Blood (arterial) | mmHg (kPa) | 3.0% | 13 | 13 | 548 |
 | `potassium_serum` | Potassium | Serum, plasma or whole blood | mmol/L | 0.4% | 12 | 12 | 304 |
@@ -117,14 +117,14 @@ The site publishes only the **web deploy set**: `build/parquet/` plus `analytes.
 - **Cross-analyte view.** `concept` is shared across analytes, so "show every analyte affected by hemolysis" is one query on `concept='hemolysis'`.
 - **Search.** Match the user's words against `interferent_canonical`, `interferent_verbatim`, `platform`, `analyzer` and `sample_type` in `slim_all.parquet`; search the long verbatim text in `detail/` only for the analyte in view.
 - **Custom APS.** Each row carries `pct_change` (percent, signed) and the analyte's `aps_percent`, plus `exceeds_aps` precomputed for the selected APS. To honour a user-supplied APS, recompute `abs(pct_change) > user_aps` client-side; fall back to the `aps_verdict` string when `pct_change` is null.
-- **Charts.** Only 6,543 of 11,796 rows (55%) carry a numeric effect size, because many sources report an effect only in words or only in absolute units. Use the `plottable` flag to decide whether to draw: render a chart from the plottable subset and show the remainder as an evidence list. Never treat a missing value as zero.
+- **Charts.** Only 6,543 of 11,795 rows (55%) carry a numeric effect size, because many sources report an effect only in words or only in absolute units. Use the `plottable` flag to decide whether to draw: render a chart from the plottable subset and show the remainder as an evidence list. Never treat a missing value as zero.
 - **Column names.** Parquet uses snake_case; `meta/data_dictionary.csv` gives the `parquet_column` of every source column.
 
 ## Reference coverage
 
 | reference_status | Rows | Meaning |
 |---|---|---|
-| `doi` | 6,110 | DOI present |
+| `doi` | 6,109 | DOI present |
 | `pmid` | 1,195 | no DOI, PubMed ID present |
 | `reference_only` | 4,491 | no DOI or PubMed ID, full bibliographic reference present |
 | `citation_only` | 0 | author and year only |

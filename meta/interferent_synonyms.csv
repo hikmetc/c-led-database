@@ -787,7 +787,7 @@ inr_plasma,inr_heparin_interference_extraction.csv,Unfractionated heparin contam
 inr_plasma,inr_heparin_interference_extraction.csv,Unfractionated heparin from the catheter locking solution exceeding the reagent neutralisation capacity,inr.ufh,1
 inr_plasma,inr_temperature_interference.csv,"Elevated temperature / hyperthermia (analytical, in vitro reaction temperature >37 C)",inr.elevated_temperature,34
 inr_plasma,inr_temperature_interference.csv,"Elevated temperature / hyperthermia (in vivo, core or perfusate temperature >37 C)",inr.elevated_temperature,17
-pco2_blood,pCO2_delayed_analysis_interference_extraction.csv,Delayed analysis at room temperature (ongoing cellular metabolism/glycolysis),pco2.delayed_analysis,19
+pco2_blood,pCO2_delayed_analysis_interference_extraction.csv,Delayed analysis at room temperature (ongoing cellular metabolism/glycolysis),pco2.delayed_analysis,18
 pco2_blood,pCO2_delayed_analysis_interference_extraction.csv,Delayed analysis at room temperature (ongoing cellular metabolism/glycolysis) (60-min delay COMBINED with standardized mechanical stress),pco2.delayed_analysis,1
 pco2_blood,pCO2_delayed_analysis_interference_extraction.csv,"Delayed analysis at room temperature (ongoing cellular metabolism/glycolysis) (whole blood in syringe at RT, 0-180 min; stratified by leukocyte count)",pco2.delayed_analysis,2
 pco2_blood,pCO2_delayed_analysis_interference_extraction.csv,Delayed analysis at room temperature (ongoing cellular metabolism/glycolysis) [stored on ice],pco2.delayed_analysis,11

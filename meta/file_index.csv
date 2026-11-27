@@ -63,7 +63,7 @@ inr_plasma,International Normalized Ratio (prothrombin time),inr_dabigatran_inte
 inr_plasma,International Normalized Ratio (prothrombin time),inr_fxa_interference_extraction.csv,inr.fxa_inhibitors,Direct factor Xa inhibitors (mixed),77
 inr_plasma,International Normalized Ratio (prothrombin time),inr_heparin_interference_extraction.csv,inr.heparin_contamination,Heparin contamination of the specimen or line draw,142
 inr_plasma,International Normalized Ratio (prothrombin time),inr_temperature_interference.csv,inr.elevated_temperature,Elevated temperature / hyperthermia,51
-pco2_blood,Carbon dioxide partial pressure,pCO2_delayed_analysis_interference_extraction.csv,pco2.delayed_analysis,Delayed analysis at room temperature,33
+pco2_blood,Carbon dioxide partial pressure,pCO2_delayed_analysis_interference_extraction.csv,pco2.delayed_analysis,Delayed analysis at room temperature,32
 pco2_blood,Carbon dioxide partial pressure,pCO2_lipid_interference_extraction.csv,pco2.tpn_lipid,Total parenteral nutrition / lipid emulsion contamination,14
 pco2_blood,Carbon dioxide partial pressure,pco2_air_interference.csv,pco2.air_bubble,Air bubble / ambient-air contamination in the syringe,27
 pco2_blood,Carbon dioxide partial pressure,pco2_airbubble_30min_extraction.csv,pco2.air_bubble_30min,Air bubble trapped in the syringe for 30 min before expulsion,2

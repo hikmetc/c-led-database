@@ -82,7 +82,7 @@ inr.underfilled_tube,inr_plasma,underfilled_tube,Underfilled citrate tube,collec
 inr.venous_stasis,inr_plasma,venous_stasis,Venous stasis / prolonged tourniquet application,tourniquet_stasis,16,12
 pco2.air_bubble,pco2_blood,air_bubble,Air bubble / ambient-air contamination in the syringe,air_contamination,27,1
 pco2.air_bubble_30min,pco2_blood,air_bubble_30min,Air bubble trapped in the syringe for 30 min before expulsion,air_contamination,2,1
-pco2.delayed_analysis,pco2_blood,delayed_analysis,Delayed analysis at room temperature,delayed_analysis,33,4
+pco2.delayed_analysis,pco2_blood,delayed_analysis,Delayed analysis at room temperature,delayed_analysis,32,4
 pco2.dextrose_50,pco2_blood,dextrose_50,Dextrose 50% (D50) contamination of the sample,iv_fluid_contamination,6,1
 pco2.leukocytosis,pco2_blood,leukocytosis,Leukocytosis (leukocyte larceny),leukocytosis,14,10
 pco2.liquid_heparin,pco2_blood,liquid_heparin,Liquid heparin (excess liquid heparin or heparinized saline),anticoagulant_contamination,22,11

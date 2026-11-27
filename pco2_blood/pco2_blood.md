@@ -21,18 +21,18 @@ Every row was judged against this APS. The machine-readable record is `pco2_bloo
 |---|---|
 | Interference causes | 9 |
 | Evidence tables | 8 |
-| Evidence rows | 146 |
+| Evidence rows | 145 |
 | Rows with a numeric percent change (plottable) | 75 |
 | Rows exceeding the 2.7% APS | 69 |
 | Rows within the 2.7% APS | 38 |
-| Rows with a DOI | 118 |
-| Rows with a PubMed ID | 82 |
+| Rows with a DOI | 117 |
+| Rows with a PubMed ID | 81 |
 
 ## Interference causes
 
 | interferent_id | Interferent | Concept | Rows |
 |---|---|---|---|
-| `pco2.delayed_analysis` | Delayed analysis at room temperature | `delayed_analysis` | 33 |
+| `pco2.delayed_analysis` | Delayed analysis at room temperature | `delayed_analysis` | 32 |
 | `pco2.air_bubble` | Air bubble / ambient-air contamination in the syringe | `air_contamination` | 27 |
 | `pco2.syringe_material` | Plastic versus glass sampling syringe (syringe material) | `syringe_material` | 26 |
 | `pco2.liquid_heparin` | Liquid heparin (excess liquid heparin or heparinized saline) | `anticoagulant_contamination` | 22 |
