@@ -38,6 +38,11 @@
   update; a run whose rows were all left out is shown as such.
 - Manager and importer: uncommitted changes are detected without touching the git index.
 - `manager/tests/run.sh`: an end-to-end test of every operation, including a forced failure.
+- Screening, criterion 22: an analyte's system that names blood next to serum or plasma
+  ("Plasma or blood") was read as serum or plasma only, so whole-blood rows were rejected.
+  A system is now read as the definition it is: every matrix it names is accepted. The
+  manager's forms show, while a system is typed, what it accepts and rejects.
+  `manager/tests/test_screening.py` tests the rejection rules directly.
 - Website: the address of every data file now carries the build version. Before, a browser
   could show a freshly deployed page with data it had cached up to ten minutes earlier, so a
   returning visitor saw old row counts next to new ones.

@@ -12,6 +12,8 @@ SERVER_PID=""
 cleanup() { [ -n "$SERVER_PID" ] && kill "$SERVER_PID" 2>/dev/null || true; rm -rf "$WORK"; }
 trap cleanup EXIT
 
+"$PY" "$REPO/manager/tests/test_screening.py" | tail -1          # the rejection rules, directly
+
 git clone -q --bare "$REPO" "$WORK/origin.git"
 git clone -q "$WORK/origin.git" "$WORK/repo"
 cd "$WORK/repo"

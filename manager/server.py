@@ -1495,6 +1495,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self.send(200, archive_runs())
             if url.path == "/api/run":
                 return self.send(200, run_proposal(q["path"]))
+            if url.path == "/api/specimen":
+                return self.send(200, {"text": SC.accepted_specimens(q.get("system", ""))})
             if url.path == "/api/research":
                 return self.send(200, research_view())
             if url.path == "/api/models":

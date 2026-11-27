@@ -134,19 +134,41 @@ def _tags(text, table):
     return {k for k, rx in table.items() if re.search(rf"\b(?:{rx})\b", t)}
 
 
-def specimen_profile(text):
-    """(vessels, matrices) named in a system or a sample type. "Serum (blood drawn after 1 h)"
-    is serum: blood counts as the matrix only when neither serum nor plasma is named."""
+def specimen_profile(text, definition=False):
+    """(vessels, matrices) named in an analyte's system (definition=True) or in a sample type.
+
+    A system is a definition: every matrix it names is accepted ("Plasma or blood" accepts both).
+    A sample type is a description, and there the bare word "blood" next to serum or plasma
+    usually tells where the serum came from ("Serum (blood drawn after 1 h)"), so it counts as a
+    matrix of its own only when the text says "whole blood" or names neither serum nor plasma."""
     matrices = _tags(text, _MATRIX)
-    if matrices & {"serum", "plasma"}:
+    if not definition and matrices & {"serum", "plasma"} and not re.search(r"\bwhole[- ]blood\b", (text or "").lower()):
         matrices.discard("blood")
     return _tags(text, _VESSEL), matrices
+
+
+def accepted_specimens(system):
+    """A sentence saying what a system accepts, for the manager's form."""
+    vessels, matrices = specimen_profile(system, definition=True)
+    names = {"serum": "serum", "plasma": "plasma", "blood": "whole blood"}
+    if not matrices and not vessels:
+        return "No specimen rule: this text names no matrix (serum, plasma, blood) and no vessel, so criterion 22 is not applied."
+    parts = []
+    if matrices:
+        parts.append("accepts " + ", ".join(names[m] for m in ("serum", "plasma", "blood") if m in matrices)
+                     + "; rejects " + (", ".join(names[m] for m in ("serum", "plasma", "blood") if m not in matrices) or "nothing"))
+    if vessels:
+        others = [v for v in ("arterial", "venous", "capillary") if v not in vessels]
+        parts.append("only " + " or ".join(sorted(vessels)) + " blood" + (f"; rejects {' and '.join(others)}" if others else ""))
+    else:
+        parts.append("any vessel")
+    return "Criterion 22 " + "; ".join(parts) + ". A sample type that does not say is never rejected."
 
 
 def specimen_mismatch(system, sample_type):
     """('vessel' | 'matrix' | 'mixed' | None, explanation). A sample type that does not say
     which vessel or which matrix is never a mismatch: unknown is not wrong."""
-    sys_v, sys_m = specimen_profile(system)
+    sys_v, sys_m = specimen_profile(system, definition=True)
     row_v, row_m = specimen_profile(sample_type)
     words = lambda s: " / ".join(sorted(s))
     if sys_v and row_v and not (row_v & sys_v):

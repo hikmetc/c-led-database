@@ -272,6 +272,23 @@ function analyteView() {
 	$('#del-an').onclick = () => review({ op: 'delete_analyte', analyte: a.folder }, { danger: true, confirmLabel: 'Delete analyte', after: () => go({ name: 'database' }) });
 }
 
+/** Under a System field: what criterion 22 will accept and reject for the text being typed. */
+function specimenHint(inputId, hintId) {
+	const input = $(`#${inputId}`);
+	const hint = $(`#${hintId}`);
+	if (!input || !hint) return;
+	let timer = null;
+	const update = async () => {
+		try {
+			hint.textContent = (await api(`/api/specimen?system=${encodeURIComponent(input.value)}`)).text;
+		} catch {
+			hint.textContent = '';
+		}
+	};
+	input.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(update, 200); });
+	update();
+}
+
 function editAnalyteSheet(a) {
 	const f = (id, label, value, hint = '') => `<div class="field"><label for="${id}">${label}</label><input id="${id}" value="${esc(value)}">${hint ? `<span class="caption">${hint}</span>` : ''}</div>`;
 	openSheet(`<h2>Edit analyte</h2><p class="caption mono" style="margin:0">${esc(a.folder)} · id prefix ${esc(a.id)} (these cannot be changed: every row id depends on them)</p>
@@ -279,7 +296,9 @@ function editAnalyteSheet(a) {
 		${f('e-kind', 'Kind of property', a.kind_of_property)}${f('e-unit', 'Unit', a.unit)}
 		${f('e-aps', 'APS, percent (allowable bias, relative)', a.aps)}${f('e-syn', 'Synonyms, separated by ;', a.synonyms)}</div>
 		${f('e-note', 'APS note', a.aps_note)}
+		<p class="caption" id="e-system-hint" style="margin:0"></p>
 		<div class="sheet-actions"><button class="btn" data-close>Cancel</button><button class="btn primary" id="ok">Review…</button></div>`);
+	specimenHint('e-system', 'e-system-hint');
 	$('#ok').onclick = () => review({ op: 'edit_analyte', analyte: a.folder, component: $('#e-component').value, system: $('#e-system').value, kind_of_property: $('#e-kind').value, unit: $('#e-unit').value, aps_percent: $('#e-aps').value, synonyms: $('#e-syn').value, aps_note: $('#e-note').value }, { confirmLabel: 'Save on this Mac' });
 }
 
@@ -536,7 +555,7 @@ async function importSheet(path) {
 				<div class="field"><label for="folder">Folder name</label><input id="folder" placeholder="magnesium_serum" value="${keep('folder')}"></div>
 				<div class="field"><label for="prefix">Short prefix for ids</label><input id="prefix" placeholder="mg" value="${keep('prefix')}"></div>
 				<div class="field"><label for="component">Component</label><input id="component" value="${keep('component', p.analyte_label)}"></div>
-				<div class="field"><label for="system">System / specimen</label><input id="system" placeholder="Serum" value="${keep('system')}"></div>
+				<div class="field"><label for="system">System / specimen</label><input id="system" placeholder="Serum" value="${keep('system')}"><span class="caption" id="system-hint"></span></div>
 				<div class="field"><label for="kind">Kind of property</label><input id="kind" placeholder="Substance concentration" value="${keep('kind')}"></div>
 				<div class="field"><label for="unit">Unit</label><input id="unit" placeholder="mmol/L" value="${keep('unit')}"></div>
 				<div class="field"><label for="aps">APS, percent</label><input id="aps" value="${keep('aps', p.aps)}"></div>
@@ -553,6 +572,7 @@ async function importSheet(path) {
 			<div class="sheet-actions"><button class="btn" data-close>Cancel</button><button class="btn primary" id="ok">Screen and review…</button></div>`);
 		$('#an').onchange = draw;
 		$('#cause').onchange = draw;
+		specimenHint('system', 'system-hint');
 		$('#ok').onclick = () => {
 			const v = (id) => $(`#${id}`)?.value.trim();
 			const op = { op: 'import', path, allow_duplicate: !!$('#dup')?.checked };

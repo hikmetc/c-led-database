@@ -205,7 +205,12 @@ ok((await page.textContent('#n-archive')) === '', 'nothing is left to import');
 
 // ---------------------------------------------------------------- analyte and cause management
 await nav('database'); await page.click('[data-analyte="magnesium_serum"]');
-await page.click('#edit-an'); await page.fill('#e-aps', '5'); await page.fill('#e-unit', 'mmol/L (mg/dL)'); await page.click('#ok');
+await page.click('#edit-an');
+await page.fill('#e-system', 'Plasma or blood');
+await page.waitForFunction(() => /accepts plasma, whole blood; rejects serum/.test(document.querySelector('#e-system-hint')?.textContent || ''), null, { timeout: 15000 });
+ok(true, 'the form says what a system accepts and rejects while it is typed');
+await page.fill('#e-system', 'Serum');
+await page.fill('#e-aps', '5'); await page.fill('#e-unit', 'mmol/L (mg/dL)'); await page.click('#ok');
 p = await plan();
 let reg = fs.readFileSync(path.join(REPO, 'scripts/registry.py'), 'utf8');
 ok(p.title === 'Done' && /recomputed/.test(p.text) && /aps_percent=5\.0/.test(reg) && /unit="mmol\/L \(mg\/dL\)"/.test(reg), 'editing an analyte changes APS and unit in the registry, after a warning about the verdicts');
