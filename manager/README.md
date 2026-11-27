@@ -82,6 +82,8 @@ rejection criteria of `scripts/screening.py`:
 | 9 | The DOI is malformed, or doi.org does not know it (optional online check) | automatically |
 | 10 | Out of scope: not analytical interference or pre-analytical error | by hand |
 | 17 | The recorded APS verdict contradicts the numeric change (a change exactly equal to the APS is not a contradiction) | automatically |
+| 21 | Animal study: the specimen came from an animal, not from a human | automatically |
+| 22 | The specimen is not the one the analyte is defined for (its system): venous blood for an analyte defined in arterial blood, plasma for one defined in serum | automatically |
 
 The screening sheet lists every rejected row with the criterion and the concrete reason (for
 example which row it duplicates, or the two numbers that disagree). You can untick a row to keep
@@ -89,6 +91,20 @@ it, and for the criteria that only a person can judge the app lists the rows wor
 and you choose the reason. Nothing is rejected until you confirm the plan. Rows that pass go
 into the database folder; every rejected row is written in full, with its criteria, reason, date
 and whether it was decided automatically or by hand, to `meta/rejected_rows.csv`.
+
+Criterion 21 looks only at the sample type, and only rejects when that text itself says the
+specimen is animal ("rat serum", "equine arterial blood", "plasma from 20 dogs"). An animal word
+alone is not enough: reagents and interferents are often of animal origin (rabbit thromboplastin,
+bovine albumin, porcine heparin, ovine Fab), and a sample type that names humans is never
+rejected automatically.
+
+Criterion 22 compares the sample type with the analyte's **system** in the registry. The system
+is the rule: an analyte defined as "Blood (arterial)" rejects venous and capillary results, one
+defined as "Serum" rejects plasma and whole blood, one defined as "Serum or plasma" accepts both.
+To accept another specimen for an analyte, change its system (Database, Edit analyte). A sample
+type that does not say which vessel or matrix it is, is not a mismatch. Where the interferent is
+itself about the specimen (wrong sample type, plasma in place of serum, a body fluid in place of
+blood), the row is pointed out for you to decide and is not rejected automatically.
 
 Criterion 17 needs judgement for an analyte whose APS is read as an absolute difference in some
 sources (the screening shows the analyte's APS note in that case).

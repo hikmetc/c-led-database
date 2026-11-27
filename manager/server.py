@@ -396,18 +396,23 @@ def screening(body):
             info = dict(R.ANALYTES[folder], folder=folder)
         else:
             info = {"folder": folder or "new_analyte", "component": body.get("component"), "prefix": body.get("prefix"),
+                    "system": body.get("system"),
                     "synonyms": body.get("synonyms"), "aps_percent": float(body["aps"]) if body.get("aps") not in (None, "") else None}
         exclude, label = dest_name, os.path.basename(src)
+        # the concept of the cause the run is filed under (it decides how criterion 22 treats the specimen)
+        key = body.get("interferent_key")
+        concept = body.get("concept") or (R.CANON.get(folder, {}).get(key, (None, None))[1] if key else None)
     else:
         folder, file = body["analyte"], body["file"]
         raw, _ = read_table_file(table_path(folder, file))
         rows = [dict(zip(raw[0], r)) for r in raw[1:]]
         info = dict(R.ANALYTES[folder], folder=folder)
         exclude, label = file, file
+        concept = R.CANON[folder][R.TABLE_MAP[folder][file]][1]
     doi_status = None
     if body.get("check_dois"):
         doi_status = SC.check_dois([d for d in (SC.row_doi(r) for r in rows) if d], os.path.join(CONFIG_DIR, "doi_cache.json"))
-    result = SC.screen(rows, info, ROOT, exclude_file=exclude, doi_status=doi_status)
+    result = SC.screen(rows, info, ROOT, exclude_file=exclude, doi_status=doi_status, concept=concept)
     for res, r in zip(result, rows):
         pct = SC.number(r.get("Percentage change (calculated)"))
         res["preview"] = {"interferent": clip(r.get("Interferent"), 70), "platform": clip(r.get("Platform/Brand/Method"), 60),
@@ -429,7 +434,7 @@ def screening_all():
         for file in sorted(R.TABLE_MAP[folder]):
             raw, _ = read_table_file(os.path.join(ROOT, folder, "database", file))
             rows = [dict(zip(raw[0], r)) for r in raw[1:]]
-            sm = SC.summary(SC.screen(rows, info, ROOT, exclude_file=file))
+            sm = SC.summary(SC.screen(rows, info, ROOT, exclude_file=file, concept=R.CANON[folder][R.TABLE_MAP[folder][file]][1]))
             if sm["rejected"] or sm["to_check"]:
                 out.append(dict(sm, analyte=folder, component=info["component"], file=file))
     out.sort(key=lambda t: (-t["rejected"], -t["to_check"]))

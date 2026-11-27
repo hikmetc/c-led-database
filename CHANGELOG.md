@@ -15,6 +15,11 @@
   the numeric change (17). Decided by hand: wrong analyte (4), wrong document (5), out of scope
   (10). The importer applies it with `--screen`; the manager screens every import, any table and
   the whole database. Rejections need confirmation and are archived in `meta/rejected_rows.csv`.
+- Two more rejection criteria, both automatic. **21, animal studies**: a row whose sample type
+  says the specimen is animal is rejected; reagents and interferents of animal origin are not
+  mistaken for it. **22, specimen**: a row whose specimen is not the one the analyte is defined
+  for (its `system`) is rejected, for example venous blood for an analyte defined in arterial
+  blood; where the interferent is itself about the specimen the row is only pointed out.
 - Manager: edit an analyte (name, system, unit, kind of property, APS, synonyms), delete an
   analyte, rename an interference cause or move it to another concept.
 - Manager: a **Research** section that starts the literature pipeline (search, full-text download,

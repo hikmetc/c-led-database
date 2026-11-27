@@ -510,8 +510,18 @@ for _line in """| # | Criterion | Decided |
 | 8 | Duplicate of another row: same source, platform, analyzer, concentrations and values | automatically |
 | 9 | The DOI is malformed, or doi.org does not know it (optional online check) | automatically |
 | 10 | Out of scope: not analytical interference or pre-analytical error | by hand |
-| 17 | The recorded APS verdict contradicts the numeric change (a change exactly equal to the APS is not a contradiction) | automatically |""".splitlines():
+| 17 | The recorded APS verdict contradicts the numeric change (a change exactly equal to the APS is not a contradiction) | automatically |
+| 21 | Animal study: the specimen came from an animal, not from a human | automatically |
+| 22 | The specimen is not the one the analyte is defined for (its system): venous blood for an analyte defined in arterial blood, plasma for one defined in serum | automatically |""".splitlines():
     w(_line)
+w("")
+w("Criterion 21 reads only the sample type and rejects only when that text says the specimen is "
+  "animal; an animal word alone is not enough, because reagents and interferents are often of "
+  "animal origin, and a sample type that names humans is never rejected automatically. Criterion "
+  "22 compares the sample type with the analyte's `system` in the registry, which is the rule: "
+  "to accept another specimen for an analyte, change its system. A sample type that names no "
+  "vessel or matrix is not a mismatch, and where the interferent is itself about the specimen the "
+  "row is only pointed out.")
 w("")
 w("The numbers are those of the criteria list the maintainer works from; 11 to 16 and 18 to 20 "
   "are flags, not rejections, and are not applied. Criteria 4, 5 and 10 cannot be decided from a "

@@ -38,9 +38,11 @@
 		<li>it duplicates another row: same source, platform, analyzer, concentrations and values;</li>
 		<li>its DOI is malformed or unknown to doi.org;</li>
 		<li>its recorded APS verdict contradicts its numeric change;</li>
+		<li>it comes from an animal study: the specimen is not human;</li>
+		<li>its specimen is not the one the analyte is defined for, for example venous blood for an analyte defined in arterial blood (unless the specimen is itself the interference under study);</li>
 		<li>the maintainer finds that the source did not measure the analyte, that the cited file is not the article, or that the row is out of scope.</li>
 	</ul>
-	<p>The first six are decided automatically from the row; the last three need a person. Rejected rows are kept, in full, in the repository (<code>meta/rejected_rows.csv</code>).</p>
+	<p>The first eight are decided automatically from the row; the last three need a person. Animal studies are excluded altogether. Rejected rows are kept, in full, in the repository (<code>meta/rejected_rows.csv</code>).</p>
 
 	<h2>The analytical performance specification</h2>
 	<p>Each analyte carries one APS: a relative allowable bias, in percent. A row with a numeric percent change exceeds the APS when the absolute change is greater than it. The APS is data, so this site can re-judge every row against an APS you choose. Where a row reports no numeric change, it cannot be recomputed; the verdict recorded during extraction is shown and the row is marked "not computable".</p>

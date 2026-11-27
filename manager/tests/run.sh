@@ -20,6 +20,8 @@ git config user.name "Manager Test"; git config user.email "test@example.invalid
 rsync -a --delete "$REPO/manager/" manager/ && rsync -a "$REPO/scripts/" scripts/ --exclude __pycache__
 git add -A >/dev/null 2>&1; git commit -q -m "state under test" >/dev/null 2>&1 || true; git push -q >/dev/null 2>&1 || true
 CLED_REQUIRE_PARQUET=1 CLED_DISTRIBUTION=1 "$PY" scripts/build_all.py >/dev/null
+# if a generator changed since the documents were last built, the rebuild changes them: start clean
+git add -A >/dev/null 2>&1; git commit -q -m "rebuilt documents" >/dev/null 2>&1 || true; git push -q >/dev/null 2>&1 || true
 
 "$PY" "$REPO/manager/tests/make_archive.py" "$WORK/repo" "$WORK/archive"
 mkdir -p "$WORK/config" && echo "{\"archive\": \"$WORK/archive\"}" > "$WORK/config/config.json"

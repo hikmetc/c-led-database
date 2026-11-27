@@ -307,7 +307,10 @@ async function screenSheet(target, next, { checkDois = false, intro = '' } = {})
 	const sm = r.summary;
 	const auto = r.rows.filter((x) => x.reject.length);
 	const hints = r.rows.filter((x) => !x.reject.length && x.check.length);
-	const manual = Object.entries(r.criteria).filter(([, c]) => !c.auto);
+	// reasons a person can give: the criteria only a person can judge, and any criterion the
+	// screening pointed at without deciding (an animal study or a specimen it was not sure about)
+	const pointed = new Set(hints.flatMap((x) => x.check.map((e) => e.code)));
+	const manual = Object.entries(r.criteria).filter(([code, c]) => !c.auto || pointed.has(code));
 	const LIMIT = 250;
 	const ctx = (x) => `${esc(x.preview.interferent)} · ${esc(x.preview.platform)} · ${x.preview.change === null ? 'no numeric change' : esc(x.preview.change) + ' %'} · ${esc(x.preview.citation)}`;
 	const counts = Object.entries(sm.by_criterion).sort((a, b) => b[1] - a[1]);
@@ -437,7 +440,8 @@ function tableView() {
 }
 
 function rejectTickedSheet(after) {
-	const reasons = [['wrong_analyte', 4, 'The source did not measure this analyte'], ['wrong_document', 5, 'The cited file is not the article'], ['out_of_scope', 10, 'Out of scope (not analytical interference or pre-analytical error)'], ['other', 0, 'Other reason (describe below)']];
+	const reasons = [['wrong_analyte', 4, 'The source did not measure this analyte'], ['wrong_document', 5, 'The cited file is not the article'], ['out_of_scope', 10, 'Out of scope (not analytical interference or pre-analytical error)'],
+		['animal_study', 21, 'Animal study: the specimen is not human'], ['specimen_mismatch', 22, 'The specimen is not the one the analyte is defined for'], ['other', 0, 'Other reason (describe below)']];
 	const rows = [...draft.deletes].sort((a, b) => a - b);
 	openSheet(`<h2>Reject ${plural(rows.length, 'row')}</h2><p class="caption">The rows are removed from the table and archived in full, with this reason, in meta/rejected_rows.csv. Plain deletion (Review changes) does not archive.</p>
 		<div class="field"><label for="why">Reason</label><select id="why">${reasons.map(([code, , title]) => `<option value="${code}">${esc(title)}</option>`).join('')}</select></div>
@@ -558,7 +562,7 @@ async function importSheet(path) {
 			else op.interferent_key = cause;
 			const missing = Object.entries(op).filter(([k, x]) => k !== 'synonyms' && (x === '' || x === undefined)).map(([k]) => k.replace(/_/g, ' '));
 			if (missing.length) return alert(`Please fill in: ${missing.join(', ')}`);
-			const target = { kind: 'run', path, analyte_folder: op.analyte_folder, component: op.component, prefix: op.prefix, synonyms: op.synonyms, aps: op.aps };
+			const target = { kind: 'run', path, analyte_folder: op.analyte_folder, component: op.component, prefix: op.prefix, synonyms: op.synonyms, aps: op.aps, system: op.system, interferent_key: op.interferent_key, concept: op.concept };
 			screenSheet(target, (rejects) => review({ ...op, rejects }, { confirmLabel: 'Import to this Mac' }), { intro: 'Rows that fail a rejection criterion are left out of the import and archived with their reasons. The rows that pass go into the database folder.' });
 		};
 	};

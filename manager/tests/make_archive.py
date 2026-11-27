@@ -25,6 +25,7 @@ def variant(r, tag):
     r = list(r)
     r[col("Notes")] = f"{r[col('Notes')]} [{tag}]"
     r[col("Baseline analyte concentration")] = f"{r[col('Baseline analyte concentration')]} [{tag}]"   # a different result, not a duplicate
+    r[col("Sample type")] = "Human serum"            # the specimen the test analytes are defined for
     return r
 
 
@@ -49,8 +50,13 @@ nosrc[col("Full reference (from PDF)")] = "not reported in the information sourc
 nosrc[col("doi")] = "not reported in the information source"
 bad_verdict = variant(good[3], "verdict")
 bad_verdict[col("Percentage change (calculated)")] = "1.0"
+#    a rat study (21), a result measured in plasma for an analyte defined in serum (22)
+animal = variant(good[4], "animal")
+animal[col("Sample type")] = "Rat serum (Wistar male rats)"
+plasma = variant(good[5], "plasma")
+plasma[col("Sample type")] = "Heparinized plasma, spiked"
 run("magnesium__hemolysis", "2026-11-27_1000__APS-4", "magnesium_hemolysis_20261127-1000_APS4", "Magnesium", "hemolysis", 4.0,
-    good + [dup, empty, nosrc, bad_verdict])
+    good + [dup, empty, nosrc, bad_verdict, animal, plasma])
 
 # 2. a new cause for an existing analyte
 run("potassium__testcause", "2026-11-27_1100__APS-0.4", "potassium_testcause_20261127-1100_APS0.4", "Potassium", "test cause", 0.4,

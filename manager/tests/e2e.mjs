@@ -58,7 +58,12 @@ async function finish() {
 }
 /** The plan sheet is open: read it, then confirm or cancel. */
 async function plan({ confirm = true } = {}) {
-	await page.waitForSelector('#go');
+	try {
+		await page.waitForSelector('#go', { timeout: 20000 });
+	} catch {
+		// say what the interface showed instead of a plan
+		throw new Error(`no plan was shown. The sheet says: ${(await page.textContent('#sheet-body')).replace(/\s+/g, ' ').slice(0, 400)}`);
+	}
 	const text = await page.textContent('#sheet-body');
 	if (!confirm) { await page.click('#sheet-body [data-close]'); return { text }; }
 	await page.click('#go');
@@ -186,13 +191,14 @@ await page.fill('#kind', 'Substance concentration'); await page.fill('#unit', 'm
 await page.fill('#key', 'hemolysis'); await page.fill('#concept', 'hemolysis'); await page.fill('#cname', 'Hemolysis');
 await page.click('#ok'); await page.waitForSelector('[data-auto]');
 const sheet = await page.textContent('#sheet-body');
-ok(/12 rows/.test(sheet) && /4<\/strong>|4 rejected/.test(await page.innerHTML('#sheet-body')), 'screening the run: 12 rows, 4 rejected');
-for (const c of ['Criterion 1', 'Criterion 3', 'Criterion 8', 'Criterion 17']) ok(sheet.includes(c), `the screening reports ${c.toLowerCase()}`);
+ok(/14 rows/.test(sheet) && /6<\/strong>|6 rejected/.test(await page.innerHTML('#sheet-body')), 'screening the run: 14 rows, 6 rejected');
+for (const c of ['Criterion 1', 'Criterion 3', 'Criterion 8', 'Criterion 17', 'Criterion 21', 'Criterion 22']) ok(sheet.includes(c), `the screening reports ${c.toLowerCase()}`);
+ok(/animal origin \("rat"\)/.test(sheet) && /defined in serum[^.]*the specimen is plasma/.test(sheet), 'the animal study and the wrong specimen are explained in words');
 rj0 = rejected().length;
 await page.click('#ok');
 p = await plan();
 ok(p.title === 'Done' && csvRows('magnesium_serum/database/magnesium_hemolysis_20261127-1000_APS4_extraction_table.csv').length === 9, 'the 8 rows that pass are in the database folder');
-ok(rejected().length === rj0 + 4, 'the 4 rejected rows are archived');
+ok(rejected().length === rj0 + 6, 'the 6 rejected rows are archived');
 db = await DB();
 ok(db.length === 9 && db.some((a) => a.folder === 'magnesium_serum' && a.aps === 4), 'the new analyte is in the database with the APS of the run');
 ok((await page.textContent('#n-archive')) === '', 'nothing is left to import');

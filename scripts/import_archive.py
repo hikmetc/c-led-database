@@ -346,7 +346,8 @@ def main():
         import screening
         src_rows = list(csv.DictReader(io.StringIO(text, newline="")))
         info = dict(new_analyte or R.ANALYTES[folder], folder=folder)
-        for res in screening.screen(src_rows, info, ROOT, exclude_file=dest_name):
+        cause_concept = new_cause[1] if new_cause else R.CANON[folder][key][1]
+        for res in screening.screen(src_rows, info, ROOT, exclude_file=dest_name, concept=cause_concept):
             if res["reject"]:
                 rejected.append({"row": res["row"], "criteria": "; ".join(f"{e['no']} {e['code']}" for e in res["reject"]),
                                  "reason": " | ".join(e["detail"] for e in res["reject"]), "decided": "automatic"})

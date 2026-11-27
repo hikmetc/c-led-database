@@ -13,6 +13,11 @@ Rejection criteria (the numbers are the ones used in the documentation)
                               analyzer, concentrations and values)
      9  bad_identifier        the DOI is malformed, or doi.org does not know it
     17  verdict_inconsistent  the recorded APS verdict contradicts the numeric change
+    21  animal_study          the specimen came from an animal, not from a human
+    22  specimen_mismatch     the specimen is not the one the analyte is defined for (its
+                              "system"): venous blood for an analyte defined in arterial blood,
+                              plasma for an analyte defined in serum. Where the interferent itself
+                              is about the specimen, the row is only pointed out, not rejected.
 
   manual - only a person can decide; the screening suggests rows to look at
      4  wrong_analyte         the source did not measure this analyte
@@ -41,6 +46,8 @@ CRITERIA = {
     "bad_identifier": dict(no=9, auto=True, title="DOI malformed or unknown to doi.org"),
     "out_of_scope": dict(no=10, auto=False, title="Out of scope (not analytical interference or pre-analytical error)"),
     "verdict_inconsistent": dict(no=17, auto=True, title="Recorded APS verdict contradicts the numeric change"),
+    "animal_study": dict(no=21, auto=True, title="Animal study: the specimen is not human"),
+    "specimen_mismatch": dict(no=22, auto=True, title="The specimen is not the one the analyte is defined for"),
 }
 MANUAL = [k for k, v in CRITERIA.items() if not v["auto"]]
 
@@ -55,6 +62,100 @@ PDF_RE = re.compile(r"([A-Za-z0-9][\w\.\-\+\(\)]*\.pdf)")
 DOC_PROBLEM = re.compile(r"masthead|editorial[- ]board|classified[- ]advert|permissions? (sheet|page|form)|front[- ]matter|"
                          r"not the (cited |target )?article|wrong (document|pdf|file|paper)|no text layer|"
                          r"could not be (read|extracted|opened)|unreadable", re.I)
+
+
+# --- criterion 21: animal studies -------------------------------------------------------------
+# Only the specimen decides. An animal name alone proves nothing: reagents and interferents are
+# often of animal origin (rabbit thromboplastin, bovine albumin, porcine heparin, ovine Fab,
+# mouse monoclonal antibodies, HAMA), and such rows are about human samples.
+_SPECIES = (r"rats?|mouse|mice|murine|rabbits?|dogs?|canine|beagles?|pigs?|piglets?|porcine|swine|minipigs?|sheep|ovine|lambs?|"
+            r"goats?|caprine|bovine|cattle|cows?|calf|calves|horses?|equine|ponies|pony|cats?|feline|monkeys?|macaques?|baboons?|"
+            r"guinea[- ]pigs?|hamsters?|ferrets?|rodents?|chickens?|alligators?")
+_SPECIMEN = (r"(?:whole[- ])?blood|sera|serum|plasma|urine|erythrocytes?|red (?:blood )?cells?|h(?:a)?emolysates?|"
+             r"(?:cavity |pleural |pericardial |body )?fluid|bile|specimens?|samples?")
+_REAGENT = (r"gamma[- ]?globulin|globulin|albumin|thromboplastin|brain|lung|placenta|intestin\w*|mucosa|heparin|fab\b|antibod\w*|"
+            r"immunoglobulin|igg\b|igm\b|anti[- ]\w+|thrombin|fibrinogen|collagen|tissue factor|factor [ivx]+|h(?:a)?emoglobin[- ]based|"
+            r"polymeri[sz]ed|insulin|trypsin|pepsin|catalase|liver|kidney|pancrea\w*")
+# "rat serum", "equine arterial blood", "heparinized rabbit carotid-artery blood": a species, then
+# at most four words, then a specimen - unless one of those words names a reagent
+ANIMAL_SPECIMEN = re.compile(rf"\b({_SPECIES})\b(?:[\s-]+(?!(?:{_REAGENT}))[\w.'-]+){{0,4}}?[\s-]+(?:{_SPECIMEN})\b", re.I)
+# "plasma from 20 clinically normal dogs", "blood of six horses", "serum obtained from rabbits"
+ANIMAL_DONOR = re.compile(rf"\b(?:{_SPECIMEN})\b[^.;()]{{0,60}}?\b(?:from|of|in|drawn from|obtained from|collected from)\b[^.;()]{{0,50}}?\b({_SPECIES})\b(?![\s-]+(?:{_REAGENT}))", re.I)
+# strain or husbandry words that only describe animals
+ANIMAL_STRAIN = re.compile(r"\b(wistar|sprague[- ]dawley|balb/?c|c57bl|swiss webster|new zealand white|client-owned|veterinary)\b", re.I)
+ANIMAL_SUBJECTS = re.compile(rf"\b(?:animal (?:model|stud\w+|experiment\w*)|in (?:{_SPECIES})\b|administered to (?:the )?(?:{_SPECIES})\b|"
+                             rf"(?:{_SPECIES}) (?:were|was) (?:given|dosed|injected|exposed|an(?:a)?esthetized|sacrificed|euthani[sz]ed))", re.I)
+_REAGENT_AFTER = re.compile(rf"^[\s-]+(?:{_REAGENT})", re.I)
+
+
+# "Whole blood (Dogs)", "Arterial blood, anesthetized dogs", "blood (transverse facial artery), healthy adult horses"
+ANIMAL_AFTER = re.compile(rf"\b(?:{_SPECIMEN})\b[^.;]{{0,45}}?[(,]\s*(?:[\w-]+\s+){{0,3}}?({_SPECIES})\b", re.I)
+# "In vivo (dog tongue probe)"
+ANIMAL_INVIVO = re.compile(rf"\bin vivo\b[^.;]{{0,30}}?\b({_SPECIES})\b", re.I)
+# a sample type that names humans is never rejected automatically: the animal word in it is
+# then nearly always a reagent or an interferent ("human serum spiked with ... Fab (ovine)")
+HUMAN_SPECIMEN = re.compile(r"\b(human|patients?|volunteers?|donors?|neonat\w*|infants?|children|adults? (?:men|women|volunteers?|patients?))\b", re.I)
+
+
+def animal_specimen(sample_type):
+    """The animal the specimen came from, or None. Deliberately strict: it answers yes only when
+    the sample-type text itself says so, and never when that text also names humans."""
+    t = sample_type or ""
+    if HUMAN_SPECIMEN.search(t):
+        return None
+    for rx in (ANIMAL_SPECIMEN, ANIMAL_DONOR, ANIMAL_AFTER, ANIMAL_INVIVO):
+        for m in rx.finditer(t):
+            if _REAGENT_AFTER.match(t[m.end(1):]) or _REAGENT_AFTER.match(t[m.end():]):
+                continue                                   # "bovine serum albumin", "rabbit brain thromboplastin"
+            if re.search(r"\b(?:f(?:o)?etal|newborn)\s+$", t[:m.start(1)], re.I):
+                continue                                   # "fetal bovine serum", "fetal calf serum": culture reagents
+            return m.group(1).lower()
+    m = ANIMAL_STRAIN.search(t)
+    return m.group(1).lower() if m else None
+
+
+# --- criterion 22: the specimen must be the one the analyte is defined for ---------------------
+# The definition is data: the analyte's `system` in the registry ("Blood (arterial)", "Serum",
+# "Serum or plasma", "Platelet-poor plasma (citrated)"). To accept another specimen for an
+# analyte, change its system; nothing here names an analyte.
+_VESSEL = {"arterial": r"arteri\w*|artery", "venous": r"venous|veins?|venipuncture",
+           "capillary": r"capillar\w*|finger[- ]?(?:stick|prick)|heel[- ]?(?:stick|prick)"}
+_MATRIX = {"serum": r"serum|sera", "plasma": r"plasma", "blood": r"whole[- ]blood|blood"}
+# A row whose interference *is* the specimen (plasma measured instead of serum, venous instead of
+# arterial blood, a body fluid in place of blood) is not rejected for its specimen: it is pointed
+# out for a person to decide. Such causes carry one of these concepts in the registry, or say so
+# in the interferent's own wording.
+SPECIMEN_CONCEPTS = {"specimen_matrix", "sample_type"}
+SPECIMEN_TOPIC = re.compile(r"venous|arterial|capillar|sample type|specimen type|sampling site|in place of|instead of|matrix", re.I)
+
+
+def _tags(text, table):
+    t = (text or "").lower()
+    return {k for k, rx in table.items() if re.search(rf"\b(?:{rx})\b", t)}
+
+
+def specimen_profile(text):
+    """(vessels, matrices) named in a system or a sample type. "Serum (blood drawn after 1 h)"
+    is serum: blood counts as the matrix only when neither serum nor plasma is named."""
+    matrices = _tags(text, _MATRIX)
+    if matrices & {"serum", "plasma"}:
+        matrices.discard("blood")
+    return _tags(text, _VESSEL), matrices
+
+
+def specimen_mismatch(system, sample_type):
+    """('vessel' | 'matrix' | 'mixed' | None, explanation). A sample type that does not say
+    which vessel or which matrix is never a mismatch: unknown is not wrong."""
+    sys_v, sys_m = specimen_profile(system)
+    row_v, row_m = specimen_profile(sample_type)
+    words = lambda s: " / ".join(sorted(s))
+    if sys_v and row_v and not (row_v & sys_v):
+        return "vessel", f"the analyte is defined in {words(sys_v)} blood (system \"{system}\"), the specimen is {words(row_v)}"
+    if sys_m and row_m and not (row_m & sys_m):
+        return "matrix", f"the analyte is defined in {words(sys_m)} (system \"{system}\"), the specimen is {words(row_m)}"
+    if sys_v and row_v - sys_v:
+        return "mixed", f"the analyte is defined in {words(sys_v)} blood, the specimen text names {words(row_v)}"
+    return None, ""
 
 
 def _empty(v):
@@ -157,7 +258,7 @@ def row_doi(row):
     return m.group(0).rstrip(".,;)") if m else None
 
 
-def screen(rows, analyte, root, exclude_file=None, doi_status=None):
+def screen(rows, analyte, root, exclude_file=None, doi_status=None, concept=None):
     """rows: list of dicts keyed by the 29 column names.
     analyte: dict with folder, component, prefix, synonyms, aps_percent (aps_note optional).
     Returns one dict per row: {"row": n (1-based), "reject": [...], "check": [...]}, where each
@@ -230,6 +331,29 @@ def screen(rows, analyte, root, exclude_file=None, doi_status=None):
             reject.append(entry("verdict_inconsistent",
                                 f"The row says \"{v} APS\" but the change is {pct:g} % against an APS of {aps:g} %, which is "
                                 f"{'beyond' if abs(pct) > aps else 'inside'} it. Recorded text: \"{(r.get('Clinical significance vs user APS') or '')[:140]}\""))
+
+        # 21: animal studies are excluded
+        species = animal_specimen(r.get("Sample type"))
+        if species:
+            reject.append(entry("animal_study", f"The specimen is of animal origin (\"{species}\"): sample type \"{(r.get('Sample type') or '')[:140]}\"."))
+        else:
+            m2 = ANIMAL_SUBJECTS.search(" ".join((r.get(c) or "") for c in ("Sample type", "Study method details", "Analyte")))
+            if m2:
+                check.append(entry("animal_study", f"The row may describe an animal study (\"{m2.group(0)[:60]}\"); the sample type does not say so. "
+                                                   "Reject it if the specimen was not human."))
+
+        # 22: the specimen must be the one the analyte is defined for
+        kind, why = specimen_mismatch(analyte.get("system"), r.get("Sample type"))
+        if kind:
+            st = (r.get("Sample type") or "")[:140]
+            about_specimen = concept in SPECIMEN_CONCEPTS or bool(SPECIMEN_TOPIC.search(r.get("Interferent") or ""))
+            if kind in ("vessel", "matrix") and not about_specimen:
+                reject.append(entry("specimen_mismatch", f"{why[0].upper()}{why[1:]}: sample type \"{st}\"."))
+            elif kind == "mixed":
+                check.append(entry("specimen_mismatch", f"{why[0].upper()}{why[1:]}: sample type \"{st}\". Reject it if the result was not measured in the defined specimen."))
+            else:
+                check.append(entry("specimen_mismatch", f"{why[0].upper()}{why[1:]}, but the interferent (\"{(r.get('Interferent') or '')[:70]}\") is itself "
+                                                        f"about the specimen, so the difference may be the point of the study: sample type \"{st}\"."))
 
         # suggestions for the manual criteria
         an = _norm(r.get("Analyte"))
