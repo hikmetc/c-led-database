@@ -33,7 +33,7 @@
     "analyte_id": "inr",
     "analyte_folder": "inr_plasma",
     "component": "International Normalized Ratio (prothrombin time)",
-    "system": "Platelet-poor plasma (citrated)",
+    "system": "Plasma",
     "kind_of_property": "Relative time ratio",
     "unit": "ratio (INR)",
     "aps_percent": 2.0,

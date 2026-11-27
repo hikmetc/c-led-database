@@ -1,9 +1,9 @@
-# International Normalized Ratio (prothrombin time) (Platelet-poor plasma (citrated))
+# International Normalized Ratio (prothrombin time) (Plasma)
 
 ## Analyte
 
 - **Component:** International Normalized Ratio (prothrombin time)
-- **System (matrix):** Platelet-poor plasma (citrated)
+- **System (matrix):** Plasma
 - **Kind of property:** Relative time ratio
 - **Reporting unit:** ratio (INR)
 - **Analyte id:** `inr`

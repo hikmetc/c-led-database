@@ -18,8 +18,7 @@ ANALYTES = {
     aps_percent=3.0, aps_note="",
     synonyms="Digoxin, total; apparent digoxin"),
  "inr_plasma": dict(
-    prefix="inr", component="International Normalized Ratio (prothrombin time)",
-    system="Platelet-poor plasma (citrated)",
+    prefix="inr", component="International Normalized Ratio (prothrombin time)", system="Plasma",
     kind_of_property="Relative time ratio", unit="ratio (INR)",
     aps_percent=2.0, aps_note="",
     synonyms="INR; International Normalised Ratio; prothrombin time, PT"),
