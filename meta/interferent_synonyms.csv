@@ -797,10 +797,6 @@ pco2_blood,pco2_liquidheparin_interference.csv,Liquid heparin (1000 units/mL hep
 pco2_blood,pco2_liquidheparin_interference.csv,"Liquid heparin (theoretical, from CO2 dissociation curve; deadspace-filled 1 mL glass syringe, 1000 units/mL)",pco2.liquid_heparin,1
 pco2_blood,pco2_liquidheparin_interference.csv,"Liquid heparin 1000 IU/ml (custom/self-prepared 1 mL tuberculin syringe, minimal achievable volume; Type-2) vs dry balanced heparin (Type-1, 40 IU/mL)",pco2.liquid_heparin,1
 pco2_blood,pco2_liquidheparin_interference.csv,Liquid sodium (Nevparin) heparin 5000 IU/mL (10 mL syringe washed with liquid heparin; sample-volume reduction),pco2.liquid_heparin,4
-pco2_blood,pco2_liquidheparin_interference.csv,"Liquid sodium heparin (1000 U/mL; self-prepared syringe, 0.1-DS technique)",pco2.liquid_heparin,1
-pco2_blood,pco2_liquidheparin_interference.csv,"Liquid sodium heparin (1000 U/mL; self-prepared syringe, 0.25-DS technique)",pco2.liquid_heparin,1
-pco2_blood,pco2_liquidheparin_interference.csv,"Liquid sodium heparin (1000 U/mL; self-prepared syringe, DS technique)",pco2.liquid_heparin,1
-pco2_blood,pco2_liquidheparin_interference.csv,"Liquid sodium heparin (1000 U/mL; self-prepared syringe, evacuation technique)",pco2.liquid_heparin,1
 pco2_blood,pco2_liquidheparin_interference.csv,"Sodium heparin solution 1000 units/mL (liquid, drawn into plastic syringe before sampling)",pco2.liquid_heparin,5
 pco2_blood,pco2_plastic_vs_glass_extraction.csv,Glass syringe (Roche 0.24-mL arterial microsampler; dry Na/Li heparin) — GLASS COMPARATOR; analyzed immediately,pco2.syringe_material,1
 pco2_blood,pco2_plastic_vs_glass_extraction.csv,Glass syringe (Roche microsampler) — GLASS COMPARATOR; stored 30 min at 0-4C,pco2.syringe_material,1

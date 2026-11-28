@@ -57,7 +57,7 @@
     "synonyms": "pCO2; PCO2; pCO₂; paCO2",
     "interferent_count": 9,
     "evidence_tables": 8,
-    "evidence_rows": 139
+    "evidence_rows": 135
   },
   {
     "analyte_id": "ph",

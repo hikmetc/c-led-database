@@ -21,11 +21,11 @@ Every row was judged against this APS. The machine-readable record is `pco2_bloo
 |---|---|
 | Interference causes | 9 |
 | Evidence tables | 8 |
-| Evidence rows | 139 |
-| Rows with a numeric percent change (plottable) | 69 |
-| Rows exceeding the 2.7% APS | 64 |
+| Evidence rows | 135 |
+| Rows with a numeric percent change (plottable) | 65 |
+| Rows exceeding the 2.7% APS | 60 |
 | Rows within the 2.7% APS | 37 |
-| Rows with a DOI | 111 |
+| Rows with a DOI | 107 |
 | Rows with a PubMed ID | 75 |
 
 ## Interference causes
@@ -34,8 +34,8 @@ Every row was judged against this APS. The machine-readable record is `pco2_bloo
 |---|---|---|---|
 | `pco2.delayed_analysis` | Delayed analysis at room temperature | `delayed_analysis` | 32 |
 | `pco2.air_bubble` | Air bubble / ambient-air contamination in the syringe | `air_contamination` | 27 |
-| `pco2.liquid_heparin` | Liquid heparin (excess liquid heparin or heparinized saline) | `anticoagulant_contamination` | 22 |
 | `pco2.syringe_material` | Plastic versus glass sampling syringe (syringe material) | `syringe_material` | 20 |
+| `pco2.liquid_heparin` | Liquid heparin (excess liquid heparin or heparinized saline) | `anticoagulant_contamination` | 18 |
 | `pco2.leukocytosis` | Leukocytosis (leukocyte larceny) | `leukocytosis` | 14 |
 | `pco2.pneumatic_transport` | Pneumatic tube transport | `pneumatic_transport` | 8 |
 | `pco2.tpn_lipid` | Total parenteral nutrition / lipid emulsion contamination | `lipemia` | 8 |
