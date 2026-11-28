@@ -1,9 +1,9 @@
-# Oxygen partial pressure (Blood (arterial))
+# Oxygen partial pressure (Blood)
 
 ## Analyte
 
 - **Component:** Oxygen partial pressure
-- **System (matrix):** Blood (arterial)
+- **System (matrix):** Blood
 - **Kind of property:** Partial pressure
 - **Reporting unit:** mmHg (kPa)
 - **Analyte id:** `po2`

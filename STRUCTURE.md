@@ -56,7 +56,7 @@ The folder name is the `analyte_folder` key used everywhere else. It is lower ca
 | `inr_plasma` | International Normalized Ratio (prothrombin time) | Plasma or blood | ratio (INR); s (PT) | 2.0% | 24 | 19 | 3,678 |
 | `pco2_blood` | Carbon dioxide partial pressure | Blood | mmHg (kPa) | 2.7% | 9 | 8 | 145 |
 | `ph_blood` | pH | Blood | pH unit | 1.5% | 11 | 10 | 182 |
-| `po2_blood` | Oxygen partial pressure | Blood (arterial) | mmHg (kPa) | 3.0% | 13 | 13 | 548 |
+| `po2_blood` | Oxygen partial pressure | Blood | mmHg (kPa) | 3.0% | 13 | 13 | 548 |
 | `potassium_serum` | Potassium | Serum, plasma or whole blood | mmol/L | 0.4% | 12 | 12 | 304 |
 | `troponin_serum` | Cardiac troponin I and T | Serum, plasma or blood | ng/L (pg/mL) | 13.6% | 11 | 10 | 679 |
 

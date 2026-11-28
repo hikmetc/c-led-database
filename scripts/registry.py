@@ -34,7 +34,7 @@ ANALYTES = {
     aps_note="pH is measured in absolute units; several source studies use an allowable difference of 0.02-0.04 pH units instead of a percentage.",
     synonyms="blood pH; arterial pH"),
  "po2_blood": dict(
-    prefix="po2", component="Oxygen partial pressure", system="Blood (arterial)",
+    prefix="po2", component="Oxygen partial pressure", system="Blood",
     kind_of_property="Partial pressure", unit="mmHg (kPa)",
     aps_percent=3.0, aps_note="",
     synonyms="pO2; PO2; paO2; PaO2"),
