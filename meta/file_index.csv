@@ -1,7 +1,7 @@
 analyte_folder,analyte_component,source_file,default_interferent_id,default_interferent,data_rows
 carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_bilirubin_20261026-1407_APS1_extraction_table.csv,cohb.bilirubin,"Hyperbilirubinemia (bilirubin, icteric sample)",9
 carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_blood-ph_20261026-1304_APS1_extraction_table.csv,cohb.blood_ph,Blood pH of the sample or analysis medium,7
-carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,cohb.body_cavity_fluid,Body cavity fluid used in place of blood,129
+carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_body-cavity-fluid_20261124-1301_APS1_extraction_table.csv,cohb.body_cavity_fluid,Body cavity fluid used in place of blood,124
 carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_cell-free-hemoglobin_20261026-1046_APS1_extraction_table.csv,cohb.hemolysis,Hemolysis / cell-free hemoglobin,7
 carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_cyanocobalamin_20261026-1307_APS1_extraction_table.csv,cohb.cyanocobalamin,Cyanocobalamin,16
 carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_fetal-hemoglobin_20261023-1049_APS1_extraction_table.csv,cohb.fetal_hemoglobin,Fetal hemoglobin (HbF),79

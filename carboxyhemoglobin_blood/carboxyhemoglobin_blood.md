@@ -22,11 +22,11 @@ Every row was judged against this APS. The machine-readable record is `carboxyhe
 |---|---|
 | Interference causes | 27 |
 | Evidence tables | 20 |
-| Evidence rows | 1,951 |
-| Rows with a numeric percent change (plottable) | 1,274 |
-| Rows exceeding the 1.0% APS | 1,318 |
-| Rows within the 1.0% APS | 83 |
-| Rows with a DOI | 1,017 |
+| Evidence rows | 1,946 |
+| Rows with a numeric percent change (plottable) | 1,269 |
+| Rows exceeding the 1.0% APS | 1,316 |
+| Rows within the 1.0% APS | 80 |
+| Rows with a DOI | 1,012 |
 | Rows with a PubMed ID | 0 |
 
 ## Interference causes
@@ -49,8 +49,8 @@ Every row was judged against this APS. The machine-readable record is `carboxyhe
 | `cohb.formalin_fixation` | Formalin fixation / embalming (formaldehyde) | `preservative` | 29 |
 | `cohb.postmortem_co_diffusion` | Postmortem carbon monoxide diffusion into the body | `postmortem_change` | 26 |
 | `cohb.patent_blue_v` | Patent blue V / isosulfan blue | `dye` | 21 |
-| `cohb.thoracic_cavity_fluid` | Thoracic or chest cavity fluid or blood used in place of blood | `specimen_matrix` | 21 |
 | `cohb.cyanocobalamin` | Cyanocobalamin | `vitamin_b12` | 16 |
+| `cohb.thoracic_cavity_fluid` | Thoracic or chest cavity fluid or blood used in place of blood | `specimen_matrix` | 16 |
 | `cohb.fluorescein` | Fluorescein (sodium fluorescein) | `dye` | 13 |
 | `cohb.perflubron` | Perflubron emulsion (perfluorocarbon) | `oxygen_carrier` | 13 |
 | `cohb.hb_m_variants` | Hemoglobin M variants (Hb M Saskatoon, Hb M Hyde Park, Hb M Boston) | `hemoglobin_derivative` | 11 |
