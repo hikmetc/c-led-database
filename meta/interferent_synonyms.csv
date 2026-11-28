@@ -106,7 +106,6 @@ carboxyhemoglobin_blood,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_ex
 carboxyhemoglobin_blood,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,"Hydroxocobalamin (OHCbl; Cyanokit, BTG International)",cohb.hydroxocobalamin,1
 carboxyhemoglobin_blood,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,"Hydroxocobalamin (OHCbl; hydroxocobalamin hydrochloride, Sigma)",cohb.hydroxocobalamin,16
 carboxyhemoglobin_blood,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,"Hydroxocobalamin (OHCo; CYANOKIT 5 g, Merck Serono)",cohb.hydroxocobalamin,1
-carboxyhemoglobin_blood,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,Hydroxocobalamin (OHCob),cohb.hydroxocobalamin,4
 carboxyhemoglobin_blood,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,Hydroxocobalamin (OHCob; Cyanokit),cohb.hydroxocobalamin,2
 carboxyhemoglobin_blood,carboxyhemoglobin_hydroxocobalamin_20261026-1306_APS1_extraction_table.csv,"Hydroxocobalamin (OHCob; Cyanokit, Merck Santé)",cohb.hydroxocobalamin,9
 carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Hb M Saskatoon (unstable Hb M variant; 'unstable methemoglobinemia'),cohb.methemoglobin,1

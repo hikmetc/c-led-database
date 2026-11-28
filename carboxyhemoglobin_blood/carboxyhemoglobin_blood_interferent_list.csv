@@ -11,7 +11,7 @@ cohb.heat_exposure,Heat exposure / thermal coagulation of blood,temperature,252
 cohb.hb_m_variants,"Hemoglobin M variants (Hb M Saskatoon, Hb M Hyde Park, Hb M Boston)",hemoglobin_derivative,11
 cohb.hboc,"Hemoglobin-based oxygen carriers (DCLHb, HemoLink, Apex PHP, rHb1.1, Oxyglobin)",oxygen_carrier,35
 cohb.hemolysis,Hemolysis / cell-free hemoglobin,hemolysis,7
-cohb.hydroxocobalamin,Hydroxocobalamin (Cyanokit),vitamin_b12,103
+cohb.hydroxocobalamin,Hydroxocobalamin (Cyanokit),vitamin_b12,99
 cohb.bilirubin,"Hyperbilirubinemia (bilirubin, icteric sample)",bilirubin,9
 cohb.low_total_hemoglobin,Low total hemoglobin concentration,specimen_matrix,496
 cohb.methemoglobin,Methemoglobin,hemoglobin_derivative,271

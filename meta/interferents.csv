@@ -12,7 +12,7 @@ cohb.hb_m_variants,carboxyhemoglobin_blood,hb_m_variants,"Hemoglobin M variants 
 cohb.hboc,carboxyhemoglobin_blood,hboc,"Hemoglobin-based oxygen carriers (DCLHb, HemoLink, Apex PHP, rHb1.1, Oxyglobin)",oxygen_carrier,35,5
 cohb.heat_exposure,carboxyhemoglobin_blood,heat_exposure,Heat exposure / thermal coagulation of blood,temperature,252,31
 cohb.hemolysis,carboxyhemoglobin_blood,hemolysis,Hemolysis / cell-free hemoglobin,hemolysis,7,4
-cohb.hydroxocobalamin,carboxyhemoglobin_blood,hydroxocobalamin,Hydroxocobalamin (Cyanokit),vitamin_b12,103,11
+cohb.hydroxocobalamin,carboxyhemoglobin_blood,hydroxocobalamin,Hydroxocobalamin (Cyanokit),vitamin_b12,99,10
 cohb.low_total_hemoglobin,carboxyhemoglobin_blood,low_total_hemoglobin,Low total hemoglobin concentration,specimen_matrix,496,30
 cohb.methemoglobin,carboxyhemoglobin_blood,methemoglobin,Methemoglobin,hemoglobin_derivative,271,42
 cohb.methylene_blue,carboxyhemoglobin_blood,methylene_blue,Methylene blue,dye,72,1

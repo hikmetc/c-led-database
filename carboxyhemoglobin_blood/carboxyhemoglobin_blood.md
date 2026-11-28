@@ -22,11 +22,11 @@ Every row was judged against this APS. The machine-readable record is `carboxyhe
 |---|---|
 | Interference causes | 27 |
 | Evidence tables | 20 |
-| Evidence rows | 1,946 |
+| Evidence rows | 1,942 |
 | Rows with a numeric percent change (plottable) | 1,269 |
 | Rows exceeding the 1.0% APS | 1,316 |
 | Rows within the 1.0% APS | 80 |
-| Rows with a DOI | 1,012 |
+| Rows with a DOI | 1,008 |
 | Rows with a PubMed ID | 0 |
 
 ## Interference causes
@@ -37,7 +37,7 @@ Every row was judged against this APS. The machine-readable record is `carboxyhe
 | `cohb.methemoglobin` | Methemoglobin | `hemoglobin_derivative` | 271 |
 | `cohb.heat_exposure` | Heat exposure / thermal coagulation of blood | `temperature` | 252 |
 | `cohb.putrefaction` | Putrefaction / postmortem decomposition | `postmortem_change` | 195 |
-| `cohb.hydroxocobalamin` | Hydroxocobalamin (Cyanokit) | `vitamin_b12` | 103 |
+| `cohb.hydroxocobalamin` | Hydroxocobalamin (Cyanokit) | `vitamin_b12` | 99 |
 | `cohb.postmortem_storage` | Postmortem storage of the specimen | `storage_temperature` | 82 |
 | `cohb.fetal_hemoglobin` | Fetal hemoglobin (HbF) | `hemoglobin_derivative` | 79 |
 | `cohb.methylene_blue` | Methylene blue | `dye` | 72 |
