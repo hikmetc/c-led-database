@@ -552,7 +552,7 @@ digoxin_serum,digoxin_lipemia_interference.csv,Lipemia (native lipemic human ser
 digoxin_serum,digoxin_lipemia_interference.csv,Lipemia (triglyceride),dig.lipemia,2
 digoxin_serum,digoxin_lipemia_interference.csv,Lipemia (triglycerides / chylomicrons),dig.lipemia,2
 digoxin_serum,digoxin_lipemia_interference.csv,Lipemia (triglycerides),dig.lipemia,4
-digoxin_serum,digoxin_lushenwan_interference.csv,Lu-Shen-Wan,dig.lu_shen_wan,85
+digoxin_serum,digoxin_lushenwan_interference.csv,Lu-Shen-Wan,dig.lu_shen_wan,72
 digoxin_serum,digoxin_oleandrin_interference_extraction.csv,"Nerium oleander leaf ingestion in vivo (oleandrin not measured - ""Blood oleandrin levels may correlate more closely with severity of toxicosis; however, this test was unavailable"", p142)",dig.oleandrin,1
 digoxin_serum,digoxin_oleandrin_interference_extraction.csv,"Oleander extract (crude ethanol extract of dry oleander leaves, 13.5 mg total cardenolides per gram)",dig.oleandrin,1
 digoxin_serum,digoxin_oleandrin_interference_extraction.csv,Oleander extract (ethanol/methanol extract of oleander leaf; oleandrin is the active component),dig.oleandrin,66

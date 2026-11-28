@@ -21,12 +21,12 @@ Every row was judged against this APS. The machine-readable record is `digoxin_s
 |---|---|
 | Interference causes | 28 |
 | Evidence tables | 24 |
-| Evidence rows | 4,205 |
+| Evidence rows | 4,192 |
 | Rows with a numeric percent change (plottable) | 1,765 |
 | Rows exceeding the 3.0% APS | 1,842 |
 | Rows within the 3.0% APS | 381 |
-| Rows with a DOI | 1,309 |
-| Rows with a PubMed ID | 1,869 |
+| Rows with a DOI | 1,302 |
+| Rows with a PubMed ID | 1,862 |
 
 ## Interference causes
 
@@ -45,7 +45,7 @@ Every row was judged against this APS. The machine-readable record is `digoxin_s
 | `dig.asian_ginseng` | Asian ginseng (Panax ginseng) | `herbal_supplement` | 128 |
 | `dig.siberian_ginseng` | Siberian ginseng (Eleutherococcus senticosus) | `herbal_supplement` | 120 |
 | `dig.ashwagandha` | Ashwagandha (Withania somnifera) | `herbal_supplement` | 96 |
-| `dig.lu_shen_wan` | Lu-Shen-Wan (Chinese medicine) | `herbal_supplement` | 85 |
+| `dig.lu_shen_wan` | Lu-Shen-Wan (Chinese medicine) | `herbal_supplement` | 72 |
 | `dig.bufalin` | Bufalin (bufadienolide of toad venom preparations) | `cardiac_glycoside` | 49 |
 | `dig.cardiac_glycosides` | Cardiac glycosides and digoxin metabolites (mixed) | `cardiac_glycoside` | 47 |
 | `dig.hemolysis` | Hemolysis (hemoglobin) | `hemolysis` | 44 |

@@ -22,7 +22,7 @@ dig.animal_immunoglobulin,"Heterologous animal immunoglobulin (goat or horse ser
 dig.hama,Human anti-mouse / heterophilic antibodies (HAMA),heterophilic_antibodies,28
 dig.hydrocortisone,Hydrocortisone / cortisol,steroid,18
 dig.lipemia,Lipemia (triglycerides),lipemia,14
-dig.lu_shen_wan,Lu-Shen-Wan (Chinese medicine),herbal_supplement,85
+dig.lu_shen_wan,Lu-Shen-Wan (Chinese medicine),herbal_supplement,72
 dig.oleandrin,Oleandrin / oleander extract,cardiac_glycoside,453
 dig.siberian_ginseng,Siberian ginseng (Eleutherococcus senticosus),herbal_supplement,120
 dig.spironolactone,Spironolactone,drug_cross_reactivity,203
