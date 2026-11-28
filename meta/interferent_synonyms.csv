@@ -374,8 +374,8 @@ digoxin_serum,digoxin_canrenone_interference.csv,"Canrenone (in vivo, from potas
 digoxin_serum,digoxin_canrenone_interference.csv,"Canrenone (in vivo, generated from potassium canrenoate 100 mg IV twice daily)",dig.canrenone,3
 digoxin_serum,digoxin_canrenone_interference.csv,"Canrenone (in vivo, generated from potassium canrenoate therapy)",dig.canrenone,5
 digoxin_serum,digoxin_chansu_interference_29col.csv,"Chan Su (aqueous extract; ""prepared from the dried white secretion of the auricular glands and the skin glands of Chinese toads (Bufo melanostictus Schneider and Bufo bufo gargarzinas Gantor)"", p22; standard solution 1 mg/mL prepared in distilled water, p23)",dig.chan_su,18
-digoxin_serum,digoxin_convallatoxin_interference_extraction.csv,Convallatoxin,dig.convallatoxin,57
-digoxin_serum,digoxin_convallatoxin_interference_extraction.csv,Lily of the valley (Convallaria majalis) herb extract - convallatoxin-containing,dig.convallatoxin,22
+digoxin_serum,digoxin_convallatoxin_interference_extraction.csv,Convallatoxin,dig.convallatoxin,49
+digoxin_serum,digoxin_convallatoxin_interference_extraction.csv,Lily of the valley (Convallaria majalis) herb extract - convallatoxin-containing,dig.convallatoxin,16
 digoxin_serum,digoxin_danshen_interference.csv,Dan Shen (Chinese medicine prepared from the root of the Chinese medicinal plant Salvia miltiorrhiza),dig.danshen,7
 digoxin_serum,digoxin_danshen_interference.csv,Dan Shen (Danshen; prepared from the root of Salvia miltiorrhiza),dig.danshen,104
 digoxin_serum,digoxin_danshen_interference.csv,Dan Shen (prepared from the root of the Chinese medicinal plant Salvia militiorrhiza; Shanghai Chinese Botanical Works),dig.danshen,18

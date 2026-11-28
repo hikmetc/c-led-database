@@ -27,7 +27,7 @@ digoxin_serum,Digoxin,digoxin_bilirubin_interference.csv,dig.bilirubin,Bilirubin
 digoxin_serum,Digoxin,digoxin_biotin_interference_table.csv,dig.biotin,Biotin,35
 digoxin_serum,Digoxin,digoxin_canrenone_interference.csv,dig.canrenone,Canrenone,270
 digoxin_serum,Digoxin,digoxin_chansu_interference_29col.csv,dig.chan_su,Chan Su (toad venom preparation),18
-digoxin_serum,Digoxin,digoxin_convallatoxin_interference_extraction.csv,dig.convallatoxin,Convallatoxin / lily of the valley (Convallaria majalis),79
+digoxin_serum,Digoxin,digoxin_convallatoxin_interference_extraction.csv,dig.convallatoxin,Convallatoxin / lily of the valley (Convallaria majalis),65
 digoxin_serum,Digoxin,digoxin_danshen_interference.csv,dig.danshen,Danshen (Salvia miltiorrhiza),330
 digoxin_serum,Digoxin,digoxin_digibind_interference.csv,dig.digoxin_immune_fab,Digoxin immune Fab (Digibind),197
 digoxin_serum,Digoxin,digoxin_digoxigenin_interference_APS3.csv,dig.digoxigenin,Digoxigenin and its mono- or bis-digitoxosides (digoxin metabolites),418

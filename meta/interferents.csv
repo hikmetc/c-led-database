@@ -35,7 +35,7 @@ dig.bufalin,digoxin_serum,bufalin,Bufalin (bufadienolide of toad venom preparati
 dig.canrenone,digoxin_serum,canrenone,Canrenone,drug_cross_reactivity,465,13
 dig.cardiac_glycosides,digoxin_serum,cardiac_glycosides,Cardiac glycosides and digoxin metabolites (mixed),cardiac_glycoside,47,14
 dig.chan_su,digoxin_serum,chan_su,Chan Su (toad venom preparation),herbal_supplement,18,1
-dig.convallatoxin,digoxin_serum,convallatoxin,Convallatoxin / lily of the valley (Convallaria majalis),cardiac_glycoside,179,7
+dig.convallatoxin,digoxin_serum,convallatoxin,Convallatoxin / lily of the valley (Convallaria majalis),cardiac_glycoside,165,7
 dig.danshen,digoxin_serum,danshen,Danshen (Salvia miltiorrhiza),herbal_supplement,330,7
 dig.digitoxin,digoxin_serum,digitoxin,Digitoxin,cardiac_glycoside,143,9
 dig.digoxigenin,digoxin_serum,digoxigenin,Digoxigenin and its mono- or bis-digitoxosides (digoxin metabolites),cardiac_glycoside,463,75
