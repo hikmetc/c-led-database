@@ -20,8 +20,8 @@ cohb.patent_blue_v,Patent blue V / isosulfan blue,dye,21
 cohb.perflubron,Perflubron emulsion (perfluorocarbon),oxygen_carrier,13
 cohb.pericardial_fluid,Pericardial fluid used in place of blood,specimen_matrix,43
 cohb.pleural_fluid,Pleural fluid used in place of blood,specimen_matrix,55
-cohb.postmortem_co_diffusion,Postmortem carbon monoxide diffusion into the body,postmortem_change,38
-cohb.postmortem_storage,Postmortem storage of the specimen,storage_temperature,99
+cohb.postmortem_co_diffusion,Postmortem carbon monoxide diffusion into the body,postmortem_change,26
+cohb.postmortem_storage,Postmortem storage of the specimen,storage_temperature,82
 cohb.putrefaction,Putrefaction / postmortem decomposition,postmortem_change,195
 cohb.sulfhemoglobin,Sulfhemoglobin,hemoglobin_derivative,36
 cohb.thoracic_cavity_fluid,Thoracic or chest cavity fluid or blood used in place of blood,specimen_matrix,21

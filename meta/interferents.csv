@@ -20,8 +20,8 @@ cohb.patent_blue_v,carboxyhemoglobin_blood,patent_blue_v,Patent blue V / isosulf
 cohb.perflubron,carboxyhemoglobin_blood,perflubron,Perflubron emulsion (perfluorocarbon),oxygen_carrier,13,3
 cohb.pericardial_fluid,carboxyhemoglobin_blood,pericardial_fluid,Pericardial fluid used in place of blood,specimen_matrix,43,4
 cohb.pleural_fluid,carboxyhemoglobin_blood,pleural_fluid,Pleural fluid used in place of blood,specimen_matrix,55,4
-cohb.postmortem_co_diffusion,carboxyhemoglobin_blood,postmortem_co_diffusion,Postmortem carbon monoxide diffusion into the body,postmortem_change,38,3
-cohb.postmortem_storage,carboxyhemoglobin_blood,postmortem_storage,Postmortem storage of the specimen,storage_temperature,99,23
+cohb.postmortem_co_diffusion,carboxyhemoglobin_blood,postmortem_co_diffusion,Postmortem carbon monoxide diffusion into the body,postmortem_change,26,2
+cohb.postmortem_storage,carboxyhemoglobin_blood,postmortem_storage,Postmortem storage of the specimen,storage_temperature,82,20
 cohb.putrefaction,carboxyhemoglobin_blood,putrefaction,Putrefaction / postmortem decomposition,postmortem_change,195,68
 cohb.sulfhemoglobin,carboxyhemoglobin_blood,sulfhemoglobin,Sulfhemoglobin,hemoglobin_derivative,36,9
 cohb.thoracic_cavity_fluid,carboxyhemoglobin_blood,thoracic_cavity_fluid,Thoracic or chest cavity fluid or blood used in place of blood,specimen_matrix,21,5
