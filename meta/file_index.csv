@@ -39,7 +39,7 @@ digoxin_serum,Digoxin,digoxin_hawthorn_interference_extraction.csv,dig.hawthorn,
 digoxin_serum,Digoxin,digoxin_hydrocortisone_interference.csv,dig.hydrocortisone,Hydrocortisone / cortisol,18
 digoxin_serum,Digoxin,digoxin_lipemia_interference.csv,dig.lipemia,Lipemia (triglycerides),14
 digoxin_serum,Digoxin,digoxin_lushenwan_interference.csv,dig.lu_shen_wan,Lu-Shen-Wan (Chinese medicine),72
-digoxin_serum,Digoxin,digoxin_oleandrin_interference_extraction.csv,dig.oleandrin,Oleandrin / oleander extract,363
+digoxin_serum,Digoxin,digoxin_oleandrin_interference_extraction.csv,dig.oleandrin,Oleandrin / oleander extract,362
 digoxin_serum,Digoxin,digoxin_siberian_ginseng_interference.csv,dig.siberian_ginseng,Siberian ginseng (Eleutherococcus senticosus),120
 digoxin_serum,Digoxin,digoxin_spironolactone_interference_APS3.csv,dig.spironolactone,Spironolactone,398
 digoxin_serum,Digoxin,digoxin_uzara_interference_extraction.csv,dig.uzara,Uzara root extract (Xysmalobium undulatum),5

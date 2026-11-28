@@ -27,7 +27,7 @@
     "synonyms": "Digoxin, total; apparent digoxin",
     "interferent_count": 28,
     "evidence_tables": 24,
-    "evidence_rows": 4181
+    "evidence_rows": 4180
   },
   {
     "analyte_id": "inr",
