@@ -819,7 +819,7 @@ pco2_blood,pco2_plastic_vs_glass_extraction.csv,Plastic syringe (polypropylene) 
 pco2_blood,pco2_plastic_vs_glass_extraction.csv,Plastic syringe (polypropylene) — normal; normal healthy subjects; 0-4C; 2 h,pco2.syringe_material,1
 pco2_blood,pco2_plastic_vs_glass_extraction.csv,Plastic syringe (polypropylene) — normal; normal healthy subjects; 0-4C; 4 h,pco2.syringe_material,1
 pco2_blood,pco2_pneumatic_tube_transport_extraction.csv,Pneumatic tube transport,pco2.pneumatic_transport,8
-ph_blood,blood_pH_RT_delay_interference.csv,Analysis delay at room temperature,ph.delayed_analysis,57
+ph_blood,blood_pH_RT_delay_interference.csv,Analysis delay at room temperature,ph.delayed_analysis,56
 ph_blood,blood_pH_RT_delay_interference.csv,Analysis delay at room temperature (plus standardized mechanical stress),ph.delayed_analysis,1
 ph_blood,blood_pH_TPN_lipid_D50_interference_extraction.csv,Dextrose 50% (D50) - IV-line contamination model,ph.dextrose_50,6
 ph_blood,blood_pH_TPN_lipid_D50_interference_extraction.csv,"Lipid-containing solution (Lipidem 200 mg/mL, ~20% triglycerides) - IV/exogenous lipid contamination",ph.tpn_lipid,3

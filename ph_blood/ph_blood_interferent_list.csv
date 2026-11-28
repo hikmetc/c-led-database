@@ -1,6 +1,6 @@
 interferent_id,interferent,concept,evidence_rows
 ph.air_bubble,Air bubble / room-air contamination in the syringe,air_contamination,13
-ph.delayed_analysis,Analysis delay at room temperature,delayed_analysis,58
+ph.delayed_analysis,Analysis delay at room temperature,delayed_analysis,57
 ph.dextrose_50,Dextrose 50% (D50) contamination of the sample,iv_fluid_contamination,6
 ph.ice_overchilling,Direct ice contact / over-chilling of the syringe,storage_temperature,13
 ph.ethylene_glycol,Ethylene glycol,toxin,2

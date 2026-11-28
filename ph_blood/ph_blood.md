@@ -22,18 +22,18 @@ Every row was judged against this APS. The machine-readable record is `ph_blood_
 |---|---|
 | Interference causes | 11 |
 | Evidence tables | 10 |
-| Evidence rows | 173 |
-| Rows with a numeric percent change (plottable) | 67 |
+| Evidence rows | 172 |
+| Rows with a numeric percent change (plottable) | 66 |
 | Rows exceeding the 1.5% APS | 27 |
-| Rows within the 1.5% APS | 76 |
-| Rows with a DOI | 160 |
-| Rows with a PubMed ID | 96 |
+| Rows within the 1.5% APS | 75 |
+| Rows with a DOI | 159 |
+| Rows with a PubMed ID | 95 |
 
 ## Interference causes
 
 | interferent_id | Interferent | Concept | Rows |
 |---|---|---|---|
-| `ph.delayed_analysis` | Analysis delay at room temperature | `delayed_analysis` | 58 |
+| `ph.delayed_analysis` | Analysis delay at room temperature | `delayed_analysis` | 57 |
 | `ph.wrong_sample_type` | Wrong sample type (peripheral or central venous, or capillary blood instead of arterial) | `sample_type` | 39 |
 | `ph.air_bubble` | Air bubble / room-air contamination in the syringe | `air_contamination` | 13 |
 | `ph.ice_overchilling` | Direct ice contact / over-chilling of the syringe | `storage_temperature` | 13 |

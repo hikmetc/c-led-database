@@ -1,2 +1,2 @@
 analyte_id,analyte_folder,component,system,kind_of_property,unit,aps_percent,aps_type,aps_note,synonyms,interferent_count,evidence_tables,evidence_rows
-ph,ph_blood,pH,Blood,pH (negative log of hydrogen ion activity),pH unit,1.5,"allowable bias (relative), user-selected",pH is measured in absolute units; several source studies use an allowable difference of 0.02-0.04 pH units instead of a percentage.,blood pH; arterial pH,11,10,173
+ph,ph_blood,pH,Blood,pH (negative log of hydrogen ion activity),pH unit,1.5,"allowable bias (relative), user-selected",pH is measured in absolute units; several source studies use an allowable difference of 0.02-0.04 pH units instead of a percentage.,blood pH; arterial pH,11,10,172

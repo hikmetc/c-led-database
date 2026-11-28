@@ -89,7 +89,7 @@ pco2.pneumatic_transport,pco2_blood,pneumatic_transport,Pneumatic tube transport
 pco2.syringe_material,pco2_blood,syringe_material,Plastic versus glass sampling syringe (syringe material),syringe_material,20,20
 pco2.tpn_lipid,pco2_blood,tpn_lipid,Total parenteral nutrition / lipid emulsion contamination,lipemia,8,2
 ph.air_bubble,ph_blood,air_bubble,Air bubble / room-air contamination in the syringe,air_contamination,13,4
-ph.delayed_analysis,ph_blood,delayed_analysis,Analysis delay at room temperature,delayed_analysis,58,2
+ph.delayed_analysis,ph_blood,delayed_analysis,Analysis delay at room temperature,delayed_analysis,57,2
 ph.dextrose_50,ph_blood,dextrose_50,Dextrose 50% (D50) contamination of the sample,iv_fluid_contamination,6,1
 ph.ethylene_glycol,ph_blood,ethylene_glycol,Ethylene glycol,toxin,2,1
 ph.ice_overchilling,ph_blood,ice_overchilling,Direct ice contact / over-chilling of the syringe,storage_temperature,13,1

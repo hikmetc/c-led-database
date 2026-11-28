@@ -70,7 +70,7 @@ pco2_blood,Carbon dioxide partial pressure,pco2_leukocytosis_interference.csv,pc
 pco2_blood,Carbon dioxide partial pressure,pco2_liquidheparin_interference.csv,pco2.liquid_heparin,Liquid heparin (excess liquid heparin or heparinized saline),18
 pco2_blood,Carbon dioxide partial pressure,pco2_plastic_vs_glass_extraction.csv,pco2.syringe_material,Plastic versus glass sampling syringe (syringe material),20
 pco2_blood,Carbon dioxide partial pressure,pco2_pneumatic_tube_transport_extraction.csv,pco2.pneumatic_transport,Pneumatic tube transport,8
-ph_blood,pH,blood_pH_RT_delay_interference.csv,ph.delayed_analysis,Analysis delay at room temperature,58
+ph_blood,pH,blood_pH_RT_delay_interference.csv,ph.delayed_analysis,Analysis delay at room temperature,57
 ph_blood,pH,blood_pH_TPN_lipid_D50_interference_extraction.csv,ph.tpn_lipid,Total parenteral nutrition / lipid emulsion contamination,16
 ph_blood,pH,blood_pH_air_interference.csv,ph.air_bubble,Air bubble / room-air contamination in the syringe,13
 ph_blood,pH,blood_pH_ethylene_glycol_interference.csv,ph.ethylene_glycol,Ethylene glycol,2
