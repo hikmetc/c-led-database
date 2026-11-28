@@ -106,7 +106,7 @@ po2.halothane,po2_blood,halothane,Halothane (volatile anaesthetic),volatile_anae
 po2.hemolysis,po2_blood,hemolysis,Hemolysis,hemolysis,16,6
 po2.isoflurane,po2_blood,isoflurane,Isoflurane (volatile anaesthetic),volatile_anaesthetic,1,1
 po2.leukocytosis,po2_blood,leukocytosis,Leukocytosis (leukocyte larceny),leukocytosis,28,17
-po2.liquid_heparin,po2_blood,liquid_heparin,Excess liquid heparin in the syringe,anticoagulant_contamination,36,6
+po2.liquid_heparin,po2_blood,liquid_heparin,Excess liquid heparin in the syringe,anticoagulant_contamination,24,6
 po2.nitrous_oxide,po2_blood,nitrous_oxide,Nitrous oxide,volatile_anaesthetic,18,1
 po2.pneumatic_transport,po2_blood,pneumatic_transport,Pneumatic tube transport,pneumatic_transport,27,1
 po2.storage_temperature,po2_blood,storage_temperature,Storage temperature (room temperature versus on ice),storage_temperature,229,17

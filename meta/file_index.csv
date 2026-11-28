@@ -87,7 +87,7 @@ po2_blood,Oxygen partial pressure,pO2_air_bubble_interference.csv,po2.air_bubble
 po2_blood,Oxygen partial pressure,pO2_halothane_interference.csv,po2.halothane,Halothane (volatile anaesthetic),20
 po2_blood,Oxygen partial pressure,pO2_hemolysis_interference_extraction.csv,po2.hemolysis,Hemolysis,16
 po2_blood,Oxygen partial pressure,pO2_leukocyte_larceny_extraction.csv,po2.leukocytosis,Leukocytosis (leukocyte larceny),28
-po2_blood,Oxygen partial pressure,pO2_liquid_heparin_interference_table.csv,po2.liquid_heparin,Excess liquid heparin in the syringe,36
+po2_blood,Oxygen partial pressure,pO2_liquid_heparin_interference_table.csv,po2.liquid_heparin,Excess liquid heparin in the syringe,24
 po2_blood,Oxygen partial pressure,pO2_plastic_syringe_interference.csv,po2.syringe_material,Plastic versus glass sampling syringe (gas permeability of plastic),47
 po2_blood,Oxygen partial pressure,pO2_platelet_larceny_extraction.csv,po2.thrombocytosis,Thrombocytosis (platelet larceny),16
 po2_blood,Oxygen partial pressure,pO2_pneumatic_tube_interference_extraction.csv,po2.pneumatic_transport,Pneumatic tube transport,27

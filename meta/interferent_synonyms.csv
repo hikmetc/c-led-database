@@ -905,7 +905,7 @@ po2_blood,pO2_leukocyte_larceny_extraction.csv,Marked leukocytosis in chronic my
 po2_blood,pO2_leukocyte_larceny_extraction.csv,"Moderate leukocytosis (WBC >15 × 109/L), non-leukaemic, with time at room temperature",po2.leukocytosis,1
 po2_blood,pO2_leukocyte_larceny_extraction.csv,Reduction of hyperleukocytosis by leukapheresis (reversal control),po2.leukocytosis,1
 po2_blood,pO2_leukocyte_larceny_extraction.csv,"Severe leukocytosis (WBC >50 × 10³ cells/mm³) or severe thrombocytosis (platelets >500,000)",po2.leukocytosis,1
-po2_blood,pO2_liquid_heparin_interference_table.csv,Excess liquid heparin in the syringe,po2.liquid_heparin,26
+po2_blood,pO2_liquid_heparin_interference_table.csv,Excess liquid heparin in the syringe,po2.liquid_heparin,14
 po2_blood,pO2_liquid_heparin_interference_table.csv,Excess liquid heparin in the syringe (as residual heparinised saline flush solution diluting the sample),po2.liquid_heparin,5
 po2_blood,pO2_liquid_heparin_interference_table.csv,Excess liquid heparin in the syringe (heparin concentration varied at constant dilution),po2.liquid_heparin,1
 po2_blood,pO2_liquid_heparin_interference_table.csv,Excess liquid heparin in the syringe (heparin dilution varied by syringe filling volume),po2.liquid_heparin,2

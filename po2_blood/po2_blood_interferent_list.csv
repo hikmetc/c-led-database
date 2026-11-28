@@ -2,7 +2,7 @@ interferent_id,interferent,concept,evidence_rows
 po2.air_bubble,Air bubble in the syringe,air_contamination,25
 po2.delayed_analysis,Delayed analysis / storage time at room temperature,delayed_analysis,59
 po2.enflurane,Enflurane (volatile anaesthetic),volatile_anaesthetic,5
-po2.liquid_heparin,Excess liquid heparin in the syringe,anticoagulant_contamination,36
+po2.liquid_heparin,Excess liquid heparin in the syringe,anticoagulant_contamination,24
 po2.halothane,Halothane (volatile anaesthetic),volatile_anaesthetic,20
 po2.hemolysis,Hemolysis,hemolysis,16
 po2.isoflurane,Isoflurane (volatile anaesthetic),volatile_anaesthetic,1
