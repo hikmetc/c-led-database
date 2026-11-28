@@ -341,9 +341,7 @@ digoxin_serum,digoxin_DLIS_interference_APS3.csv,Digoxin-like immunoreactive sub
 digoxin_serum,digoxin_HAMA_interference_extraction.csv,Anti-murine heterophilic antibodies / human 'anti-mouse' antibodies (HAMA),dig.hama,14
 digoxin_serum,digoxin_HAMA_interference_extraction.csv,Circulating endogenous (heterophilic) antibodies / human anti-animal antibodies,dig.hama,6
 digoxin_serum,digoxin_HAMA_interference_extraction.csv,Digoxin-like immunoreactive factor (DLIF) - negative control experiment within the anti-mouse antibody workup,dig.hama,2
-digoxin_serum,digoxin_HAMA_interference_extraction.csv,"Goat serum IgG (Vector Labs, Burlingame, CA) - exogenous heterologous animal immunoglobulin; NOT human anti-mouse antibody",dig.animal_immunoglobulin,6
 digoxin_serum,digoxin_HAMA_interference_extraction.csv,Goat-derived anti-lymphocyte globulin (ALG) - exogenous heterologous animal immunoglobulin (goat IgG); NOT human anti-mouse antibody,dig.animal_immunoglobulin,12
-digoxin_serum,digoxin_HAMA_interference_extraction.csv,"Horse serum IgG (Gibco, Grand Island, NY) - exogenous heterologous animal immunoglobulin; negative control; NOT human anti-mouse antibody",dig.animal_immunoglobulin,5
 digoxin_serum,digoxin_HAMA_interference_extraction.csv,Horse-derived anti-thymocyte globulin (ATG) administered in vivo - exogenous heterologous animal immunoglobulin; NOT human anti-mouse antibody,dig.animal_immunoglobulin,1
 digoxin_serum,digoxin_HAMA_interference_extraction.csv,Human antimouse antibody (HAMA),dig.hama,6
 digoxin_serum,digoxin_ashwagandha_interference.csv,"Ashwagandha (Indian Ayurvedic medicine); no product, brand or concentration specified",dig.ashwagandha,5

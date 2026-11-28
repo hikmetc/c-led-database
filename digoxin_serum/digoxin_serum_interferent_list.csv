@@ -18,7 +18,7 @@ dig.enzalutamide,Enzalutamide,drug_cross_reactivity,24
 dig.free_kappa,Free kappa light chains,paraprotein,23
 dig.hawthorn,Hawthorn (Crataegus spp.),herbal_supplement,31
 dig.hemolysis,Hemolysis (hemoglobin),hemolysis,44
-dig.animal_immunoglobulin,"Heterologous animal immunoglobulin (goat or horse serum IgG, anti-lymphocyte globulin)",heterophilic_antibodies,24
+dig.animal_immunoglobulin,"Heterologous animal immunoglobulin (goat or horse serum IgG, anti-lymphocyte globulin)",heterophilic_antibodies,13
 dig.hama,Human anti-mouse / heterophilic antibodies (HAMA),heterophilic_antibodies,28
 dig.hydrocortisone,Hydrocortisone / cortisol,steroid,18
 dig.lipemia,Lipemia (triglycerides),lipemia,14

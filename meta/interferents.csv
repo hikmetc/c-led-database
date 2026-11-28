@@ -26,7 +26,7 @@ cohb.putrefaction,carboxyhemoglobin_blood,putrefaction,Putrefaction / postmortem
 cohb.sulfhemoglobin,carboxyhemoglobin_blood,sulfhemoglobin,Sulfhemoglobin,hemoglobin_derivative,36,9
 cohb.thoracic_cavity_fluid,carboxyhemoglobin_blood,thoracic_cavity_fluid,Thoracic or chest cavity fluid or blood used in place of blood,specimen_matrix,21,5
 cohb.uncapped_storage,carboxyhemoglobin_blood,uncapped_storage,Uncapped storage / air headspace above the sample,air_contamination,52,33
-dig.animal_immunoglobulin,digoxin_serum,animal_immunoglobulin,"Heterologous animal immunoglobulin (goat or horse serum IgG, anti-lymphocyte globulin)",heterophilic_antibodies,24,4
+dig.animal_immunoglobulin,digoxin_serum,animal_immunoglobulin,"Heterologous animal immunoglobulin (goat or horse serum IgG, anti-lymphocyte globulin)",heterophilic_antibodies,13,2
 dig.ashwagandha,digoxin_serum,ashwagandha,Ashwagandha (Withania somnifera),herbal_supplement,96,8
 dig.asian_ginseng,digoxin_serum,asian_ginseng,Asian ginseng (Panax ginseng),herbal_supplement,128,1
 dig.bilirubin,digoxin_serum,bilirubin,Bilirubin (icterus),bilirubin,13,10

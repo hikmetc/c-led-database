@@ -21,7 +21,7 @@ Every row was judged against this APS. The machine-readable record is `digoxin_s
 |---|---|
 | Interference causes | 28 |
 | Evidence tables | 24 |
-| Evidence rows | 4,192 |
+| Evidence rows | 4,181 |
 | Rows with a numeric percent change (plottable) | 1,765 |
 | Rows exceeding the 3.0% APS | 1,842 |
 | Rows within the 3.0% APS | 381 |
@@ -52,12 +52,12 @@ Every row was judged against this APS. The machine-readable record is `digoxin_s
 | `dig.biotin` | Biotin | `biotin` | 35 |
 | `dig.hawthorn` | Hawthorn (Crataegus spp.) | `herbal_supplement` | 31 |
 | `dig.hama` | Human anti-mouse / heterophilic antibodies (HAMA) | `heterophilic_antibodies` | 28 |
-| `dig.animal_immunoglobulin` | Heterologous animal immunoglobulin (goat or horse serum IgG, anti-lymphocyte globulin) | `heterophilic_antibodies` | 24 |
 | `dig.enzalutamide` | Enzalutamide | `drug_cross_reactivity` | 24 |
 | `dig.free_kappa` | Free kappa light chains | `paraprotein` | 23 |
 | `dig.chan_su` | Chan Su (toad venom preparation) | `herbal_supplement` | 18 |
 | `dig.hydrocortisone` | Hydrocortisone / cortisol | `steroid` | 18 |
 | `dig.lipemia` | Lipemia (triglycerides) | `lipemia` | 14 |
+| `dig.animal_immunoglobulin` | Heterologous animal immunoglobulin (goat or horse serum IgG, anti-lymphocyte globulin) | `heterophilic_antibodies` | 13 |
 | `dig.bilirubin` | Bilirubin (icterus) | `bilirubin` | 13 |
 | `dig.uzara` | Uzara root extract (Xysmalobium undulatum) | `herbal_supplement` | 5 |
 
