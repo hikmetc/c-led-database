@@ -21,7 +21,7 @@ Every row was judged against this APS. The machine-readable record is `digoxin_s
 |---|---|
 | Interference causes | 28 |
 | Evidence tables | 24 |
-| Evidence rows | 4,245 |
+| Evidence rows | 4,219 |
 | Rows with a numeric percent change (plottable) | 1,765 |
 | Rows exceeding the 3.0% APS | 1,842 |
 | Rows within the 3.0% APS | 381 |
@@ -36,7 +36,7 @@ Every row was judged against this APS. The machine-readable record is `digoxin_s
 | `dig.canrenone` | Canrenone | `drug_cross_reactivity` | 465 |
 | `dig.digoxigenin` | Digoxigenin and its mono- or bis-digitoxosides (digoxin metabolites) | `cardiac_glycoside` | 463 |
 | `dig.oleandrin` | Oleandrin / oleander extract | `cardiac_glycoside` | 453 |
-| `dig.danshen` | Danshen (Salvia miltiorrhiza) | `herbal_supplement` | 356 |
+| `dig.danshen` | Danshen (Salvia miltiorrhiza) | `herbal_supplement` | 330 |
 | `dig.spironolactone` | Spironolactone | `drug_cross_reactivity` | 203 |
 | `dig.digoxin_immune_fab` | Digoxin immune Fab (Digibind) | `antidote` | 197 |
 | `dig.convallatoxin` | Convallatoxin / lily of the valley (Convallaria majalis) | `cardiac_glycoside` | 179 |
