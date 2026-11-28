@@ -564,7 +564,6 @@ digoxin_serum,digoxin_oleandrin_interference_extraction.csv,Oleander extract (et
 digoxin_serum,digoxin_oleandrin_interference_extraction.csv,Oleander leaf ingestion in vivo (oleandrin among the cardenolides; individual oleandrin concentration not measured),dig.oleandrin,2
 digoxin_serum,digoxin_oleandrin_interference_extraction.csv,Oleandrin,dig.oleandrin,202
 digoxin_serum,digoxin_oleandrin_interference_extraction.csv,Oleandrin (pure),dig.oleandrin,1
-digoxin_serum,digoxin_prednisolone_interference.csv,Prednisolone (PRE),dig.prednisolone,32
 digoxin_serum,digoxin_siberian_ginseng_interference.csv,Siberian ginseng,dig.siberian_ginseng,3
 digoxin_serum,digoxin_siberian_ginseng_interference.csv,"Siberian ginseng (Z-T brand liquid extract, manufactured in China, distributed by Z-T Universal Inc, Glen Head, NY)",dig.siberian_ginseng,30
 digoxin_serum,digoxin_siberian_ginseng_interference.csv,"Siberian ginseng (Z-T brand liquid extract, manufactured in China, distributed by Z-T Universal, Glen Head, NY)",dig.siberian_ginseng,27

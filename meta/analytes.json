@@ -25,9 +25,9 @@
     "aps_type": "allowable bias (relative), user-selected",
     "aps_note": "",
     "synonyms": "Digoxin, total; apparent digoxin",
-    "interferent_count": 29,
-    "evidence_tables": 25,
-    "evidence_rows": 4277
+    "interferent_count": 28,
+    "evidence_tables": 24,
+    "evidence_rows": 4245
   },
   {
     "analyte_id": "inr",

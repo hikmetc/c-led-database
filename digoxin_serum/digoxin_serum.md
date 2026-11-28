@@ -19,13 +19,13 @@ Every row was judged against this APS. The machine-readable record is `digoxin_s
 
 | | |
 |---|---|
-| Interference causes | 29 |
-| Evidence tables | 25 |
-| Evidence rows | 4,277 |
-| Rows with a numeric percent change (plottable) | 1,789 |
-| Rows exceeding the 3.0% APS | 1,859 |
-| Rows within the 3.0% APS | 390 |
-| Rows with a DOI | 1,355 |
+| Interference causes | 28 |
+| Evidence tables | 24 |
+| Evidence rows | 4,245 |
+| Rows with a numeric percent change (plottable) | 1,765 |
+| Rows exceeding the 3.0% APS | 1,842 |
+| Rows within the 3.0% APS | 381 |
+| Rows with a DOI | 1,323 |
 | Rows with a PubMed ID | 1,883 |
 
 ## Interference causes
@@ -50,7 +50,6 @@ Every row was judged against this APS. The machine-readable record is `digoxin_s
 | `dig.cardiac_glycosides` | Cardiac glycosides and digoxin metabolites (mixed) | `cardiac_glycoside` | 47 |
 | `dig.hemolysis` | Hemolysis (hemoglobin) | `hemolysis` | 44 |
 | `dig.biotin` | Biotin | `biotin` | 35 |
-| `dig.prednisolone` | Prednisolone | `steroid` | 32 |
 | `dig.hawthorn` | Hawthorn (Crataegus spp.) | `herbal_supplement` | 31 |
 | `dig.hama` | Human anti-mouse / heterophilic antibodies (HAMA) | `heterophilic_antibodies` | 28 |
 | `dig.animal_immunoglobulin` | Heterologous animal immunoglobulin (goat or horse serum IgG, anti-lymphocyte globulin) | `heterophilic_antibodies` | 24 |
@@ -65,6 +64,6 @@ Every row was judged against this APS. The machine-readable record is `digoxin_s
 ## Files
 
 - `digoxin_serum_analyte.csv` - the analyte record: component, system, unit, selected APS.
-- `digoxin_serum_interferent_list.csv` - the 29 interference causes, with ids and concepts.
+- `digoxin_serum_interferent_list.csv` - the 28 interference causes, with ids and concepts.
 - `database/` - the source evidence tables, one CSV per interferent, all sharing the same 29 columns (see `meta/data_dictionary.csv`).
 

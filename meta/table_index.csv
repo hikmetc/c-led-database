@@ -40,7 +40,6 @@ digoxin_serum,digoxin_hydrocortisone_interference.csv,dig.hydrocortisone,no
 digoxin_serum,digoxin_lipemia_interference.csv,dig.lipemia,no
 digoxin_serum,digoxin_lushenwan_interference.csv,dig.lu_shen_wan,no
 digoxin_serum,digoxin_oleandrin_interference_extraction.csv,dig.oleandrin,no
-digoxin_serum,digoxin_prednisolone_interference.csv,dig.prednisolone,no
 digoxin_serum,digoxin_siberian_ginseng_interference.csv,dig.siberian_ginseng,no
 digoxin_serum,digoxin_spironolactone_interference_APS3.csv,dig.spironolactone,yes
 digoxin_serum,digoxin_uzara_interference_extraction.csv,dig.uzara,no
