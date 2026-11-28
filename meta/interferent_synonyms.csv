@@ -350,7 +350,7 @@ digoxin_serum,digoxin_ashwagandha_interference.csv,"Ashwagandha Brand 1 (Withani
 digoxin_serum,digoxin_ashwagandha_interference.csv,"Ashwagandha Brand 1 (Withania somnifera), Herb Pharm (Williams, OR); liquid extract in ethanol/water 60:40 by vol",dig.ashwagandha,24
 digoxin_serum,digoxin_ashwagandha_interference.csv,"Ashwagandha Brand 2 (Withania somnifera / Indian ginseng), Herbs etc (Santa Fe, New Mexico); liquid extract in ethanol/water 60:40 by vol",dig.ashwagandha,6
 digoxin_serum,digoxin_ashwagandha_interference.csv,"Ashwagandha Brand 2 (Withania somnifera), Herbs, etc. (Santa Fe, New Mexico); liquid extract in ethanol/water 60:40 by vol",dig.ashwagandha,18
-digoxin_serum,digoxin_asian_ginseng_interference.csv,Asian ginseng,dig.asian_ginseng,128
+digoxin_serum,digoxin_asian_ginseng_interference.csv,Asian ginseng,dig.asian_ginseng,121
 digoxin_serum,digoxin_bilirubin_interference.csv,Bilirubin (icterus),dig.bilirubin,1
 digoxin_serum,digoxin_bilirubin_interference.csv,Bilirubin (icterus) - 'highly icteric' patient sera / 'high concentrations of ... bilirubin',dig.bilirubin,1
 digoxin_serum,digoxin_bilirubin_interference.csv,Bilirubin (icterus) - hepatic disease patients characterised by total bilirubin,dig.bilirubin,2

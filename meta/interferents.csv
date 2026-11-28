@@ -28,7 +28,7 @@ cohb.thoracic_cavity_fluid,carboxyhemoglobin_blood,thoracic_cavity_fluid,Thoraci
 cohb.uncapped_storage,carboxyhemoglobin_blood,uncapped_storage,Uncapped storage / air headspace above the sample,air_contamination,52,33
 dig.animal_immunoglobulin,digoxin_serum,animal_immunoglobulin,"Heterologous animal immunoglobulin (goat or horse serum IgG, anti-lymphocyte globulin)",heterophilic_antibodies,13,2
 dig.ashwagandha,digoxin_serum,ashwagandha,Ashwagandha (Withania somnifera),herbal_supplement,96,8
-dig.asian_ginseng,digoxin_serum,asian_ginseng,Asian ginseng (Panax ginseng),herbal_supplement,128,1
+dig.asian_ginseng,digoxin_serum,asian_ginseng,Asian ginseng (Panax ginseng),herbal_supplement,121,1
 dig.bilirubin,digoxin_serum,bilirubin,Bilirubin (icterus),bilirubin,13,10
 dig.biotin,digoxin_serum,biotin,Biotin,biotin,35,1
 dig.bufalin,digoxin_serum,bufalin,Bufalin (bufadienolide of toad venom preparations),cardiac_glycoside,49,2

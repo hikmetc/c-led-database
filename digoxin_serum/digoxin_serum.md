@@ -21,12 +21,12 @@ Every row was judged against this APS. The machine-readable record is `digoxin_s
 |---|---|
 | Interference causes | 28 |
 | Evidence tables | 24 |
-| Evidence rows | 4,180 |
+| Evidence rows | 4,173 |
 | Rows with a numeric percent change (plottable) | 1,765 |
 | Rows exceeding the 3.0% APS | 1,842 |
 | Rows within the 3.0% APS | 381 |
-| Rows with a DOI | 1,301 |
-| Rows with a PubMed ID | 1,861 |
+| Rows with a DOI | 1,294 |
+| Rows with a PubMed ID | 1,854 |
 
 ## Interference causes
 
@@ -42,7 +42,7 @@ Every row was judged against this APS. The machine-readable record is `digoxin_s
 | `dig.convallatoxin` | Convallatoxin / lily of the valley (Convallaria majalis) | `cardiac_glycoside` | 165 |
 | `dig.dihydrodigoxin` | Dihydrodigoxin | `cardiac_glycoside` | 144 |
 | `dig.digitoxin` | Digitoxin | `cardiac_glycoside` | 143 |
-| `dig.asian_ginseng` | Asian ginseng (Panax ginseng) | `herbal_supplement` | 128 |
+| `dig.asian_ginseng` | Asian ginseng (Panax ginseng) | `herbal_supplement` | 121 |
 | `dig.siberian_ginseng` | Siberian ginseng (Eleutherococcus senticosus) | `herbal_supplement` | 120 |
 | `dig.ashwagandha` | Ashwagandha (Withania somnifera) | `herbal_supplement` | 96 |
 | `dig.lu_shen_wan` | Lu-Shen-Wan (Chinese medicine) | `herbal_supplement` | 72 |

@@ -22,7 +22,7 @@ carboxyhemoglobin_blood,Carboxyhemoglobin,carboxyhemoglobin_uncapped-storage-air
 digoxin_serum,Digoxin,digoxin_DLIS_interference_APS3.csv,dig.dlis,Digoxin-like immunoreactive substances (DLIS),840
 digoxin_serum,Digoxin,digoxin_HAMA_interference_extraction.csv,dig.hama,Human anti-mouse / heterophilic antibodies (HAMA),41
 digoxin_serum,Digoxin,digoxin_ashwagandha_interference.csv,dig.ashwagandha,Ashwagandha (Withania somnifera),96
-digoxin_serum,Digoxin,digoxin_asian_ginseng_interference.csv,dig.asian_ginseng,Asian ginseng (Panax ginseng),128
+digoxin_serum,Digoxin,digoxin_asian_ginseng_interference.csv,dig.asian_ginseng,Asian ginseng (Panax ginseng),121
 digoxin_serum,Digoxin,digoxin_bilirubin_interference.csv,dig.bilirubin,Bilirubin (icterus),13
 digoxin_serum,Digoxin,digoxin_biotin_interference_table.csv,dig.biotin,Biotin,35
 digoxin_serum,Digoxin,digoxin_canrenone_interference.csv,dig.canrenone,Canrenone,270
