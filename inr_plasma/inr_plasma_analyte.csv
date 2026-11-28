@@ -1,2 +1,2 @@
 analyte_id,analyte_folder,component,system,kind_of_property,unit,aps_percent,aps_type,aps_note,synonyms,interferent_count,evidence_tables,evidence_rows
-inr,inr_plasma,International Normalized Ratio (prothrombin time),Plasma or blood,Relative time ratio,ratio (INR); s (PT),2.0,"allowable bias (relative), user-selected",,"INR; International Normalised Ratio; prothrombin time, PT",24,19,3678
+inr,inr_plasma,International Normalized Ratio (prothrombin time),Plasma or blood,Relative time ratio,ratio (INR); s (PT),2.0,"allowable bias (relative), user-selected",,"INR; International Normalised Ratio; prothrombin time, PT",24,19,3669

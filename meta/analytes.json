@@ -42,7 +42,7 @@
     "synonyms": "INR; International Normalised Ratio; prothrombin time, PT",
     "interferent_count": 24,
     "evidence_tables": 19,
-    "evidence_rows": 3678
+    "evidence_rows": 3669
   },
   {
     "analyte_id": "pco2",

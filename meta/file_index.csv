@@ -44,7 +44,7 @@ digoxin_serum,Digoxin,digoxin_siberian_ginseng_interference.csv,dig.siberian_gin
 digoxin_serum,Digoxin,digoxin_spironolactone_interference_APS3.csv,dig.spironolactone,Spironolactone,398
 digoxin_serum,Digoxin,digoxin_uzara_interference_extraction.csv,dig.uzara,Uzara root extract (Xysmalobium undulatum),5
 inr_plasma,International Normalized Ratio (prothrombin time),INR_MNPT_interference_extraction.csv,inr.mnpt,Mean normal prothrombin time (MNPT) used in the INR calculation,116
-inr_plasma,International Normalized Ratio (prothrombin time),INR_bilirubin_interference_evidence_table.csv,inr.bilirubin,Bilirubin / icterus (conjugated and unconjugated),66
+inr_plasma,International Normalized Ratio (prothrombin time),INR_bilirubin_interference_evidence_table.csv,inr.bilirubin,Bilirubin / icterus (conjugated and unconjugated),57
 inr_plasma,International Normalized Ratio (prothrombin time),INR_citrate_interference_extraction.csv,inr.citrate_concentration,Sodium citrate concentration of the collection tube (3.2% vs 3.8%),24
 inr_plasma,International Normalized Ratio (prothrombin time),INR_clotted-specimen_interference_extraction.csv,inr.clotted_specimen,Clotted specimen / micro-clots,15
 inr_plasma,International Normalized Ratio (prothrombin time),INR_hemolysis_PRIMARY.csv,inr.hemolysis,Hemolysis,41

@@ -21,9 +21,9 @@ Every row was judged against this APS. The machine-readable record is `inr_plasm
 |---|---|
 | Interference causes | 24 |
 | Evidence tables | 19 |
-| Evidence rows | 3,678 |
+| Evidence rows | 3,669 |
 | Rows with a numeric percent change (plottable) | 2,550 |
-| Rows exceeding the 2.0% APS | 1,824 |
+| Rows exceeding the 2.0% APS | 1,815 |
 | Rows within the 2.0% APS | 1,019 |
 | Rows with a DOI | 2,182 |
 | Rows with a PubMed ID | 1,532 |
@@ -41,7 +41,7 @@ Every row was judged against this APS. The machine-readable record is `inr_plasm
 | `inr.lmwh` | Low-molecular-weight heparin (dalteparin) contamination | `anticoagulant_contamination` | 113 |
 | `inr.lipemia` | Lipemia (intravenous lipid emulsion, triglycerides) | `lipemia` | 97 |
 | `inr.dabigatran` | Dabigatran (direct thrombin inhibitor) | `anticoagulant_drug` | 69 |
-| `inr.bilirubin` | Bilirubin / icterus (conjugated and unconjugated) | `bilirubin` | 66 |
+| `inr.bilirubin` | Bilirubin / icterus (conjugated and unconjugated) | `bilirubin` | 57 |
 | `inr.underfilled_tube` | Underfilled citrate tube | `collection_tube` | 52 |
 | `inr.elevated_temperature` | Elevated temperature / hyperthermia | `temperature` | 51 |
 | `inr.hemolysis` | Hemolysis | `hemolysis` | 41 |

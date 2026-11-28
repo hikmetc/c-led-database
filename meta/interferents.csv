@@ -56,7 +56,7 @@ dig.spironolactone,digoxin_serum,spironolactone,Spironolactone,drug_cross_reacti
 dig.uzara,digoxin_serum,uzara,Uzara root extract (Xysmalobium undulatum),herbal_supplement,5,4
 inr.anticoagulant_contamination,inr_plasma,anticoagulant_contamination,Anticoagulant contamination of the specimen (mixed),anticoagulant_contamination,8,2
 inr.apixaban,inr_plasma,apixaban,Apixaban (direct factor Xa inhibitor),anticoagulant_drug,30,4
-inr.bilirubin,inr_plasma,bilirubin,Bilirubin / icterus (conjugated and unconjugated),bilirubin,66,18
+inr.bilirubin,inr_plasma,bilirubin,Bilirubin / icterus (conjugated and unconjugated),bilirubin,57,17
 inr.citrate_concentration,inr_plasma,citrate_concentration,Sodium citrate concentration of the collection tube (3.2% vs 3.8%),collection_tube,24,8
 inr.clotted_specimen,inr_plasma,clotted_specimen,Clotted specimen / micro-clots,specimen_quality,15,12
 inr.dabigatran,inr_plasma,dabigatran,Dabigatran (direct thrombin inhibitor),anticoagulant_drug,69,1

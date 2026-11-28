@@ -1,7 +1,7 @@
 interferent_id,interferent,concept,evidence_rows
 inr.anticoagulant_contamination,Anticoagulant contamination of the specimen (mixed),anticoagulant_contamination,8
 inr.apixaban,Apixaban (direct factor Xa inhibitor),anticoagulant_drug,30
-inr.bilirubin,Bilirubin / icterus (conjugated and unconjugated),bilirubin,66
+inr.bilirubin,Bilirubin / icterus (conjugated and unconjugated),bilirubin,57
 inr.clotted_specimen,Clotted specimen / micro-clots,specimen_quality,15
 inr.dabigatran,Dabigatran (direct thrombin inhibitor),anticoagulant_drug,69
 inr.daptomycin,Daptomycin,drug_interference,950

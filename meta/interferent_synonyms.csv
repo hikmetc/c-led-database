@@ -584,7 +584,6 @@ inr_plasma,INR_bilirubin_interference_evidence_table.csv,"Bilirubin (free and co
 inr_plasma,INR_bilirubin_interference_evidence_table.csv,Bilirubin (icterus) - manufacturer's declared interference limit,inr.bilirubin,1
 inr_plasma,INR_bilirubin_interference_evidence_table.csv,Bilirubin (icterus) - manufacturer's package-insert claim,inr.bilirubin,1
 inr_plasma,INR_bilirubin_interference_evidence_table.csv,Bilirubin colour / hyperbilirubinaemia in patients with chronic liver disease,inr.bilirubin,2
-inr_plasma,INR_bilirubin_interference_evidence_table.csv,Bilirubinaemia (bilirubin suspended in DMSO),inr.bilirubin,9
 inr_plasma,INR_bilirubin_interference_evidence_table.csv,"Conjugated bilirubin (bilirubin ditaurate disodium, in DMSO) - icterus",inr.bilirubin,8
 inr_plasma,INR_bilirubin_interference_evidence_table.csv,Hyperbilirubinaemia (bilirubin),inr.bilirubin,1
 inr_plasma,INR_bilirubin_interference_evidence_table.csv,"Hyperbilirubinaemia (unconjugated bilirubin, spiked)",inr.bilirubin,1
