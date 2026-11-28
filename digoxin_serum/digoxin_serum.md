@@ -21,12 +21,12 @@ Every row was judged against this APS. The machine-readable record is `digoxin_s
 |---|---|
 | Interference causes | 28 |
 | Evidence tables | 24 |
-| Evidence rows | 4,167 |
+| Evidence rows | 4,161 |
 | Rows with a numeric percent change (plottable) | 1,765 |
 | Rows exceeding the 3.0% APS | 1,842 |
 | Rows within the 3.0% APS | 381 |
-| Rows with a DOI | 1,288 |
-| Rows with a PubMed ID | 1,848 |
+| Rows with a DOI | 1,282 |
+| Rows with a PubMed ID | 1,842 |
 
 ## Interference causes
 
@@ -43,7 +43,7 @@ Every row was judged against this APS. The machine-readable record is `digoxin_s
 | `dig.dihydrodigoxin` | Dihydrodigoxin | `cardiac_glycoside` | 144 |
 | `dig.digitoxin` | Digitoxin | `cardiac_glycoside` | 143 |
 | `dig.asian_ginseng` | Asian ginseng (Panax ginseng) | `herbal_supplement` | 121 |
-| `dig.siberian_ginseng` | Siberian ginseng (Eleutherococcus senticosus) | `herbal_supplement` | 120 |
+| `dig.siberian_ginseng` | Siberian ginseng (Eleutherococcus senticosus) | `herbal_supplement` | 114 |
 | `dig.ashwagandha` | Ashwagandha (Withania somnifera) | `herbal_supplement` | 96 |
 | `dig.lu_shen_wan` | Lu-Shen-Wan (Chinese medicine) | `herbal_supplement` | 72 |
 | `dig.bufalin` | Bufalin (bufadienolide of toad venom preparations) | `cardiac_glycoside` | 49 |

@@ -51,7 +51,7 @@ dig.hydrocortisone,digoxin_serum,hydrocortisone,Hydrocortisone / cortisol,steroi
 dig.lipemia,digoxin_serum,lipemia,Lipemia (triglycerides),lipemia,14,9
 dig.lu_shen_wan,digoxin_serum,lu_shen_wan,Lu-Shen-Wan (Chinese medicine),herbal_supplement,72,1
 dig.oleandrin,digoxin_serum,oleandrin,Oleandrin / oleander extract,cardiac_glycoside,452,10
-dig.siberian_ginseng,digoxin_serum,siberian_ginseng,Siberian ginseng (Eleutherococcus senticosus),herbal_supplement,120,11
+dig.siberian_ginseng,digoxin_serum,siberian_ginseng,Siberian ginseng (Eleutherococcus senticosus),herbal_supplement,114,11
 dig.spironolactone,digoxin_serum,spironolactone,Spironolactone,drug_cross_reactivity,203,1
 dig.uzara,digoxin_serum,uzara,Uzara root extract (Xysmalobium undulatum),herbal_supplement,5,4
 inr.anticoagulant_contamination,inr_plasma,anticoagulant_contamination,Anticoagulant contamination of the specimen (mixed),anticoagulant_contamination,8,2

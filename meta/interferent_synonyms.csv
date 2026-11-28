@@ -555,9 +555,9 @@ digoxin_serum,digoxin_siberian_ginseng_interference.csv,Siberian ginseng,dig.sib
 digoxin_serum,digoxin_siberian_ginseng_interference.csv,"Siberian ginseng (Z-T brand liquid extract, manufactured in China, distributed by Z-T Universal Inc, Glen Head, NY)",dig.siberian_ginseng,30
 digoxin_serum,digoxin_siberian_ginseng_interference.csv,"Siberian ginseng (Z-T brand liquid extract, manufactured in China, distributed by Z-T Universal, Glen Head, NY)",dig.siberian_ginseng,27
 digoxin_serum,digoxin_siberian_ginseng_interference.csv,"Siberian ginseng (Z-T brand liquid extract, manufactured in China, distributed by Z-T Universal, Glen Head, NY) + Digibind (Fab fragment of antidigoxin antibody, Burroughs Wellcome)",dig.siberian_ginseng,1
-digoxin_serum,digoxin_siberian_ginseng_interference.csv,"Siberian ginseng (brand S1, capsule; Rexall Sundown, Boca Raton, FL)",dig.siberian_ginseng,23
+digoxin_serum,digoxin_siberian_ginseng_interference.csv,"Siberian ginseng (brand S1, capsule; Rexall Sundown, Boca Raton, FL)",dig.siberian_ginseng,20
 digoxin_serum,digoxin_siberian_ginseng_interference.csv,"Siberian ginseng (brand S2, capsule; Root to Health, Wausau, WI)",dig.siberian_ginseng,5
-digoxin_serum,digoxin_siberian_ginseng_interference.csv,"Siberian ginseng (brand S3, liquid extract; manufactured in China, distributed by Z.T. Universal, Glen Head, NY)",dig.siberian_ginseng,23
+digoxin_serum,digoxin_siberian_ginseng_interference.csv,"Siberian ginseng (brand S3, liquid extract; manufactured in China, distributed by Z.T. Universal, Glen Head, NY)",dig.siberian_ginseng,20
 digoxin_serum,digoxin_siberian_ginseng_interference.csv,Siberian ginseng (brand not stated in the abstract),dig.siberian_ginseng,1
 digoxin_serum,digoxin_siberian_ginseng_interference.csv,Siberian ginseng (liquid extract; brand not stated in this passage),dig.siberian_ginseng,4
 digoxin_serum,digoxin_siberian_ginseng_interference.csv,Siberian ginseng (patient-ingested; product/dose not stated),dig.siberian_ginseng,1
