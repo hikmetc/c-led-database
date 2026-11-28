@@ -15,7 +15,7 @@ cohb.hemolysis,carboxyhemoglobin_blood,hemolysis,Hemolysis / cell-free hemoglobi
 cohb.hydroxocobalamin,carboxyhemoglobin_blood,hydroxocobalamin,Hydroxocobalamin (Cyanokit),vitamin_b12,103,11
 cohb.low_total_hemoglobin,carboxyhemoglobin_blood,low_total_hemoglobin,Low total hemoglobin concentration,specimen_matrix,496,30
 cohb.methemoglobin,carboxyhemoglobin_blood,methemoglobin,Methemoglobin,hemoglobin_derivative,271,42
-cohb.methylene_blue,carboxyhemoglobin_blood,methylene_blue,Methylene blue,dye,74,3
+cohb.methylene_blue,carboxyhemoglobin_blood,methylene_blue,Methylene blue,dye,72,1
 cohb.patent_blue_v,carboxyhemoglobin_blood,patent_blue_v,Patent blue V / isosulfan blue,dye,21,5
 cohb.perflubron,carboxyhemoglobin_blood,perflubron,Perflubron emulsion (perfluorocarbon),oxygen_carrier,13,3
 cohb.pericardial_fluid,carboxyhemoglobin_blood,pericardial_fluid,Pericardial fluid used in place of blood,specimen_matrix,43,4

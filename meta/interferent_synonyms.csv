@@ -140,9 +140,7 @@ carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extra
 carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,Phosphine-produced dyshaemoglobin (methaemoglobin derivative / hemichrome) in aluminium phosphide poisoning; methaemoglobin saturation (SpMet),cohb.methemoglobin,1
 carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,methemoglobin (metHb),cohb.methemoglobin,2
 carboxyhemoglobin_blood,carboxyhemoglobin_methemoglobin_20261023-1049_APS1_extraction_table.csv,"methemoglobin (metHb), estimated by Eq 9",cohb.methemoglobin,2
-carboxyhemoglobin_blood,carboxyhemoglobin_methylene-blue_20261105-1058_APS1_extraction_table.csv,Methylene blue,cohb.methylene_blue,1
 carboxyhemoglobin_blood,carboxyhemoglobin_methylene-blue_20261105-1058_APS1_extraction_table.csv,Methylene blue (MB),cohb.methylene_blue,72
-carboxyhemoglobin_blood,carboxyhemoglobin_methylene-blue_20261105-1058_APS1_extraction_table.csv,Methylene blue (MetBlue),cohb.methylene_blue,1
 carboxyhemoglobin_blood,carboxyhemoglobin_patent-blue-v_20261123-1418_APS1_extraction_table.csv,Isosulfan blue (related dye; not Patent Blue V),cohb.patent_blue_v,1
 carboxyhemoglobin_blood,carboxyhemoglobin_patent-blue-v_20261123-1418_APS1_extraction_table.csv,Patent Blue V (6 ml of 2.5%),cohb.patent_blue_v,1
 carboxyhemoglobin_blood,carboxyhemoglobin_patent-blue-v_20261123-1418_APS1_extraction_table.csv,Patent Blue V (PBV) sodium salt,cohb.patent_blue_v,9

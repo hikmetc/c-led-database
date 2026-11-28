@@ -15,7 +15,7 @@ cohb.hydroxocobalamin,Hydroxocobalamin (Cyanokit),vitamin_b12,103
 cohb.bilirubin,"Hyperbilirubinemia (bilirubin, icteric sample)",bilirubin,9
 cohb.low_total_hemoglobin,Low total hemoglobin concentration,specimen_matrix,496
 cohb.methemoglobin,Methemoglobin,hemoglobin_derivative,271
-cohb.methylene_blue,Methylene blue,dye,74
+cohb.methylene_blue,Methylene blue,dye,72
 cohb.patent_blue_v,Patent blue V / isosulfan blue,dye,21
 cohb.perflubron,Perflubron emulsion (perfluorocarbon),oxygen_carrier,13
 cohb.pericardial_fluid,Pericardial fluid used in place of blood,specimen_matrix,43
