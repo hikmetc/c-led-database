@@ -5,6 +5,6 @@ pco2.delayed_analysis,Delayed analysis at room temperature,delayed_analysis,32
 pco2.dextrose_50,Dextrose 50% (D50) contamination of the sample,iv_fluid_contamination,6
 pco2.leukocytosis,Leukocytosis (leukocyte larceny),leukocytosis,14
 pco2.liquid_heparin,Liquid heparin (excess liquid heparin or heparinized saline),anticoagulant_contamination,22
-pco2.syringe_material,Plastic versus glass sampling syringe (syringe material),syringe_material,26
+pco2.syringe_material,Plastic versus glass sampling syringe (syringe material),syringe_material,20
 pco2.pneumatic_transport,Pneumatic tube transport,pneumatic_transport,8
 pco2.tpn_lipid,Total parenteral nutrition / lipid emulsion contamination,lipemia,8

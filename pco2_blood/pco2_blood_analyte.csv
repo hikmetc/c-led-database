@@ -1,2 +1,2 @@
 analyte_id,analyte_folder,component,system,kind_of_property,unit,aps_percent,aps_type,aps_note,synonyms,interferent_count,evidence_tables,evidence_rows
-pco2,pco2_blood,Carbon dioxide partial pressure,Blood,Partial pressure,mmHg (kPa),2.7,"allowable bias (relative), user-selected",,pCO2; PCO2; pCO₂; paCO2,9,8,145
+pco2,pco2_blood,Carbon dioxide partial pressure,Blood,Partial pressure,mmHg (kPa),2.7,"allowable bias (relative), user-selected",,pCO2; PCO2; pCO₂; paCO2,9,8,139

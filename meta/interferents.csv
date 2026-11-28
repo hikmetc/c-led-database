@@ -86,7 +86,7 @@ pco2.dextrose_50,pco2_blood,dextrose_50,Dextrose 50% (D50) contamination of the 
 pco2.leukocytosis,pco2_blood,leukocytosis,Leukocytosis (leukocyte larceny),leukocytosis,14,10
 pco2.liquid_heparin,pco2_blood,liquid_heparin,Liquid heparin (excess liquid heparin or heparinized saline),anticoagulant_contamination,22,11
 pco2.pneumatic_transport,pco2_blood,pneumatic_transport,Pneumatic tube transport,pneumatic_transport,8,1
-pco2.syringe_material,pco2_blood,syringe_material,Plastic versus glass sampling syringe (syringe material),syringe_material,26,26
+pco2.syringe_material,pco2_blood,syringe_material,Plastic versus glass sampling syringe (syringe material),syringe_material,20,20
 pco2.tpn_lipid,pco2_blood,tpn_lipid,Total parenteral nutrition / lipid emulsion contamination,lipemia,8,2
 ph.air_bubble,ph_blood,air_bubble,Air bubble / room-air contamination in the syringe,air_contamination,13,4
 ph.delayed_analysis,ph_blood,delayed_analysis,Analysis delay at room temperature,delayed_analysis,58,2
