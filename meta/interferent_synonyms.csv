@@ -863,7 +863,7 @@ ph_blood,blood_pH_sample_type_interference.csv,Maternal position (supine vs othe
 ph_blood,blood_pH_sample_type_interference.csv,Mathematically arterialised venous (v-TAC) instead of direct arterial,ph.wrong_sample_type,1
 ph_blood,blood_pH_sample_type_interference.csv,Non-arterialised fingertip capillary blood instead of arterial (wrong sample type),ph.wrong_sample_type,1
 ph_blood,blood_pH_sample_type_interference.csv,Peripheral venous blood instead of arterial (wrong sample type),ph.wrong_sample_type,4
-ph_blood,blood_pH_temperature_correction_extraction.csv,Patient temperature ≠ 37 °C / temperature correction (alpha-stat vs pH-stat),ph.patient_temperature,18
+ph_blood,blood_pH_temperature_correction_extraction.csv,Patient temperature ≠ 37 °C / temperature correction (alpha-stat vs pH-stat),ph.patient_temperature,9
 ph_blood,blood_pH_venous_vs_arterial_interference.csv,Wrong sample type: venous blood instead of arterial,ph.wrong_sample_type,26
 ph_blood,leukocyte_larceny_pH_interference.csv,"Marked leukocytosis (""leukocyte larceny"")",ph.leukocytosis,4
 po2_blood,enflurane_pO2_interference.csv,Enflurane,po2.enflurane,5

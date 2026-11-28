@@ -95,7 +95,7 @@ ph.ethylene_glycol,ph_blood,ethylene_glycol,Ethylene glycol,toxin,2,1
 ph.ice_overchilling,ph_blood,ice_overchilling,Direct ice contact / over-chilling of the syringe,storage_temperature,13,1
 ph.leukocytosis,ph_blood,leukocytosis,Leukocytosis (leukocyte larceny),leukocytosis,4,1
 ph.liquid_heparin,ph_blood,liquid_heparin,Liquid heparin / liquid anticoagulant or diluent,anticoagulant_contamination,10,1
-ph.patient_temperature,ph_blood,patient_temperature,Patient temperature other than 37 C (temperature correction),temperature,18,1
+ph.patient_temperature,ph_blood,patient_temperature,Patient temperature other than 37 C (temperature correction),temperature,9,1
 ph.reference_interval,ph_blood,reference_interval,"Inappropriate reference interval (pregnancy, age, altitude)",interpretation,9,8
 ph.tpn_lipid,ph_blood,tpn_lipid,Total parenteral nutrition / lipid emulsion contamination,lipemia,10,3
 ph.wrong_sample_type,ph_blood,wrong_sample_type,"Wrong sample type (peripheral or central venous, or capillary blood instead of arterial)",sample_type,39,10

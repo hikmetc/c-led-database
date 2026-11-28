@@ -22,12 +22,12 @@ Every row was judged against this APS. The machine-readable record is `ph_blood_
 |---|---|
 | Interference causes | 11 |
 | Evidence tables | 10 |
-| Evidence rows | 182 |
+| Evidence rows | 173 |
 | Rows with a numeric percent change (plottable) | 67 |
-| Rows exceeding the 1.5% APS | 36 |
+| Rows exceeding the 1.5% APS | 27 |
 | Rows within the 1.5% APS | 76 |
-| Rows with a DOI | 161 |
-| Rows with a PubMed ID | 97 |
+| Rows with a DOI | 160 |
+| Rows with a PubMed ID | 96 |
 
 ## Interference causes
 
@@ -35,11 +35,11 @@ Every row was judged against this APS. The machine-readable record is `ph_blood_
 |---|---|---|---|
 | `ph.delayed_analysis` | Analysis delay at room temperature | `delayed_analysis` | 58 |
 | `ph.wrong_sample_type` | Wrong sample type (peripheral or central venous, or capillary blood instead of arterial) | `sample_type` | 39 |
-| `ph.patient_temperature` | Patient temperature other than 37 C (temperature correction) | `temperature` | 18 |
 | `ph.air_bubble` | Air bubble / room-air contamination in the syringe | `air_contamination` | 13 |
 | `ph.ice_overchilling` | Direct ice contact / over-chilling of the syringe | `storage_temperature` | 13 |
 | `ph.liquid_heparin` | Liquid heparin / liquid anticoagulant or diluent | `anticoagulant_contamination` | 10 |
 | `ph.tpn_lipid` | Total parenteral nutrition / lipid emulsion contamination | `lipemia` | 10 |
+| `ph.patient_temperature` | Patient temperature other than 37 C (temperature correction) | `temperature` | 9 |
 | `ph.reference_interval` | Inappropriate reference interval (pregnancy, age, altitude) | `interpretation` | 9 |
 | `ph.dextrose_50` | Dextrose 50% (D50) contamination of the sample | `iv_fluid_contamination` | 6 |
 | `ph.leukocytosis` | Leukocytosis (leukocyte larceny) | `leukocytosis` | 4 |

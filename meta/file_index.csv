@@ -77,7 +77,7 @@ ph_blood,pH,blood_pH_ethylene_glycol_interference.csv,ph.ethylene_glycol,Ethylen
 ph_blood,pH,blood_pH_heparin_interference.csv,ph.liquid_heparin,Liquid heparin / liquid anticoagulant or diluent,10
 ph_blood,pH,blood_pH_ice_overchilling_interference.csv,ph.ice_overchilling,Direct ice contact / over-chilling of the syringe,13
 ph_blood,pH,blood_pH_sample_type_interference.csv,ph.wrong_sample_type,"Wrong sample type (peripheral or central venous, or capillary blood instead of arterial)",22
-ph_blood,pH,blood_pH_temperature_correction_extraction.csv,ph.patient_temperature,Patient temperature other than 37 C (temperature correction),18
+ph_blood,pH,blood_pH_temperature_correction_extraction.csv,ph.patient_temperature,Patient temperature other than 37 C (temperature correction),9
 ph_blood,pH,blood_pH_venous_vs_arterial_interference.csv,ph.wrong_sample_type,"Wrong sample type (peripheral or central venous, or capillary blood instead of arterial)",26
 ph_blood,pH,leukocyte_larceny_pH_interference.csv,ph.leukocytosis,Leukocytosis (leukocyte larceny),4
 po2_blood,Oxygen partial pressure,enflurane_pO2_interference.csv,po2.enflurane,Enflurane (volatile anaesthetic),5

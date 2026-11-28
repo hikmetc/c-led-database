@@ -72,7 +72,7 @@
     "synonyms": "blood pH; arterial pH",
     "interferent_count": 11,
     "evidence_tables": 10,
-    "evidence_rows": 182
+    "evidence_rows": 173
   },
   {
     "analyte_id": "po2",
