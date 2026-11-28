@@ -33,7 +33,7 @@ digoxin_serum,Digoxin,digoxin_digibind_interference.csv,dig.digoxin_immune_fab,D
 digoxin_serum,Digoxin,digoxin_digoxigenin_interference_APS3.csv,dig.digoxigenin,Digoxigenin and its mono- or bis-digitoxosides (digoxin metabolites),418
 digoxin_serum,Digoxin,digoxin_enzalutamide_interference.csv,dig.enzalutamide,Enzalutamide,24
 digoxin_serum,Digoxin,digoxin_free_kappa_interference.csv,dig.free_kappa,Free kappa light chains,23
-digoxin_serum,Digoxin,digoxin_glycoside_interference_table.csv,dig.cardiac_glycosides,Cardiac glycosides and digoxin metabolites (mixed),618
+digoxin_serum,Digoxin,digoxin_glycoside_interference_table.csv,dig.cardiac_glycosides,Cardiac glycosides and digoxin metabolites (mixed),612
 digoxin_serum,Digoxin,digoxin_haemolysis_interference.csv,dig.hemolysis,Hemolysis (hemoglobin),44
 digoxin_serum,Digoxin,digoxin_hawthorn_interference_extraction.csv,dig.hawthorn,Hawthorn (Crataegus spp.),31
 digoxin_serum,Digoxin,digoxin_hydrocortisone_interference.csv,dig.hydrocortisone,Hydrocortisone / cortisol,18

@@ -21,12 +21,12 @@ Every row was judged against this APS. The machine-readable record is `digoxin_s
 |---|---|
 | Interference causes | 28 |
 | Evidence tables | 24 |
-| Evidence rows | 4,173 |
+| Evidence rows | 4,167 |
 | Rows with a numeric percent change (plottable) | 1,765 |
 | Rows exceeding the 3.0% APS | 1,842 |
 | Rows within the 3.0% APS | 381 |
-| Rows with a DOI | 1,294 |
-| Rows with a PubMed ID | 1,854 |
+| Rows with a DOI | 1,288 |
+| Rows with a PubMed ID | 1,848 |
 
 ## Interference causes
 
@@ -39,7 +39,7 @@ Every row was judged against this APS. The machine-readable record is `digoxin_s
 | `dig.danshen` | Danshen (Salvia miltiorrhiza) | `herbal_supplement` | 330 |
 | `dig.spironolactone` | Spironolactone | `drug_cross_reactivity` | 203 |
 | `dig.digoxin_immune_fab` | Digoxin immune Fab (Digibind) | `antidote` | 197 |
-| `dig.convallatoxin` | Convallatoxin / lily of the valley (Convallaria majalis) | `cardiac_glycoside` | 165 |
+| `dig.convallatoxin` | Convallatoxin / lily of the valley (Convallaria majalis) | `cardiac_glycoside` | 159 |
 | `dig.dihydrodigoxin` | Dihydrodigoxin | `cardiac_glycoside` | 144 |
 | `dig.digitoxin` | Digitoxin | `cardiac_glycoside` | 143 |
 | `dig.asian_ginseng` | Asian ginseng (Panax ginseng) | `herbal_supplement` | 121 |

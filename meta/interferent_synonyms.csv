@@ -457,7 +457,7 @@ digoxin_serum,digoxin_glycoside_interference_table.csv,3beta-Digoxigenin (digoxi
 digoxin_serum,digoxin_glycoside_interference_table.csv,Bufalin (bufadienolide cardioactive constituent of the Chinese medicine Ch'an Su / Lu-Shen-Wan and of toad venom),dig.bufalin,48
 digoxin_serum,digoxin_glycoside_interference_table.csv,"Chan Su / Kyushin (active ingredient bufalin, a bufadienolide from Chinese toad venom)",dig.bufalin,1
 digoxin_serum,digoxin_glycoside_interference_table.csv,Combined digoxin metabolites: digoxigenin-bis-digitoxoside + digoxigenin monodigitoxoside + digoxigenin + dihydrodigoxin,dig.dihydrodigoxin,4
-digoxin_serum,digoxin_glycoside_interference_table.csv,Convallatoxin (principal cardiac glycoside of lily of the valley),dig.convallatoxin,47
+digoxin_serum,digoxin_glycoside_interference_table.csv,Convallatoxin (principal cardiac glycoside of lily of the valley),dig.convallatoxin,44
 digoxin_serum,digoxin_glycoside_interference_table.csv,"Convallatoxin (principal cardiac glycoside of lily of the valley, Convallaria majalis)",dig.convallatoxin,19
 digoxin_serum,digoxin_glycoside_interference_table.csv,Deslanoside (cardiac glycoside from Digitalis lanata; digoxin plus an additional glucose residue; metabolised to digoxin in vivo),dig.cardiac_glycosides,1
 digoxin_serum,digoxin_glycoside_interference_table.csv,Deslanoside (structurally related cardiac glycoside; digoxin plus an additional glucose residue),dig.cardiac_glycosides,12
@@ -498,7 +498,7 @@ digoxin_serum,digoxin_glycoside_interference_table.csv,"Immunoreactive digoxin m
 digoxin_serum,digoxin_glycoside_interference_table.csv,Immunoreactive digoxin metabolites plus endogenous digitalis-like factors (15% isopropanol fraction),dig.cardiac_glycosides,1
 digoxin_serum,digoxin_glycoside_interference_table.csv,Immunoreactive digoxin metabolites remaining after C18 clean-up (mainly the bis-digitoxoside plus unidentified pre- and post-digoxin peaks),dig.cardiac_glycosides,1
 digoxin_serum,digoxin_glycoside_interference_table.csv,Lanatoside (structurally related cardiac glycoside: didigitoxose-acetyldigitoxose-glucose),dig.cardiac_glycosides,12
-digoxin_serum,digoxin_glycoside_interference_table.csv,Lily of the valley (Convallaria majalis) herbal extract,dig.convallatoxin,27
+digoxin_serum,digoxin_glycoside_interference_table.csv,Lily of the valley (Convallaria majalis) herbal extract,dig.convallatoxin,24
 digoxin_serum,digoxin_glycoside_interference_table.csv,Lily of the valley (Convallaria majalis) herbal extract - digoxin-like immunoreactive cardiac glycosides,dig.convallatoxin,6
 digoxin_serum,digoxin_glycoside_interference_table.csv,Lily of the valley extract (active ingredient convallatoxin),dig.convallatoxin,1
 digoxin_serum,digoxin_glycoside_interference_table.csv,Mixture of digoxin metabolites: digoxigenin,dig.digoxigenin,12
