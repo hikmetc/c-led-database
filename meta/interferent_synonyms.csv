@@ -921,14 +921,12 @@ po2_blood,pO2_platelet_larceny_extraction.csv,"Severe thrombocytosis (platelet c
 po2_blood,pO2_pneumatic_tube_interference_extraction.csv,Pneumatic-tube transport of the sample,po2.pneumatic_transport,27
 po2_blood,pO2_storage_RT_interference.csv,Delayed analysis (60 min at room temperature) combined with standardized mechanical stress,po2.delayed_analysis,1
 po2_blood,pO2_storage_RT_interference.csv,Delayed analysis / storage time at ambient (room) temperature (22 ± 1 °C),po2.delayed_analysis,2
-po2_blood,pO2_storage_RT_interference.csv,Delayed analysis / storage time at ambient (room) temperature (22-25°C),po2.delayed_analysis,18
 po2_blood,pO2_storage_RT_interference.csv,Delayed analysis / storage time at room temperature,po2.delayed_analysis,6
 po2_blood,pO2_storage_RT_interference.csv,Delayed analysis / storage time at room temperature (20-22°C),po2.delayed_analysis,3
 po2_blood,pO2_storage_RT_interference.csv,Delayed analysis / storage time at room temperature (22-24 °C),po2.delayed_analysis,3
 po2_blood,pO2_storage_RT_interference.csv,Delayed analysis / storage time at room temperature (22°C),po2.delayed_analysis,6
 po2_blood,pO2_storage_RT_interference.csv,"Delayed analysis / storage time at room temperature (22°C), with air bubbles",po2.delayed_analysis,4
 po2_blood,pO2_storage_RT_interference.csv,"Delayed analysis / storage time at room temperature (22°C), without air bubbles",po2.delayed_analysis,4
-po2_blood,pO2_storage_RT_interference.csv,Delayed analysis / storage time at room temperature (approx 22°C),po2.delayed_analysis,3
 po2_blood,pO2_storage_RT_interference.csv,"Delayed analysis / storage time at room temperature (mean 22°C, range 21-23°C)",po2.delayed_analysis,2
 po2_blood,pO2_storage_RT_interference.csv,Delayed analysis / storage time at room temperature (no ice),po2.delayed_analysis,28
 po2_blood,pO2_storage_temperature_interference_extraction.csv,Storage temperature (22 degrees C vs 0 degrees C iced water),po2.storage_temperature,4

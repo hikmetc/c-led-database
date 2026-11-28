@@ -91,7 +91,7 @@ po2_blood,Oxygen partial pressure,pO2_liquid_heparin_interference_table.csv,po2.
 po2_blood,Oxygen partial pressure,pO2_plastic_syringe_interference.csv,po2.syringe_material,Plastic versus glass sampling syringe (gas permeability of plastic),47
 po2_blood,Oxygen partial pressure,pO2_platelet_larceny_extraction.csv,po2.thrombocytosis,Thrombocytosis (platelet larceny),16
 po2_blood,Oxygen partial pressure,pO2_pneumatic_tube_interference_extraction.csv,po2.pneumatic_transport,Pneumatic tube transport,27
-po2_blood,Oxygen partial pressure,pO2_storage_RT_interference.csv,po2.delayed_analysis,Delayed analysis / storage time at room temperature,80
+po2_blood,Oxygen partial pressure,pO2_storage_RT_interference.csv,po2.delayed_analysis,Delayed analysis / storage time at room temperature,59
 po2_blood,Oxygen partial pressure,pO2_storage_temperature_interference_extraction.csv,po2.storage_temperature,Storage temperature (room temperature versus on ice),229
 potassium_serum,Potassium,Potassium_Hemolysis_interference.csv,k.hemolysis,Hemolysis,55
 potassium_serum,Potassium,Potassium_ReversePseudohyperkalemia_interference_table.csv,k.reverse_pseudohyperkalemia,Reverse pseudohyperkalemia,41

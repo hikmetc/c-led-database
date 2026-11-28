@@ -21,10 +21,10 @@ Every row was judged against this APS. The machine-readable record is `po2_blood
 |---|---|
 | Interference causes | 13 |
 | Evidence tables | 13 |
-| Evidence rows | 548 |
-| Rows with a numeric percent change (plottable) | 182 |
-| Rows exceeding the 3.0% APS | 276 |
-| Rows within the 3.0% APS | 89 |
+| Evidence rows | 527 |
+| Rows with a numeric percent change (plottable) | 164 |
+| Rows exceeding the 3.0% APS | 261 |
+| Rows within the 3.0% APS | 84 |
 | Rows with a DOI | 363 |
 | Rows with a PubMed ID | 280 |
 
@@ -33,7 +33,7 @@ Every row was judged against this APS. The machine-readable record is `po2_blood
 | interferent_id | Interferent | Concept | Rows |
 |---|---|---|---|
 | `po2.storage_temperature` | Storage temperature (room temperature versus on ice) | `storage_temperature` | 229 |
-| `po2.delayed_analysis` | Delayed analysis / storage time at room temperature | `delayed_analysis` | 80 |
+| `po2.delayed_analysis` | Delayed analysis / storage time at room temperature | `delayed_analysis` | 59 |
 | `po2.syringe_material` | Plastic versus glass sampling syringe (gas permeability of plastic) | `syringe_material` | 47 |
 | `po2.liquid_heparin` | Excess liquid heparin in the syringe | `anticoagulant_contamination` | 36 |
 | `po2.leukocytosis` | Leukocytosis (leukocyte larceny) | `leukocytosis` | 28 |

@@ -100,7 +100,7 @@ ph.reference_interval,ph_blood,reference_interval,"Inappropriate reference inter
 ph.tpn_lipid,ph_blood,tpn_lipid,Total parenteral nutrition / lipid emulsion contamination,lipemia,10,3
 ph.wrong_sample_type,ph_blood,wrong_sample_type,"Wrong sample type (peripheral or central venous, or capillary blood instead of arterial)",sample_type,39,10
 po2.air_bubble,po2_blood,air_bubble,Air bubble in the syringe,air_contamination,25,6
-po2.delayed_analysis,po2_blood,delayed_analysis,Delayed analysis / storage time at room temperature,delayed_analysis,80,12
+po2.delayed_analysis,po2_blood,delayed_analysis,Delayed analysis / storage time at room temperature,delayed_analysis,59,10
 po2.enflurane,po2_blood,enflurane,Enflurane (volatile anaesthetic),volatile_anaesthetic,5,1
 po2.halothane,po2_blood,halothane,Halothane (volatile anaesthetic),volatile_anaesthetic,20,1
 po2.hemolysis,po2_blood,hemolysis,Hemolysis,hemolysis,16,6
